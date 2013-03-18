@@ -8,19 +8,15 @@
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+    <link href="../css/main.css" rel="stylesheet" type="text/css" />
+    <link href="../css/DayPilot/myhstyle.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <link href="../../css/main.css" rel="stylesheet" type="text/css" />
-    <link href="../../css/DayPilot/axendodaypilot_.css" rel="stylesheet" type="text/css" />
-    <link href="../../css/DayPilot/oil.css" rel="stylesheet" type="text/css" />
-    <link href="../../css/DayPilot/kk.css" rel="stylesheet" type="text/css" />
-    <link href="../../css/DayPilot/plussupermarkt.css" rel="stylesheet" type="text/css" />
     <form id="MyHotelMgmtForm" runat="server">
     <table width="100%">
         <tr>
             <td align="center">
-                <asp:Label ID="LabelHeader" runat="server" Text="Зелена садиба" 
-                    Font-Bold="True" Font-Overline="False" Font-Size="X-Large" />
+                <asp:Label ID="LabelHeader" runat="server" Text="Зелена садиба" CssClass="labelHeader"/>
             </td>
         </tr>
         <tr>
@@ -31,8 +27,7 @@
         </tr>
         <tr>
             <td align="center">
-                <asp:Label ID="LabelFooter" runat="server" Text="@2013" Font-Italic="True" 
-                    Font-Size="Small" />
+                <asp:Label ID="LabelFooter" runat="server" Text="@2013" CssClass="labelFooter" />
             </td>
         </tr>
     </table>

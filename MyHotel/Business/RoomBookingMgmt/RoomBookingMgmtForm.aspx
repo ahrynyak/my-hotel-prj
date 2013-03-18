@@ -28,23 +28,24 @@
     <table width="100%">
         <tr>
             <td style="width: 120px">
-                Видимий період:
+                <asp:Label ID="LabelVisiblePeriod" runat="server" Text="Видимий період:" 
+                    CssClass="labelVisiblePeriod"></asp:Label>
             </td>
             <td style="width: 130px">
                 <bdp:BasicDatePicker ID="datePickeStart" runat="server" DisplayType="TextBox" OnSelectionChanged="datePickeStart_SelectionChanged"
                     AutoPostBack="true" />
             </td>
             <td style="width: 20px">
-                до
+                <asp:Label ID="LabelVisiblePeriodTo" runat="server" Text="до" 
+                    CssClass="labelVisiblePeriod"></asp:Label>
             </td>
             <td style="width: 130px">
                 <bdp:BasicDatePicker ID="datePickeEnd" runat="server" DisplayType="TextBox" OnSelectionChanged="datePickeEnd_SelectionChanged"
                     AutoPostBack="true" />
             </td>
             <td>
-                <asp:DropDownList ID="DropDownListStyleSelector" runat="server" Width="200px" 
-                    AutoPostBack="True" 
-                    onselectedindexchanged="DropDownListStyleSelector_SelectedIndexChanged"/>
+                <asp:DropDownList ID="DropDownListStyleSelector" runat="server" Width="200px" AutoPostBack="True"
+                    OnSelectedIndexChanged="DropDownListStyleSelector_SelectedIndexChanged" />
             </td>
         </tr>
         <tr>
@@ -57,9 +58,8 @@
                     EventSelectHandling="PostBack" Height="350px" TimeRangeDoubleClickHandling="PostBack"
                     TimeRangeSelectedHandling="JavaScript" TimeFormat="Clock24Hours" WeekStarts="Auto"
                     Width="100%" EventClickJavaScript="editEvent(e.value());" TimeRangeSelectedJavaScript="createEvent(start, end, column);"
-                    CssClassPrefix="axendodaypilot_" CssOnly="True" EventHeight="35" 
-                    RowMinHeight="40" CellWidth="35" Font-Bold="False" HeaderHeight="35" 
-                    LoadingLabelText="Завантажую...">
+                    CssClassPrefix="myhstyle" CssOnly="True" EventHeight="35" RowMinHeight="40" CellWidth="35"
+                    Font-Bold="False" HeaderHeight="35" LoadingLabelText="Завантажую...">
                 </DayPilot:DayPilotScheduler>
             </td>
         </tr>

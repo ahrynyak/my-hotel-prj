@@ -1,6 +1,46 @@
 ﻿body 
 {
+    color: #AAF200;
+    background: #AAF200;
+    background: -webkit-linear-gradient(top right, #fafafa, #AAF200)
+}
+.labelHeader
+{
+    color: #ffffff;
+    background-color:transparent;
+    font-size:xx-large;
+    font-style:oblique;
+    font-weight:bold;
+}
+
+.labelVisiblePeriod 
+{
+    color: #ffffff;
+    background-color:transparent;
+    font-style:oblique;
+    font-weight:bold;
+}
+
+.labelFooter
+{
+    color: #ffffff;
+    background-color:transparent;
+    font-style:oblique;
+    font-weight:bold;
+}
+
+.labelBookingDetails
+{
     color: #666666;
-    background: #eeeeee;
-    background: -webkit-radial-gradient(30% 10%, circle closest-corner, #e2e2e2, #fafafa)
+    background-color:transparent;
+    font-style:oblique;
+    font-weight:bold;
+}
+
+.labelBookingDetailsSpecial
+{
+    color: #7f6600;
+    background-color:transparent;
+    font-style:oblique;
+    font-weight:bold;
 }

@@ -13,10 +13,10 @@
     <table>
         <tr>
             <td>
-                <asp:Label ID="LabelRoomName" runat="server" Text="Номер:" Font-Bold="True" ForeColor="#009933" />
+                <asp:Label ID="LabelRoomName" runat="server" Text="Номер:" CssClass="labelBookingDetailsSpecial" />
             </td>
             <td>
-                <asp:Label ID="LabelRoomNameValue" runat="server" Text="..." Font-Bold="True" ForeColor="#009933" />
+                <asp:Label ID="LabelRoomNameValue" runat="server" Text="..." CssClass="labelBookingDetailsSpecial" />
             </td>
         </tr>
         <tr>
@@ -25,11 +25,11 @@
             </td>
         </tr>
         <tr>
-            <td>
-                <strong>Імя гостя</strong>
+            <td class="labelBookingDetails">
+                Імя гостя
             </td>
-            <td>
-                <strong>Телефон</strong>
+            <td class="labelBookingDetails">
+                Телефон
             </td>
         </tr>
         <tr>
@@ -41,11 +41,11 @@
             </td>
         </tr>
         <tr>
-            <td>
-                <strong>К-ть дорослих</strong>
+            <td class="labelBookingDetails">
+                К-ть дорослих
             </td>
-            <td>
-                <strong>К-ть дітей</strong>
+            <td class="labelBookingDetails">
+                К-ть дітей
             </td>
         </tr>
         <tr>
@@ -57,11 +57,11 @@
             </td>
         </tr>
         <tr>
-            <td>
-                <strong>Ціна номера</strong>
+            <td class="labelBookingDetails">
+                Ціна номера
             </td>
-            <td>
-                <strong>Ціна дод. місця</strong>
+            <td class="labelBookingDetails">
+                Ціна дод. місця
             </td>
         </tr>
         <tr>
@@ -75,11 +75,11 @@
             </td>
         </tr>
         <tr>
-            <td>
-                <strong>Дата заїзду</strong>
+            <td class="labelBookingDetails">
+                Дата заїзду
             </td>
-            <td>
-                <strong>Дата виїзду</strong>
+            <td class="labelBookingDetails">
+                Дата виїзду
             </td>
         </tr>
         <tr>
@@ -93,27 +93,27 @@
             </td>
         </tr>
         <tr>
-            <td>
-                <strong>Статус броні</strong>
+            <td class="labelBookingDetails">
+                Статус броні
             </td>
             <td>
                 <asp:DropDownList ID="DropDownListBookingStatus" runat="server" Width="90%" AutoPostBack="True" />
             </td>
         </tr>
         <tr>
-            <td colspan="2">
-                <strong>Додаткова інформація</strong>
+            <td class="labelBookingDetails" colspan="2">
+                Додаткова інформація
             </td>
         </tr>
         <tr>
-            <td colspan="2">
+           <td class="labelBookingDetails" colspan="2">
                 <asp:TextBox ID="TextBoxAdditionalInfo" runat="server" Width="95%" Height="50px"
                     TextMode="MultiLine" AutoPostBack="True" />
             </td>
         </tr>
         <tr>
-            <td>
-                <strong>Оплачено </strong>
+            <td class="labelBookingDetails">
+                Оплачено
             </td>
             <td>
                 <asp:TextBox ID="TextBoxPaid" runat="server" Width="90%" AutoPostBack="True" OnTextChanged="TextBoxPaid_TextChanged"
@@ -127,26 +127,21 @@
         </tr>
         <tr>
             <td>
-                <asp:Label ID="LabelAmountToBePaid" runat="server" Text="Заг.сума:" Font-Bold="True"
-                    ForeColor="#009933" />
+                <asp:Label ID="LabelAmountToBePaid" runat="server" Text="Заг.сума:" CssClass="labelBookingDetailsSpecial" />
                 &nbsp;
-                <asp:Label ID="LabelAmountToBePaidValue" runat="server" Text="0" Font-Bold="True"
-                    ForeColor="#009933" />
+                <asp:Label ID="LabelAmountToBePaidValue" runat="server" Text="0" CssClass="labelBookingDetailsSpecial" />
             </td>
             <td>
-                <asp:Label ID="LabelAmountOfDays" runat="server" Text="К-ть днів:" Font-Bold="True"
-                    ForeColor="#009933" />
+                <asp:Label ID="LabelAmountOfDays" runat="server" Text="К-ть днів:" CssClass="labelBookingDetailsSpecial" />
                 &nbsp;
-                <asp:Label ID="LabelAmountOfDaysValue" runat="server" Text="0" Font-Bold="True" ForeColor="#009933" />
+                <asp:Label ID="LabelAmountOfDaysValue" runat="server" Text="0" CssClass="labelBookingDetailsSpecial" />
             </td>
         </tr>
         <tr>
             <td>
-                <asp:Label ID="LabelAmountRemainderToBePaid" runat="server" Text="Залишок:" Font-Bold="True"
-                    ForeColor="Red" />
+                <asp:Label ID="LabelAmountRemainderToBePaid" runat="server" Text="Залишок:" CssClass="labelBookingDetailsSpecial" />
                 &nbsp;
-                <asp:Label ID="LabelAmountRemainderToBePaidValue" runat="server" Text="0" Font-Bold="True"
-                    ForeColor="Red" />
+                <asp:Label ID="LabelAmountRemainderToBePaidValue" runat="server" Text="0" CssClass="labelBookingDetailsSpecial"/>
             </td>
         </tr>
         <tr>

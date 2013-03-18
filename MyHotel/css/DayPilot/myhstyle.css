@@ -2,7 +2,7 @@
 /* 
 
 DayPilot Scheduler Theme 
-http://themes.daypilot.org/scheduler/theme/7ol6k3
+http://themes.daypilot.org/scheduler/theme/k65x2u
 
 Compatibility:
 
@@ -17,46 +17,54 @@ http://java.daypilot.org/
 
 */
 
-.axendodaypilot__main 
+.myhstyle_main 
 {
 	border: 1px solid #cccccc;
 }
 
-.axendodaypilot__main, .axendodaypilot__main td 
+.myhstyle_main, .myhstyle_main td 
 {
 	font-family: Tahoma, Arial, Helvetica, sans-serif;
 	font-size: 12px;
 }
 
-.axendodaypilot__event { 
+.myhstyle_event { 
 	
 }
 
-.axendodaypilot__event_inner { 
+.myhstyle_event_inner { 
 	position: absolute;
 	
 	margin: 0px;
 
-	color: #000000;
-	background-color: #5caeff;
+	color: #ffffff;
+	background-color: #aaf200;
 	
 	background: -moz-linear-gradient(
 		top,
-		#c4e2ff 0%,
-		#007af3);
+		#c5ff3c 0%,
+		#77a900);
 	background: -webkit-gradient(
 		linear, left top, left bottom, 
-		from(#c4e2ff),
-		to(#007af3));  
-	filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr="#c4e2ff", endColorStr="#007af3");
+		from(#c5ff3c),
+		to(#77a900));  
+	filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr="#c5ff3c", endColorStr="#77a900");
 	
+	
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
 	
 	
 	padding: 3px;
 	
 	
-	border: 1px solid #4a8bcc;
+	border: 1px solid #b6bdb6;
 	
+	
+	text-shadow:
+	0px -1px 0px rgba(000,000,000,0.2),
+	0px 1px 0px rgba(255,255,255,1);
 	
 	
 	
@@ -77,48 +85,48 @@ http://java.daypilot.org/
 	
 }
 
-.axendodaypilot__timeheadergroup,
-.axendodaypilot__timeheadercol
+.myhstyle_timeheadergroup,
+.myhstyle_timeheadercol
 {
 	color: #666666;
-	background: #eeeeee;
+	background: #ffcf75;
 	
 	background: -moz-linear-gradient(
 		top,
-		#ffffff 0%,
-		#a7a7a7);
+		#ffd588 0%,
+		#ffc962);
 	background: -webkit-gradient(
 		linear, left top, left bottom, 
-		from(#ffffff),
-		to(#a7a7a7));
-	filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr="#ffffff", endColorStr="#a7a7a7");
+		from(#ffd588),
+		to(#ffc962));
+	filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr="#ffd588", endColorStr="#ffc962");
 	
 }
 
-.axendodaypilot__rowheader,
-.axendodaypilot__corner
+.myhstyle_rowheader,
+.myhstyle_corner
 {
 	color: #666666;
-	background: #eeeeee;
+	background: #ffcf75;
 	
 	background: -moz-linear-gradient(
 		left,
-		#ffffff 0%,
-		#a7a7a7);
+		#ffd588 0%,
+		#ffc962);
 	background: -webkit-gradient(
 		linear, left top, right top, 
-		from(#ffffff),
-		to(#a7a7a7));
-	filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr="#ffffff", endColorStr="#a7a7a7", GradientType=1);
+		from(#ffd588),
+		to(#ffc962));
+	filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr="#ffd588", endColorStr="#ffc962", GradientType=1);
 	
 }
 
-.axendodaypilot__rowheader_inner {
+.myhstyle_rowheader_inner {
 	padding: 2px;
 }
 
-.axendodaypilot__timeheadergroup_inner,
-.axendodaypilot__timeheadercol_inner
+.myhstyle_timeheadergroup_inner,
+.myhstyle_timeheadercol_inner
 {
 	position: absolute;
 	left: 0px;
@@ -130,29 +138,29 @@ http://java.daypilot.org/
 	padding: 2px;
 }
 
-.axendodaypilot__timeheadergroup_inner {
+.myhstyle_timeheadergroup_inner {
 	border-bottom: 1px solid #cccccc;
 }
 
-.axendodaypilot__divider,
-.axendodaypilot__divider_horizontal,
-.axendodaypilot__resourcedivider 
+.myhstyle_divider,
+.myhstyle_divider_horizontal,
+.myhstyle_resourcedivider 
 {
 	background-color: #cccccc;
 }
 
-.axendodaypilot__matrix_vertical_line,
-.axendodaypilot__matrix_horizontal_line 
+.myhstyle_matrix_vertical_line,
+.myhstyle_matrix_horizontal_line 
 {
 	background-color: #eeeeee;
 }
 
-.axendodaypilot__cellcolumn 
+.myhstyle_cellcolumn 
 {
 	background: #ffffff;
 }
 
-.axendodaypilot__message 
+.myhstyle_message 
 {
 	padding: 10px;
 	opacity: 0.9;
@@ -173,7 +181,7 @@ http://java.daypilot.org/
 	
 }
 
-.axendodaypilot__shadow_inner 
+.myhstyle_shadow_inner 
 {
 	background-color: #666666;
 	opacity: 0.5;
