@@ -12,7 +12,7 @@
     <table>
         <tr>
             <td>
-                Імя Гостя
+                Імя гостя
             </td>
             <td>
                 Телефон
@@ -88,7 +88,7 @@
         </tr>
         <tr>
             <td colspan="2">
-                Aditional Info
+                Додаткова інформація
             </td>
         </tr>
         <tr>
@@ -108,7 +108,7 @@
         </tr>
         <tr>
             <td>
-                <asp:Label ID="LabelAmountToBePaid" runat="server" Text="Заг.Сума:" Font-Bold="True"
+                <asp:Label ID="LabelAmountToBePaid" runat="server" Text="Заг.сума:" Font-Bold="True"
                     ForeColor="#009933" />
                 &nbsp;
                 <asp:Label ID="LabelAmountToBePaidValue" runat="server" Text="0" Font-Bold="True"
