@@ -6,9 +6,9 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <link href="../../css/main.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <link href="../../css/main.css" rel="stylesheet" type="text/css" />
     <form id="form1" runat="server">
     <table>
         <tr>
@@ -106,7 +106,7 @@
             </td>
         </tr>
         <tr>
-           <td class="labelBookingDetails" colspan="2">
+            <td class="labelBookingDetails" colspan="2">
                 <asp:TextBox ID="TextBoxAdditionalInfo" runat="server" Width="95%" Height="50px"
                     TextMode="MultiLine" AutoPostBack="True" />
             </td>
@@ -141,7 +141,7 @@
             <td>
                 <asp:Label ID="LabelAmountRemainderToBePaid" runat="server" Text="Залишок:" CssClass="labelBookingDetailsSpecial" />
                 &nbsp;
-                <asp:Label ID="LabelAmountRemainderToBePaidValue" runat="server" Text="0" CssClass="labelBookingDetailsSpecial"/>
+                <asp:Label ID="LabelAmountRemainderToBePaidValue" runat="server" Text="0" CssClass="labelBookingDetailsSpecial" />
             </td>
         </tr>
         <tr>
@@ -154,7 +154,7 @@
                 <asp:LinkButton ID="LinkButtonDeleteBooking" runat="server" OnClick="LinkButtonDeleteBooking_Click"
                     CausesValidation="False" Font-Bold="True">Delete</asp:LinkButton>
             </td>
-            <td colspan="2" align="right">
+            <td align="right">
                 <asp:Button ID="ButtonOK" runat="server" Text="OK" Width="60px" OnClick="ButtonOK_Click"
                     CausesValidation="False" />
                 &nbsp;
