@@ -1,0 +1,6 @@
+﻿body 
+{
+    color: #666666;
+    background: #eeeeee;
+    background: -webkit-radial-gradient(30% 10%, circle closest-corner, #e2e2e2, #fafafa)
+}
