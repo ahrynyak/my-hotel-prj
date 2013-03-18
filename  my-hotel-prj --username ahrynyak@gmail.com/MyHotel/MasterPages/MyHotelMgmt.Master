@@ -1,0 +1,34 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MyHotelMgmt.master.cs"
+    Inherits="MyHotel.MasterPages.MyHotelMgmt" %>
+
+<%@ Register Assembly="DayPilot" Namespace="DayPilot.Web.Ui" TagPrefix="DayPilot" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="MyHotelMgmtForm" runat="server">
+    <table width="100%">
+        <tr>
+            <td>
+                MyHotel Managment
+            </td>
+        </tr>
+        <tr>
+            <td align='center'>
+                <asp:ContentPlaceHolder ID="MyHotelMgmtContentPlaceHolder" runat="server">
+                </asp:ContentPlaceHolder>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            Footer....
+            </td>
+        </tr>
+    </table>
+    </form>
+</body>
+</html>

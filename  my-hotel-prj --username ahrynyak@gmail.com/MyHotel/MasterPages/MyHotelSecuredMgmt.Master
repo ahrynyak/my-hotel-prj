@@ -1,0 +1,13 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/MasterPages/MyHotelMgmt.Master" AutoEventWireup="true"
+    CodeBehind="MyHotelSecuredMgmt.master.cs" Inherits="MyHotel.MasterPages.MyHotelSecuredMgmt" %>
+<asp:Content ID="Content1" runat="server" contentplaceholderid="MyHotelMgmtContentPlaceHolder">
+    <table width="100%">
+        <tr>
+            <td align="left">
+                <asp:ContentPlaceHolder ID="MyHotelSecuredMgmtContentPlaceHolder" runat="server">
+                </asp:ContentPlaceHolder>
+            </td>
+        </tr>
+    </table>
+</asp:Content>
+
