@@ -21,6 +21,7 @@ namespace MyHotel.Business.RoomBookingMgmt
             {
                 initData();
                 refreshUI();
+                calculateSum();
             }
         }
 
@@ -128,6 +129,42 @@ namespace MyHotel.Business.RoomBookingMgmt
             string id = Request.QueryString["id"];
             RoomBookingMgmtController.DeleteRoomBooking(int.Parse(id));
             Modal.Close(this, "OK");
+        }
+
+        private void calculateSum()
+        {
+            LabelAmountOfDaysValue.Text = (datePickeEndDate.SelectedDate - datePickeStartDate.SelectedDate).TotalDays.ToString();
+            LabelAmountToBePaidValue.Text = (
+                (int.Parse(!string.IsNullOrEmpty(TextBoxPricePerRoom.Text) ? TextBoxPricePerRoom.Text : "0") + int.Parse(!string.IsNullOrEmpty(TextBoxPriceForExtraBed.Text) ? TextBoxPriceForExtraBed.Text : "0")) 
+                * 
+                int.Parse(LabelAmountOfDaysValue.Text)
+                ).ToString();
+            LabelAmountRemainderToBePaidValue.Text = (int.Parse(LabelAmountToBePaidValue.Text) - int.Parse(!string.IsNullOrEmpty(TextBoxPaid.Text) ? TextBoxPaid.Text : "0")).ToString();
+        }
+
+        protected void TextBoxPricePerRoom_TextChanged(object sender, EventArgs e)
+        {
+            calculateSum();
+        }
+
+        protected void datePickeStartDate_SelectionChanged(object sender, EventArgs e)
+        {
+            calculateSum();
+        }
+
+        protected void datePickeEndDate_SelectionChanged(object sender, EventArgs e)
+        {
+            calculateSum();
+        }
+
+        protected void TextBoxPriceForExtraBed_TextChanged(object sender, EventArgs e)
+        {
+            calculateSum();
+        }
+
+        protected void TextBoxPaid_TextChanged(object sender, EventArgs e)
+        {
+            calculateSum();
         }
 
     }
