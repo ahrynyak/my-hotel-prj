@@ -75,6 +75,10 @@ namespace MyHotel.Business.RoomBookingMgmt
         {
             if (roomBookingEntity != null)
             {
+                if (roomDetailedEntity != null)
+                {
+                    LabelRoomNameValue.Text = roomDetailedEntity.Name;
+                }
                 TextBoxGuestName.Text = roomBookingEntity.GuestName;
                 TextBoxGuestPhone.Text = roomBookingEntity.GuestPhone;
                 TextBoxAdultNumber.Text = roomBookingEntity.NumberOfAdult.ToString();

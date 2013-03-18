@@ -12,10 +12,23 @@
     <table>
         <tr>
             <td>
-                Імя гостя
+                <asp:Label ID="LabelRoomName" runat="server" Text="Номер:" Font-Bold="True" ForeColor="#009933" />
             </td>
             <td>
-                Телефон
+                <asp:Label ID="LabelRoomNameValue" runat="server" Text="..." Font-Bold="True" ForeColor="#009933" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <hr />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Імя гостя</strong>
+            </td>
+            <td>
+                <strong>Телефон</strong>
             </td>
         </tr>
         <tr>
@@ -28,10 +41,10 @@
         </tr>
         <tr>
             <td>
-                К-ть дорослих
+                <strong>К-ть дорослих</strong>
             </td>
             <td>
-                К-ть дітей
+                <strong>К-ть дітей</strong>
             </td>
         </tr>
         <tr>
@@ -44,10 +57,10 @@
         </tr>
         <tr>
             <td>
-                Ціна номера
+                <strong>Ціна номера</strong>
             </td>
             <td>
-                Ціна дод. місця
+                <strong>Ціна дод. місця</strong>
             </td>
         </tr>
         <tr>
@@ -62,10 +75,10 @@
         </tr>
         <tr>
             <td>
-                Дата заїзду
+                <strong>Дата заїзду</strong>
             </td>
             <td>
-                Дата виїзду
+                <strong>Дата виїзду</strong>
             </td>
         </tr>
         <tr>
@@ -80,7 +93,7 @@
         </tr>
         <tr>
             <td>
-                Статус броні
+                <strong>Статус броні</strong>
             </td>
             <td>
                 <asp:DropDownList ID="DropDownListBookingStatus" runat="server" Width="90%" AutoPostBack="True" />
@@ -88,12 +101,12 @@
         </tr>
         <tr>
             <td colspan="2">
-                Додаткова інформація
+                <strong>Додаткова інформація</strong>
             </td>
         </tr>
         <tr>
             <td colspan="2">
-                <asp:TextBox ID="TextBoxAdditionalInfo" runat="server" Width="90%" Height="50px"
+                <asp:TextBox ID="TextBoxAdditionalInfo" runat="server" Width="95%" Height="50px"
                     TextMode="MultiLine" AutoPostBack="True" />
             </td>
         </tr>
@@ -104,6 +117,11 @@
             <td>
                 <asp:TextBox ID="TextBoxPaid" runat="server" Width="90%" AutoPostBack="True" OnTextChanged="TextBoxPaid_TextChanged"
                     Font-Bold="True" />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <hr />
             </td>
         </tr>
         <tr>
@@ -131,9 +149,14 @@
             </td>
         </tr>
         <tr>
+            <td colspan="2">
+                <hr />
+            </td>
+        </tr>
+        <tr>
             <td>
                 <asp:LinkButton ID="LinkButtonDeleteBooking" runat="server" OnClick="LinkButtonDeleteBooking_Click"
-                    CausesValidation="False">Delete</asp:LinkButton>
+                    CausesValidation="False" Font-Bold="True">Delete</asp:LinkButton>
             </td>
             <td colspan="2" align="right">
                 <asp:Button ID="ButtonOK" runat="server" Text="OK" Width="60px" OnClick="ButtonOK_Click"

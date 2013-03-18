@@ -10,7 +10,7 @@
         modal.top = 60;
         modal.width = 350;
         modal.opacity = 60;
-        modal.height = 500;
+        modal.height = 550;
         modal.border = "1px solid black";
         modal.closed = function () {
             if (this.result == "OK") {
