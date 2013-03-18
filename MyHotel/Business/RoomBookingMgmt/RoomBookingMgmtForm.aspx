@@ -10,7 +10,7 @@
         modal.top = 60;
         modal.width = 350;
         modal.opacity = 60;
-        modal.height = 400;
+        modal.height = 500;
         modal.border = "1px solid black";
         modal.closed = function () {
             if (this.result == "OK") {
@@ -27,15 +27,15 @@
     </script>
     <table width="100%">
         <tr>
-            <td>
-                Visible period:
+            <td style="width: 120px">
+                Видимий період:
             </td>
-            <td>
+            <td style="width: 130px">
                 <bdp:BasicDatePicker ID="datePickeStart" runat="server" DisplayType="TextBox" OnSelectionChanged="datePickeStart_SelectionChanged"
                     AutoPostBack="true" />
             </td>
-            <td>
-                to
+            <td style="width: 20px">
+                до
             </td>
             <td>
                 <bdp:BasicDatePicker ID="datePickeEnd" runat="server" DisplayType="TextBox" OnSelectionChanged="datePickeEnd_SelectionChanged"

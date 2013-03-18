@@ -112,6 +112,69 @@ namespace MyHotel.Business.RoomBookingMgmt {
         protected global::System.Web.UI.WebControls.TextBox TextBoxAdditionalInfo;
         
         /// <summary>
+        /// TextBoxPaid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxPaid;
+        
+        /// <summary>
+        /// LabelAmountToBePaid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelAmountToBePaid;
+        
+        /// <summary>
+        /// LabelAmountToBePaidValue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelAmountToBePaidValue;
+        
+        /// <summary>
+        /// LabelAmountOfDays control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelAmountOfDays;
+        
+        /// <summary>
+        /// LabelAmountOfDaysValue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelAmountOfDaysValue;
+        
+        /// <summary>
+        /// LabelAmountRemainderToBePaid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelAmountRemainderToBePaid;
+        
+        /// <summary>
+        /// LabelAmountRemainderToBePaidValue control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelAmountRemainderToBePaidValue;
+        
+        /// <summary>
         /// LinkButtonDeleteBooking control.
         /// </summary>
         /// <remarks>
