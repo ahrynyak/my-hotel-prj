@@ -10,6 +10,9 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
+    <link href="../../css/main.css" rel="stylesheet" type="text/css" />
+    <link href="../../css/DayPilot/oil.css" rel="stylesheet" type="text/css" />
+
     <form id="MyHotelMgmtForm" runat="server">
     <table width="100%">
         <tr>
@@ -25,7 +28,7 @@
         </tr>
         <tr>
             <td>
-            Footer....
+                Footer....
             </td>
         </tr>
     </table>

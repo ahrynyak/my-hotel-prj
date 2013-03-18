@@ -51,7 +51,8 @@
                     EventDoubleClickHandling="PostBack" EventEditHandling="PostBack" EventResizeHandling="PostBack"
                     EventSelectHandling="PostBack" Height="350px" HeightSpec="Max" TimeRangeDoubleClickHandling="PostBack"
                     TimeRangeSelectedHandling="JavaScript" TimeFormat="Clock24Hours" WeekStarts="Auto"
-                    Width="100%" EventClickJavaScript="editEvent(e.value());" TimeRangeSelectedJavaScript="createEvent(start, end, column);">
+                    Width="100%" EventClickJavaScript="editEvent(e.value());" TimeRangeSelectedJavaScript="createEvent(start, end, column);"
+                    CssClassPrefix="oil" CssOnly="True">
                 </DayPilot:DayPilotScheduler>
             </td>
         </tr>
