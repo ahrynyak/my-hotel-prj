@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BCA20D24-1416-4DA3-A2D5-C7755A212AA3}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MyHotel</RootNamespace>
+    <AssemblyName>MyHotel</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BasicFrame.WebControls.BasicDatePicker">
+      <HintPath>ExternalAss\BasicFrame.WebControls.BasicDatePicker.dll</HintPath>
+    </Reference>
+    <Reference Include="DayPilot, Version=7.1.2702.1, Culture=neutral, PublicKeyToken=426941954f05e7fe, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>ExternalAss\DayPilot.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Business\RoomBookingMgmt\RoomBookingDetailsForm.aspx" />
+    <Content Include="DBScripts\InitDBScripts.sql" />
+    <Content Include="ExternalAss\BasicFrame.WebControls.BasicDatePicker.dll" />
+    <Content Include="ExternalAss\BasicFrame.WebControls.BasicDatePicker.XML" />
+    <Content Include="ExternalAss\DayPilot.dll" />
+    <Content Include="js\modal.js" />
+    <Content Include="OpenUIContents\LoginForm.aspx" />
+    <Content Include="Business\RoomBookingMgmt\RoomBookingMgmtForm.aspx" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Business\Entity\RoomDetailedEntity.cs" />
+    <Compile Include="Business\Entity\RoomBookingEntity.cs" />
+    <Compile Include="Business\Entity\RoomEntity.cs" />
+    <Compile Include="Business\RoomBookingMgmt\RoomBookingDetailsForm.aspx.cs">
+      <DependentUpon>RoomBookingDetailsForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Business\RoomBookingMgmt\RoomBookingDetailsForm.aspx.designer.cs">
+      <DependentUpon>RoomBookingDetailsForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Business\RoomBookingMgmt\RoomBookingMgmtController.cs" />
+    <Compile Include="LINQDB\DataClasses.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataClasses.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPages\MyHotelMgmt.Master.cs">
+      <DependentUpon>MyHotelMgmt.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPages\MyHotelMgmt.Master.designer.cs">
+      <DependentUpon>MyHotelMgmt.Master</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPages\MyHotelSecuredMgmt.Master.cs">
+      <DependentUpon>MyHotelSecuredMgmt.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPages\MyHotelSecuredMgmt.Master.designer.cs">
+      <DependentUpon>MyHotelSecuredMgmt.Master</DependentUpon>
+    </Compile>
+    <Compile Include="OpenUIContents\LoginForm.aspx.cs">
+      <DependentUpon>LoginForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OpenUIContents\LoginForm.aspx.designer.cs">
+      <DependentUpon>LoginForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Business\RoomBookingMgmt\RoomBookingMgmtForm.aspx.cs">
+      <DependentUpon>RoomBookingMgmtForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Business\RoomBookingMgmt\RoomBookingMgmtForm.aspx.designer.cs">
+      <DependentUpon>RoomBookingMgmtForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\EBookingStatus.cs" />
+    <Compile Include="Utils\HelperCommon.cs" />
+    <Compile Include="Utils\Modal.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MasterPages\MyHotelMgmt.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="LINQDB\DataClasses.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DataClasses.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MasterPages\MyHotelSecuredMgmt.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="LINQDB\DataClasses.dbml.layout">
+      <DependentUpon>DataClasses.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>51619</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
