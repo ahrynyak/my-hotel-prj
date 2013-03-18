@@ -13,6 +13,15 @@ namespace MyHotel.Business.RoomBookingMgmt {
     public partial class RoomBookingMgmtForm {
         
         /// <summary>
+        /// LabelVisiblePeriod control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelVisiblePeriod;
+        
+        /// <summary>
         /// datePickeStart control.
         /// </summary>
         /// <remarks>
@@ -20,6 +29,15 @@ namespace MyHotel.Business.RoomBookingMgmt {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::BasicFrame.WebControls.BasicDatePicker datePickeStart;
+        
+        /// <summary>
+        /// LabelVisiblePeriodTo control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LabelVisiblePeriodTo;
         
         /// <summary>
         /// datePickeEnd control.
