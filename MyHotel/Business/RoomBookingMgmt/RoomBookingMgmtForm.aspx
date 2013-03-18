@@ -37,22 +37,29 @@
             <td style="width: 20px">
                 до
             </td>
-            <td>
+            <td style="width: 130px">
                 <bdp:BasicDatePicker ID="datePickeEnd" runat="server" DisplayType="TextBox" OnSelectionChanged="datePickeEnd_SelectionChanged"
                     AutoPostBack="true" />
             </td>
+            <td>
+                <asp:DropDownList ID="DropDownListStyleSelector" runat="server" Width="200px" 
+                    AutoPostBack="True" 
+                    onselectedindexchanged="DropDownListStyleSelector_SelectedIndexChanged"/>
+            </td>
         </tr>
         <tr>
-            <td align="left" colspan="4">
+            <td align="left" colspan="5">
                 <DayPilot:DayPilotScheduler runat="server" ID="dayPilotScheduler" RowHeaderColumnWidths="150"
                     CellGroupBy="Month" CellDuration="1440" DataEndField="EndDate" DataTextField="GuestName"
                     DataValueField="RoomBookingID" DataResourceField="RoomID" DataTagFields="BookingStatus"
                     DataStartField="StartDate" ClientObjectName="dps" Days="365" EventClickHandling="JavaScript"
                     EventDoubleClickHandling="PostBack" EventEditHandling="PostBack" EventResizeHandling="PostBack"
-                    EventSelectHandling="PostBack" Height="350px" HeightSpec="Max" TimeRangeDoubleClickHandling="PostBack"
+                    EventSelectHandling="PostBack" Height="350px" TimeRangeDoubleClickHandling="PostBack"
                     TimeRangeSelectedHandling="JavaScript" TimeFormat="Clock24Hours" WeekStarts="Auto"
                     Width="100%" EventClickJavaScript="editEvent(e.value());" TimeRangeSelectedJavaScript="createEvent(start, end, column);"
-                    CssClassPrefix="oil" CssOnly="True">
+                    CssClassPrefix="axendodaypilot_" CssOnly="True" EventHeight="35" 
+                    RowMinHeight="40" CellWidth="35" Font-Bold="False" HeaderHeight="35" 
+                    LoadingLabelText="Завантажую...">
                 </DayPilot:DayPilotScheduler>
             </td>
         </tr>

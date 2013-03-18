@@ -59,7 +59,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Business\RoomBookingMgmt\RoomBookingDetailsForm.aspx" />
+    <Content Include="css\DayPilot\axendodaypilot_.css" />
+    <Content Include="css\DayPilot\kk.css" />
     <Content Include="css\DayPilot\oil.css" />
+    <Content Include="css\DayPilot\plussupermarkt.css" />
     <Content Include="css\main.css" />
     <Content Include="DBScripts\InitDBScripts.sql" />
     <Content Include="ExternalAss\BasicFrame.WebControls.BasicDatePicker.dll" />

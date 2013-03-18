@@ -8,6 +8,7 @@
     <title></title>
 </head>
 <body>
+    <link href="../../css/main.css" rel="stylesheet" type="text/css" />
     <form id="form1" runat="server">
     <table>
         <tr>
