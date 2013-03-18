@@ -9,6 +9,7 @@ using DayPilot.Web.Ui.Enums;
 using DayPilot.Web.Ui;
 using DayPilot.Utils;
 using MyHotel.Business;
+using System.IO;
 
 namespace MyHotel.Business.RoomBookingMgmt
 {
@@ -39,6 +40,10 @@ namespace MyHotel.Business.RoomBookingMgmt
             {
                 datePickeEnd.SelectedDate = RoomBookingMgmtController.GetDefaultEndDate();
             }
+            foreach (var item in Directory.GetFiles(Server.MapPath("../../css/DayPilot/")))
+            {
+                DropDownListStyleSelector.Items.Add(Path.GetFileNameWithoutExtension(item));
+            }
         }
 
         private void updateVisiblePeriod()
@@ -61,6 +66,11 @@ namespace MyHotel.Business.RoomBookingMgmt
         protected void datePickeEnd_SelectionChanged(object sender, EventArgs e)
         {
             updateVisiblePeriod();
+        }
+
+        protected void DropDownListStyleSelector_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dayPilotScheduler.CssClassPrefix = DropDownListStyleSelector.SelectedValue;
         }
       
     }

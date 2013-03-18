@@ -1,0 +1,189 @@
+
+/* 
+
+DayPilot Scheduler Theme 
+http://themes.daypilot.org/scheduler/theme/2iw63s
+
+Compatibility:
+
+DayPilot Pro for ASP.NET WebForms 7.1
+http://www.daypilot.org/
+
+DayPilot Pro for ASP.NET MVC 7.1
+http://mvc.daypilot.org/
+
+DayPilot Pro for Java 7.1
+http://java.daypilot.org/
+
+*/
+
+.kk_main 
+{
+	border: 1px solid #cccccc;
+}
+
+.kk_main, .kk_main td 
+{
+	font-family: Tahoma, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+
+.kk_event { 
+	
+}
+
+.kk_event_inner { 
+	position: absolute;
+	
+	margin: 0px;
+
+	color: #ffffff;
+	background-color: #ff4545;
+	
+	background: -moz-linear-gradient(
+		top,
+		#ffa6a6 0%,
+		#e30000);
+	background: -webkit-gradient(
+		linear, left top, left bottom, 
+		from(#ffa6a6),
+		to(#e30000));  
+	filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr="#ffa6a6", endColorStr="#e30000");
+	
+	
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	
+	
+	padding: 3px;
+	
+	
+	border: 1px solid #ff4545;
+	
+	
+	
+	
+	left: 0px;
+	right: 2px;
+	top: 0px;
+	bottom: 3px;
+	-moz-box-shadow:
+		inset 0px 0px 2px rgba(255,255,255,0.8),
+		1px 2px 3px rgba(000,000,000,0.3);
+	-webkit-box-shadow:
+		inset 0px 0px 2px rgba(255,255,255,0.8),
+		1px 2px 3px rgba(000,000,000,0.3);
+	box-shadow:
+		inset 0px 0px 2px rgba(255,255,255,0.8),
+		1px 2px 3px rgba(000,000,000,0.3);
+	
+	
+}
+
+.kk_timeheadergroup,
+.kk_timeheadercol
+{
+	color: #666666;
+	background: #eeeeee;
+	
+	background: -moz-linear-gradient(
+		top,
+		#fafafa 0%,
+		#e2e2e2);
+	background: -webkit-gradient(
+		linear, left top, left bottom, 
+		from(#fafafa),
+		to(#e2e2e2));
+	filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr="#fafafa", endColorStr="#e2e2e2");
+	
+}
+
+.kk_rowheader,
+.kk_corner
+{
+	color: #666666;
+	background: #eeeeee;
+	
+	background: -moz-linear-gradient(
+		left,
+		#fafafa 0%,
+		#e2e2e2);
+	background: -webkit-gradient(
+		linear, left top, right top, 
+		from(#fafafa),
+		to(#e2e2e2));
+	filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr="#fafafa", endColorStr="#e2e2e2", GradientType=1);
+	
+}
+
+.kk_rowheader_inner {
+	padding: 2px;
+}
+
+.kk_timeheadergroup_inner,
+.kk_timeheadercol_inner
+{
+	position: absolute;
+	left: 0px;
+	right: 0px;
+	top: 0px;
+	bottom: 0px;
+	border-right: 1px solid #cccccc;
+	text-align: center;
+	padding: 2px;
+}
+
+.kk_timeheadergroup_inner {
+	border-bottom: 1px solid #cccccc;
+}
+
+.kk_divider,
+.kk_divider_horizontal,
+.kk_resourcedivider 
+{
+	background-color: #cccccc;
+}
+
+.kk_matrix_vertical_line,
+.kk_matrix_horizontal_line 
+{
+	background-color: #eeeeee;
+}
+
+.kk_cellcolumn 
+{
+	background: #ffffff;
+}
+
+.kk_message 
+{
+	padding: 10px;
+	opacity: 0.9;
+	filter: alpha(opacity=90);
+	
+	color: #ffffff;
+	background: #777777;
+	
+	background: -moz-linear-gradient(
+		top,
+		#838383 0%,
+		#6b6b6b);
+	background: -webkit-gradient(
+		linear, left top, left bottom, 
+		from(#838383),
+		to(#6b6b6b));
+	filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr="#838383", endColorStr="#6b6b6b");
+	
+}
+
+.kk_shadow_inner 
+{
+	background-color: #666666;
+	opacity: 0.5;
+	filter: alpha(opacity=50);
+	height: 100%;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}

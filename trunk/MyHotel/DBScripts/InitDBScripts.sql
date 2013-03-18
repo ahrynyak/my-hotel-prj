@@ -13,6 +13,9 @@ CREATE TABLE [Room]
 INSERT INTO [Room](Name, Capacity) VALUES(N'1п DBL жовта',2)
 INSERT INTO [Room](Name, Capacity) VALUES(N'1п DBL рожева',2)
 INSERT INTO [Room](Name, Capacity) VALUES(N'1п Apart зелена',4)
+INSERT INTO [Room](Name, Capacity) VALUES(N'2п DBL біла',2)
+INSERT INTO [Room](Name, Capacity) VALUES(N'2п DBL червона',2)
+INSERT INTO [Room](Name, Capacity) VALUES(N'2п Apart жовта',4)
 
 CREATE TABLE [RoomBooking]
 (
