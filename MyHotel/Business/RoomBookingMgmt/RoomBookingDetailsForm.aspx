@@ -15,6 +15,7 @@
         <Triggers>
             <asp:PostBackTrigger ControlID="ButtonOK"/>
             <asp:PostBackTrigger ControlID="ButtonCancel"/>
+            <asp:PostBackTrigger ControlID="LinkButtonDeleteBooking"/>
         </Triggers>
         <ContentTemplate>
             <table>
