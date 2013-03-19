@@ -5,7 +5,11 @@
 <%@ Register Assembly="BasicFrame.WebControls.BasicDatePicker" TagPrefix="bdp" Namespace="BasicFrame.WebControls" %>
 <asp:Content ID="Content1" runat="server" ContentPlaceHolderID="MyHotelSecuredMgmtContentPlaceHolder">
     <script type="text/javascript" src="../../js/modal.js"></script>
+    <script type="text/javascript" src="../../js/message.js"></script>
     <script type="text/javascript">
+        var message = new DayPilot2.Message("message");
+        message.hideAfter = 3000;
+
         var modal = new DayPilot.Modal();
         modal.top = 60;
         modal.width = 350;
@@ -24,20 +28,22 @@
         function editEvent(id) {
             modal.showUrl("RoomBookingDetailsForm.aspx?id=" + id);
         }
+
+        function afterRender(data) {
+            message.show(data, "message_warn");
+        };
     </script>
     <table width="100%">
         <tr>
             <td style="width: 120px">
-                <asp:Label ID="LabelVisiblePeriod" runat="server" Text="Видимий період:" 
-                    CssClass="labelVisiblePeriod"></asp:Label>
+                <asp:Label ID="LabelVisiblePeriod" runat="server" Text="Видимий період:" CssClass="labelVisiblePeriod"></asp:Label>
             </td>
             <td style="width: 130px">
                 <bdp:BasicDatePicker ID="datePickeStart" runat="server" DisplayType="TextBox" OnSelectionChanged="datePickeStart_SelectionChanged"
                     AutoPostBack="true" />
             </td>
             <td style="width: 20px">
-                <asp:Label ID="LabelVisiblePeriodTo" runat="server" Text="до" 
-                    CssClass="labelVisiblePeriod"></asp:Label>
+                <asp:Label ID="LabelVisiblePeriodTo" runat="server" Text="до" CssClass="labelVisiblePeriod"></asp:Label>
             </td>
             <td style="width: 130px">
                 <bdp:BasicDatePicker ID="datePickeEnd" runat="server" DisplayType="TextBox" OnSelectionChanged="datePickeEnd_SelectionChanged"
@@ -58,13 +64,15 @@
                     EventSelectHandling="PostBack" Height="350px" TimeRangeDoubleClickHandling="PostBack"
                     TimeRangeSelectedHandling="JavaScript" TimeFormat="Clock24Hours" WeekStarts="Auto"
                     Width="100%" EventClickJavaScript="editEvent(e.value());" TimeRangeSelectedJavaScript="createEvent(start, end, column);"
-                    CssClassPrefix="myhstyle" CssOnly="True" EventHeight="35" 
-                    RowMinHeight="40" CellWidth="35"
-                    Font-Bold="False" HeaderHeight="35" LoadingLabelText="Завантажую..." 
-                    EventMoveHandling="PostBack" oneventmove="dayPilotScheduler_EventMove" 
-                    oneventresize="dayPilotScheduler_EventResize">
+                    CssClassPrefix="myhstyle" CssOnly="True" EventHeight="35" RowMinHeight="40" CellWidth="35"
+                    Font-Bold="False" HeaderHeight="35" LoadingLabelText="Завантажую..." EventMoveHandling="PostBack"
+                    OnEventMove="dayPilotScheduler_EventMove" OnEventResize="dayPilotScheduler_EventResize"
+                    Style="top: 0px; left: 0px" AfterRenderJavaScript="afterRender(data);">
                 </DayPilot:DayPilotScheduler>
             </td>
         </tr>
     </table>
+    <div>
+        <span id="message" style="padding: 2px; display: none;" class="message_warn"></span>
+    </div>
 </asp:Content>
