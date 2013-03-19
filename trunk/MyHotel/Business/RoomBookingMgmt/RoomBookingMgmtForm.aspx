@@ -58,8 +58,11 @@
                     EventSelectHandling="PostBack" Height="350px" TimeRangeDoubleClickHandling="PostBack"
                     TimeRangeSelectedHandling="JavaScript" TimeFormat="Clock24Hours" WeekStarts="Auto"
                     Width="100%" EventClickJavaScript="editEvent(e.value());" TimeRangeSelectedJavaScript="createEvent(start, end, column);"
-                    CssClassPrefix="myhstyle" CssOnly="True" EventHeight="35" RowMinHeight="40" CellWidth="35"
-                    Font-Bold="False" HeaderHeight="35" LoadingLabelText="Завантажую...">
+                    CssClassPrefix="myhstyle" CssOnly="True" EventHeight="35" 
+                    RowMinHeight="40" CellWidth="35"
+                    Font-Bold="False" HeaderHeight="35" LoadingLabelText="Завантажую..." 
+                    EventMoveHandling="PostBack" oneventmove="dayPilotScheduler_EventMove" 
+                    oneventresize="dayPilotScheduler_EventResize">
                 </DayPilot:DayPilotScheduler>
             </td>
         </tr>
