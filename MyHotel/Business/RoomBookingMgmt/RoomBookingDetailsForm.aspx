@@ -17,6 +17,8 @@
             <asp:PostBackTrigger ControlID="ButtonCancel" />
             <asp:PostBackTrigger ControlID="LinkButtonDeleteBooking" />
             <asp:PostBackTrigger ControlID="ImageButtonRefreshCalculation" />
+            <asp:PostBackTrigger ControlID="datePickeEndDate" />
+            
         </Triggers>
         <ContentTemplate>
             <table>
