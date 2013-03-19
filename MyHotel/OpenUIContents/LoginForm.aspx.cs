@@ -10,11 +10,6 @@ namespace MyHotel.OpenUIContents
 {
     public partial class LoginForm : System.Web.UI.Page
     {
-        protected void Page_Load(object sender, EventArgs e)
-        {
-
-        }
-
         protected void LoginData_Authenticate(object sender, AuthenticateEventArgs e)
         {
             if(FormsAuthentication.Authenticate(LoginData.UserName, LoginData.Password))

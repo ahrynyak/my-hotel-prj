@@ -56,7 +56,7 @@ namespace MyHotel.Business.RoomBookingMgmt
                 }
                 else
                 {
-                    dayPilotScheduler.Update(message);
+                    dayPilotScheduler.UpdateWithMessage(message);
                 }
             }
         }
@@ -77,15 +77,15 @@ namespace MyHotel.Business.RoomBookingMgmt
 
             if (!RoomBookingMgmtController.IsRoomBookingFree(int.Parse(e.Value), int.Parse(e.Resource), e.NewStart, e.NewEnd))
             {
-                message = "The reservation cannot overlap with an existing reservation.";
+                message = "Бронь не може перекриватись іншою броню";
             }
-            else if (e.OldEnd <= DateTime.Today)
+            else if (e.OldStart < DateTime.Today)
             {
-                message = "This reservation cannot be changed anymore.";
+                message = "Ця бронь не може бути змінена";
             }
             else if (e.NewStart < DateTime.Today)
             {
-                message = "The reservation cannot be moved to the past.";
+                message = "Ця бронь не може бути переміщена в минуле";
             }
             else
             {
@@ -103,15 +103,15 @@ namespace MyHotel.Business.RoomBookingMgmt
 
             if (!RoomBookingMgmtController.IsRoomBookingFree(int.Parse(e.Value), int.Parse(e.NewResource), e.NewStart, e.NewEnd))
             {
-                message = "The reservation cannot overlap with an existing reservation.";
+                message = "Бронь не може перекриватись іншою броню";
             }
-            else if (e.OldEnd <= DateTime.Today)
+            else if (e.OldStart < DateTime.Today)
             {
-                message = "This reservation cannot be changed anymore.";
+                message = "Ця бронь не може бути змінена";
             }
             else if (e.NewStart < DateTime.Today)
             {
-                message = "The reservation cannot be moved to the past.";
+                message = "Ця бронь не може бути переміщена в минуле";
             }
             else
             {
@@ -133,7 +133,6 @@ namespace MyHotel.Business.RoomBookingMgmt
             else
             {
                 // sets the column header
-                //week end background
                 if (e.Start.DayOfWeek == DayOfWeek.Sunday)
                 {
                     e.InnerHTML = "<strong>" + e.Start.ToString("dd (ddd)") + "</strong>";
@@ -148,7 +147,11 @@ namespace MyHotel.Business.RoomBookingMgmt
 
         protected void dayPilotScheduler_BeforeCellRender(object sender, DayPilot.Web.Ui.Events.BeforeCellRenderEventArgs e)
         {
-            if (e.Start.DayOfWeek == DayOfWeek.Sunday)
+            if (e.Start < DateTime.Today)
+            {
+                e.CssClass = "pastday";
+            }
+            else if (e.Start.DayOfWeek == DayOfWeek.Sunday)
             {
                 e.CssClass = "sundaycellstyle";
             }

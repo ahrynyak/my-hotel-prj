@@ -47,7 +47,7 @@
 
 .sundaycellstyle
 {
-    background-color:#F2F2F2;
+    background-color:#ffcf75;
 }
 
 .weekday
@@ -55,3 +55,7 @@
     background-color:White;
 }
 
+.pastday
+{
+    background-color:#F5F5F5;
+}

@@ -30,9 +30,6 @@
             modal.showUrl("RoomBookingDetailsForm.aspx?id=" + id);
         }
 
-        function afterRender(data) {
-            message.show(data, "message_warn");
-        };
     </script>
     <table width="100%">
         <tr>
@@ -61,16 +58,15 @@
                     EventSelectHandling="PostBack" Height="350px" TimeRangeDoubleClickHandling="PostBack"
                     TimeRangeSelectedHandling="JavaScript" TimeFormat="Clock24Hours" WeekStarts="Monday"
                     Width="100%" EventClickJavaScript="editEvent(e.value());" TimeRangeSelectedJavaScript="createEvent(start, end, column);"
-                    CssClassPrefix="myhstyle" CssOnly="True" EventHeight="35" RowMinHeight="40" CellWidth="35"
+                    CssClassPrefix="myhstyle" CssOnly="True" EventHeight="35" 
+                    RowMinHeight="40" CellWidth="35"
                     Font-Bold="False" HeaderHeight="35" LoadingLabelText="Завантажую..." EventMoveHandling="PostBack"
                     OnEventMove="dayPilotScheduler_EventMove" OnEventResize="dayPilotScheduler_EventResize"
-                    Style="top: 0px; left: 0px" AfterRenderJavaScript="afterRender(data);" HeaderDateFormat="d (ddd)"
-                    OnBeforeCellRender="dayPilotScheduler_BeforeCellRender" OnBeforeTimeHeaderRender="dayPilotScheduler_BeforeTimeHeaderRender">
+                    Style="top: 0px; left: 0px" AfterRenderJavaScript="" HeaderDateFormat="d (ddd)"
+                    OnBeforeCellRender="dayPilotScheduler_BeforeCellRender" 
+                    OnBeforeTimeHeaderRender="dayPilotScheduler_BeforeTimeHeaderRender">
                 </DayPilot:DayPilotScheduler>
             </td>
         </tr>
     </table>
-    <div>
-        <span id="message" style="padding: 2px; display: none;" class="message_warn"></span>
-    </div>
 </asp:Content>
