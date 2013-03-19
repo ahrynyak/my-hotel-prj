@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RoomBookingDetailsForm.aspx.cs"
-    Inherits="MyHotel.Business.RoomBookingMgmt.RoomBookingDetailsForm" %>
+    Inherits="MyHotel.Business.RoomBookingMgmt.RoomBookingDetailsForm" Culture="uk-UA" %>
 
 <%@ Register Assembly="BasicFrame.WebControls.BasicDatePicker" TagPrefix="bdp" Namespace="BasicFrame.WebControls" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -96,11 +96,14 @@
                 <tr>
                     <td>
                         <bdp:BasicDatePicker ID="datePickeStartDate" runat="server" DisplayType="TextBox"
-                            Width="90%" AutoPostBack="True" OnSelectionChanged="datePickeStartDate_SelectionChanged" />
+                            Width="90%" 
+                            OnSelectionChanged="datePickeStartDate_SelectionChanged" Enabled="False" 
+                            DateFormat="d-MMM-yyyy (dddd)" ReadOnly="True" />
                     </td>
                     <td>
-                        <bdp:BasicDatePicker ID="datePickeEndDate" runat="server" DisplayType="TextBox" Width="90%"
-                            AutoPostBack="True" OnSelectionChanged="datePickeEndDate_SelectionChanged" />
+                        <bdp:BasicDatePicker ID="datePickeEndDate" runat="server" DisplayType="TextBox" OnSelectionChanged="datePickeEndDate_SelectionChanged" 
+                            Enabled="False" Width="90%" DateFormat="d-MMM-yyyy (dddd)" 
+                            ReadOnly="True" />
                     </td>
                 </tr>
                 <tr>
