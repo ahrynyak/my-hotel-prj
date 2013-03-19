@@ -72,6 +72,24 @@ namespace MyHotel.Business.RoomBookingMgmt
         {
             dayPilotScheduler.CssClassPrefix = DropDownListStyleSelector.SelectedValue;
         }
-      
+
+        protected void dayPilotScheduler_EventResize(object sender, DayPilot.Web.Ui.Events.EventResizeEventArgs e)
+        {
+            var roomBookingEntity = RoomBookingMgmtController.GetRoomBookingByID(int.Parse(e.Value));
+            roomBookingEntity.StartDate = e.NewStart;
+            roomBookingEntity.EndDate = e.NewEnd;
+            RoomBookingMgmtController.SaveRoomBooking(roomBookingEntity);
+            updateVisiblePeriod();
+        }
+
+        protected void dayPilotScheduler_EventMove(object sender, DayPilot.Web.Ui.Events.EventMoveEventArgs e)
+        {
+            var roomBookingEntity = RoomBookingMgmtController.GetRoomBookingByID(int.Parse(e.Value));
+            roomBookingEntity.StartDate = e.NewStart;
+            roomBookingEntity.EndDate = e.NewEnd;
+            roomBookingEntity.RoomID = int.Parse(e.NewResource);
+            RoomBookingMgmtController.SaveRoomBooking(roomBookingEntity);
+            updateVisiblePeriod();
+        }
     }
 }

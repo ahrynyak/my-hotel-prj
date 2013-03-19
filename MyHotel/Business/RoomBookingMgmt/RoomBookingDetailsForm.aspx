@@ -73,7 +73,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <asp:TextBox ID="TextBoxPricePerRoom" runat="server" Width="90%" OnTextChanged="TextBoxPricePerRoom_TextChanged" />
+                        <asp:TextBox ID="TextBoxPricePerRoom" runat="server" Width="90%" OnTextChanged="TextBoxPricePerRoom_TextChanged" AutoPostBack="True" />
                     </td>
                     <td>
                         <asp:TextBox ID="TextBoxPriceForExtraBed" runat="server" Width="90%" AutoPostBack="True"
