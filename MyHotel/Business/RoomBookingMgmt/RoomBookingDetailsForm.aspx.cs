@@ -171,5 +171,10 @@ namespace MyHotel.Business.RoomBookingMgmt
             calculateSum();
         }
 
+        protected void ImageButtonRefreshCalculation_Click(object sender, ImageClickEventArgs e)
+        {
+            calculateSum();
+        }
+
     }
 }

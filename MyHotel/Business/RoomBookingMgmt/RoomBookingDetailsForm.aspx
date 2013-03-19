@@ -13,9 +13,10 @@
     <asp:ScriptManager ID="ScriptManagerBookingDetails" runat="server" />
     <asp:UpdatePanel ID="UpdatePanelBookingDetails" runat="server" UpdateMode="Conditional">
         <Triggers>
-            <asp:PostBackTrigger ControlID="ButtonOK"/>
-            <asp:PostBackTrigger ControlID="ButtonCancel"/>
-            <asp:PostBackTrigger ControlID="LinkButtonDeleteBooking"/>
+            <asp:PostBackTrigger ControlID="ButtonOK" />
+            <asp:PostBackTrigger ControlID="ButtonCancel" />
+            <asp:PostBackTrigger ControlID="LinkButtonDeleteBooking" />
+            <asp:PostBackTrigger ControlID="ImageButtonRefreshCalculation" />
         </Triggers>
         <ContentTemplate>
             <table>
@@ -74,7 +75,8 @@
                 </tr>
                 <tr>
                     <td>
-                        <asp:TextBox ID="TextBoxPricePerRoom" runat="server" Width="90%" OnTextChanged="TextBoxPricePerRoom_TextChanged" AutoPostBack="True" />
+                        <asp:TextBox ID="TextBoxPricePerRoom" runat="server" Width="90%" OnTextChanged="TextBoxPricePerRoom_TextChanged"
+                            AutoPostBack="True" />
                     </td>
                     <td>
                         <asp:TextBox ID="TextBoxPriceForExtraBed" runat="server" Width="90%" AutoPostBack="True"
@@ -149,6 +151,10 @@
                         <asp:Label ID="LabelAmountRemainderToBePaid" runat="server" Text="Залишок:" CssClass="labelBookingDetailsSpecial" />
                         &nbsp;
                         <asp:Label ID="LabelAmountRemainderToBePaidValue" runat="server" Text="0" CssClass="labelBookingDetailsSpecial" />
+                    </td>
+                    <td>
+                        <asp:ImageButton ID="ImageButtonRefreshCalculation" runat="server" OnClick="ImageButtonRefreshCalculation_Click"
+                            ImageUrl="~/icons/refresh_green.ico" Height="16px" Width="16px" />
                     </td>
                 </tr>
                 <tr>

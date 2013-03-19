@@ -65,6 +65,7 @@
     <Content Include="ExternalAss\BasicFrame.WebControls.BasicDatePicker.dll" />
     <Content Include="ExternalAss\BasicFrame.WebControls.BasicDatePicker.XML" />
     <Content Include="ExternalAss\DayPilot.dll" />
+    <Content Include="icons\refresh_green.ico" />
     <Content Include="js\modal.js" />
     <Content Include="OpenUIContents\LoginForm.aspx" />
     <Content Include="Business\RoomBookingMgmt\RoomBookingMgmtForm.aspx" />
