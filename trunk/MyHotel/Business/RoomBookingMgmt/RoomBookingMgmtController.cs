@@ -55,49 +55,63 @@ namespace MyHotel.Business.RoomBookingMgmt
         {
             using (DataClassesDataContext dataContext = HelperCommon.GetDataContext())
             {
-                //todo: add validation of roomBookingEntity
-                //      1) DB validation
-                //      2) overlaping of dates and rooms
-                if (roomBookingEntity.RoomBookingID > 0)
+                if (roomBookingEntity.StartDate >= DateTime.Now)
                 {
-                    RoomBooking roomBooking = dataContext.RoomBookings.FirstOrDefault(s => s.RoomBookingID == roomBookingEntity.RoomBookingID);
-                    if (roomBooking != null)
+                    if (RoomBookingMgmtController.IsRoomBookingFree(roomBookingEntity.RoomBookingID, roomBookingEntity.RoomID, roomBookingEntity.StartDate, roomBookingEntity.EndDate))
                     {
-                        roomBooking.AdditionalInfo = roomBookingEntity.AdditionalInfo;
-                        roomBooking.BookingStatus = roomBookingEntity.BookingStatus;
-                        roomBooking.EndDate = roomBookingEntity.EndDate;
-                        roomBooking.GuestName = roomBookingEntity.GuestName;
-                        roomBooking.GuestPhone = roomBookingEntity.GuestPhone;
-                        roomBooking.NumberOfAdult = roomBookingEntity.NumberOfAdult;
-                        roomBooking.NumberOfChild = roomBookingEntity.NumberOfChild;
-                        roomBooking.PriceOfAdditionalBed = roomBookingEntity.PriceOfAdditionalBed;
-                        roomBooking.PricePerRoom = roomBookingEntity.PricePerRoom;
-                        roomBooking.RoomID = roomBookingEntity.RoomID;
-                        roomBooking.StartDate = roomBookingEntity.StartDate;
-                        dataContext.SubmitChanges();
+                        //todo: add validation of roomBookingEntity
+                        //      1) DB validation
+                        //      2) overlaping of dates and rooms
+                        if (roomBookingEntity.RoomBookingID > 0)
+                        {
+                            RoomBooking roomBooking = dataContext.RoomBookings.FirstOrDefault(s => s.RoomBookingID == roomBookingEntity.RoomBookingID);
+                            if (roomBooking != null)
+                            {
+                                roomBooking.AdditionalInfo = roomBookingEntity.AdditionalInfo;
+                                roomBooking.BookingStatus = roomBookingEntity.BookingStatus;
+                                roomBooking.EndDate = roomBookingEntity.EndDate;
+                                roomBooking.GuestName = roomBookingEntity.GuestName;
+                                roomBooking.GuestPhone = roomBookingEntity.GuestPhone;
+                                roomBooking.NumberOfAdult = roomBookingEntity.NumberOfAdult;
+                                roomBooking.NumberOfChild = roomBookingEntity.NumberOfChild;
+                                roomBooking.PriceOfAdditionalBed = roomBookingEntity.PriceOfAdditionalBed;
+                                roomBooking.PricePerRoom = roomBookingEntity.PricePerRoom;
+                                roomBooking.RoomID = roomBookingEntity.RoomID;
+                                roomBooking.StartDate = roomBookingEntity.StartDate;
+                                dataContext.SubmitChanges();
+                            }
+                            else
+                            {
+                                //todo: not found
+                            }
+                        }
+                        else
+                        {
+                            dataContext.RoomBookings.InsertOnSubmit(new RoomBooking()
+                            {
+                                AdditionalInfo = roomBookingEntity.AdditionalInfo,
+                                BookingStatus = roomBookingEntity.BookingStatus,
+                                EndDate = roomBookingEntity.EndDate,
+                                GuestName = roomBookingEntity.GuestName,
+                                GuestPhone = roomBookingEntity.GuestPhone,
+                                NumberOfAdult = roomBookingEntity.NumberOfAdult,
+                                NumberOfChild = roomBookingEntity.NumberOfChild,
+                                PriceOfAdditionalBed = roomBookingEntity.PriceOfAdditionalBed,
+                                PricePerRoom = roomBookingEntity.PricePerRoom,
+                                RoomID = roomBookingEntity.RoomID,
+                                StartDate = roomBookingEntity.StartDate
+                            });
+                            dataContext.SubmitChanges();
+                        }
                     }
                     else
                     {
-                        //todo: not found
+                        //error: room is not free
                     }
                 }
                 else
                 {
-                    dataContext.RoomBookings.InsertOnSubmit(new RoomBooking()
-                    {
-                        AdditionalInfo = roomBookingEntity.AdditionalInfo,
-                        BookingStatus = roomBookingEntity.BookingStatus,
-                        EndDate = roomBookingEntity.EndDate,
-                        GuestName = roomBookingEntity.GuestName,
-                        GuestPhone = roomBookingEntity.GuestPhone,
-                        NumberOfAdult = roomBookingEntity.NumberOfAdult,
-                        NumberOfChild = roomBookingEntity.NumberOfChild,
-                        PriceOfAdditionalBed = roomBookingEntity.PriceOfAdditionalBed,
-                        PricePerRoom = roomBookingEntity.PricePerRoom,
-                        RoomID = roomBookingEntity.RoomID,
-                        StartDate = roomBookingEntity.StartDate
-                    });
-                    dataContext.SubmitChanges();
+                    //error: can not add/update new booking to the past
                 }
             }
         }
@@ -112,8 +126,15 @@ namespace MyHotel.Business.RoomBookingMgmt
                 RoomBooking roomBooking = dataContext.RoomBookings.FirstOrDefault(s => s.RoomBookingID == roomBookingID);
                 if (roomBooking != null)
                 {
-                    dataContext.RoomBookings.DeleteOnSubmit(roomBooking);
-                    dataContext.SubmitChanges();
+                    if (roomBooking.StartDate >= DateTime.Now)
+                    {
+                        dataContext.RoomBookings.DeleteOnSubmit(roomBooking);
+                        dataContext.SubmitChanges();
+                    }
+                    else 
+                    {
+                        //error: can not remove from past
+                    }
                 }
                 else
                 {
@@ -147,6 +168,14 @@ namespace MyHotel.Business.RoomBookingMgmt
                 }
             }
             return null;
+        }
+
+        public static bool IsRoomBookingFree(int roomBookingID, int roomID, DateTime startDate, DateTime endDate)
+        {
+            using (DataClassesDataContext dataContext = HelperCommon.GetDataContext())
+            {
+                return !dataContext.RoomBookings.Any(s => !((s.EndDate <= startDate) || (s.StartDate >= endDate)) && s.RoomBookingID != roomBookingID && s.RoomID == roomID);
+            }
         }
 
         public static RoomDetailedEntity GetRoomDetailedByID(int roomID)

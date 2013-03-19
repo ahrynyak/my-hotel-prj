@@ -46,7 +46,7 @@ namespace MyHotel.Business.RoomBookingMgmt
             }
         }
 
-        private void updateVisiblePeriod()
+        private void updateVisiblePeriod(string message = "")
         {
             dayPilotScheduler.StartDate = datePickeStart.SelectedDate;
             dayPilotScheduler.Days = (int)(datePickeEnd.SelectedDate - dayPilotScheduler.StartDate).TotalDays + 1;
@@ -54,7 +54,14 @@ namespace MyHotel.Business.RoomBookingMgmt
             dayPilotScheduler.DataBind();
             if (Page.IsPostBack)
             {
-                dayPilotScheduler.Update();
+                if (string.IsNullOrEmpty(message))
+                {
+                    dayPilotScheduler.Update();
+                }
+                else
+                {
+                    dayPilotScheduler.Update(message);
+                }
             }
         }
 
@@ -75,21 +82,55 @@ namespace MyHotel.Business.RoomBookingMgmt
 
         protected void dayPilotScheduler_EventResize(object sender, DayPilot.Web.Ui.Events.EventResizeEventArgs e)
         {
-            var roomBookingEntity = RoomBookingMgmtController.GetRoomBookingByID(int.Parse(e.Value));
-            roomBookingEntity.StartDate = e.NewStart;
-            roomBookingEntity.EndDate = e.NewEnd;
-            RoomBookingMgmtController.SaveRoomBooking(roomBookingEntity);
-            updateVisiblePeriod();
+            string message = null;
+
+            if (!RoomBookingMgmtController.IsRoomBookingFree(int.Parse(e.Value), int.Parse(e.Resource), e.NewStart, e.NewEnd))
+            {
+                message = "The reservation cannot overlap with an existing reservation.";
+            }
+            else if (e.OldEnd <= DateTime.Today)
+            {
+                message = "This reservation cannot be changed anymore.";
+            }
+            else if (e.NewStart < DateTime.Today)
+            {
+                message = "The reservation cannot be moved to the past.";
+            }
+            else
+            {
+                var roomBookingEntity = RoomBookingMgmtController.GetRoomBookingByID(int.Parse(e.Value));
+                roomBookingEntity.StartDate = e.NewStart;
+                roomBookingEntity.EndDate = e.NewEnd;
+                RoomBookingMgmtController.SaveRoomBooking(roomBookingEntity);
+            }
+            updateVisiblePeriod(message);
         }
 
         protected void dayPilotScheduler_EventMove(object sender, DayPilot.Web.Ui.Events.EventMoveEventArgs e)
         {
-            var roomBookingEntity = RoomBookingMgmtController.GetRoomBookingByID(int.Parse(e.Value));
-            roomBookingEntity.StartDate = e.NewStart;
-            roomBookingEntity.EndDate = e.NewEnd;
-            roomBookingEntity.RoomID = int.Parse(e.NewResource);
-            RoomBookingMgmtController.SaveRoomBooking(roomBookingEntity);
-            updateVisiblePeriod();
+            string message = null;
+
+            if (!RoomBookingMgmtController.IsRoomBookingFree(int.Parse(e.Value), int.Parse(e.NewResource), e.NewStart, e.NewEnd))
+            {
+                message = "The reservation cannot overlap with an existing reservation.";
+            }
+            else if (e.OldEnd <= DateTime.Today)
+            {
+                message = "This reservation cannot be changed anymore.";
+            }
+            else if (e.NewStart < DateTime.Today)
+            {
+                message = "The reservation cannot be moved to the past.";
+            }
+            else
+            {
+                var roomBookingEntity = RoomBookingMgmtController.GetRoomBookingByID(int.Parse(e.Value));
+                roomBookingEntity.StartDate = e.NewStart;
+                roomBookingEntity.EndDate = e.NewEnd;
+                roomBookingEntity.RoomID = int.Parse(e.NewResource);
+                RoomBookingMgmtController.SaveRoomBooking(roomBookingEntity);
+            }
+            updateVisiblePeriod(message);
         }
     }
 }
