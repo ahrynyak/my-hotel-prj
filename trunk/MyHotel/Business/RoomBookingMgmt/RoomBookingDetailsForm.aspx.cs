@@ -62,12 +62,13 @@ namespace MyHotel.Business.RoomBookingMgmt
                 }
                 else
                 {
-                    //todo: eroor page
+
+                    //"roomBookingEntity null"
                 }
             }
             else
             {
-                //err should be some parameters set
+                //" should be some parameters set"
             }
         }
 
@@ -111,7 +112,7 @@ namespace MyHotel.Business.RoomBookingMgmt
                 roomBookingEntity.PriceOfAdditionalBed = int.Parse(TextBoxPriceForExtraBed.Text);
                 roomBookingEntity.StartDate = datePickeStartDate.SelectedDate;
                 roomBookingEntity.EndDate = datePickeEndDate.SelectedDate;
-                roomBookingEntity.BookingStatus = int.Parse( DropDownListBookingStatus.SelectedItem.Value);
+                roomBookingEntity.BookingStatus = int.Parse(DropDownListBookingStatus.SelectedItem.Value);
                 roomBookingEntity.AdditionalInfo = TextBoxAdditionalInfo.Text;
                 RoomBookingMgmtController.SaveRoomBooking(roomBookingEntity);
             }
@@ -139,8 +140,8 @@ namespace MyHotel.Business.RoomBookingMgmt
         {
             LabelAmountOfDaysValue.Text = (datePickeEndDate.SelectedDate - datePickeStartDate.SelectedDate).TotalDays.ToString();
             LabelAmountToBePaidValue.Text = (
-                (int.Parse(!string.IsNullOrEmpty(TextBoxPricePerRoom.Text) ? TextBoxPricePerRoom.Text : "0") + int.Parse(!string.IsNullOrEmpty(TextBoxPriceForExtraBed.Text) ? TextBoxPriceForExtraBed.Text : "0")) 
-                * 
+                (int.Parse(!string.IsNullOrEmpty(TextBoxPricePerRoom.Text) ? TextBoxPricePerRoom.Text : "0") + int.Parse(!string.IsNullOrEmpty(TextBoxPriceForExtraBed.Text) ? TextBoxPriceForExtraBed.Text : "0"))
+                *
                 int.Parse(LabelAmountOfDaysValue.Text)
                 ).ToString();
             LabelAmountRemainderToBePaidValue.Text = (int.Parse(LabelAmountToBePaidValue.Text) - int.Parse(!string.IsNullOrEmpty(TextBoxPaid.Text) ? TextBoxPaid.Text : "0")).ToString();

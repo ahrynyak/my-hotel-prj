@@ -6,6 +6,7 @@ using System.Data;
 using MyHotel.LINQDB;
 using MyHotel.Business.Entity;
 using MyHotel.Utils;
+using System.Web.UI;
 
 namespace MyHotel.Business.RoomBookingMgmt
 {
@@ -82,7 +83,7 @@ namespace MyHotel.Business.RoomBookingMgmt
                             }
                             else
                             {
-                                //todo: not found
+                                //"Booking not found"
                             }
                         }
                         else
@@ -106,12 +107,12 @@ namespace MyHotel.Business.RoomBookingMgmt
                     }
                     else
                     {
-                        //error: room is not free
+                        //"room is not free"
                     }
                 }
                 else
                 {
-                    //error: can not add/update new booking to the past
+                    //"can not add/update new booking to the past"
                 }
             }
         }
@@ -131,14 +132,14 @@ namespace MyHotel.Business.RoomBookingMgmt
                         dataContext.RoomBookings.DeleteOnSubmit(roomBooking);
                         dataContext.SubmitChanges();
                     }
-                    else 
+                    else
                     {
-                        //error: can not remove from past
+                        //"can not remove from past
                     }
                 }
                 else
                 {
-                    //todo: not found
+                    //("Booking not found"
                 }
             }
         }
