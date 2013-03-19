@@ -40,10 +40,6 @@ namespace MyHotel.Business.RoomBookingMgmt
             {
                 datePickeEnd.SelectedDate = RoomBookingMgmtController.GetDefaultEndDate();
             }
-            foreach (var item in Directory.GetFiles(Server.MapPath("../../css/DayPilot/")))
-            {
-                DropDownListStyleSelector.Items.Add(Path.GetFileNameWithoutExtension(item));
-            }
         }
 
         private void updateVisiblePeriod(string message = "")
@@ -73,11 +69,6 @@ namespace MyHotel.Business.RoomBookingMgmt
         protected void datePickeEnd_SelectionChanged(object sender, EventArgs e)
         {
             updateVisiblePeriod();
-        }
-
-        protected void DropDownListStyleSelector_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            dayPilotScheduler.CssClassPrefix = DropDownListStyleSelector.SelectedValue;
         }
 
         protected void dayPilotScheduler_EventResize(object sender, DayPilot.Web.Ui.Events.EventResizeEventArgs e)
@@ -131,6 +122,40 @@ namespace MyHotel.Business.RoomBookingMgmt
                 RoomBookingMgmtController.SaveRoomBooking(roomBookingEntity);
             }
             updateVisiblePeriod(message);
+        }
+
+        protected void dayPilotScheduler_BeforeTimeHeaderRender(object sender, DayPilot.Web.Ui.Events.BeforeTimeHeaderRenderEventArgs e)
+        {
+            if (e.IsColGroup)
+            {
+                e.InnerHTML = e.Start.ToString("MMMM-yyyy");  // sets the group header
+            }
+            else
+            {
+                // sets the column header
+                //week end background
+                if (e.Start.DayOfWeek == DayOfWeek.Sunday)
+                {
+                    e.InnerHTML = "<strong>" + e.Start.ToString("dd (ddd)") + "</strong>";
+
+                }
+                else
+                {
+                    e.InnerHTML = e.Start.ToString("dd (ddd)");
+                }
+            }
+        }
+
+        protected void dayPilotScheduler_BeforeCellRender(object sender, DayPilot.Web.Ui.Events.BeforeCellRenderEventArgs e)
+        {
+            if (e.Start.DayOfWeek == DayOfWeek.Sunday)
+            {
+                e.CssClass = "sundaycellstyle";
+            }
+            else
+            {
+                e.CssClass = "weekday";
+            }
         }
     }
 }
