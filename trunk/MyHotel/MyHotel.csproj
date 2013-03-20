@@ -66,10 +66,10 @@
     <Content Include="css\DayPilot\myhstyle.css" />
     <Content Include="css\main.css" />
     <None Include="DBScripts\InitDBScripts.sql" />
-    <Content Include="Default.aspx" />
     <None Include="ExternalAss\BasicFrame.WebControls.BasicDatePicker.dll" />
     <None Include="ExternalAss\BasicFrame.WebControls.BasicDatePicker.XML" />
     <None Include="ExternalAss\DayPilot.dll" />
+    <Content Include="Default.aspx" />
     <Content Include="icons\refresh_green.ico" />
     <Content Include="js\message.js" />
     <Content Include="js\modal.js" />
