@@ -1,7 +1,9 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RoomBookingDetailsForm.aspx.cs"
     Inherits="MyHotel.Business.RoomBookingMgmt.RoomBookingDetailsForm" Culture="uk-UA" %>
 
+<%@ Register Assembly="MyHotel" Namespace="MyHotel.Utils" TagPrefix="cc2" %>
 <%@ Register Assembly="BasicFrame.WebControls.BasicDatePicker" TagPrefix="bdp" Namespace="BasicFrame.WebControls" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -66,9 +68,19 @@
                 <tr>
                     <td>
                         <asp:TextBox ID="TextBoxAdultNumber" runat="server" Width="90%" />
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidatorAdultNumber" runat="server"
+                            ErrorMessage="*" CssClass="errorValidation" ControlToValidate="TextBoxAdultNumber"
+                            ToolTip="Обов'язкове поле" />
+                        <cc1:FilteredTextBoxExtender ID="FilteredtextboxextenderAdultNumber" runat="server"
+                            TargetControlID="TextBoxAdultNumber" FilterType="Numbers" />
                     </td>
                     <td>
                         <asp:TextBox ID="TextBoxChildrenNumber" runat="server" Width="90%" />
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidatorChildrenNumber" runat="server"
+                            ErrorMessage="*" CssClass="errorValidation" ControlToValidate="TextBoxChildrenNumber"
+                            ToolTip="Обов'язкове поле" />
+                        <cc1:FilteredTextBoxExtender ID="FilteredtextboxextenderChildrenNumber" runat="server"
+                            TargetControlID="TextBoxChildrenNumber" FilterType="Numbers" />
                     </td>
                 </tr>
                 <tr>
@@ -83,10 +95,17 @@
                     <td>
                         <asp:TextBox ID="TextBoxPricePerRoom" runat="server" Width="90%" OnTextChanged="TextBoxPricePerRoom_TextChanged"
                             AutoPostBack="True" />
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidatorPricePerRoom" runat="server"
+                            ErrorMessage="*" CssClass="errorValidation" ControlToValidate="TextBoxPricePerRoom"
+                            ToolTip="Обов'язкове поле" />
+                        <cc1:FilteredTextBoxExtender ID="FilteredtextboxextenderPricePerRoom" runat="server"
+                            TargetControlID="TextBoxPricePerRoom" FilterType="Numbers" />
                     </td>
                     <td>
                         <asp:TextBox ID="TextBoxPriceForExtraBed" runat="server" Width="90%" AutoPostBack="True"
                             OnTextChanged="TextBoxPriceForExtraBed_TextChanged" />
+                        <cc1:FilteredTextBoxExtender ID="FilteredtextboxextenderPriceForExtraBed" runat="server"
+                            TargetControlID="TextBoxPriceForExtraBed" FilterType="Numbers" />
                     </td>
                 </tr>
                 <tr>
@@ -134,6 +153,8 @@
                     <td>
                         <asp:TextBox ID="TextBoxPaid" runat="server" Width="90%" AutoPostBack="True" OnTextChanged="TextBoxPaid_TextChanged"
                             Font-Bold="True" />
+                        <cc1:FilteredTextBoxExtender ID="FilteredtextboxextenderPaid" runat="server" TargetControlID="TextBoxPaid"
+                            FilterType="Numbers" />
                     </td>
                 </tr>
                 <tr>
