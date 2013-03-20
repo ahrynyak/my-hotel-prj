@@ -1,0 +1,4 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="https://ukrroot-001-site1.smarterasp.net:8172/msdeploy.axd" deleteExistingFiles="False" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="ukrroot-001-site1" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="True" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="MSDeploy" replaceMatchingFiles="True" userName="ifc\ukrroot-001" savePWD="True" userPWD="AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAYqTuleqBaEufpYUgDfrDKgAAAAACAAAAAAAQZgAAAAEAACAAAADOEeZmwdHY7wynCVqusHVeurtbu56NBHfGrwH9IWZAPQAAAAAOgAAAAAIAACAAAAAAN6+/gVWERsokPcVgbnSlDkpYHhVurGfQWBRWbVlsTCAAAAAcdRRLY5sJAp8DMXfhr8ICfFnMIHkgBeNEhVD3xff7q0AAAABrF6cqV3oPsS/0+dGhrY6sLD1G1oG141KsOcCveUC+IMANsd9zI+0357GOGGY86sLuQcWu49wY/TMUMeqAH247" SelectedForPublish="True" />
+</publishData>
