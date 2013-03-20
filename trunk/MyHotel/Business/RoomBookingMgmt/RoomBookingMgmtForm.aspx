@@ -15,7 +15,7 @@
 
         var modal = new DayPilot.Modal();
         modal.top = 60;
-        modal.width = 350;
+        modal.width = 400;
         modal.opacity = 60;
         modal.height = 550;
         modal.border = "1px solid black";
