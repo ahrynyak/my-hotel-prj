@@ -1,9 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RoomBookingDetailsForm.aspx.cs"
     Inherits="MyHotel.Business.RoomBookingMgmt.RoomBookingDetailsForm" Culture="uk-UA" %>
 
-<%@ Register Assembly="MyHotel" Namespace="MyHotel.Utils" TagPrefix="cc2" %>
-<%@ Register Assembly="BasicFrame.WebControls.BasicDatePicker" TagPrefix="bdp" Namespace="BasicFrame.WebControls" %>
-<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -19,7 +17,6 @@
             <asp:PostBackTrigger ControlID="ButtonCancel" />
             <asp:PostBackTrigger ControlID="LinkButtonDeleteBooking" />
             <asp:PostBackTrigger ControlID="ImageButtonRefreshCalculation" />
-            <asp:PostBackTrigger ControlID="datePickeEndDate" />
         </Triggers>
         <ContentTemplate>
             <table>
@@ -71,7 +68,7 @@
                         <asp:RequiredFieldValidator ID="RequiredFieldValidatorAdultNumber" runat="server"
                             ErrorMessage="*" CssClass="errorValidation" ControlToValidate="TextBoxAdultNumber"
                             ToolTip="Обов'язкове поле" />
-                        <cc1:FilteredTextBoxExtender ID="FilteredtextboxextenderAdultNumber" runat="server"
+                        <ajaxToolkit:FilteredTextBoxExtender ID="FilteredtextboxextenderAdultNumber" runat="server"
                             TargetControlID="TextBoxAdultNumber" FilterType="Numbers" />
                     </td>
                     <td>
@@ -79,7 +76,7 @@
                         <asp:RequiredFieldValidator ID="RequiredFieldValidatorChildrenNumber" runat="server"
                             ErrorMessage="*" CssClass="errorValidation" ControlToValidate="TextBoxChildrenNumber"
                             ToolTip="Обов'язкове поле" />
-                        <cc1:FilteredTextBoxExtender ID="FilteredtextboxextenderChildrenNumber" runat="server"
+                        <ajaxToolkit:FilteredTextBoxExtender ID="FilteredtextboxextenderChildrenNumber" runat="server"
                             TargetControlID="TextBoxChildrenNumber" FilterType="Numbers" />
                     </td>
                 </tr>
@@ -98,14 +95,14 @@
                         <asp:RequiredFieldValidator ID="RequiredFieldValidatorPricePerRoom" runat="server"
                             ErrorMessage="*" CssClass="errorValidation" ControlToValidate="TextBoxPricePerRoom"
                             ToolTip="Обов'язкове поле" />
-                        <cc1:FilteredTextBoxExtender ID="FilteredtextboxextenderPricePerRoom" runat="server"
+                        <ajaxToolkit:FilteredTextBoxExtender ID="FilteredtextboxextenderPricePerRoom" runat="server"
                             TargetControlID="TextBoxPricePerRoom" FilterType="Numbers" />
                     </td>
                     <td>
                         <asp:TextBox ID="TextBoxPriceForExtraBed" runat="server" Width="90%" AutoPostBack="True"
                             OnTextChanged="TextBoxPriceForExtraBed_TextChanged" />
-                        <cc1:FilteredTextBoxExtender ID="FilteredtextboxextenderPriceForExtraBed" runat="server"
-                            TargetControlID="TextBoxPriceForExtraBed" FilterType="Numbers" />
+                        <ajaxToolkit:FilteredTextBoxExtender ID="FilteredtextboxextenderPriceForExtraBed"
+                            runat="server" TargetControlID="TextBoxPriceForExtraBed" FilterType="Numbers" />
                     </td>
                 </tr>
                 <tr>
@@ -118,13 +115,10 @@
                 </tr>
                 <tr>
                     <td>
-                        <bdp:BasicDatePicker ID="datePickeStartDate" runat="server" DisplayType="TextBox"
-                            Width="90%" OnSelectionChanged="datePickeStartDate_SelectionChanged" Enabled="False"
-                            DateFormat="d-MMM-yyyy (dddd)" ReadOnly="True" />
+                        <asp:TextBox runat="server" ID="datePickeStart" Width="90%" Enabled="False" />
                     </td>
                     <td>
-                        <bdp:BasicDatePicker ID="datePickeEndDate" runat="server" DisplayType="TextBox" OnSelectionChanged="datePickeEndDate_SelectionChanged"
-                            Enabled="False" Width="90%" DateFormat="d-MMM-yyyy (dddd)" ReadOnly="True" />
+                        <asp:TextBox runat="server" ID="datePickeEnd" Width="90%" Enabled="False" />
                     </td>
                 </tr>
                 <tr>
@@ -142,7 +136,7 @@
                 </tr>
                 <tr>
                     <td class="labelBookingDetails" colspan="2">
-                        <asp:TextBox ID="TextBoxAdditionalInfo" runat="server" Width="95%" Height="50px"
+                        <asp:TextBox ID="TextBoxAdditionalInfo" runat="server" Width="90%" Height="50px"
                             TextMode="MultiLine" />
                     </td>
                 </tr>
@@ -153,8 +147,8 @@
                     <td>
                         <asp:TextBox ID="TextBoxPaid" runat="server" Width="90%" AutoPostBack="True" OnTextChanged="TextBoxPaid_TextChanged"
                             Font-Bold="True" />
-                        <cc1:FilteredTextBoxExtender ID="FilteredtextboxextenderPaid" runat="server" TargetControlID="TextBoxPaid"
-                            FilterType="Numbers" />
+                        <ajaxToolkit:FilteredTextBoxExtender ID="FilteredtextboxextenderPaid" runat="server"
+                            TargetControlID="TextBoxPaid" FilterType="Numbers" />
                     </td>
                 </tr>
                 <tr>
@@ -198,8 +192,8 @@
                     <td align="right">
                         <asp:Button ID="ButtonOK" runat="server" Text="OK" Width="60px" OnClick="ButtonOK_Click" />
                         &nbsp;
-                        <asp:Button ID="ButtonCancel" runat="server" Text="Cancel" Width="60px" 
-                            OnClick="ButtonCancel_Click" CausesValidation="False" />
+                        <asp:Button ID="ButtonCancel" runat="server" Text="Cancel" Width="60px" OnClick="ButtonCancel_Click"
+                            CausesValidation="False" />
                     </td>
                 </tr>
             </table>

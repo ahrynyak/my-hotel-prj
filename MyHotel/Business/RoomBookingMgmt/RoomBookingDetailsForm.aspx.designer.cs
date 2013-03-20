@@ -193,22 +193,22 @@ namespace MyHotel.Business.RoomBookingMgmt {
         protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredtextboxextenderPriceForExtraBed;
         
         /// <summary>
-        /// datePickeStartDate control.
+        /// datePickeStart control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::BasicFrame.WebControls.BasicDatePicker datePickeStartDate;
+        protected global::System.Web.UI.WebControls.TextBox datePickeStart;
         
         /// <summary>
-        /// datePickeEndDate control.
+        /// datePickeEnd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::BasicFrame.WebControls.BasicDatePicker datePickeEndDate;
+        protected global::System.Web.UI.WebControls.TextBox datePickeEnd;
         
         /// <summary>
         /// DropDownListBookingStatus control.
