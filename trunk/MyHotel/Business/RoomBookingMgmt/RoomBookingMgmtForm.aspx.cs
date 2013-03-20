@@ -10,6 +10,7 @@ using DayPilot.Web.Ui;
 using DayPilot.Utils;
 using MyHotel.Business;
 using System.IO;
+using MyHotel.Utils;
 
 namespace MyHotel.Business.RoomBookingMgmt
 {
