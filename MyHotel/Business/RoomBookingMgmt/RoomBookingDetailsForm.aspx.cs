@@ -106,13 +106,13 @@ namespace MyHotel.Business.RoomBookingMgmt
             {
                 roomBookingEntity.GuestName = TextBoxGuestName.Text;
                 roomBookingEntity.GuestPhone = TextBoxGuestPhone.Text;
-                roomBookingEntity.NumberOfAdult = int.Parse(TextBoxAdultNumber.Text);
-                roomBookingEntity.NumberOfChild = int.Parse(TextBoxChildrenNumber.Text);
-                roomBookingEntity.PricePerRoom = int.Parse(TextBoxPricePerRoom.Text);
-                roomBookingEntity.PriceOfAdditionalBed = int.Parse(TextBoxPriceForExtraBed.Text);
+                roomBookingEntity.NumberOfAdult = int.Parse(string.IsNullOrEmpty(TextBoxAdultNumber.Text) ? "0" : TextBoxAdultNumber.Text);
+                roomBookingEntity.NumberOfChild = int.Parse(string.IsNullOrEmpty(TextBoxChildrenNumber.Text) ? "0" : TextBoxChildrenNumber.Text);
+                roomBookingEntity.PricePerRoom = int.Parse(string.IsNullOrEmpty(TextBoxPricePerRoom.Text) ? "0" : TextBoxPricePerRoom.Text);
+                roomBookingEntity.PriceOfAdditionalBed = int.Parse(string.IsNullOrEmpty(TextBoxPriceForExtraBed.Text) ? "0" : TextBoxPriceForExtraBed.Text);
                 roomBookingEntity.StartDate = datePickeStartDate.SelectedDate;
                 roomBookingEntity.EndDate = datePickeEndDate.SelectedDate;
-                roomBookingEntity.BookingStatus = int.Parse(DropDownListBookingStatus.SelectedItem.Value);
+                roomBookingEntity.BookingStatus = int.Parse((DropDownListBookingStatus.SelectedItem != null ? DropDownListBookingStatus.SelectedItem.Value : "0"));
                 roomBookingEntity.AdditionalInfo = TextBoxAdditionalInfo.Text;
                 RoomBookingMgmtController.SaveRoomBooking(roomBookingEntity);
             }

@@ -103,6 +103,24 @@ namespace MyHotel.Business.RoomBookingMgmt {
         protected global::System.Web.UI.WebControls.TextBox TextBoxAdultNumber;
         
         /// <summary>
+        /// RequiredFieldValidatorAdultNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorAdultNumber;
+        
+        /// <summary>
+        /// FilteredtextboxextenderAdultNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredtextboxextenderAdultNumber;
+        
+        /// <summary>
         /// TextBoxChildrenNumber control.
         /// </summary>
         /// <remarks>
@@ -110,6 +128,24 @@ namespace MyHotel.Business.RoomBookingMgmt {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBoxChildrenNumber;
+        
+        /// <summary>
+        /// RequiredFieldValidatorChildrenNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorChildrenNumber;
+        
+        /// <summary>
+        /// FilteredtextboxextenderChildrenNumber control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredtextboxextenderChildrenNumber;
         
         /// <summary>
         /// TextBoxPricePerRoom control.
@@ -121,6 +157,24 @@ namespace MyHotel.Business.RoomBookingMgmt {
         protected global::System.Web.UI.WebControls.TextBox TextBoxPricePerRoom;
         
         /// <summary>
+        /// RequiredFieldValidatorPricePerRoom control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorPricePerRoom;
+        
+        /// <summary>
+        /// FilteredtextboxextenderPricePerRoom control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredtextboxextenderPricePerRoom;
+        
+        /// <summary>
         /// TextBoxPriceForExtraBed control.
         /// </summary>
         /// <remarks>
@@ -128,6 +182,15 @@ namespace MyHotel.Business.RoomBookingMgmt {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBoxPriceForExtraBed;
+        
+        /// <summary>
+        /// FilteredtextboxextenderPriceForExtraBed control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredtextboxextenderPriceForExtraBed;
         
         /// <summary>
         /// datePickeStartDate control.
@@ -173,6 +236,15 @@ namespace MyHotel.Business.RoomBookingMgmt {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBoxPaid;
+        
+        /// <summary>
+        /// FilteredtextboxextenderPaid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.FilteredTextBoxExtender FilteredtextboxextenderPaid;
         
         /// <summary>
         /// LabelAmountToBePaid control.
