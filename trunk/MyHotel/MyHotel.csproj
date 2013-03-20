@@ -65,10 +65,11 @@
     <Content Include="Business\RoomBookingMgmt\RoomBookingDetailsForm.aspx" />
     <Content Include="css\DayPilot\myhstyle.css" />
     <Content Include="css\main.css" />
-    <Content Include="DBScripts\InitDBScripts.sql" />
-    <Content Include="ExternalAss\BasicFrame.WebControls.BasicDatePicker.dll" />
-    <Content Include="ExternalAss\BasicFrame.WebControls.BasicDatePicker.XML" />
-    <Content Include="ExternalAss\DayPilot.dll" />
+    <None Include="DBScripts\InitDBScripts.sql" />
+    <Content Include="Default.aspx" />
+    <None Include="ExternalAss\BasicFrame.WebControls.BasicDatePicker.dll" />
+    <None Include="ExternalAss\BasicFrame.WebControls.BasicDatePicker.XML" />
+    <None Include="ExternalAss\DayPilot.dll" />
     <Content Include="icons\refresh_green.ico" />
     <Content Include="js\message.js" />
     <Content Include="js\modal.js" />
@@ -96,6 +97,13 @@
       <DependentUpon>RoomBookingDetailsForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Business\RoomBookingMgmt\RoomBookingMgmtController.cs" />
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
     <Compile Include="LINQDB\DataClasses.cs">
       <DependentUpon>DataClasses.dbml</DependentUpon>
     </Compile>
