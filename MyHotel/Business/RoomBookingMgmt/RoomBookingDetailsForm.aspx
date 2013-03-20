@@ -198,7 +198,8 @@
                     <td align="right">
                         <asp:Button ID="ButtonOK" runat="server" Text="OK" Width="60px" OnClick="ButtonOK_Click" />
                         &nbsp;
-                        <asp:Button ID="ButtonCancel" runat="server" Text="Cancel" Width="60px" OnClick="ButtonCancel_Click" />
+                        <asp:Button ID="ButtonCancel" runat="server" Text="Cancel" Width="60px" 
+                            OnClick="ButtonCancel_Click" CausesValidation="False" />
                     </td>
                 </tr>
             </table>
