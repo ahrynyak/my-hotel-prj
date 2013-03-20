@@ -3,8 +3,10 @@
     Culture="uk-UA" %>
 
 <%@ Register Assembly="DayPilot" Namespace="DayPilot.Web.Ui" TagPrefix="DayPilot" %>
-<%@ Register Assembly="BasicFrame.WebControls.BasicDatePicker" TagPrefix="bdp" Namespace="BasicFrame.WebControls" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 <asp:Content ID="Content1" runat="server" ContentPlaceHolderID="MyHotelSecuredMgmtContentPlaceHolder">
+    <ajaxToolkit:ToolkitScriptManager runat="Server" EnableScriptGlobalization="true"
+        EnableScriptLocalization="true" ID="ScriptManager1" ScriptMode="Debug" CombineScripts="false" />
     <script type="text/javascript" src="../../js/modal.js"></script>
     <script type="text/javascript" src="../../js/message.js"></script>
     <script type="text/javascript">
@@ -37,15 +39,18 @@
                 <asp:Label ID="LabelVisiblePeriod" runat="server" Text="Видимий період:" CssClass="labelVisiblePeriod"></asp:Label>
             </td>
             <td style="width: 130px">
-                <bdp:BasicDatePicker ID="datePickeStart" runat="server" DisplayType="TextBox" OnSelectionChanged="datePickeStart_SelectionChanged"
-                    AutoPostBack="true" />
+                <asp:TextBox runat="server" ID="datePickeStart" autocomplete="off" AutoPostBack="True"
+                    OnTextChanged="datePickeStart_TextChanged" />
+                <ajaxToolkit:CalendarExtender ID="calendarExtenderStart" runat="server" TargetControlID="datePickeStart" />
             </td>
             <td style="width: 20px">
                 <asp:Label ID="LabelVisiblePeriodTo" runat="server" Text="до" CssClass="labelVisiblePeriod"></asp:Label>
             </td>
             <td>
-                <bdp:BasicDatePicker ID="datePickeEnd" runat="server" DisplayType="TextBox" OnSelectionChanged="datePickeEnd_SelectionChanged"
-                    AutoPostBack="true" />
+                <asp:TextBox runat="server" ID="datePickeEnd" autocomplete="off" AutoPostBack="True"
+                    OnTextChanged="datePickeEnd_TextChanged" />
+                <ajaxToolkit:CalendarExtender ID="calendarExtenderEnd" runat="server" TargetControlID="datePickeEnd"
+                    Format="" />
             </td>
         </tr>
         <tr>
@@ -58,13 +63,11 @@
                     EventSelectHandling="PostBack" Height="350px" TimeRangeDoubleClickHandling="PostBack"
                     TimeRangeSelectedHandling="JavaScript" TimeFormat="Clock24Hours" WeekStarts="Monday"
                     Width="100%" EventClickJavaScript="editEvent(e.value());" TimeRangeSelectedJavaScript="createEvent(start, end, column);"
-                    CssClassPrefix="myhstyle" CssOnly="True" EventHeight="35" 
-                    RowMinHeight="40" CellWidth="35"
+                    CssClassPrefix="myhstyle" CssOnly="True" EventHeight="35" RowMinHeight="40" CellWidth="35"
                     Font-Bold="False" HeaderHeight="35" LoadingLabelText="Завантажую..." EventMoveHandling="PostBack"
                     OnEventMove="dayPilotScheduler_EventMove" OnEventResize="dayPilotScheduler_EventResize"
                     Style="top: 0px; left: 0px" AfterRenderJavaScript="" HeaderDateFormat="d (ddd)"
-                    OnBeforeCellRender="dayPilotScheduler_BeforeCellRender" 
-                    OnBeforeTimeHeaderRender="dayPilotScheduler_BeforeTimeHeaderRender">
+                    OnBeforeCellRender="dayPilotScheduler_BeforeCellRender" OnBeforeTimeHeaderRender="dayPilotScheduler_BeforeTimeHeaderRender">
                 </DayPilot:DayPilotScheduler>
             </td>
         </tr>

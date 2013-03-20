@@ -13,6 +13,15 @@ namespace MyHotel.Business.RoomBookingMgmt {
     public partial class RoomBookingMgmtForm {
         
         /// <summary>
+        /// ScriptManager1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.ToolkitScriptManager ScriptManager1;
+        
+        /// <summary>
         /// LabelVisiblePeriod control.
         /// </summary>
         /// <remarks>
@@ -28,7 +37,16 @@ namespace MyHotel.Business.RoomBookingMgmt {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::BasicFrame.WebControls.BasicDatePicker datePickeStart;
+        protected global::System.Web.UI.WebControls.TextBox datePickeStart;
+        
+        /// <summary>
+        /// calendarExtenderStart control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CalendarExtender calendarExtenderStart;
         
         /// <summary>
         /// LabelVisiblePeriodTo control.
@@ -46,7 +64,16 @@ namespace MyHotel.Business.RoomBookingMgmt {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::BasicFrame.WebControls.BasicDatePicker datePickeEnd;
+        protected global::System.Web.UI.WebControls.TextBox datePickeEnd;
+        
+        /// <summary>
+        /// calendarExtenderEnd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CalendarExtender calendarExtenderEnd;
         
         /// <summary>
         /// dayPilotScheduler control.

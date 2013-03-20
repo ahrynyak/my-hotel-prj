@@ -17,5 +17,7 @@ namespace MyHotel.Utils
         {
             MessageBox.Show(ex.Message);
         }
+
+        public const string DateFormat = "d-MMM-yyyy (dddd)";
     }
 }

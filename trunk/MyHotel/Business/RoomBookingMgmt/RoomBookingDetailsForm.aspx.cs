@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using MyHotel.Business.Entity;
 using MyHotel.Utils;
+using System.Globalization;
 
 namespace MyHotel.Business.RoomBookingMgmt
 {
@@ -94,8 +95,8 @@ namespace MyHotel.Business.RoomBookingMgmt
                     TextBoxChildrenNumber.Text = roomBookingEntity.NumberOfChild.ToString();
                     TextBoxPricePerRoom.Text = roomBookingEntity.PricePerRoom.ToString();
                     TextBoxPriceForExtraBed.Text = roomBookingEntity.PriceOfAdditionalBed.ToString();
-                    datePickeStartDate.SelectedDate = roomBookingEntity.StartDate;
-                    datePickeEndDate.SelectedDate = roomBookingEntity.EndDate;
+                    datePickeStart.Text = roomBookingEntity.StartDate.ToString(HelperCommon.DateFormat);
+                    datePickeEnd.Text = roomBookingEntity.EndDate.ToString(HelperCommon.DateFormat);
                     DropDownListBookingStatus.Items.Clear();
                     foreach (var item in RoomBookingMgmtController.GetStatuses())
                     {
@@ -123,8 +124,8 @@ namespace MyHotel.Business.RoomBookingMgmt
                 roomBookingEntity.NumberOfChild = int.Parse(string.IsNullOrEmpty(TextBoxChildrenNumber.Text) ? "0" : TextBoxChildrenNumber.Text);
                 roomBookingEntity.PricePerRoom = int.Parse(string.IsNullOrEmpty(TextBoxPricePerRoom.Text) ? "0" : TextBoxPricePerRoom.Text);
                 roomBookingEntity.PriceOfAdditionalBed = int.Parse(string.IsNullOrEmpty(TextBoxPriceForExtraBed.Text) ? "0" : TextBoxPriceForExtraBed.Text);
-                roomBookingEntity.StartDate = datePickeStartDate.SelectedDate;
-                roomBookingEntity.EndDate = datePickeEndDate.SelectedDate;
+                roomBookingEntity.StartDate = DateTime.ParseExact(datePickeStart.Text, HelperCommon.DateFormat, CultureInfo.CurrentCulture);
+                roomBookingEntity.EndDate = DateTime.ParseExact(datePickeEnd.Text, HelperCommon.DateFormat, CultureInfo.CurrentCulture);
                 roomBookingEntity.BookingStatus = int.Parse((DropDownListBookingStatus.SelectedItem != null ? DropDownListBookingStatus.SelectedItem.Value : "0"));
                 roomBookingEntity.AdditionalInfo = TextBoxAdditionalInfo.Text;
                 RoomBookingMgmtController.SaveRoomBooking(roomBookingEntity);
@@ -167,7 +168,7 @@ namespace MyHotel.Business.RoomBookingMgmt
         {
             try
             {
-                LabelAmountOfDaysValue.Text = (datePickeEndDate.SelectedDate - datePickeStartDate.SelectedDate).TotalDays.ToString();
+                LabelAmountOfDaysValue.Text = (DateTime.ParseExact(datePickeEnd.Text, HelperCommon.DateFormat, CultureInfo.CurrentCulture) - DateTime.ParseExact(datePickeStart.Text, HelperCommon.DateFormat, CultureInfo.CurrentCulture)).TotalDays.ToString();
                 LabelAmountToBePaidValue.Text = (
                     (int.Parse(!string.IsNullOrEmpty(TextBoxPricePerRoom.Text) ? TextBoxPricePerRoom.Text : "0") + int.Parse(!string.IsNullOrEmpty(TextBoxPriceForExtraBed.Text) ? TextBoxPriceForExtraBed.Text : "0"))
                     *
@@ -210,6 +211,5 @@ namespace MyHotel.Business.RoomBookingMgmt
         {
             calculateSum();
         }
-
     }
 }

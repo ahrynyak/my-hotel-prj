@@ -11,6 +11,7 @@ using DayPilot.Utils;
 using MyHotel.Business;
 using System.IO;
 using MyHotel.Utils;
+using System.Globalization;
 
 namespace MyHotel.Business.RoomBookingMgmt
 {
@@ -19,6 +20,10 @@ namespace MyHotel.Business.RoomBookingMgmt
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (ScriptManager.GetCurrent(Page) == null)
+            {
+                Page.Form.Controls.AddAt(0, new ScriptManager());
+            }
             if (!Page.IsPostBack)
             {
                 initData();
@@ -33,43 +38,48 @@ namespace MyHotel.Business.RoomBookingMgmt
             {
                 dayPilotScheduler.Resources.Add(item.Name, item.RoomID.ToString());
             }
-            if (datePickeStart.SelectedDate == DateTime.MinValue)
+
+            initCalendar();
+        }
+
+        private void initCalendar()
+        {
+            if (string.IsNullOrEmpty(datePickeStart.Text))
             {
-                datePickeStart.SelectedDate = RoomBookingMgmtController.GetDefaultStartDate();
+                datePickeStart.Text = RoomBookingMgmtController.GetDefaultStartDate().ToString(HelperCommon.DateFormat);
+                calendarExtenderStart.Format = HelperCommon.DateFormat;
             }
-            if (datePickeEnd.SelectedDate == DateTime.MinValue)
+            if (string.IsNullOrEmpty(datePickeEnd.Text))
             {
-                datePickeEnd.SelectedDate = RoomBookingMgmtController.GetDefaultEndDate();
+                datePickeEnd.Text = RoomBookingMgmtController.GetDefaultEndDate().ToString(HelperCommon.DateFormat);
+                calendarExtenderEnd.Format = HelperCommon.DateFormat;
             }
         }
 
         private void updateVisiblePeriod(string message = "")
         {
-            dayPilotScheduler.StartDate = datePickeStart.SelectedDate;
-            dayPilotScheduler.Days = (int)(datePickeEnd.SelectedDate - dayPilotScheduler.StartDate).TotalDays + 1;
-            dayPilotScheduler.DataSource = RoomBookingMgmtController.GetRoomBookings(dayPilotScheduler.StartDate, dayPilotScheduler.StartDate.AddDays(dayPilotScheduler.Days));
-            dayPilotScheduler.DataBind();
-            if (Page.IsPostBack)
+            if (!string.IsNullOrEmpty(datePickeStart.Text) && !string.IsNullOrEmpty(datePickeEnd.Text))
             {
-                if (string.IsNullOrEmpty(message))
+                dayPilotScheduler.StartDate = DateTime.ParseExact(datePickeStart.Text, HelperCommon.DateFormat, CultureInfo.CurrentCulture);
+                dayPilotScheduler.Days = (int)(DateTime.ParseExact(datePickeEnd.Text, HelperCommon.DateFormat, CultureInfo.CurrentCulture) - DateTime.ParseExact(datePickeStart.Text, HelperCommon.DateFormat, CultureInfo.CurrentCulture)).TotalDays + 1;
+                dayPilotScheduler.DataSource = RoomBookingMgmtController.GetRoomBookings(dayPilotScheduler.StartDate, dayPilotScheduler.StartDate.AddDays(dayPilotScheduler.Days));
+                dayPilotScheduler.DataBind();
+                if (Page.IsPostBack)
                 {
-                    dayPilotScheduler.Update();
-                }
-                else
-                {
-                    dayPilotScheduler.UpdateWithMessage(message);
+                    if (string.IsNullOrEmpty(message))
+                    {
+                        dayPilotScheduler.Update();
+                    }
+                    else
+                    {
+                        dayPilotScheduler.UpdateWithMessage(message);
+                    }
                 }
             }
-        }
-
-        protected void datePickeStart_SelectionChanged(object sender, EventArgs e)
-        {
-            updateVisiblePeriod();
-        }
-
-        protected void datePickeEnd_SelectionChanged(object sender, EventArgs e)
-        {
-            updateVisiblePeriod();
+            else
+            {
+                initCalendar();
+            }
         }
 
         protected void dayPilotScheduler_EventResize(object sender, DayPilot.Web.Ui.Events.EventResizeEventArgs e)
@@ -160,6 +170,16 @@ namespace MyHotel.Business.RoomBookingMgmt
             {
                 e.CssClass = "weekday";
             }
+        }
+
+        protected void datePickeStart_TextChanged(object sender, EventArgs e)
+        {
+            updateVisiblePeriod();
+        }
+
+        protected void datePickeEnd_TextChanged(object sender, EventArgs e)
+        {
+            updateVisiblePeriod();
         }
     }
 }
