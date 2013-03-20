@@ -60,9 +60,6 @@ namespace MyHotel.Business.RoomBookingMgmt
                 {
                     if (RoomBookingMgmtController.IsRoomBookingFree(roomBookingEntity.RoomBookingID, roomBookingEntity.RoomID, roomBookingEntity.StartDate, roomBookingEntity.EndDate))
                     {
-                        //todo: add validation of roomBookingEntity
-                        //      1) DB validation
-                        //      2) overlaping of dates and rooms
                         if (roomBookingEntity.RoomBookingID > 0)
                         {
                             RoomBooking roomBooking = dataContext.RoomBookings.FirstOrDefault(s => s.RoomBookingID == roomBookingEntity.RoomBookingID);
@@ -83,7 +80,7 @@ namespace MyHotel.Business.RoomBookingMgmt
                             }
                             else
                             {
-                                //"Booking not found"
+                               throw new InvalidConstraintException("Бронь для зміни не знайдена №" + roomBookingEntity.RoomBookingID);
                             }
                         }
                         else
@@ -107,12 +104,12 @@ namespace MyHotel.Business.RoomBookingMgmt
                     }
                     else
                     {
-                        //"room is not free"
+                        throw new InvalidConstraintException("Номер зайнятий в вибраному періоді");
                     }
                 }
                 else
                 {
-                    //"can not add/update new booking to the past"
+                    throw new InvalidConstraintException("Неможливо додати або модифікувати бронь в минулому");
                 }
             }
         }
@@ -121,9 +118,6 @@ namespace MyHotel.Business.RoomBookingMgmt
         {
             using (DataClassesDataContext dataContext = HelperCommon.GetDataContext())
             {
-                //todo: add validation of roomBookingEntity
-                //      1) DB child validation
-                //      2) can not remove past booking
                 RoomBooking roomBooking = dataContext.RoomBookings.FirstOrDefault(s => s.RoomBookingID == roomBookingID);
                 if (roomBooking != null)
                 {
@@ -134,12 +128,12 @@ namespace MyHotel.Business.RoomBookingMgmt
                     }
                     else
                     {
-                        //"can not remove from past
+                        throw new InvalidConstraintException("Неможливо видалити бронь в минулому");
                     }
                 }
                 else
                 {
-                    //("Booking not found"
+                    throw new InvalidConstraintException("Бронь для видалення не знайдена №" + roomBookingID);
                 }
             }
         }

@@ -13,5 +13,9 @@ namespace MyHotel.Utils
             return new DataClassesDataContext();
         }
 
+        public static void ProcessException(Exception ex)
+        {
+            MessageBox.Show(ex.Message);
+        }
     }
 }

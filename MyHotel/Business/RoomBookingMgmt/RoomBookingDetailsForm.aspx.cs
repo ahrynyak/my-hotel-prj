@@ -27,75 +27,88 @@ namespace MyHotel.Business.RoomBookingMgmt
 
         private void initData()
         {
-            if (Request.QueryString.Count > 0)
+            try
             {
-                string id = Request.QueryString["id"];
-                if (!string.IsNullOrEmpty(id))
+                if (Request.QueryString.Count > 0)
                 {
-                    isEdit = true;
-                    //edit
-                    roomBookingEntity = RoomBookingMgmtController.GetRoomBookingByID(int.Parse(id));
-                }
-                else
-                {
-                    isEdit = false;
-                    //new
-                    string startDate = Request.QueryString["start"];
-                    string endDate = Request.QueryString["end"];
-                    string resourceID = Request.QueryString["r"];
-                    roomBookingEntity = new RoomBookingEntity()
+                    string id = Request.QueryString["id"];
+                    if (!string.IsNullOrEmpty(id))
                     {
-                        BookingStatus = EBookingStatus.NotConfirmed.GetHashCode(),
-                        EndDate = DateTime.Parse(endDate),
-                        RoomID = int.Parse(resourceID),
-                        StartDate = DateTime.Parse(startDate)
-                    };
-                }
-
-                if (roomBookingEntity != null)
-                {
-                    roomDetailedEntity = RoomBookingMgmtController.GetRoomDetailedByID(roomBookingEntity.RoomID);
-                    if (!isEdit && roomDetailedEntity != null)
+                        isEdit = true;
+                        //edit
+                        roomBookingEntity = RoomBookingMgmtController.GetRoomBookingByID(int.Parse(id));
+                    }
+                    else
                     {
-                        roomBookingEntity.NumberOfAdult = roomDetailedEntity.Capacity;
+                        isEdit = false;
+                        //new
+                        string startDate = Request.QueryString["start"];
+                        string endDate = Request.QueryString["end"];
+                        string resourceID = Request.QueryString["r"];
+                        roomBookingEntity = new RoomBookingEntity()
+                        {
+                            BookingStatus = EBookingStatus.NotConfirmed.GetHashCode(),
+                            EndDate = DateTime.Parse(endDate),
+                            RoomID = int.Parse(resourceID),
+                            StartDate = DateTime.Parse(startDate)
+                        };
+                    }
+                    LinkButtonDeleteBooking.Visible = isEdit;
+                    if (roomBookingEntity != null)
+                    {
+                        roomDetailedEntity = RoomBookingMgmtController.GetRoomDetailedByID(roomBookingEntity.RoomID);
+                        if (!isEdit && roomDetailedEntity != null)
+                        {
+                            roomBookingEntity.NumberOfAdult = roomDetailedEntity.Capacity;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Некоректні дані для броні");
                     }
                 }
                 else
                 {
-
-                    //"roomBookingEntity null"
+                    MessageBox.Show("Відсутні параметри для броні");
                 }
             }
-            else
+            catch (Exception ex)
             {
-                //" should be some parameters set"
+                HelperCommon.ProcessException(ex);
             }
         }
 
         private void refreshUI()
         {
-            if (roomBookingEntity != null)
+            try
             {
-                if (roomDetailedEntity != null)
+                if (roomBookingEntity != null)
                 {
-                    LabelRoomNameValue.Text = roomDetailedEntity.Name;
+                    if (roomDetailedEntity != null)
+                    {
+                        LabelRoomNameValue.Text = roomDetailedEntity.Name;
+                    }
+                    TextBoxGuestName.Text = roomBookingEntity.GuestName;
+                    TextBoxGuestPhone.Text = roomBookingEntity.GuestPhone;
+                    TextBoxAdultNumber.Text = roomBookingEntity.NumberOfAdult.ToString();
+                    TextBoxChildrenNumber.Text = roomBookingEntity.NumberOfChild.ToString();
+                    TextBoxPricePerRoom.Text = roomBookingEntity.PricePerRoom.ToString();
+                    TextBoxPriceForExtraBed.Text = roomBookingEntity.PriceOfAdditionalBed.ToString();
+                    datePickeStartDate.SelectedDate = roomBookingEntity.StartDate;
+                    datePickeEndDate.SelectedDate = roomBookingEntity.EndDate;
+                    DropDownListBookingStatus.Items.Clear();
+                    foreach (var item in RoomBookingMgmtController.GetStatuses())
+                    {
+                        var listItem = new ListItem(item.Key, item.Value);
+                        listItem.Selected = item.Value == roomBookingEntity.BookingStatus.GetHashCode().ToString();
+                        DropDownListBookingStatus.Items.Add(listItem);
+                    }
+                    TextBoxAdditionalInfo.Text = roomBookingEntity.AdditionalInfo ?? "";
                 }
-                TextBoxGuestName.Text = roomBookingEntity.GuestName;
-                TextBoxGuestPhone.Text = roomBookingEntity.GuestPhone;
-                TextBoxAdultNumber.Text = roomBookingEntity.NumberOfAdult.ToString();
-                TextBoxChildrenNumber.Text = roomBookingEntity.NumberOfChild.ToString();
-                TextBoxPricePerRoom.Text = roomBookingEntity.PricePerRoom.ToString();
-                TextBoxPriceForExtraBed.Text = roomBookingEntity.PriceOfAdditionalBed.ToString();
-                datePickeStartDate.SelectedDate = roomBookingEntity.StartDate;
-                datePickeEndDate.SelectedDate = roomBookingEntity.EndDate;
-                DropDownListBookingStatus.Items.Clear();
-                foreach (var item in RoomBookingMgmtController.GetStatuses())
-                {
-                    var listItem = new ListItem(item.Key, item.Value);
-                    listItem.Selected = item.Value == roomBookingEntity.BookingStatus.GetHashCode().ToString();
-                    DropDownListBookingStatus.Items.Add(listItem);
-                }
-                TextBoxAdditionalInfo.Text = roomBookingEntity.AdditionalInfo ?? "";
+            }
+            catch (Exception ex)
+            {
+                HelperCommon.ProcessException(ex);
             }
         }
 
@@ -120,8 +133,15 @@ namespace MyHotel.Business.RoomBookingMgmt
 
         protected void ButtonOK_Click(object sender, EventArgs e)
         {
-            saveData();
-            Modal.Close(this, "OK");
+            try
+            {
+                saveData();
+                Modal.Close(this, "OK");
+            }
+            catch (Exception ex)
+            {
+                HelperCommon.ProcessException(ex);
+            }
         }
 
         protected void ButtonCancel_Click(object sender, EventArgs e)
@@ -131,20 +151,34 @@ namespace MyHotel.Business.RoomBookingMgmt
 
         protected void LinkButtonDeleteBooking_Click(object sender, EventArgs e)
         {
-            string id = Request.QueryString["id"];
-            RoomBookingMgmtController.DeleteRoomBooking(int.Parse(id));
-            Modal.Close(this, "OK");
+            try
+            {
+                string id = Request.QueryString["id"];
+                RoomBookingMgmtController.DeleteRoomBooking(int.Parse(id));
+                Modal.Close(this, "OK");
+            }
+            catch (Exception ex)
+            {
+                HelperCommon.ProcessException(ex);
+            }
         }
 
         private void calculateSum()
         {
-            LabelAmountOfDaysValue.Text = (datePickeEndDate.SelectedDate - datePickeStartDate.SelectedDate).TotalDays.ToString();
-            LabelAmountToBePaidValue.Text = (
-                (int.Parse(!string.IsNullOrEmpty(TextBoxPricePerRoom.Text) ? TextBoxPricePerRoom.Text : "0") + int.Parse(!string.IsNullOrEmpty(TextBoxPriceForExtraBed.Text) ? TextBoxPriceForExtraBed.Text : "0"))
-                *
-                int.Parse(LabelAmountOfDaysValue.Text)
-                ).ToString();
-            LabelAmountRemainderToBePaidValue.Text = (int.Parse(LabelAmountToBePaidValue.Text) - int.Parse(!string.IsNullOrEmpty(TextBoxPaid.Text) ? TextBoxPaid.Text : "0")).ToString();
+            try
+            {
+                LabelAmountOfDaysValue.Text = (datePickeEndDate.SelectedDate - datePickeStartDate.SelectedDate).TotalDays.ToString();
+                LabelAmountToBePaidValue.Text = (
+                    (int.Parse(!string.IsNullOrEmpty(TextBoxPricePerRoom.Text) ? TextBoxPricePerRoom.Text : "0") + int.Parse(!string.IsNullOrEmpty(TextBoxPriceForExtraBed.Text) ? TextBoxPriceForExtraBed.Text : "0"))
+                    *
+                    int.Parse(LabelAmountOfDaysValue.Text)
+                    ).ToString();
+                LabelAmountRemainderToBePaidValue.Text = (int.Parse(LabelAmountToBePaidValue.Text) - int.Parse(!string.IsNullOrEmpty(TextBoxPaid.Text) ? TextBoxPaid.Text : "0")).ToString();
+            }
+            catch (Exception ex)
+            {
+                HelperCommon.ProcessException(ex);
+            }
         }
 
         protected void TextBoxPricePerRoom_TextChanged(object sender, EventArgs e)
