@@ -19,7 +19,7 @@
             <asp:PostBackTrigger ControlID="ImageButtonRefreshCalculation" />
         </Triggers>
         <ContentTemplate>
-            <table>
+            <table width="100%">
                 <tr>
                     <td>
                         <asp:Label ID="LabelRoomName" runat="server" Text="Номер:" CssClass="labelBookingDetailsSpecial" />
