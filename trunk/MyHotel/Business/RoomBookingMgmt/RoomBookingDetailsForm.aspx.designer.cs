@@ -67,6 +67,15 @@ namespace MyHotel.Business.RoomBookingMgmt {
         protected global::System.Web.UI.WebControls.TextBox TextBoxGuestName;
         
         /// <summary>
+        /// RequiredFieldValidatorGuestName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorGuestName;
+        
+        /// <summary>
         /// TextBoxGuestPhone control.
         /// </summary>
         /// <remarks>
@@ -74,6 +83,15 @@ namespace MyHotel.Business.RoomBookingMgmt {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBoxGuestPhone;
+        
+        /// <summary>
+        /// RequiredFieldValidatorGuestPhone control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidatorGuestPhone;
         
         /// <summary>
         /// TextBoxAdultNumber control.

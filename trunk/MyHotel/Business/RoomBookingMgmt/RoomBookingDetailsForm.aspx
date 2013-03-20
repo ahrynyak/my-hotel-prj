@@ -18,7 +18,6 @@
             <asp:PostBackTrigger ControlID="LinkButtonDeleteBooking" />
             <asp:PostBackTrigger ControlID="ImageButtonRefreshCalculation" />
             <asp:PostBackTrigger ControlID="datePickeEndDate" />
-            
         </Triggers>
         <ContentTemplate>
             <table>
@@ -46,9 +45,14 @@
                 <tr>
                     <td>
                         <asp:TextBox ID="TextBoxGuestName" runat="server" Width="90%" />
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidatorGuestName" runat="server" ErrorMessage="*"
+                            CssClass="errorValidation" ControlToValidate="TextBoxGuestName" ToolTip="Обов'язкове поле" />
                     </td>
                     <td>
                         <asp:TextBox ID="TextBoxGuestPhone" runat="server" Width="90%" />
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidatorGuestPhone" runat="server"
+                            ErrorMessage="*" CssClass="errorValidation" ControlToValidate="TextBoxGuestPhone"
+                            ToolTip="Обов'язкове поле" />
                     </td>
                 </tr>
                 <tr>
@@ -96,14 +100,12 @@
                 <tr>
                     <td>
                         <bdp:BasicDatePicker ID="datePickeStartDate" runat="server" DisplayType="TextBox"
-                            Width="90%" 
-                            OnSelectionChanged="datePickeStartDate_SelectionChanged" Enabled="False" 
+                            Width="90%" OnSelectionChanged="datePickeStartDate_SelectionChanged" Enabled="False"
                             DateFormat="d-MMM-yyyy (dddd)" ReadOnly="True" />
                     </td>
                     <td>
-                        <bdp:BasicDatePicker ID="datePickeEndDate" runat="server" DisplayType="TextBox" OnSelectionChanged="datePickeEndDate_SelectionChanged" 
-                            Enabled="False" Width="90%" DateFormat="d-MMM-yyyy (dddd)" 
-                            ReadOnly="True" />
+                        <bdp:BasicDatePicker ID="datePickeEndDate" runat="server" DisplayType="TextBox" OnSelectionChanged="datePickeEndDate_SelectionChanged"
+                            Enabled="False" Width="90%" DateFormat="d-MMM-yyyy (dddd)" ReadOnly="True" />
                     </td>
                 </tr>
                 <tr>
