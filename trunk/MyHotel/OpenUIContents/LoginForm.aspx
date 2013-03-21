@@ -5,16 +5,20 @@
     <link href="../css/main.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content2" runat="server" ContentPlaceHolderID="MyHotelMgmtContentPlaceHolder">
-    <table width="100%">
-        <tr>
-            <td align="center">
-                <asp:Login ID="LoginData" runat="server" 
-                    OnAuthenticate="LoginData_Authenticate" CssClass="loginForm">
-                    <CheckBoxStyle CssClass="labelVisiblePeriod" />
-                    <LabelStyle CssClass="labelVisiblePeriod" />
-                    <TitleTextStyle CssClass="labelVisiblePeriod" />
-                </asp:Login>
-            </td>
-        </tr>
-    </table>
+    <div>
+        <div class="defaultPageInfoDiv">
+            <table width="100%">
+                <tr>
+                    <td align="center">
+                        <asp:Login ID="LoginData" runat="server" OnAuthenticate="LoginData_Authenticate"
+                            CssClass="loginForm" DisplayRememberMe="False">
+                            <CheckBoxStyle CssClass="labelVisiblePeriod" />
+                            <LabelStyle CssClass="labelVisiblePeriod" />
+                            <TitleTextStyle CssClass="labelVisiblePeriod" />
+                        </asp:Login>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
 </asp:Content>
