@@ -2,17 +2,17 @@
 /* 
 
 DayPilot Scheduler Theme 
-http://themes.daypilot.org/scheduler/theme/k65x2u
+http://themes.daypilot.org/scheduler/theme/bwomud
 
 Compatibility:
 
-DayPilot Pro for ASP.NET WebForms 7.1
+DayPilot Pro for ASP.NET WebForms 7.2
 http://www.daypilot.org/
 
-DayPilot Pro for ASP.NET MVC 7.1
+DayPilot Pro for ASP.NET MVC 7.2
 http://mvc.daypilot.org/
 
-DayPilot Pro for Java 7.1
+DayPilot Pro for Java 7.2
 http://java.daypilot.org/
 
 */
@@ -88,36 +88,36 @@ http://java.daypilot.org/
 .myhstyle_timeheadergroup,
 .myhstyle_timeheadercol
 {
-	color: #666666;
-	background: #ffcf75;
+	color: #ffffff;
+	background: #86bf00;
 	
 	background: -moz-linear-gradient(
 		top,
-		#ffd588 0%,
-		#ffc962);
+		#8dc900 0%,
+		#7fb500);
 	background: -webkit-gradient(
 		linear, left top, left bottom, 
-		from(#ffd588),
-		to(#ffc962));
-	filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr="#ffd588", endColorStr="#ffc962");
+		from(#8dc900),
+		to(#7fb500));
+	filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr="#8dc900", endColorStr="#7fb500");
 	
 }
 
 .myhstyle_rowheader,
 .myhstyle_corner
 {
-	color: #666666;
-	background: #ffcf75;
+	color: #ffffff;
+	background: #86bf00;
 	
 	background: -moz-linear-gradient(
 		left,
-		#ffd588 0%,
-		#ffc962);
+		#8dc900 0%,
+		#7fb500);
 	background: -webkit-gradient(
 		linear, left top, right top, 
-		from(#ffd588),
-		to(#ffc962));
-	filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr="#ffd588", endColorStr="#ffc962", GradientType=1);
+		from(#8dc900),
+		to(#7fb500));
+	filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr="#8dc900", endColorStr="#7fb500", GradientType=1);
 	
 }
 
@@ -167,17 +167,17 @@ http://java.daypilot.org/
 	filter: alpha(opacity=90);
 	
 	color: #ffffff;
-	background: #777777;
+	background: #ff0000;
 	
 	background: -moz-linear-gradient(
 		top,
-		#838383 0%,
-		#6b6b6b);
+		#ff1a1a 0%,
+		#e60000);
 	background: -webkit-gradient(
 		linear, left top, left bottom, 
-		from(#838383),
-		to(#6b6b6b));
-	filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr="#838383", endColorStr="#6b6b6b");
+		from(#ff1a1a),
+		to(#e60000));
+	filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr="#ff1a1a", endColorStr="#e60000");
 	
 }
 

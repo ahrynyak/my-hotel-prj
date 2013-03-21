@@ -47,7 +47,7 @@
 
 .sundaycellstyle
 {
-    background-color:#ffcf75;
+    background-color:#86bf00;
 }
 
 .weekday
@@ -96,4 +96,15 @@
     background-color:transparent;
     text-align:left;
     padding-left:20px;
+}
+
+.defaultPageInfoDiv
+{
+    background-color:#86bf00;
+    width:70%;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -khtml-border-radius: 20px;
+    border-radius: 20px;
+    box-shadow: 10px 10px 5px #888888;
 }
