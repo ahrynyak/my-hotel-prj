@@ -36,9 +36,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\3rdParty\AjaxControlToolkit.Binary.NET4\AjaxControlToolkit.dll</HintPath>
     </Reference>
-    <Reference Include="BasicFrame.WebControls.BasicDatePicker">
-      <HintPath>ExternalAss\BasicFrame.WebControls.BasicDatePicker.dll</HintPath>
-    </Reference>
     <Reference Include="DayPilot, Version=7.1.2702.1, Culture=neutral, PublicKeyToken=426941954f05e7fe, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>ExternalAss\DayPilot.dll</HintPath>
@@ -66,8 +63,6 @@
     <Content Include="css\DayPilot\myhstyle.css" />
     <Content Include="css\main.css" />
     <None Include="DBScripts\InitDBScripts.sql" />
-    <None Include="ExternalAss\BasicFrame.WebControls.BasicDatePicker.dll" />
-    <None Include="ExternalAss\BasicFrame.WebControls.BasicDatePicker.XML" />
     <None Include="ExternalAss\DayPilot.dll" />
     <Content Include="Default.aspx" />
     <Content Include="icons\refresh_green.ico" />

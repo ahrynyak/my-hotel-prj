@@ -46,12 +46,12 @@ namespace MyHotel.Business.RoomBookingMgmt
         {
             if (string.IsNullOrEmpty(datePickeStart.Text))
             {
-                datePickeStart.Text = RoomBookingMgmtController.GetDefaultStartDate().ToString(HelperCommon.DateFormat);
+                datePickeStart.Text = RoomBookingMgmtController.GetDefaultStartDate().ToString(HelperCommon.DateFormat).ToLower();
                 calendarExtenderStart.Format = HelperCommon.DateFormat;
             }
             if (string.IsNullOrEmpty(datePickeEnd.Text))
             {
-                datePickeEnd.Text = RoomBookingMgmtController.GetDefaultEndDate().ToString(HelperCommon.DateFormat);
+                datePickeEnd.Text = RoomBookingMgmtController.GetDefaultEndDate().ToString(HelperCommon.DateFormat).ToLower();
                 calendarExtenderEnd.Format = HelperCommon.DateFormat;
             }
         }

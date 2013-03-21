@@ -95,8 +95,8 @@ namespace MyHotel.Business.RoomBookingMgmt
                     TextBoxChildrenNumber.Text = roomBookingEntity.NumberOfChild.ToString();
                     TextBoxPricePerRoom.Text = roomBookingEntity.PricePerRoom.ToString();
                     TextBoxPriceForExtraBed.Text = roomBookingEntity.PriceOfAdditionalBed.ToString();
-                    datePickeStart.Text = roomBookingEntity.StartDate.ToString(HelperCommon.DateFormat);
-                    datePickeEnd.Text = roomBookingEntity.EndDate.ToString(HelperCommon.DateFormat);
+                    datePickeStart.Text = roomBookingEntity.StartDate.ToString(HelperCommon.DateFormat).ToLower();
+                    datePickeEnd.Text = roomBookingEntity.EndDate.ToString(HelperCommon.DateFormat).ToLower();
                     DropDownListBookingStatus.Items.Clear();
                     foreach (var item in RoomBookingMgmtController.GetStatuses())
                     {
