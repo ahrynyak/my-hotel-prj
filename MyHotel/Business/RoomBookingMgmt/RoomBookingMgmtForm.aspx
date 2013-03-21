@@ -54,7 +54,7 @@
             </td>
         </tr>
         <tr>
-            <td align="left" colspan="4">
+            <td align="left" colspan="4" class="dayPilotSchedulerDiv">
                 <DayPilot:DayPilotScheduler runat="server" ID="dayPilotScheduler" RowHeaderColumnWidths="150"
                     CellGroupBy="Month" CellDuration="1440" DataEndField="EndDate" DataTextField="GuestName"
                     DataValueField="RoomBookingID" DataResourceField="RoomID" DataTagFields="BookingStatus"
