@@ -108,3 +108,23 @@
     border-radius: 20px;
     box-shadow: 10px 10px 5px #888888;
 }
+
+.dayPilotSchedulerDiv
+{
+    background-color:#86bf00;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -khtml-border-radius: 20px;
+    border-radius: 20px;
+    box-shadow: 10px 10px 5px #888888;
+}
+
+.bookigDetailsDiv
+{
+    background-color:#86bf00;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -khtml-border-radius: 20px;
+    border-radius: 20px;
+    box-shadow: 10px 10px 5px #888888;
+}
