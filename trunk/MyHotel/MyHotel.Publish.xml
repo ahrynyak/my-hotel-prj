@@ -1,4 +1,40 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <publishData>
-  <publishProfile publishUrl="https://ukrroot-001-site1.smarterasp.net:8172/msdeploy.axd" deleteExistingFiles="False" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="ukrroot-001-site1" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="True" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="MSDeploy" replaceMatchingFiles="True" userName="ifc\ukrroot-001" savePWD="True" userPWD="AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAYqTuleqBaEufpYUgDfrDKgAAAAACAAAAAAAQZgAAAAEAACAAAADOEeZmwdHY7wynCVqusHVeurtbu56NBHfGrwH9IWZAPQAAAAAOgAAAAAIAACAAAAAAN6+/gVWERsokPcVgbnSlDkpYHhVurGfQWBRWbVlsTCAAAAAcdRRLY5sJAp8DMXfhr8ICfFnMIHkgBeNEhVD3xff7q0AAAABrF6cqV3oPsS/0+dGhrY6sLD1G1oG141KsOcCveUC+IMANsd9zI+0357GOGGY86sLuQcWu49wY/TMUMeqAH247" SelectedForPublish="True" />
+  <publishProfile publishUrl="https://ukrroot-001-site1.smarterasp.net:8172/msdeploy.axd" deleteExistingFiles="True" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="ukrroot-001-site1" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="True" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="MSDeploy" replaceMatchingFiles="False" userName="ifc\ukrroot-001" savePWD="True" userPWD="AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAmffSB0yTe0yEpdRj/GdWvwAAAAACAAAAAAADZgAAwAAAABAAAAAOXd+Kj5n+zd7DwYAWfSz1AAAAAASAAACgAAAAEAAAABmR1sFgCbwQYbNQwx3IY8wYAAAAx2CpnUncso0l2Xd8f3NR9mmhfG4BY9OGFAAAAGMwwg9IDVv4GxRV3NXk/nJxP2IV" SelectedForPublish="True">
+    <file relUrl="bin/ru/AjaxControlToolkit.resources.dll" publishTime="01/24/2013 18:49:22" />
+    <file relUrl="bin/MyHotel.pdb" publishTime="03/20/2013 17:06:20" />
+    <file relUrl="js/modal.js" publishTime="03/18/2013 09:02:52" />
+    <file relUrl="MasterPages/MyHotelMgmt.Master" publishTime="03/18/2013 17:26:31" />
+    <file relUrl="icons/refresh_green.ico" publishTime="03/19/2013 11:26:44" />
+    <file relUrl="bin/es/AjaxControlToolkit.resources.dll" publishTime="01/24/2013 18:49:21" />
+    <file relUrl="bin/hi/AjaxControlToolkit.resources.dll" publishTime="01/24/2013 18:49:22" />
+    <file relUrl="bin/zh-CHS/AjaxControlToolkit.resources.dll" publishTime="01/24/2013 18:49:22" />
+    <file relUrl="bin/DayPilot.dll" publishTime="03/18/2013 09:02:52" />
+    <file relUrl="OpenUIContents/LoginForm.aspx" publishTime="03/20/2013 16:50:31" />
+    <file relUrl="bin/AjaxControlToolkit.pdb" publishTime="01/24/2013 18:49:20" />
+    <file relUrl="Business/RoomBookingMgmt/RoomBookingDetailsForm.aspx" publishTime="03/20/2013 16:30:41" />
+    <file relUrl="bin/de/AjaxControlToolkit.resources.dll" publishTime="01/24/2013 18:49:21" />
+    <file relUrl="bin/BasicFrame.WebControls.BasicDatePicker.dll" publishTime="03/18/2013 09:02:52" />
+    <file relUrl="bin/AjaxControlToolkit.dll" publishTime="01/24/2013 18:49:20" />
+    <file relUrl="css/main.css" publishTime="03/20/2013 16:52:32" />
+    <file relUrl="bin/zh-CHT/AjaxControlToolkit.resources.dll" publishTime="01/24/2013 18:49:23" />
+    <file relUrl="Default.aspx" publishTime="03/20/2013 17:01:35" />
+    <file relUrl="bin/he/AjaxControlToolkit.resources.dll" publishTime="01/24/2013 18:49:21" />
+    <file relUrl="MasterPages/MyHotelSecuredMgmt.Master" publishTime="03/18/2013 09:02:52" />
+    <file relUrl="bin/fr/AjaxControlToolkit.resources.dll" publishTime="01/24/2013 18:49:21" />
+    <file relUrl="js/message.js" publishTime="03/19/2013 13:17:07" />
+    <file relUrl="bin/nl/AjaxControlToolkit.resources.dll" publishTime="01/24/2013 18:49:22" />
+    <file relUrl="bin/tr-TR/AjaxControlToolkit.resources.dll" publishTime="01/24/2013 18:49:22" />
+    <file relUrl="bin/MyHotel.dll" publishTime="03/20/2013 17:06:20" />
+    <file relUrl="bin/it/AjaxControlToolkit.resources.dll" publishTime="01/24/2013 18:49:22" />
+    <file relUrl="Business/RoomBookingMgmt/RoomBookingMgmtForm.aspx" publishTime="03/20/2013 08:30:55" />
+    <file relUrl="Web.config" publishTime="03/20/2013 17:00:20" />
+    <file relUrl="bin/cs/AjaxControlToolkit.resources.dll" publishTime="01/24/2013 18:49:21" />
+    <file relUrl="bin/pt/AjaxControlToolkit.resources.dll" publishTime="01/24/2013 18:49:22" />
+    <file relUrl="bin/ar/AjaxControlToolkit.resources.dll" publishTime="01/24/2013 18:49:21" />
+    <file relUrl="css/DayPilot/myhstyle.css" publishTime="03/18/2013 16:48:55" />
+    <file relUrl="bin/ko/AjaxControlToolkit.resources.dll" publishTime="01/24/2013 18:49:22" />
+    <file relUrl="bin/ja/AjaxControlToolkit.resources.dll" publishTime="01/24/2013 18:49:22" />
+    <file relUrl="bin/BasicFrame.WebControls.BasicDatePicker.xml" publishTime="03/18/2013 09:02:52" />
+  </publishProfile>
 </publishData>
