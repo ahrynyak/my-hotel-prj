@@ -16,11 +16,17 @@
     <table width="100%">
         <tr>
             <td align="center">
-                <asp:Label ID="LabelHeader" runat="server" Text="Зелена садиба" CssClass="labelHeader"/>
+                <asp:Label ID="LabelHeader" runat="server" Text="Зелена садиба" CssClass="labelHeader" />
+            </td>
+            <td align="right">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolderRightLeftCornerMaster" runat="server" />
+                 <br />
+                <asp:LinkButton ID="linkButtonHome" runat="server" Text="Home" 
+                    CssClass="loginoutbutton" onclick="linkButtonHome_Click" />
             </td>
         </tr>
         <tr>
-            <td align='center'>
+            <td align='center' colspan="2">
                 <asp:ContentPlaceHolder ID="MyHotelMgmtContentPlaceHolder" runat="server">
                 </asp:ContentPlaceHolder>
             </td>
@@ -28,6 +34,8 @@
         <tr>
             <td align="center">
                 <asp:Label ID="LabelFooter" runat="server" Text="@2013" CssClass="labelFooter" />
+            </td>
+            <td>
             </td>
         </tr>
     </table>

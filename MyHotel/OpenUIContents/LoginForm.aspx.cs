@@ -16,7 +16,21 @@ namespace MyHotel.OpenUIContents
             {
                 e.Authenticated = true;
                 FormsAuthentication.RedirectFromLoginPage(LoginData.UserName, true);
+                if (buttonLogInLogOut != null)
+                {
+                    buttonLogInLogOut.Visible = true;
+                }
             }
+        }
+        Control buttonLogInLogOut = null;
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            Control buttonLogInLogOut = Page.FindControl("LinkButtonLogInLogOut");
+            if (buttonLogInLogOut != null)
+            {
+                buttonLogInLogOut.Visible = false;
+            }
+
         }
     }
 }
