@@ -73,3 +73,7 @@
         </tr>
     </table>
 </asp:Content>
+<asp:Content ID="Content2" runat="server" ContentPlaceHolderID="ContentPlaceHolderRightTopCornerSecured">
+    <asp:LinkButton ID="linkButtonSignOut" runat="server" CssClass="loginoutbutton" Text="Sign out"
+        OnClick="linkButtonSignOut_Click" />
+</asp:Content>

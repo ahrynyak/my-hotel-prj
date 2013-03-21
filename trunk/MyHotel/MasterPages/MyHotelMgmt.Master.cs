@@ -4,20 +4,25 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.Security;
 
 namespace MyHotel.MasterPages
 {
     public partial class MyHotelMgmt : System.Web.UI.MasterPage
     {
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
 
-        protected override void OnLoad(EventArgs e)
+        protected void linkButtonHome_Click(object sender, EventArgs e)
         {
-            
-            base.OnLoad(e);
+            Response.Redirect("~/Default.aspx");
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿<%@ Master Language="C#" MasterPageFile="~/MasterPages/MyHotelMgmt.Master" AutoEventWireup="true"
     CodeBehind="MyHotelSecuredMgmt.master.cs" Inherits="MyHotel.MasterPages.MyHotelSecuredMgmt" %>
-<asp:Content ID="Content1" runat="server" contentplaceholderid="MyHotelMgmtContentPlaceHolder">
+
+<asp:Content ID="Content1" runat="server" ContentPlaceHolderID="MyHotelMgmtContentPlaceHolder">
     <table width="100%">
         <tr>
             <td align="left">
@@ -10,4 +11,7 @@
         </tr>
     </table>
 </asp:Content>
-
+<asp:Content ID="Content2" runat="server" ContentPlaceHolderID="ContentPlaceHolderRightLeftCornerMaster">
+    <asp:ContentPlaceHolder ID="ContentPlaceHolderRightTopCornerSecured" runat="server">
+    </asp:ContentPlaceHolder>
+</asp:Content>

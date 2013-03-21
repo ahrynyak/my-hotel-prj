@@ -11,7 +11,19 @@ namespace MyHotel
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Response.Redirect("OpenUIContents/LoginForm.aspx");
+
+        }
+
+        protected void linkButtonSignIn_Click(object sender, EventArgs e)
+        {
+            if (this.Page.User != null && this.Page.User.Identity.IsAuthenticated)
+            {
+                Response.Redirect("~/Business/RoomBookingMgmt/RoomBookingMgmtForm.aspx", true);
+            }
+            else
+            {
+                Response.Redirect("~/OpenUIContents/LoginForm.aspx");
+            }
         }
     }
 }

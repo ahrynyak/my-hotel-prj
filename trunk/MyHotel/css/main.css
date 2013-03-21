@@ -63,10 +63,13 @@
 {
     color: red;
 }
-
 .loginForm
 {
     border-style:solid;
     border-width:2px;
     border-color:White;
+}
+.loginoutbutton
+{
+    color: red;
 }

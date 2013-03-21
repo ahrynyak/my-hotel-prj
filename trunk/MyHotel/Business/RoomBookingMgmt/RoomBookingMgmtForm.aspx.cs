@@ -12,6 +12,7 @@ using MyHotel.Business;
 using System.IO;
 using MyHotel.Utils;
 using System.Globalization;
+using System.Web.Security;
 
 namespace MyHotel.Business.RoomBookingMgmt
 {
@@ -20,15 +21,22 @@ namespace MyHotel.Business.RoomBookingMgmt
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (ScriptManager.GetCurrent(Page) == null)
+            if (this.Page.User != null && this.Page.User.Identity.IsAuthenticated)
             {
-                Page.Form.Controls.AddAt(0, new ScriptManager());
+                if (ScriptManager.GetCurrent(Page) == null)
+                {
+                    Page.Form.Controls.AddAt(0, new ScriptManager());
+                }
+                if (!Page.IsPostBack)
+                {
+                    initData();
+                }
+                updateVisiblePeriod();
             }
-            if (!Page.IsPostBack)
+            else
             {
-                initData();
+                Response.Redirect("OpenUIContents/LoginForm.aspx");
             }
-            updateVisiblePeriod();
         }
 
         private void initData()
@@ -180,6 +188,15 @@ namespace MyHotel.Business.RoomBookingMgmt
         protected void datePickeEnd_TextChanged(object sender, EventArgs e)
         {
             updateVisiblePeriod();
+        }
+
+        protected void linkButtonSignOut_Click(object sender, EventArgs e)
+        {
+            if (this.Page.User != null && this.Page.User.Identity.IsAuthenticated)
+            {
+                FormsAuthentication.SignOut();
+            }
+            Response.Redirect("~/OpenUIContents/LoginForm.aspx");
         }
     }
 }
