@@ -1,0 +1,68 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="GreenHouseInfo.master.cs"
+    Inherits="MyHotel.MasterPages.GreenHouseInfo" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link href="../css/GreenHouseStyle.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
+    <div>
+        <table width="100%">
+            <tr>
+                <td class="MainHeader">
+                    Зелена садиба
+                </td>
+                <td style="width: 150px;">
+                    UA | RU | Sign in
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <div>
+                    <div align="left" style="width:70%;">
+                        <asp:TabContainer ID="TabContainerUA" runat="server" ActiveTabIndex="1" 
+                            Width="100%" CssClass="CustomTabStyle">
+                            
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TabPanel ID="TabPanelAbout" runat="server" HeaderText="About">
+                                <ContentTemplate><asp:ContentPlaceHolder ID="GreenHouseContentPlaceHolderTabAbout" runat="server"></asp:ContentPlaceHolder></ContentTemplate>
+                            
+
+</asp:TabPanel>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TabPanel ID="TabPanelRooms" runat="server" HeaderText="Rooms">
+                                <ContentTemplate><asp:ContentPlaceHolder ID="GreenHouseContentPlaceHolderTabRooms" runat="server"></asp:ContentPlaceHolder></ContentTemplate>
+                            
+
+</asp:TabPanel>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TabPanel ID="TabPanelPrices" runat="server" HeaderText="Prices">
+                                <ContentTemplate><asp:ContentPlaceHolder ID="GreenHouseContentPlaceHolderTabPrices" runat="server"></asp:ContentPlaceHolder></ContentTemplate>
+                            
+
+</asp:TabPanel>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TabPanel ID="TabPanelPhotos" runat="server" HeaderText="Photos">
+                                <ContentTemplate><asp:ContentPlaceHolder ID="GreenHouseContentPlaceHolderTabPhotos" runat="server"></asp:ContentPlaceHolder></ContentTemplate>
+                            
+
+</asp:TabPanel>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TabPanel ID="TabPanelContacts" runat="server" HeaderText="Contacts">
+                                <ContentTemplate><asp:ContentPlaceHolder ID="ContentPlaceHolderContacts" runat="server"></asp:ContentPlaceHolder></ContentTemplate>
+                            
+
+</asp:TabPanel>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </asp:TabContainer>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    </form>
+</body>
+</html>

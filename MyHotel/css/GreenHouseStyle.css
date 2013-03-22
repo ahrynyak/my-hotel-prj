@@ -1,0 +1,64 @@
+﻿body 
+{
+    color: #AAF200;
+    background: #AAF200;
+    background: -webkit-linear-gradient(top right, #fafafa, #AAF200)
+}
+.MainHeader
+{
+    font-size: xx-large;
+    color: White;
+    font-style: italic;
+    text-align: center;
+    font-weight: bolder;
+}
+.H1Text
+{
+    font-size: x-large;
+    color: Green;
+    font-weight: bold;
+    font-style: oblique;
+}
+.H2Text
+{
+    font-size: medium;
+    color: Green;
+    font-style: italic;
+    font-weight: bold;
+}
+.NormalText
+{
+    font-size: medium;
+    color: Green;
+}
+
+.CustomTabStyle .ajax__tab_header
+{
+    font-size: x-large;
+}
+.CustomTabStyle .ajax__tab_tab
+{
+    color: White;
+}
+.CustomTabStyle .ajax__tab_header .ajax__tab_outer
+{
+    color: White;
+}
+.CustomTabStyle .ajax__tab_header .ajax__tab_outer
+{
+    border-color: White;
+    width: 160px;
+    height: 80px;
+    padding-left: 10px;
+    margin-right: 3px;
+    border: solid 1px White;
+}
+.CustomTabStyle .ajax__tab_active .ajax__tab_outer
+{
+    background-color: #98d900;
+}
+.CustomTabStyle .ajax__tab_body
+{
+    background-color: White;
+}
+

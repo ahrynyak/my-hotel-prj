@@ -59,12 +59,16 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Business\GreenHouseInfo\GreenHouseInfoUA.aspx" />
     <Content Include="Business\RoomBookingMgmt\RoomBookingDetailsForm.aspx" />
     <Content Include="css\DayPilot\myhstyle.css" />
     <Content Include="css\main.css" />
     <None Include="DBScripts\InitDBScripts.sql" />
     <None Include="ExternalAss\DayPilot.dll" />
+    <Content Include="css\GreenHouseStyle.css" />
     <Content Include="Default.aspx" />
+    <Content Include="icons\GHApart.jpg" />
+    <Content Include="icons\GHDBL.jpg" />
     <Content Include="icons\refresh_green.ico" />
     <Content Include="js\message.js" />
     <Content Include="js\modal.js" />
@@ -79,11 +83,19 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
+    <Content Include="MasterPages\GreenHouseInfo.Master" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Business\Entity\RoomDetailedEntity.cs" />
     <Compile Include="Business\Entity\RoomBookingEntity.cs" />
     <Compile Include="Business\Entity\RoomEntity.cs" />
+    <Compile Include="Business\GreenHouseInfo\GreenHouseInfoUA.aspx.cs">
+      <DependentUpon>GreenHouseInfoUA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Business\GreenHouseInfo\GreenHouseInfoUA.aspx.designer.cs">
+      <DependentUpon>GreenHouseInfoUA.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Business\RoomBookingMgmt\RoomBookingDetailsForm.aspx.cs">
       <DependentUpon>RoomBookingDetailsForm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -106,6 +118,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataClasses.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPages\GreenHouseInfo.Master.cs">
+      <DependentUpon>GreenHouseInfo.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPages\GreenHouseInfo.Master.designer.cs">
+      <DependentUpon>GreenHouseInfo.Master</DependentUpon>
     </Compile>
     <Compile Include="MasterPages\MyHotelMgmt.Master.cs">
       <DependentUpon>MyHotelMgmt.Master</DependentUpon>
