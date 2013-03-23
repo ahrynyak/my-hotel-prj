@@ -69,11 +69,18 @@
     <Content Include="Default.aspx" />
     <Content Include="icons\GHApart.jpg" />
     <Content Include="icons\GHDBL.jpg" />
+    <Content Include="icons\greenhouse_body.jpg" />
+    <Content Include="icons\greenhouse_header.png" />
+    <Content Include="icons\greenhouse_logo.bmp" />
+    <Content Include="icons\greenhouse_main.png" />
     <Content Include="icons\refresh_green.ico" />
     <Content Include="js\message.js" />
     <Content Include="js\modal.js" />
     <Content Include="OpenUIContents\LoginForm.aspx" />
     <Content Include="Business\RoomBookingMgmt\RoomBookingMgmtForm.aspx" />
+    <None Include="Resources\Image1.png" />
+    <None Include="Resources\Image2.bmp" />
+    <None Include="Resources\Image1.bmp" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
