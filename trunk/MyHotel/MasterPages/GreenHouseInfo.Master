@@ -6,7 +6,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-    <link href="../css/GreenHouseStyle.css" rel="stylesheet" type="text/css" />
+    <link href="/css/GreenHouseStyle.css" rel="stylesheet" type="text/css" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -20,36 +20,61 @@
                 <div id="site_title">
                     <span class="MainHeaderBigP1">ЗЕЛЕНА </span><span class="MainHeaderBigP2">САДИБА</span>
                     <br />
-                    <span class="MainHeaderSmall">ОЗДОРОВЛЕННЯ ТА ВІДПОЧИНОК</span> 
+                    <span class="MainHeaderSmall">ОЗДОРОВЛЕННЯ ТА ВІДПОЧИНОК</span>
                 </div>
             </div>
             <div id="greenhouse_main">
-                <asp:TabContainer ID="TabContainerUA" runat="server" ActiveTabIndex="1" CssClass="CustomTabStyle" Width="100%">
-                    <asp:TabPanel ID="TabPanelAbout" runat="server" HeaderText="About">
+                <asp:TabContainer ID="TabContainerUA" runat="server" ActiveTabIndex="1" CssClass="CustomTabStyle">
+                    <asp:TabPanel ID="TabPanelHome" runat="server" HeaderText="Home">
+                        <HeaderTemplate>
+                            <div>
+                                <img src="/icons/1364080863_home_64.png" alt="" width="48px" height="48px" />
+                            </div>
+                        </HeaderTemplate>
                         <ContentTemplate>
-                            <asp:ContentPlaceHolder ID="GreenHouseContentPlaceHolderTabAbout" runat="server">
+                            <asp:ContentPlaceHolder ID="GreenHouseContentPlaceHolderTabHome" runat="server">
                             </asp:ContentPlaceHolder>
                         </ContentTemplate>
                     </asp:TabPanel>
                     <asp:TabPanel ID="TabPanelRooms" runat="server" HeaderText="Rooms">
+                        <HeaderTemplate>
+                            <div>
+                                <img src="/icons/hotel_bed.png" alt="" width="48px" height="48px" />
+                            </div>
+                        </HeaderTemplate>
                         <ContentTemplate>
                             <asp:ContentPlaceHolder ID="GreenHouseContentPlaceHolderTabRooms" runat="server">
                             </asp:ContentPlaceHolder>
                         </ContentTemplate>
                     </asp:TabPanel>
                     <asp:TabPanel ID="TabPanelPrices" runat="server" HeaderText="Prices">
+                        <HeaderTemplate>
+                            <div>
+                                <img src="/icons/1364080984_money.png" alt="" width="48px" height="48px" />
+                            </div>
+                        </HeaderTemplate>
                         <ContentTemplate>
                             <asp:ContentPlaceHolder ID="GreenHouseContentPlaceHolderTabPrices" runat="server">
                             </asp:ContentPlaceHolder>
                         </ContentTemplate>
                     </asp:TabPanel>
                     <asp:TabPanel ID="TabPanelPhotos" runat="server" HeaderText="Photos">
+                        <HeaderTemplate>
+                            <div>
+                                <img src="/icons/1364081059_Picture.png" alt="" width="48px" height="48px" />
+                            </div>
+                        </HeaderTemplate>
                         <ContentTemplate>
                             <asp:ContentPlaceHolder ID="GreenHouseContentPlaceHolderTabPhotos" runat="server">
                             </asp:ContentPlaceHolder>
                         </ContentTemplate>
                     </asp:TabPanel>
                     <asp:TabPanel ID="TabPanelContacts" runat="server" HeaderText="Contacts">
+                        <HeaderTemplate>
+                            <div>
+                                <img src="/icons/1364081131_phone-1.png" alt="" width="48px" height="48px" />
+                            </div>
+                        </HeaderTemplate>
                         <ContentTemplate>
                             <asp:ContentPlaceHolder ID="ContentPlaceHolderContacts" runat="server">
                             </asp:ContentPlaceHolder>

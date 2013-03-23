@@ -49,22 +49,22 @@ namespace MyHotel.MasterPages {
         protected global::AjaxControlToolkit.TabContainer TabContainerUA;
         
         /// <summary>
-        /// TabPanelAbout control.
+        /// TabPanelHome control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.TabPanel TabPanelAbout;
+        protected global::AjaxControlToolkit.TabPanel TabPanelHome;
         
         /// <summary>
-        /// GreenHouseContentPlaceHolderTabAbout control.
+        /// GreenHouseContentPlaceHolderTabHome control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder GreenHouseContentPlaceHolderTabAbout;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder GreenHouseContentPlaceHolderTabHome;
         
         /// <summary>
         /// TabPanelRooms control.

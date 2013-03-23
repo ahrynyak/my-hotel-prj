@@ -5,7 +5,7 @@ body
     padding: 0px;
     color: #625e5e;
     font-family: Tahoma, Geneva, sans-serif;
-    font-size: 13px;
+    font-size: 14px;
     line-height: 1.5em;
     background-color: #000;
     background-image: url(../icons/greenhouse_body.jpg);
@@ -67,7 +67,6 @@ em { color: #e55822; }
 }
 #site_title a span {
 	display: block;
-	font-size: 14px;
 	color: #333;
 	font-weight: normal;
 	margin-top: 5px;
@@ -78,7 +77,6 @@ em { color: #e55822; }
 .MainHeaderSmall
 {
     margin-top:15px;
-    font-size: 14px;
     font-style: normal;
     font-weight: normal;
     font-family: Geneva;
@@ -113,29 +111,47 @@ em { color: #e55822; }
     font-family:Geneva;
 }
 /*End of Text style*/
+
 /*Tabs style*/
+
 .CustomTabStyle
 {
-    
+    width: 100%;
 }
 .CustomTabStyle .ajax__tab_header
 {
     font-size: x-large;
-    background-color: #E3E3E3;
+    background-color: #1AA703;
 }
+
+/*Start*/
+.CustomTabStyle .ajax__tab_active
+{
+        
+
+}
+/*End*/
+.CustomTabStyle .ajax__tab_outer
+{
+}
+.CustomTabStyle .ajax__tab_inner
+{
+}
+
 .CustomTabStyle .ajax__tab_tab
 {
 }
-.CustomTabStyle .ajax__tab_header .ajax__tab_outer
+.CustomTabStyle 
+.ajax__tab_header 
+.ajax__tab_outer
 {
     width: 140px;
     height: 70px;
-    border-top: solid 1px White;
-    border-left : solid 1px White;
-    border-right : solid 1px White;
     font-family: Geneva;
 }
-.CustomTabStyle .ajax__tab_active .ajax__tab_outer
+.CustomTabStyle 
+.ajax__tab_active 
+.ajax__tab_outer
 {
     background-color: White;
 }
@@ -143,4 +159,7 @@ em { color: #e55822; }
 {
     background-color: White;
 }
+
 /*End of Tabs style*/
+
+
