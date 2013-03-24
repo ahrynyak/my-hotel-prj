@@ -24,7 +24,7 @@
                 </div>
             </div>
             <div id="greenhouse_main">
-                <asp:TabContainer ID="TabContainerUA" runat="server" ActiveTabIndex="1" CssClass="CustomTabStyle"
+                <asp:TabContainer ID="TabContainerUA" runat="server" ActiveTabIndex="1" CssClass="ajax__tab_green-theme"
                     Width="100%">
                     <asp:TabPanel ID="TabPanelHome" runat="server" HeaderText="Home">
                         <HeaderTemplate>
@@ -46,6 +46,9 @@
                         <HeaderTemplate>
                             <div>
                                 <img src="/icons/hotel_bed.png" alt="" width="48px" height="48px" />
+                                <br />
+                                <asp:ContentPlaceHolder ID="GreenHouseContentPlaceHolderTabRoomsName" runat="server">
+                                </asp:ContentPlaceHolder>
                             </div>
                         </HeaderTemplate>
                         <ContentTemplate>
@@ -57,6 +60,9 @@
                         <HeaderTemplate>
                             <div>
                                 <img src="/icons/1364080984_money.png" alt="" width="48px" height="48px" />
+                                <br />
+                                <asp:ContentPlaceHolder ID="GreenHouseContentPlaceHolderTabPricesName" runat="server">
+                                </asp:ContentPlaceHolder>
                             </div>
                         </HeaderTemplate>
                         <ContentTemplate>
@@ -68,6 +74,9 @@
                         <HeaderTemplate>
                             <div>
                                 <img src="/icons/1364081059_Picture.png" alt="" width="48px" height="48px" />
+                                <br />
+                                <asp:ContentPlaceHolder ID="GreenHouseContentPlaceHolderTabPhotosName" runat="server">
+                                </asp:ContentPlaceHolder>
                             </div>
                         </HeaderTemplate>
                         <ContentTemplate>
@@ -79,6 +88,9 @@
                         <HeaderTemplate>
                             <div>
                                 <img src="/icons/1364081131_phone-1.png" alt="" width="48px" height="48px" />
+                                <br />
+                                <asp:ContentPlaceHolder ID="ContentPlaceHolderContactsName" runat="server">
+                                </asp:ContentPlaceHolder>
                             </div>
                         </HeaderTemplate>
                         <ContentTemplate>
