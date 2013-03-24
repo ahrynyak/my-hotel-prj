@@ -3,6 +3,9 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
+<asp:Content ID="ss" ContentPlaceHolderID="GreenHouseContentPlaceHolderTabHomeName" runat="server">
+    Про нас
+</asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="GreenHouseContentPlaceHolderTabHome"
     runat="server">
     <p>
