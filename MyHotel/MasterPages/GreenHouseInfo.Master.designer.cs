@@ -85,6 +85,15 @@ namespace MyHotel.MasterPages {
         protected global::AjaxControlToolkit.TabPanel TabPanelRooms;
         
         /// <summary>
+        /// GreenHouseContentPlaceHolderTabRoomsName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder GreenHouseContentPlaceHolderTabRoomsName;
+        
+        /// <summary>
         /// GreenHouseContentPlaceHolderTabRooms control.
         /// </summary>
         /// <remarks>
@@ -101,6 +110,15 @@ namespace MyHotel.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AjaxControlToolkit.TabPanel TabPanelPrices;
+        
+        /// <summary>
+        /// GreenHouseContentPlaceHolderTabPricesName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder GreenHouseContentPlaceHolderTabPricesName;
         
         /// <summary>
         /// GreenHouseContentPlaceHolderTabPrices control.
@@ -121,6 +139,15 @@ namespace MyHotel.MasterPages {
         protected global::AjaxControlToolkit.TabPanel TabPanelPhotos;
         
         /// <summary>
+        /// GreenHouseContentPlaceHolderTabPhotosName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder GreenHouseContentPlaceHolderTabPhotosName;
+        
+        /// <summary>
         /// GreenHouseContentPlaceHolderTabPhotos control.
         /// </summary>
         /// <remarks>
@@ -137,6 +164,15 @@ namespace MyHotel.MasterPages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AjaxControlToolkit.TabPanel TabPanelContacts;
+        
+        /// <summary>
+        /// ContentPlaceHolderContactsName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder ContentPlaceHolderContactsName;
         
         /// <summary>
         /// ContentPlaceHolderContacts control.
