@@ -24,11 +24,17 @@
                 </div>
             </div>
             <div id="greenhouse_main">
-                <asp:TabContainer ID="TabContainerUA" runat="server" ActiveTabIndex="1" CssClass="CustomTabStyle">
+                <asp:TabContainer ID="TabContainerUA" runat="server" ActiveTabIndex="1" CssClass="CustomTabStyle"
+                    Width="100%">
                     <asp:TabPanel ID="TabPanelHome" runat="server" HeaderText="Home">
                         <HeaderTemplate>
                             <div>
                                 <img src="/icons/1364080863_home_64.png" alt="" width="48px" height="48px" />
+                                <br />
+                                <div>
+                                    <asp:ContentPlaceHolder ID="GreenHouseContentPlaceHolderTabHomeName" runat="server">
+                                    </asp:ContentPlaceHolder>
+                                </div>
                             </div>
                         </HeaderTemplate>
                         <ContentTemplate>
