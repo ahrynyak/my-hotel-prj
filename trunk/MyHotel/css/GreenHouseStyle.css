@@ -93,11 +93,24 @@ em { color: #e55822; }
     font-weight: bolder;
     font-family: Verdana;
 }
+.GreenHouseNormalTextP1
+{
+    font-weight: bolder;
+    font-family: Verdana;
+    color:#1AA703;
+}
+.GreenHouseNormalTextP2
+{
+    font-weight: bolder;
+    font-family: Verdana;
+}
 .H1Text
 {
-    font-weight: bold;
-    font-style: oblique;
-    font-family:Geneva;
+    font-size:28px;
+    font-family: Geneva;
+    color: #9c6421;
+    padding:5px 0px;
+    margin: 0 0 20px 0;
 }
 .H2Text
 {
@@ -109,6 +122,8 @@ em { color: #e55822; }
 {
     font-family:Geneva;
 }
+.alignLeft { float:left; margin-right: 5px; }
+.alignRight { float:right; margin-left: 5px; }
 /*End of Text style*/
 
 

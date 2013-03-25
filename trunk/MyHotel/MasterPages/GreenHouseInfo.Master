@@ -29,8 +29,6 @@
                     <asp:TabPanel ID="TabPanelHome" runat="server" HeaderText="Home">
                         <HeaderTemplate>
                             <div>
-                                <img src="/icons/1364080863_home_64.png" alt="" width="48px" height="48px" />
-                                <br />
                                 <div>
                                     <asp:ContentPlaceHolder ID="GreenHouseContentPlaceHolderTabHomeName" runat="server">
                                     </asp:ContentPlaceHolder>
@@ -45,8 +43,6 @@
                     <asp:TabPanel ID="TabPanelRooms" runat="server" HeaderText="Rooms">
                         <HeaderTemplate>
                             <div>
-                                <img src="/icons/hotel_bed.png" alt="" width="48px" height="48px" />
-                                <br />
                                 <asp:ContentPlaceHolder ID="GreenHouseContentPlaceHolderTabRoomsName" runat="server">
                                 </asp:ContentPlaceHolder>
                             </div>
@@ -59,8 +55,6 @@
                     <asp:TabPanel ID="TabPanelPrices" runat="server" HeaderText="Prices">
                         <HeaderTemplate>
                             <div>
-                                <img src="/icons/1364080984_money.png" alt="" width="48px" height="48px" />
-                                <br />
                                 <asp:ContentPlaceHolder ID="GreenHouseContentPlaceHolderTabPricesName" runat="server">
                                 </asp:ContentPlaceHolder>
                             </div>
@@ -73,8 +67,6 @@
                     <asp:TabPanel ID="TabPanelPhotos" runat="server" HeaderText="Photos">
                         <HeaderTemplate>
                             <div>
-                                <img src="/icons/1364081059_Picture.png" alt="" width="48px" height="48px" />
-                                <br />
                                 <asp:ContentPlaceHolder ID="GreenHouseContentPlaceHolderTabPhotosName" runat="server">
                                 </asp:ContentPlaceHolder>
                             </div>
@@ -87,8 +79,6 @@
                     <asp:TabPanel ID="TabPanelContacts" runat="server" HeaderText="Contacts">
                         <HeaderTemplate>
                             <div>
-                                <img src="/icons/1364081131_phone-1.png" alt="" width="48px" height="48px" />
-                                <br />
                                 <asp:ContentPlaceHolder ID="ContentPlaceHolderContactsName" runat="server">
                                 </asp:ContentPlaceHolder>
                             </div>
