@@ -62,15 +62,14 @@
                 <span>номер</span>
                 <hr />
             </td>
-            <td>
-                <span class="GreenHouseNormalTextP1">Cімейний </span><span class="GreenHouseNormalTextP1">
-                    двокімнатний</span> <span>номер</span>
-                <hr />
-            </td>
         </tr>
         <tr>
-            <td style="height: 200px; width: 50%; vertical-align: top;">
-                <img src="../../icons/GHDBL.jpg" alt="Схема двомісного однокімнатного номеру" class="alignRight" />
+            <td style="vertical-align: top;">
+                <div style="float: right;">
+                    <img src="../../icons/GHDBL.jpg" alt="Схема двомісного однокімнатного номеру" />
+                    <p class="SmalText">
+                        Схема двомісного однокімнатного номеру</p>
+                </div>
                 <ul>
                     <li>Два односпальні ортопедичні ліжка </li>
                     <li>Телевізор з супутниковим телебаченням </li>
@@ -79,8 +78,21 @@
                     <li>Санвузол (туалет, умивальник, душ) </li>
                 </ul>
             </td>
+        </tr>
+        <tr>
             <td>
-                <img src="../../icons/GHApart.jpg" alt="Схема сімейного двокімнатного номеру" class="alignRight" />
+                <span class="GreenHouseNormalTextP1">Cімейний </span><span class="GreenHouseNormalTextP1">
+                    двокімнатний</span> <span>номер</span>
+                <hr />
+            </td>
+        </tr>
+        <tr>
+            <td style="vertical-align: top;">
+                <div style="float: right;">
+                    <img src="../../icons/GHApart.jpg" alt="Схема сімейного двокімнатного номеру" />
+                    <p class="SmalText">
+                        Схема сімейного двокімнатного номеру</p>
+                </div>
                 <ul>
                     <li>Двоспальне ортопедичне ліжко </li>
                     <li>Диван</li>
@@ -156,7 +168,11 @@
                 Тел.:
             </td>
             <td>
-                +38 (096) 812-20-98, <br /> +38 (093) 873-83-94, <br /> +38 (093) 566-66-89
+                +38 (096) 812-20-98,
+                <br />
+                +38 (093) 873-83-94,
+                <br />
+                +38 (093) 566-66-89
             </td>
         </tr>
         <tr>
@@ -164,7 +180,7 @@
                 E-mail:
             </td>
             <td>
-            <a href="mailto:ukr_root@ukr.net" title="ukr_root@ukr.net"/>
+                <a href="mailto:ukr_root@ukr.net" title="ukr_root@ukr.net" />
             </td>
         </tr>
     </table>

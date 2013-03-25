@@ -123,8 +123,12 @@ em { color: #e55822; }
 {
     font-family:Geneva;
 }
-.alignLeft { float:left; margin-right: 5px; }
-.alignRight { float:right; margin-left: 5px; }
+.SmalText
+{
+    font-family:Geneva;
+    font-size:small;
+}
+
 /*End of Text style*/
 
 
