@@ -10,49 +10,45 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="GreenHouseContentPlaceHolderTabHome"
     runat="server">
-    <p>
+    <p class="H1Text">
         Раді вітати Вас на нашому сайті
     </p>
+    <span class="GreenHouseNormalTextP1">"ЗЕЛЕНА </span><span class="GreenHouseNormalTextP2">
+        САДИБА"</span> пропонує Вам:
     <table width="100%">
         <tr>
             <td>
-                <asp:Twitter ID="Twitter1" runat="server" Caption="bbb" ProfileImageUrl="" ScreenName="Vov"
-                    Title="Rooms">
-                    <EmptyDataTemplate>
-                        There are no matching tweets.
-                    </EmptyDataTemplate>
-                    <LayoutTemplate>
-                        <div runat="server" class="ajax__twitter_header">
-                            <asp:Image runat="server"></asp:Image>
-                            <h3 runat="server">
-                                Rooms</h3>
-                            <h4 runat="server">
-                                bbb</h4>
-                        </div>
-                        <ul runat="server" class="ajax__twitter_itemlist" style="margin: 0px;">
-                            <asp:PlaceHolder runat="server" ID="ItemPlaceholder"></asp:PlaceHolder>
-                        </ul>
-                        <div runat="server" class="ajax__twitter_footer">
-                            <asp:Image runat="server" ImageUrl="mvwres://AjaxControlToolkit, Version=4.1.7.123, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e/Twitter.Twitter24.png">
-                            </asp:Image>
-                        </div>
-                    </LayoutTemplate>
-                </asp:Twitter>
-            </td>
-            <td>
+                <span class="H2Text">ПРОЖИВАННЯ</span>
+                <hr />
             </td>
         </tr>
         <tr>
             <td>
+                <p>
+                    Двомісний однокімнатний номер
+                </p>
             </td>
-            <td>
+        </tr>
+        <tr>
+            <td style="height: 200px; width: 250px; vertical-align: top;">
+                <img src="../../icons/GHDBL.jpg" alt="Схема двомісного однокімнатного номеру" class="alignRight" />
+                <p>
+                    Два односпальні ортопедичні ліжка, телевізор з супутниковим телебаченням, шафа для
+                    одягу, журнальний столик, трюмо, санвузол (туалет, умивальник, душ)</p>
+            </td>
+        </tr>
+        <tr>
+            <td style="height: 200px; vertical-align: top;">
+                Cімейний двокімнатний номер
             </td>
         </tr>
     </table>
 </asp:Content>
 <asp:Content ID="Content8" ContentPlaceHolderID="GreenHouseContentPlaceHolderTabRoomsName"
     runat="server">
-    Номери
+    <p>
+        Номери
+    </p>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="GreenHouseContentPlaceHolderTabRooms"
     runat="server">
@@ -98,21 +94,27 @@
 </asp:Content>
 <asp:Content ID="Content9" ContentPlaceHolderID="GreenHouseContentPlaceHolderTabPricesName"
     runat="server">
-    Ціни
+    <p>
+        Ціни
+    </p>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="GreenHouseContentPlaceHolderTabPrices"
     runat="server">
 </asp:Content>
 <asp:Content ID="Content10" ContentPlaceHolderID="GreenHouseContentPlaceHolderTabPhotosName"
     runat="server">
-    Фото
+    <p>
+        Фото
+    </p>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="GreenHouseContentPlaceHolderTabPhotos"
     runat="server">
 </asp:Content>
 <asp:Content ID="Content11" ContentPlaceHolderID="ContentPlaceHolderContactsName"
     runat="server">
-    Контакти
+    <p>
+        Контакти
+    </p>
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="ContentPlaceHolderContacts" runat="server">
 </asp:Content>
