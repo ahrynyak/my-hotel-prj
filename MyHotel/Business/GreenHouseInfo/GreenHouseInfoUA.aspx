@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/GreenHouseInfo.Master"
     AutoEventWireup="true" CodeBehind="GreenHouseInfoUA.aspx.cs" Inherits="MyHotel.Business.GreenHouseInfo.GreenHouseInfoUA" %>
 
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content7" ContentPlaceHolderID="GreenHouseContentPlaceHolderTabHomeName"
@@ -10,8 +11,44 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="GreenHouseContentPlaceHolderTabHome"
     runat="server">
     <p>
-        Раді вітати Вас на нашому сайтію
+        Раді вітати Вас на нашому сайті
     </p>
+    <table width="100%">
+        <tr>
+            <td>
+                <asp:Twitter ID="Twitter1" runat="server" Caption="bbb" ProfileImageUrl="" ScreenName="Vov"
+                    Title="Rooms">
+                    <EmptyDataTemplate>
+                        There are no matching tweets.
+                    </EmptyDataTemplate>
+                    <LayoutTemplate>
+                        <div runat="server" class="ajax__twitter_header">
+                            <asp:Image runat="server"></asp:Image>
+                            <h3 runat="server">
+                                Rooms</h3>
+                            <h4 runat="server">
+                                bbb</h4>
+                        </div>
+                        <ul runat="server" class="ajax__twitter_itemlist" style="margin: 0px;">
+                            <asp:PlaceHolder runat="server" ID="ItemPlaceholder"></asp:PlaceHolder>
+                        </ul>
+                        <div runat="server" class="ajax__twitter_footer">
+                            <asp:Image runat="server" ImageUrl="mvwres://AjaxControlToolkit, Version=4.1.7.123, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e/Twitter.Twitter24.png">
+                            </asp:Image>
+                        </div>
+                    </LayoutTemplate>
+                </asp:Twitter>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr>
+            <td>
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>
 </asp:Content>
 <asp:Content ID="Content8" ContentPlaceHolderID="GreenHouseContentPlaceHolderTabRoomsName"
     runat="server">
