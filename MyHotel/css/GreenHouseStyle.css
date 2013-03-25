@@ -14,7 +14,7 @@ body
 
 a, a:link, a:visited { color: #333; text-decoration: underline; }
 a:hover { color: #000; text-decoration: none; }
-p { margin: 0px; padding: 0; }
+p { margin: 5px; padding: 10px; }
 img { border: none; }
 #greenhouse_wrapper 
 {
@@ -40,6 +40,7 @@ em { color: #e55822; }
     width: 840px;
     padding: 40px 30px;
     background: #fff url(/icons/greenhouse_main.png) no-repeat top;
+    height: 600px;
 }
 #greenhouse_content {
 	float: left;
@@ -110,7 +111,7 @@ em { color: #e55822; }
     font-family: Geneva;
     color: #9c6421;
     padding:5px 0px;
-    margin: 0 0 20px 0;
+    margin: 0 0 10px 0;
 }
 .H2Text
 {
@@ -128,6 +129,10 @@ em { color: #e55822; }
 
 
 /* ajax__tab_green-theme theme (images/green.jpg) */
+.ajax__tab_green-theme
+{
+    height : 540px;
+}
 .ajax__tab_green-theme .ajax__tab_header 
 {
  
