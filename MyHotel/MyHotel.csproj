@@ -41,6 +41,9 @@
       <HintPath>ExternalAss\DayPilot.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="obout_ImageZoom_NET">
+      <HintPath>..\3rdParty\oboutSuite35\bin\obout_ImageZoom_NET.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
