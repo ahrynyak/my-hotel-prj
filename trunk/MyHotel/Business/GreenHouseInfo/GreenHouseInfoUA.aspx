@@ -2,7 +2,14 @@
     AutoEventWireup="true" CodeBehind="GreenHouseInfoUA.aspx.cs" Inherits="MyHotel.Business.GreenHouseInfo.GreenHouseInfoUA" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+<%@ Register TagPrefix="obout" Namespace="OboutInc.ImageZoom" Assembly="obout_ImageZoom_NET" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style type="text/css">
+        .ImageZoomEntryContainer
+        {
+            border: 0 !important;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content7" ContentPlaceHolderID="GreenHouseContentPlaceHolderTabHomeName"
     runat="server">
@@ -50,22 +57,23 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="GreenHouseContentPlaceHolderTabRooms"
     runat="server">
     <p class="H1Text">
-        Проживання
+        Номери
     </p>
     <p>
         <span class="GreenHouseNormalTextP1">"ЗЕЛЕНА </span><span class="GreenHouseNormalTextP2">
-            САДИБА"</span> <span>пропонує наступні варіанти проживання:</span></p>
+            САДИБА"</span> <span>пропонує наступні варіанти розміщення:</span></p>
     <table width="100%">
         <tr>
             <td>
+                <br />
                 <span>Двомісний</span> <span class="GreenHouseNormalTextP1">однокімнатний</span>
                 <span>номер</span>
                 <hr />
             </td>
         </tr>
         <tr>
-            <td style="vertical-align: top;">
-                <div style="float: right;">
+            <td class="subPartBody">
+                <div class="subPartBodyImg">
                     <img src="../../icons/GHDBL.jpg" alt="Схема двомісного однокімнатного номеру" />
                     <p class="SmalText">
                         Схема двомісного однокімнатного номеру</p>
@@ -81,14 +89,23 @@
         </tr>
         <tr>
             <td>
-                <span class="GreenHouseNormalTextP1">Cімейний </span><span class="GreenHouseNormalTextP1">
-                    двокімнатний</span> <span>номер</span>
+                <center>
+                    <obout:ImageZoom ID="ImageZoomDBLRoom" runat="server" ImageUrl="~/Business/GreenHouseInfo/img/DBLRoom"
+                        DisplayStyle="ListView" Thumnailwidth="50" ThumnailHeight="50" ShowFooter="False"
+                        ShowHeader="False" PageSize="6" />
+                </center>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span>Cімейний </span><span class="GreenHouseNormalTextP1">двокімнатний</span> <span>
+                    номер</span>
                 <hr />
             </td>
         </tr>
         <tr>
-            <td style="vertical-align: top;">
-                <div style="float: right;">
+            <td class="subPartBody">
+                <div class="subPartBodyImg">
                     <img src="../../icons/GHApart.jpg" alt="Схема сімейного двокімнатного номеру" />
                     <p class="SmalText">
                         Схема сімейного двокімнатного номеру</p>
@@ -101,6 +118,87 @@
                     <li>Журнальний столик, трюмо </li>
                     <li>Санвузол (туалет, умивальник, душ) </li>
                 </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <center>
+                    <obout:ImageZoom ID="ImageZoomApartRoom" runat="server" ImageUrl="~/Business/GreenHouseInfo/img/ApartRoom"
+                        DisplayStyle="ListView" Thumnailwidth="50" ThumnailHeight="50" ShowFooter="False"
+                        ShowHeader="False" PageSize="6" />
+                </center>
+            </td>
+        </tr>
+    </table>
+    <p class="H1Text">
+        Кухня
+    </p>
+    <p>
+        <span>Наші гості можуть користуватися повністю укомплектованою кухнею:</span></p>
+    <table width="100%">
+        <tr>
+            <td>
+                <span>Кухня-</span><span class="GreenHouseNormalTextP1">їдальня</span>
+                <hr />
+            </td>
+        </tr>
+        <tr>
+            <td class="subPartBody">
+                <div class="subPartBodyImg">
+                    <img src="../../icons/Kitchen.png" alt="Схема кухні-їдальні" />
+                    <p class="SmalText">
+                        Схема кухні-їдальні</p>
+                </div>
+                <ul>
+                    <li>Дві газові плити</li>
+                    <li>Дві кухонні мийки</li>
+                    <li>Мікрохвильова піч </li>
+                    <li>Два холодильники</li>
+                    <li>Електрочайник </li>
+                    <li>Окремі шафки для зберігання</li>
+                    <li>Весь необхідний посуд</li>
+                    <li>Обідні столи</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <center>
+                    <obout:ImageZoom ID="ImageZoomKitchen" runat="server" ImageUrl="~/Business/GreenHouseInfo/img/Kitchen"
+                        DisplayStyle="ListView" Thumnailwidth="50" ThumnailHeight="50" ShowFooter="False"
+                        ShowHeader="False" PageSize="6" />
+                </center>
+            </td>
+        </tr>
+    </table>
+    <p class="H1Text">
+        На подвір'ї
+    </p>
+    <p>
+        <span>До послуг наших гостей затишні куточки на подвір'ї:</span></p>
+    <table width="100%">
+        <tr>
+            <td>
+                <span>Місце для </span><span class="GreenHouseNormalTextP1">відпочинку</span>
+                <hr />
+            </td>
+        </tr>
+        <tr>
+            <td class="subPartBody">
+                <ul>
+                    <li>Гойдалка</li>
+                    <li>Мангал</li>
+                    <li>Столи зі зрубу в різних місцях</li>
+                </ul>
+            </td>
+        </tr>
+                <tr>
+            <td>
+                <center>
+                    <obout:ImageZoom ID="ImageZoomRelaxZones" runat="server" ImageUrl="~/Business/GreenHouseInfo/img/RelaxZones"
+                        DisplayStyle="ListView" Thumnailwidth="50" ThumnailHeight="50" ShowFooter="False"
+                        ShowHeader="False" PageSize="6" />
+                </center>
             </td>
         </tr>
     </table>
@@ -180,7 +278,7 @@
                 E-mail:
             </td>
             <td>
-                <a href="mailto:ukr_root@ukr.net" title="ukr_root@ukr.net" />
+                <a href="mailto:ukr_root@ukr.net">ukr_root@ukr.net</a>
             </td>
         </tr>
     </table>
