@@ -4,6 +4,8 @@
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <%@ Register TagPrefix="obout" Namespace="OboutInc.ImageZoom" Assembly="obout_ImageZoom_NET" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    </asp:UpdatePanel>
+
     <style type="text/css">
         .ImageZoomEntryContainer
         {
@@ -92,7 +94,7 @@
                 <center>
                     <obout:ImageZoom ID="ImageZoomDBLRoom" runat="server" ImageUrl="~/Business/GreenHouseInfo/img/DBLRoom"
                         DisplayStyle="ListView" Thumnailwidth="50" ThumnailHeight="50" ShowFooter="False"
-                        ShowHeader="False" PageSize="6" />
+                        ShowHeader="False" PageSize="6" CallbackMode="False" />
                 </center>
             </td>
         </tr>
