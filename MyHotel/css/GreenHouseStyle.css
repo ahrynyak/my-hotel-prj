@@ -40,7 +40,6 @@ em { color: #e55822; }
     width: 840px;
     padding: 40px 30px;
     background: #fff url(/icons/greenhouse_main.png) no-repeat top;
-    height: 600px;
 }
 #greenhouse_content {
 	float: left;
@@ -129,13 +128,23 @@ em { color: #e55822; }
     font-size:small;
 }
 
+.subPartBody
+{
+    vertical-align: top;
+}
+.subPartBodyImg
+{
+    float: right;
+    text-align: center;
+}
+
 /*End of Text style*/
 
 
 /* ajax__tab_green-theme theme (images/green.jpg) */
 .ajax__tab_green-theme
 {
-    height : 540px;
+    min-height: 600px;
 }
 .ajax__tab_green-theme .ajax__tab_header 
 {
@@ -172,4 +181,20 @@ em { color: #e55822; }
 {
     padding:0.25em 0.5em;
     border:solid 1px #808080;
+    min-height: 600px;
 }
+
+/*OBOUT*/
+.ImageZoomEntryContainer
+{
+    border:0 !important;
+}
+.ImageZoomEntryCell
+{
+    margin:10px !important;
+}
+.ImageZoomEntryCellSelected
+{
+    margin:10px !important;
+}
+/**/
