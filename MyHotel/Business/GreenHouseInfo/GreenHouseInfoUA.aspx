@@ -4,14 +4,6 @@
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <%@ Register TagPrefix="obout" Namespace="OboutInc.ImageZoom" Assembly="obout_ImageZoom_NET" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    </asp:UpdatePanel>
-
-    <style type="text/css">
-        .ImageZoomEntryContainer
-        {
-            border: 0 !important;
-        }
-    </style>
 </asp:Content>
 <asp:Content ID="Content7" ContentPlaceHolderID="GreenHouseContentPlaceHolderTabHomeName"
     runat="server">
