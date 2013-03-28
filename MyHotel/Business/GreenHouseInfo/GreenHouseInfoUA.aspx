@@ -16,7 +16,7 @@
         <tr>
             <td>
                 <p class="H1Text">
-                    Про нас
+                    Вітаємо
                 </p>
                 <div class="subPartBodyImg">
                     <img src="../../icons/out5.jpg" alt="" />
@@ -216,7 +216,7 @@
     <table width="100%">
         <tr>
             <td>
-                <span>Місце для </span><span class="GreenHouseNormalTextP1">відпочинку</span>
+                <span>Місця для </span><span class="GreenHouseNormalTextP1">відпочинку</span>
                 <hr />
             </td>
         </tr>
@@ -225,7 +225,7 @@
                 <ul>
                     <li>Гойдалка</li>
                     <li>Мангал</li>
-                    <li>Столи зі зрубу в різних місцях</li>
+                    <li>Столи зі зрубу в різних куточках</li>
                 </ul>
             </td>
         </tr>
