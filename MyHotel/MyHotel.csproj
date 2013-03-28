@@ -70,6 +70,7 @@
     <None Include="ExternalAss\DayPilot.dll" />
     <Content Include="css\GreenHouseStyle.css" />
     <Content Include="Default.aspx" />
+    <Content Include="icons\1248809363_shidnicha.gif" />
     <Content Include="icons\1364080863_home_64.png" />
     <Content Include="icons\1364080984_money.png" />
     <Content Include="icons\1364081059_Picture.png" />
@@ -82,7 +83,9 @@
     <Content Include="icons\greenhouse_logo.bmp" />
     <Content Include="icons\greenhouse_main.png" />
     <Content Include="icons\hotel_bed.png" />
+    <Content Include="icons\out5.jpg" />
     <Content Include="icons\refresh_green.ico" />
+    <Content Include="icons\shidnycya_karta.jpg" />
     <Content Include="js\message.js" />
     <Content Include="js\modal.js" />
     <Content Include="OpenUIContents\LoginForm.aspx" />
