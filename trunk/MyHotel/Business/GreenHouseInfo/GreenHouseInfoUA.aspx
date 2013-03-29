@@ -240,6 +240,19 @@
         </tr>
     </table>
 </asp:Content>
+<asp:Content ID="Content12" runat="server" ContentPlaceHolderID="GreenHouseContentPlaceHolderTabServiceName">
+    <p>
+        Послуги
+    </p>
+</asp:Content>
+<asp:Content ID="Content13" runat="server" ContentPlaceHolderID="GreenHouseContentPlaceHolderTabService">
+    <p class="H1Text">
+        Послуги включені у вартість
+    </p>
+    <p class="H1Text">
+        Послуги за додаткову оплату
+    </p>
+</asp:Content>
 <asp:Content ID="Content9" ContentPlaceHolderID="GreenHouseContentPlaceHolderTabPricesName"
     runat="server">
     <p>
