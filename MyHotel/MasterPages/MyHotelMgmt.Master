@@ -37,7 +37,8 @@
                 </tr>
                 <tr class="menu">
                     <td class="menu">
-                        Menu
+                        Menu | <a href="/Business/GreenHouseInfo/GreenHouseInfoUA.aspx">Інфо сайт</a>
+                        
                     </td>
                 </tr>
                 <tr class="menu">
@@ -61,7 +62,8 @@
                     </td>
                 </tr>
             </table>
+        </div>
+    </div>
     </form>
-    </div> </div>
 </body>
 </html>
