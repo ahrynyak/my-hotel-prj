@@ -29,6 +29,10 @@
             </td>
         </tr>
         <tr>
+            <td>
+            </td>
+        </tr>
+        <tr>
             <td align='center'>
                 <asp:ContentPlaceHolder ID="MyHotelMgmtContentPlaceHolder" runat="server">
                 </asp:ContentPlaceHolder>
