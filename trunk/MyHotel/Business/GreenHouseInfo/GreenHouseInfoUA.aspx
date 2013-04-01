@@ -14,10 +14,11 @@
     runat="server">
     <table>
         <tr>
-            <td>
+            <td class="content_box">
                 <p class="H1Text">
                     Вітаємо
                 </p>
+
                 <div class="subPartBodyImg">
                     <div class="image_wrapper image_fr">
                         <span></span>
@@ -34,7 +35,7 @@
             </td>
         </tr>
         <tr>
-            <td>
+            <td class="content_box">
                 <p class="H1Text">
                     Наше розташування
                 </p>
@@ -60,7 +61,7 @@
             </td>
         </tr>
         <tr>
-            <td>
+            <td class="content_box">
                 <p class="H1Text">
                     Про Cхідницю
                 </p>
