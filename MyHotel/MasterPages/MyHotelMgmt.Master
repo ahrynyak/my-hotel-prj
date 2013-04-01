@@ -47,6 +47,9 @@
                 </tr>
             </table>
         </div>
+        <div id="templatemo_footer">
+            Copyright © 2013
+        </div>
     </div>
     </form>
 </body>

@@ -19,7 +19,10 @@
                     Вітаємо
                 </p>
                 <div class="subPartBodyImg">
-                    <img src="../../icons/out5.jpg" alt="" />
+                    <div class="image_wrapper image_fr">
+                        <span></span>
+                        <img src="../../icons/out5.jpg" alt="" width="218px" height="106px" />
+                    </div>
                 </div>
                 <p>
                     <span class="GreenHouseNormalTextP1">"ЗЕЛЕНА </span><span class="GreenHouseNormalTextP2">
@@ -36,10 +39,12 @@
                     Наше розташування
                 </p>
                 <div class="subPartBodyImg">
-                    <obout:ImageZoom ID="imageZoom" runat="server" ImageUrl="../../icons/shidnycya_karta.jpg"
-                        Effect="Zooming" ThumbnailWidth="200" ThumbnailHeight="200" />
-                    <p class="SmalText">
-                        Карта джерел</p>
+                    <div class="image_wrapper image_fr">
+                        <obout:ImageZoom ID="imageZoom" runat="server" ImageUrl="../../icons/shidnycya_karta.jpg"
+                            Effect="Zooming" ThumbnailWidth="200" ThumbnailHeight="200" />
+                        <p class="SmalText">
+                            Карта джерел</p>
+                    </div>
                 </div>
                 <p>
                     <span class="GreenHouseNormalTextP1">"ЗЕЛЕНА </span><span class="GreenHouseNormalTextP2">
