@@ -66,6 +66,7 @@
     <Content Include="Business\RoomBookingMgmt\RoomBookingDetailsForm.aspx" />
     <Content Include="css\commonStyle.css" />
     <Content Include="css\DayPilot\myhstyle.css" />
+    <Content Include="css\LoginStyle.css" />
     <Content Include="css\main.css" />
     <None Include="DBScripts\InitDBScripts.sql" />
     <None Include="ExternalAss\DayPilot.dll" />
