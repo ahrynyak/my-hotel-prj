@@ -3,6 +3,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="../css/main.css" rel="stylesheet" type="text/css" />
+    <link href="../css/LoginStyle.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content2" runat="server" ContentPlaceHolderID="MyHotelMgmtContentPlaceHolder">
     <div>

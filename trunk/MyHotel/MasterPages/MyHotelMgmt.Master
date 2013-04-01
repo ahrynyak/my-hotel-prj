@@ -16,34 +16,52 @@
     <form id="MyHotelMgmtForm" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>
-    <table width="100%">
-        <tr>
-            <td align="center">
-                <div id="greenhouse_header">
-                    <div id="site_title">
-                        <span class="MainHeaderBigP1">ЗЕЛЕНА </span><span class="MainHeaderBigP2">САДИБА</span>
+    <div>
+        <div class="MainDiv">
+            <table width="100%">
+                <tr>
+                    <td align="center">
+                        <div id="greenhouse_header">
+                            <div id="site_title">
+                                <span class="MainHeaderBigP1">ЗЕЛЕНА </span><span class="MainHeaderBigP2">САДИБА</span>
+                                <br />
+                                <span class="MainHeaderSmall">ОЗДОРОВЛЕННЯ ТА ВІДПОЧИНОК</span>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <hr />
+                    </td>
+                </tr>
+                <tr class="menu">
+                    <td class="menu">
+                        Menu
+                    </td>
+                </tr>
+                <tr class="menu">
+                    <td class="menu">
+                        <hr class="menu" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align='center'>
+                        <div class="MyHotelMgmtContentPlaceHolderDiv">
+                            <asp:ContentPlaceHolder ID="MyHotelMgmtContentPlaceHolder" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <hr />
                         <br />
-                        <span class="MainHeaderSmall">ОЗДОРОВЛЕННЯ ТА ВІДПОЧИНОК</span>
-                    </div>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td>
-            </td>
-        </tr>
-        <tr>
-            <td align='center'>
-                <asp:ContentPlaceHolder ID="MyHotelMgmtContentPlaceHolder" runat="server">
-                </asp:ContentPlaceHolder>
-            </td>
-        </tr>
-        <tr>
-            <td align="center">
-                <asp:Label ID="LabelFooter" runat="server" Text="@2013" CssClass="labelFooter" />
-            </td>
-        </tr>
-    </table>
+                        <asp:Label ID="LabelFooter" runat="server" Text="@2013" CssClass="labelFooter" />
+                    </td>
+                </tr>
+            </table>
     </form>
+    </div> </div>
 </body>
 </html>
