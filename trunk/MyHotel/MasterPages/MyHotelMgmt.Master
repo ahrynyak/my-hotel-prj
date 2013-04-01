@@ -14,6 +14,8 @@
 </head>
 <body>
     <form id="MyHotelMgmtForm" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
     <table width="100%">
         <tr>
             <td align="center">
@@ -25,15 +27,9 @@
                     </div>
                 </div>
             </td>
-            <td align="right">
-                <asp:ContentPlaceHolder ID="ContentPlaceHolderRightLeftCornerMaster" runat="server" />
-                <br />
-                <asp:LinkButton ID="linkButtonHome" runat="server" Text="Home" CssClass="loginoutbutton"
-                    OnClick="linkButtonHome_Click" />
-            </td>
         </tr>
         <tr>
-            <td align='center' colspan="2">
+            <td align='center'>
                 <asp:ContentPlaceHolder ID="MyHotelMgmtContentPlaceHolder" runat="server">
                 </asp:ContentPlaceHolder>
             </td>
@@ -41,8 +37,6 @@
         <tr>
             <td align="center">
                 <asp:Label ID="LabelFooter" runat="server" Text="@2013" CssClass="labelFooter" />
-            </td>
-            <td>
             </td>
         </tr>
     </table>

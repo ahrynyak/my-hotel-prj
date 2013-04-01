@@ -13,15 +13,6 @@ namespace MyHotel.Business.RoomBookingMgmt {
     public partial class RoomBookingMgmtForm {
         
         /// <summary>
-        /// ScriptManager1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.ToolkitScriptManager ScriptManager1;
-        
-        /// <summary>
         /// LabelVisiblePeriod control.
         /// </summary>
         /// <remarks>
@@ -76,15 +67,6 @@ namespace MyHotel.Business.RoomBookingMgmt {
         protected global::AjaxControlToolkit.CalendarExtender calendarExtenderEnd;
         
         /// <summary>
-        /// dayPilotScheduler control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DayPilot.Web.Ui.DayPilotScheduler dayPilotScheduler;
-        
-        /// <summary>
         /// linkButtonSignOut control.
         /// </summary>
         /// <remarks>
@@ -92,5 +74,14 @@ namespace MyHotel.Business.RoomBookingMgmt {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton linkButtonSignOut;
+        
+        /// <summary>
+        /// dayPilotScheduler control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DayPilot.Web.Ui.DayPilotScheduler dayPilotScheduler;
     }
 }

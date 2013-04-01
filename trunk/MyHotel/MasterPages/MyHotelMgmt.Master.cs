@@ -19,10 +19,5 @@ namespace MyHotel.MasterPages
         {
 
         }
-
-        protected void linkButtonHome_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("~/Default.aspx");
-        }
     }
 }

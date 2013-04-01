@@ -12,18 +12,14 @@
 {
     color: #666666;
     background-color:transparent;
-    font-style:oblique;
     font-weight:bold;
 }
-
 .labelBookingDetailsSpecial
 {
     color: #7f6600;
     background-color:transparent;
-    font-style:oblique;
     font-weight:bold;
 }
-
 .sundaycellstyle
 {
     background-color:#86bf00;
@@ -54,10 +50,6 @@
 }
 .bookigDetailsDiv
 {
-    background-color:#86bf00;
-    -moz-border-radius: 20px;
-    -webkit-border-radius: 20px;
-    -khtml-border-radius: 20px;
-    border-radius: 20px;
-    box-shadow: 10px 10px 5px #888888;
+     background-color:#86bf00;
+     width:100%;
 }
