@@ -6,10 +6,6 @@ body
     color: #625e5e;
     font-family: Tahoma, Geneva, sans-serif;
     font-size: 14px;
-    background-color: #000;
-    background-image: url(/icons/greenhouse_body.jpg);
-    background-position: top center;
-    background-repeat: no-repeat;
 }
 /* main */
 #greenhouse_wrapper 

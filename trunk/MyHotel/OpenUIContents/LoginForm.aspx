@@ -7,7 +7,7 @@
 </asp:Content>
 <asp:Content ID="Content2" runat="server" ContentPlaceHolderID="MyHotelMgmtContentPlaceHolder">
     <div>
-        <div class="defaultPageInfoDiv">
+        <div>
             <table width="100%">
                 <tr>
                     <td align="center">
