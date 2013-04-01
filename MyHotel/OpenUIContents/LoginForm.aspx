@@ -12,9 +12,9 @@
                     <td align="center">
                         <asp:Login ID="LoginData" runat="server" OnAuthenticate="LoginData_Authenticate"
                             CssClass="loginForm" DisplayRememberMe="False">
-                            <CheckBoxStyle CssClass="labelVisiblePeriod" />
-                            <LabelStyle CssClass="labelVisiblePeriod" />
-                            <TitleTextStyle CssClass="labelVisiblePeriod" />
+                            <CheckBoxStyle CssClass="NormalText" />
+                            <LabelStyle CssClass="NormalText" />
+                            <TitleTextStyle CssClass="NormalText" />
                         </asp:Login>
                     </td>
                 </tr>

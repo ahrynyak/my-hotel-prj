@@ -142,13 +142,6 @@
     <Compile Include="MasterPages\MyHotelMgmt.Master.designer.cs">
       <DependentUpon>MyHotelMgmt.Master</DependentUpon>
     </Compile>
-    <Compile Include="MasterPages\MyHotelSecuredMgmt.Master.cs">
-      <DependentUpon>MyHotelSecuredMgmt.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="MasterPages\MyHotelSecuredMgmt.Master.designer.cs">
-      <DependentUpon>MyHotelSecuredMgmt.Master</DependentUpon>
-    </Compile>
     <Compile Include="OpenUIContents\LoginForm.aspx.cs">
       <DependentUpon>LoginForm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -178,9 +171,6 @@
       <LastGenOutput>DataClasses.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="MasterPages\MyHotelSecuredMgmt.Master" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

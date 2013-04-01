@@ -1,12 +1,10 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/MyHotelSecuredMgmt.Master"
-    AutoEventWireup="true" CodeBehind="RoomBookingMgmtForm.aspx.cs" Inherits="MyHotel.Business.RoomBookingMgmt.RoomBookingMgmtForm"
+﻿<%@ Page Title="" Language="C#" AutoEventWireup="true" MasterPageFile="~/MasterPages/MyHotelMgmt.Master"
+    CodeBehind="RoomBookingMgmtForm.aspx.cs" Inherits="MyHotel.Business.RoomBookingMgmt.RoomBookingMgmtForm"
     Culture="uk-UA" %>
 
 <%@ Register Assembly="DayPilot" Namespace="DayPilot.Web.Ui" TagPrefix="DayPilot" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
-<asp:Content ID="Content1" runat="server" ContentPlaceHolderID="MyHotelSecuredMgmtContentPlaceHolder">
-    <ajaxToolkit:ToolkitScriptManager runat="Server" EnableScriptGlobalization="true"
-        EnableScriptLocalization="true" ID="ScriptManager1" ScriptMode="Debug" CombineScripts="false" />
+<asp:Content ID="Content1" runat="server" ContentPlaceHolderID="MyHotelMgmtContentPlaceHolder">
     <script type="text/javascript" src="../../js/modal.js"></script>
     <script type="text/javascript" src="../../js/message.js"></script>
     <script type="text/javascript">
@@ -17,7 +15,7 @@
         modal.top = 60;
         modal.width = 400;
         modal.opacity = 60;
-        modal.height = 550;
+        modal.height = 500;
         modal.border = "1px solid black";
         modal.closed = function () {
             if (this.result == "OK") {
@@ -46,15 +44,19 @@
             <td style="width: 20px">
                 <asp:Label ID="LabelVisiblePeriodTo" runat="server" Text="до" CssClass="NormalText"></asp:Label>
             </td>
-            <td>
+            <td style="width: 130px">
                 <asp:TextBox runat="server" ID="datePickeEnd" autocomplete="off" AutoPostBack="True"
                     OnTextChanged="datePickeEnd_TextChanged" />
                 <ajaxToolkit:CalendarExtender ID="calendarExtenderEnd" runat="server" TargetControlID="datePickeEnd"
                     Format="" />
             </td>
+            <td align="right">
+                <asp:LinkButton ID="linkButtonSignOut" runat="server" CssClass="loginoutbutton" Text="Sign out"
+                    OnClick="linkButtonSignOut_Click" />
+            </td>
         </tr>
         <tr>
-            <td align="left" colspan="4" class="dayPilotSchedulerDiv">
+            <td align="left" colspan="5" class="dayPilotSchedulerDiv">
                 <DayPilot:DayPilotScheduler runat="server" ID="dayPilotScheduler" RowHeaderColumnWidths="150"
                     CellGroupBy="Month" CellDuration="1440" DataEndField="EndDate" DataTextField="GuestName"
                     DataValueField="RoomBookingID" DataResourceField="RoomID" DataTagFields="BookingStatus"
@@ -72,8 +74,4 @@
             </td>
         </tr>
     </table>
-</asp:Content>
-<asp:Content ID="Content2" runat="server" ContentPlaceHolderID="ContentPlaceHolderRightTopCornerSecured">
-    <asp:LinkButton ID="linkButtonSignOut" runat="server" CssClass="loginoutbutton" Text="Sign out"
-        OnClick="linkButtonSignOut_Click" />
 </asp:Content>

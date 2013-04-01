@@ -75,50 +75,6 @@ body
 
 /*End of Text style*/
 
-
-/* ajax__tab_green-theme theme (images/green.jpg) */
-.ajax__tab_green-theme
-{
-    min-height: 600px;
-}
-.ajax__tab_green-theme .ajax__tab_header 
-{
- 
-}
-.ajax__tab_green-theme .ajax__tab_header .ajax__tab_outer 
-{
-    background:url(/icons/green.jpg);
-    margin:0px 0.16em 0px 0px;
-    padding:1px 0px 1px 0px;
-    vertical-align: bottom;
-    border:solid 1px #a3a3a3;
-    border-bottom-width:0px;
-}
-.ajax__tab_green-theme .ajax__tab_header .ajax__tab_tab
-{    
-    color:#000;
-    padding:0.35em 0.75em;    
-    margin-right:0.01em;
-}
-.ajax__tab_green-theme .ajax__tab_hover .ajax__tab_outer 
-{
-    background: url(/icons/green.jpg) #bfdaff repeat-x left -1300px;
-}
-.ajax__tab_green-theme .ajax__tab_active .ajax__tab_tab 
-{
-    background-color:White;
-}
-.ajax__tab_green-theme .ajax__tab_active .ajax__tab_outer
-{
-    background:url(/icons/green.jpg) #7cdb44 repeat-x left -1400px;
-}
-.ajax__tab_green-theme .ajax__tab_body 
-{
-    padding:0.25em 0.5em;
-    border:solid 1px #808080;
-    min-height: 600px;
-}
-
 /*OBOUT*/
 .ImageZoomEntryContainer
 {
