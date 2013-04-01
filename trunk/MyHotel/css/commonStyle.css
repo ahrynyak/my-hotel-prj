@@ -2,7 +2,6 @@
 {
     background-color: #CCCCCC;
 }
-
 a, a:link, a:visited { color: #333; text-decoration: underline; }
 a:hover { color: #000; text-decoration: none; }
 p { margin: 5px; padding: 10px; }
