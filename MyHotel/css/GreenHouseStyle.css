@@ -81,6 +81,11 @@ body
 .image_fl { float: left; margin: 3px 20px 0 0; }
 .image_fr { float: right; margin: 3px 0 0 20px; }
 
+.content_box {
+padding-bottom: 30px;
+margin-bottom: 30px;
+border-bottom: 1px solid #ccc;
+}
 /*End of Page style*/
 .subPartBody
 {
