@@ -35,6 +35,11 @@ body
 #greenhouse_content p {
 	margin-bottom: 20px;
 }
+#templatemo_footer {
+    width: 840px;
+    padding: 20px;
+    text-align: center;
+}
 /* end of main */
 #site_title 
 {
@@ -58,6 +63,24 @@ body
 	margin-top: 5px;
 	letter-spacing: 5px;
 }
+.image_wrapper {
+	position: relative;
+	display: block;
+	width: 218px;
+	height: 128px;
+	padding: 9px;
+}
+.image_wrapper span {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 236px;
+	height: 144px;
+	background: url(../icons/greenhouse_image_frame.png) no-repeat;
+}
+.image_fl { float: left; margin: 3px 20px 0 0; }
+.image_fr { float: right; margin: 3px 0 0 20px; }
+
 /*End of Page style*/
 .subPartBody
 {
@@ -88,7 +111,7 @@ body
 /* ajax__tab_green-theme theme (images/green.jpg) */
 .ajax__tab_green-theme
 {
-    min-height: 600px;
+    min-height: 500px;
 }
 .ajax__tab_green-theme .ajax__tab_header 
 {
@@ -119,7 +142,7 @@ body
 }
 .ajax__tab_green-theme .ajax__tab_active .ajax__tab_outer
 {
-    background:url(/icons/green.jpg) #7cdb44 repeat-x left -1400px;
+    background:url(/icons/green.jpg) #2d961c repeat-x left -1400px;
 }
 .ajax__tab_green-theme .ajax__tab_body 
 {

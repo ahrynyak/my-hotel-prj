@@ -62,3 +62,8 @@
     margin: 0 auto;
     background: -webkit-linear-gradient(top right, Silver, White);
 }
+#templatemo_footer {
+    padding: 20px;
+    text-align: center;
+    width:90%;
+}
