@@ -64,12 +64,12 @@
   <ItemGroup>
     <Content Include="Business\GreenHouseInfo\GreenHouseInfoUA.aspx" />
     <Content Include="Business\RoomBookingMgmt\RoomBookingDetailsForm.aspx" />
+    <Content Include="css\commonStyle.css" />
     <Content Include="css\DayPilot\myhstyle.css" />
     <Content Include="css\main.css" />
     <None Include="DBScripts\InitDBScripts.sql" />
     <None Include="ExternalAss\DayPilot.dll" />
-    <Content Include="css\GreenHouseStyle.css" />
-    <Content Include="Default.aspx" />
+    <Content Include="css\greenHouseStyle.css" />
     <Content Include="icons\1248809363_shidnicha.gif" />
     <Content Include="icons\1364080863_home_64.png" />
     <Content Include="icons\1364080984_money.png" />
@@ -120,13 +120,6 @@
       <DependentUpon>RoomBookingDetailsForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Business\RoomBookingMgmt\RoomBookingMgmtController.cs" />
-    <Compile Include="Default.aspx.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Default.aspx.designer.cs">
-      <DependentUpon>Default.aspx</DependentUpon>
-    </Compile>
     <Compile Include="LINQDB\DataClasses.cs">
       <DependentUpon>DataClasses.dbml</DependentUpon>
     </Compile>

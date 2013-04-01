@@ -1,34 +1,13 @@
 ﻿body 
 {
-    color: #AAF200;
-    background: #AAF200;
-    background: -webkit-linear-gradient(top right, #fafafa, #AAF200)
+    color: #625e5e;
+    margin: 0px;
+    padding: 0px;
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 14px;
+    background-color: Silver;
+    background: -webkit-linear-gradient(top right, #fafafa, Silver)
 }
-.labelHeader
-{
-    color: #ffffff;
-    background-color:transparent;
-    font-size:xx-large;
-    font-style:oblique;
-    font-weight:bold;
-}
-
-.labelVisiblePeriod 
-{
-    color: #ffffff;
-    background-color:transparent;
-    font-style:oblique;
-    font-weight:bold;
-}
-
-.labelFooter
-{
-    color: #ffffff;
-    background-color:transparent;
-    font-style:oblique;
-    font-weight:bold;
-}
-
 .labelBookingDetails
 {
     color: #666666;
@@ -73,52 +52,6 @@
 {
     color: red;
 }
-.defaultPageH1
-{
-    font-size:x-large;
-    color: #ffffff;
-    background-color:transparent;
-    font-weight:bold;
-    padding-bottom:20px;
-}
-.defaultPageH2
-{
-    font-size:large;
-    color: #ffffff;
-    background-color:transparent;
-    font-weight:bold;
-}
-
-.defaultPageNormalText
-{
-    font-size:medium;
-    color: #ffffff;
-    background-color:transparent;
-    text-align:left;
-    padding-left:20px;
-}
-
-.defaultPageInfoDiv
-{
-    background-color:#86bf00;
-    width:70%;
-    -moz-border-radius: 20px;
-    -webkit-border-radius: 20px;
-    -khtml-border-radius: 20px;
-    border-radius: 20px;
-    box-shadow: 10px 10px 5px #888888;
-}
-
-.dayPilotSchedulerDiv
-{
-    background-color:#86bf00;
-    -moz-border-radius: 20px;
-    -webkit-border-radius: 20px;
-    -khtml-border-radius: 20px;
-    border-radius: 20px;
-    box-shadow: 10px 10px 5px #888888;
-}
-
 .bookigDetailsDiv
 {
     background-color:#86bf00;
