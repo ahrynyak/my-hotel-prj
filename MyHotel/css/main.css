@@ -53,12 +53,12 @@
 }
 .MyHotelMgmtContentPlaceHolderDiv
 {
-    min-height: 600px;
+    min-height: 700px;
 }
 .MainDiv
 {
     width: 90%;
     padding: 20px 20px 0;
     margin: 0 auto;
-    background: -webkit-linear-gradient(top right, Silver, White)
+    background: -webkit-linear-gradient(top right, Silver, White);
 }
