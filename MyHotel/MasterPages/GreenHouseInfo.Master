@@ -7,6 +7,7 @@
 <head runat="server">
     <title></title>
     <link href="/css/GreenHouseStyle.css" rel="stylesheet" type="text/css" />
+    <link href="/css/commonStyle.css" rel="stylesheet" type="text/css" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>

@@ -9,6 +9,7 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <link href="../css/main.css" rel="stylesheet" type="text/css" />
+    <link href="../css/commonStyle.css" rel="stylesheet" type="text/css" />
     <link href="../css/DayPilot/myhstyle.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -16,13 +17,19 @@
     <table width="100%">
         <tr>
             <td align="center">
-                <asp:Label ID="LabelHeader" runat="server" Text="Зелена садиба" CssClass="labelHeader" />
+                <div id="greenhouse_header">
+                    <div id="site_title">
+                        <span class="MainHeaderBigP1">ЗЕЛЕНА </span><span class="MainHeaderBigP2">САДИБА</span>
+                        <br />
+                        <span class="MainHeaderSmall">ОЗДОРОВЛЕННЯ ТА ВІДПОЧИНОК</span>
+                    </div>
+                </div>
             </td>
             <td align="right">
                 <asp:ContentPlaceHolder ID="ContentPlaceHolderRightLeftCornerMaster" runat="server" />
-                 <br />
-                <asp:LinkButton ID="linkButtonHome" runat="server" Text="Home" 
-                    CssClass="loginoutbutton" onclick="linkButtonHome_Click" />
+                <br />
+                <asp:LinkButton ID="linkButtonHome" runat="server" Text="Home" CssClass="loginoutbutton"
+                    OnClick="linkButtonHome_Click" />
             </td>
         </tr>
         <tr>
