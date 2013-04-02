@@ -18,12 +18,9 @@
                 <p class="H1Text">
                     Вітаємо
                 </p>
-
-                <div class="subPartBodyImg">
-                    <div class="image_wrapper image_fr">
-                        <span></span>
-                        <img src="../../icons/out5.jpg" alt="" width="218px" height="106px" />
-                    </div>
+                <div class="image_wrapper image_fr">
+                    <span></span>
+                    <img src="../../icons/out5.jpg" alt="" width="218px" height="106px" />
                 </div>
                 <p>
                     <span class="GreenHouseNormalTextP1">"ЗЕЛЕНА </span><span class="GreenHouseNormalTextP2">
@@ -39,13 +36,10 @@
                 <p class="H1Text">
                     Наше розташування
                 </p>
-                <div class="subPartBodyImg">
-                    <div class="image_wrapper image_fr">
-                        <obout:ImageZoom ID="imageZoom" runat="server" ImageUrl="../../icons/shidnycya_karta.jpg"
-                            Effect="Zooming" ThumbnailWidth="200" ThumbnailHeight="200" />
-                        <p class="SmalText">
-                            Карта джерел</p>
-                    </div>
+                <div id="MapImageDiv">
+                    <obout:ImageZoom ID="imageZoom" runat="server" ImageUrl="../../icons/shidnycya_karta.jpg"
+                        Effect="Zooming" />
+                    <span class="SmalText">Карта Східниці</span>
                 </div>
                 <p>
                     <span class="GreenHouseNormalTextP1">"ЗЕЛЕНА </span><span class="GreenHouseNormalTextP2">
