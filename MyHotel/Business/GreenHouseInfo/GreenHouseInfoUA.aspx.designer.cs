@@ -13,6 +13,15 @@ namespace MyHotel.Business.GreenHouseInfo {
     public partial class GreenHouseInfoUA {
         
         /// <summary>
+        /// imageZoomAbout control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::OboutInc.ImageZoom.ImageZoom imageZoomAbout;
+        
+        /// <summary>
         /// imageZoom control.
         /// </summary>
         /// <remarks>
@@ -20,6 +29,15 @@ namespace MyHotel.Business.GreenHouseInfo {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::OboutInc.ImageZoom.ImageZoom imageZoom;
+        
+        /// <summary>
+        /// imageZoom1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::OboutInc.ImageZoom.ImageZoom imageZoom1;
         
         /// <summary>
         /// ImageZoomDBLRoom control.

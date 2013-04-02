@@ -105,7 +105,7 @@
                     </asp:TabPanel>
                 </asp:TabContainer>
             </div>
-            <div id="templatemo_footer">
+            <div id="greenhouse_footer">
                 Copyright © 2013
             </div>
         </div>
