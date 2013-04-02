@@ -18,9 +18,9 @@
                 <p class="H1Text">
                     Вітаємо
                 </p>
-                <div class="image_wrapper image_fr">
-                    <span></span>
-                    <img src="../../icons/out5.jpg" alt="" width="218px" height="106px" />
+                <div id="aboutDiv" class="topicImageDiv">
+                    <obout:ImageZoom ID="imageZoomAbout" runat="server" ImageUrl="../../icons/out5.jpg"
+                        Effect="Zooming" ThumbnailWidth="200" />
                 </div>
                 <p>
                     <span class="GreenHouseNormalTextP1">"ЗЕЛЕНА </span><span class="GreenHouseNormalTextP2">
@@ -36,10 +36,9 @@
                 <p class="H1Text">
                     Наше розташування
                 </p>
-                <div id="MapImageDiv">
+                <div id="mapDiv" class="topicImageDiv">
                     <obout:ImageZoom ID="imageZoom" runat="server" ImageUrl="../../icons/shidnycya_karta.jpg"
-                        Effect="Zooming" />
-                    <span class="SmalText">Карта Східниці</span>
+                        Effect="Zooming" ThumbnailFixedSize="False" ThumbnailWidth="150" />
                 </div>
                 <p>
                     <span class="GreenHouseNormalTextP1">"ЗЕЛЕНА </span><span class="GreenHouseNormalTextP2">
@@ -59,8 +58,9 @@
                 <p class="H1Text">
                     Про Cхідницю
                 </p>
-                <div class="subPartBodyImg">
-                    <img src="../../icons/1248809363_shidnicha.gif" alt="" />
+                <div id="shidInfo" class="topicImageDiv">
+                    <obout:ImageZoom ID="imageZoom1" runat="server" ImageUrl="../../icons/1248809363_shidnicha.gif"
+                        Effect="Zooming" ThumbnailFixedSize="False" ThumbnailWidth="200" />
                 </div>
                 <p>
                     <span class="GreenHouseNormalTextP1">Східниця</span> - це бальнеологічний курорт,
@@ -105,12 +105,11 @@
                 <br />
                 <span>Двомісний</span> <span class="GreenHouseNormalTextP1">однокімнатний</span>
                 <span>номер</span>
-                <hr />
             </td>
         </tr>
         <tr>
             <td class="subPartBody">
-                <div class="subPartBodyImg">
+                <div id="dblImgDiv">
                     <img src="../../icons/GHDBL.jpg" alt="Схема двомісного однокімнатного номеру" />
                     <p class="SmalText">
                         Схема двомісного однокімнатного номеру</p>
@@ -136,13 +135,12 @@
         <tr>
             <td>
                 <span>Cімейний </span><span class="GreenHouseNormalTextP1">двокімнатний</span> <span>
-                    номер</span>
-                <hr />
+                    номер</span> (<span class="GreenHouseNormalTextP1">4</span> спальних місця )
             </td>
         </tr>
         <tr>
             <td class="subPartBody">
-                <div class="subPartBodyImg">
+                <div id="apartImgDiv">
                     <img src="../../icons/GHApart.jpg" alt="Схема сімейного двокімнатного номеру" />
                     <p class="SmalText">
                         Схема сімейного двокімнатного номеру</p>
@@ -167,21 +165,17 @@
             </td>
         </tr>
     </table>
+    <hr />
     <p class="H1Text">
         Кухня
     </p>
     <p>
-        <span>Наші гості можуть користуватися повністю укомплектованою кухнею:</span></p>
+        <span>Наші гості можуть користуватися повністю</span> <span class="GreenHouseNormalTextP1">
+            укомплектованою кухнею:</span></p>
     <table width="100%">
         <tr>
-            <td>
-                <span>Кухня-</span><span class="GreenHouseNormalTextP1">їдальня</span>
-                <hr />
-            </td>
-        </tr>
-        <tr>
             <td class="subPartBody">
-                <div class="subPartBodyImg">
+                <div id="kitchenDiv">
                     <img src="../../icons/Kitchen.png" alt="Схема кухні-їдальні" />
                     <p class="SmalText">
                         Схема кухні-їдальні</p>
@@ -208,18 +202,14 @@
             </td>
         </tr>
     </table>
+    <hr />
     <p class="H1Text">
         На подвір'ї
     </p>
     <p>
-        <span>До послуг наших гостей затишні куточки на подвір'ї:</span></p>
+        <span>До послуг наших гостей <span class="GreenHouseNormalTextP1">затишні</span> куточки
+            на подвір'ї, а саме:</span></p>
     <table width="100%">
-        <tr>
-            <td>
-                <span>Місця для </span><span class="GreenHouseNormalTextP1">відпочинку</span>
-                <hr />
-            </td>
-        </tr>
         <tr>
             <td class="subPartBody">
                 <ul>
@@ -239,6 +229,7 @@
             </td>
         </tr>
     </table>
+    <hr />
 </asp:Content>
 <asp:Content ID="Content12" runat="server" ContentPlaceHolderID="GreenHouseContentPlaceHolderTabServiceName">
     <p>
