@@ -185,7 +185,7 @@
                 <p>
                     <span>До послуг наших гостей </span><span class="GreenHouseNormalTextP1">кухня-їдальня</span>
                     <span>спільного користування. Вам не потрібно турбуватися про посуд та кухонну техніку,
-                        оскільки кухня є повністюукомплектован, а саме:</span></p>
+                        оскільки кухня є повністю укомплектован, а саме:</span></p>
             </td>
             <td rowspan="2">
                 <div id="kitchenDiv">
@@ -223,21 +223,26 @@
     <p class="H1Text">
         На подвір'ї
     </p>
-    <p>
-        <span>До послуг наших гостей <span class="GreenHouseNormalTextP1">затишні</span> куточки
-            на подвір'ї, а саме:</span></p>
     <table width="100%">
+        <tr>
+            <td>
+                <p>
+                    <span>Наші гості можуть провести час в </span><span class="GreenHouseNormalTextP1">затишних</span>
+                    <span>куточках створених в різних місцях на подвір'ї, які включають:</span>
+                </p>
+            </td>
+        </tr>
         <tr>
             <td class="subPartBody">
                 <ul>
-                    <li>Гойдалка</li>
+                    <li>Гойдалку</li>
                     <li>Мангал</li>
-                    <li>Столи зі зрубу в різних куточках</li>
+                    <li>Столи зі зрубу</li>
                 </ul>
             </td>
         </tr>
         <tr>
-            <td>
+            <td class="roomGalery">
                 <center>
                     <obout:ImageZoom ID="ImageZoomRelaxZones" runat="server" ImageUrl="~/Business/GreenHouseInfo/img/RelaxZones"
                         DisplayStyle="ListView" Thumnailwidth="50" ThumnailHeight="50" ShowFooter="False"
@@ -385,7 +390,6 @@
                     <strong>N</strong>: 49.227798
                     <br />
                     <strong>E</strong>: 23.343444
-                    
                     <br />
                     <a href="https://maps.google.com.ua/maps?q=49.227798+23.343444&hl=uk&ll=49.227798,23.343444&spn=0.095845,0.264187&t=m&z=13">
                         Показати на карті</a>
