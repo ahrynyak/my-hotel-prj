@@ -67,12 +67,15 @@ body
 padding-bottom: 30px;
 margin-bottom: 30px;
 border-bottom: 1px solid #ccc;
+text-align:justify;
 }
 /* end of main */
 /*Custom style*/
 .topicImageDiv
 {
     text-align:center;
+    width:250px;
+    height:200px;
 }
 #aboutDiv
 {
