@@ -41,7 +41,7 @@
                 </p>
                 <div id="mapDiv" class="topicImageDiv">
                     <obout:ImageZoom ID="imageZoom" runat="server" ImageUrl="../../icons/shidnycya_karta.jpg"
-                        Effect="Zooming" ThumbnailFixedSize="False" ThumbnailWidth="150" />
+                        Effect="Zooming" ThumbnailFixedSize="True" ImageSizeOptions="200X100" ThumbnailWidth="200" ThumbnailHeight="100" />
                 </div>
                 <p>
                     <span class="GreenHouseNormalTextP1">"ЗЕЛЕНА </span><span class="GreenHouseNormalTextP2">
