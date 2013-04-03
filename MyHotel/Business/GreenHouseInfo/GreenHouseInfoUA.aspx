@@ -97,26 +97,28 @@
     <p class="H1Text">
         Номери
     </p>
-    <p>
-        <span class="GreenHouseNormalTextP1">"ЗЕЛЕНА </span><span class="GreenHouseNormalTextP2">
-            САДИБА"</span> <span>пропонує наступні варіанти розміщення:</span></p>
     <table width="100%">
         <tr>
-            <td>
+            <td colspan="2">
                 <br />
-                <span>Двомісний</span> <span class="GreenHouseNormalTextP1">однокімнатний</span>
-                <span>номер</span>
+                <span>Стандартний </span><span class="GreenHouseNormalTextP1">однокімнатний</span>
+                <span>номер - </span><span class="GreenHouseNormalTextP1">2</span> спальних місця
+                <br />
+                <span class="SmalText">(*додаткове ліжко за домовленістю)</span>
+            </td>
+            <td rowspan="2">
+                <div id="dblImgDiv">
+                    <img src="../../icons/GHDBL.jpg" alt="Схема однокімнатного номеру" />
+                    <p class="SmalText">
+                        Схема однокімнатного номеру</p>
+                </div>
             </td>
         </tr>
         <tr>
             <td class="subPartBody">
-                <div id="dblImgDiv">
-                    <img src="../../icons/GHDBL.jpg" alt="Схема двомісного однокімнатного номеру" />
-                    <p class="SmalText">
-                        Схема двомісного однокімнатного номеру</p>
-                </div>
                 <ul>
-                    <li>Два односпальні ортопедичні ліжка </li>
+                    <li>Одне <span class="GreenHouseNormalTextP1">двоспальне</span> або два <span class="GreenHouseNormalTextP1">
+                        односпальні</span> ортопедичні ліжка </li>
                     <li>Телевізор з супутниковим телебаченням </li>
                     <li>Шафа для одягу </li>
                     <li>Журнальний столик, трюмо </li>
@@ -125,7 +127,7 @@
             </td>
         </tr>
         <tr>
-            <td>
+            <td colspan="3" class="roomGalery">
                 <center>
                     <obout:ImageZoom ID="ImageZoomDBLRoom" runat="server" ImageUrl="~/Business/GreenHouseInfo/img/DBLRoom"
                         DisplayStyle="ListView" Thumnailwidth="50" ThumnailHeight="50" ShowFooter="False"
@@ -134,21 +136,28 @@
             </td>
         </tr>
         <tr>
-            <td>
+            <td colspan="3">
+                <hr />
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
                 <span>Cімейний </span><span class="GreenHouseNormalTextP1">двокімнатний</span> <span>
-                    номер</span> (<span class="GreenHouseNormalTextP1">4</span> спальних місця )
+                    номер - </span><span class="GreenHouseNormalTextP1">4</span> спальних місця
+            </td>
+            <td rowspan="2">
+                <div id="apartImgDiv">
+                    <img src="../../icons/GHApart.jpg" alt="Схема двокімнатного номеру" />
+                    <p class="SmalText">
+                        Схема двокімнатного номеру</p>
+                </div>
             </td>
         </tr>
         <tr>
             <td class="subPartBody">
-                <div id="apartImgDiv">
-                    <img src="../../icons/GHApart.jpg" alt="Схема сімейного двокімнатного номеру" />
-                    <p class="SmalText">
-                        Схема сімейного двокімнатного номеру</p>
-                </div>
                 <ul>
-                    <li>Двоспальне ортопедичне ліжко </li>
-                    <li>Диван</li>
+                    <li><span class="GreenHouseNormalTextP1">Двоспальне</span> ортопедичне ліжко </li>
+                    <li>Розкладний диван</li>
                     <li>Телевізор з супутниковим телебаченням </li>
                     <li>Шафа для одягу </li>
                     <li>Журнальний столик, трюмо </li>
@@ -157,7 +166,7 @@
             </td>
         </tr>
         <tr>
-            <td>
+            <td colspan="3" class="roomGalery">
                 <center>
                     <obout:ImageZoom ID="ImageZoomApartRoom" runat="server" ImageUrl="~/Business/GreenHouseInfo/img/ApartRoom"
                         DisplayStyle="ListView" Thumnailwidth="50" ThumnailHeight="50" ShowFooter="False"
@@ -170,17 +179,23 @@
     <p class="H1Text">
         Кухня
     </p>
-    <p>
-        <span>Наші гості можуть користуватися повністю</span> <span class="GreenHouseNormalTextP1">
-            укомплектованою кухнею:</span></p>
     <table width="100%">
         <tr>
-            <td class="subPartBody">
+            <td colspan="2">
+                <p>
+                    <span>До послуг наших гостей </span><span class="GreenHouseNormalTextP1">кухня-їдальня</span>
+                    <span>спільного користування. Вам не потрібно турбуватися про посуд та кухонну техніку, оскільки кухня є повністюукомплектован, а саме:</span></p>
+            </td>
+            <td rowspan="2">
                 <div id="kitchenDiv">
                     <img src="../../icons/Kitchen.png" alt="Схема кухні-їдальні" />
                     <p class="SmalText">
                         Схема кухні-їдальні</p>
                 </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="subPartBody">
                 <ul>
                     <li>Дві газові плити</li>
                     <li>Дві кухонні мийки</li>
@@ -188,13 +203,13 @@
                     <li>Два холодильники</li>
                     <li>Електрочайник </li>
                     <li>Окремі шафки для зберігання</li>
-                    <li>Весь необхідний посуд</li>
+                    <li>Весь необхідний посуд (сковорідки, каструлі, тарілки, чашки, столові прибори)</li>
                     <li>Обідні столи</li>
                 </ul>
             </td>
         </tr>
         <tr>
-            <td>
+            <td colspan="3" class="roomGalery">
                 <center>
                     <obout:ImageZoom ID="ImageZoomKitchen" runat="server" ImageUrl="~/Business/GreenHouseInfo/img/Kitchen"
                         DisplayStyle="ListView" Thumnailwidth="50" ThumnailHeight="50" ShowFooter="False"
@@ -265,7 +280,8 @@
             <li>Львова - 500 грн</li>
             <li>Трускавця - 120 грн</li>
         </ul>
-        <p class="SmalText">(*ціни потрібно уточняти)</p>
+        <p class="SmalText">
+            (*ціни потрібно уточняти)</p>
     </ul>
     <hr />
 </asp:Content>
