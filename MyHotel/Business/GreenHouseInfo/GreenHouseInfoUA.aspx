@@ -41,8 +41,7 @@
                 </p>
                 <div id="mapDiv" class="topicImageDiv">
                     <obout:ImageZoom ID="imageZoom" runat="server" ImageUrl="../../icons/shidnycya_karta.jpg"
-                        Effect="Zooming" ThumbnailFixedSize="True" ImageSizeOptions="200X100" ThumbnailWidth="200"
-                        ThumbnailHeight="100" />
+                        Effect="Zooming" ThumbnailFixedSize="True" ThumbnailWidth="100" />
                 </div>
                 <p>
                     <span class="GreenHouseNormalTextP1">"ЗЕЛЕНА </span><span class="GreenHouseNormalTextP2">
@@ -137,7 +136,7 @@
         </tr>
         <tr>
             <td colspan="3">
-                <hr />
+                <br />
             </td>
         </tr>
         <tr>
@@ -175,7 +174,7 @@
             </td>
         </tr>
     </table>
-    <hr />
+    <br />
     <p class="H1Text">
         Кухня
     </p>
@@ -219,7 +218,7 @@
             </td>
         </tr>
     </table>
-    <hr />
+    <br />
     <p class="H1Text">
         На подвір'ї
     </p>
@@ -251,7 +250,6 @@
             </td>
         </tr>
     </table>
-    <hr />
 </asp:Content>
 <asp:Content ID="Content12" runat="server" ContentPlaceHolderID="GreenHouseContentPlaceHolderTabServiceName">
     <p>
@@ -259,37 +257,71 @@
     </p>
 </asp:Content>
 <asp:Content ID="Content13" runat="server" ContentPlaceHolderID="GreenHouseContentPlaceHolderTabService">
-    <p class="H1Text">
-        Послуги включені у вартість
-    </p>
-    <ul>
-        <li>Зустріч у <span class="GreenHouseNormalTextP1">Східниці</span></li>
-        <li>Зміна постелі (1 раз на 8 днів) та рушників (2 на особу 1 раз на 4 днів)</li>
-        <li><span class="GreenHouseNormalTextP1">Прибирання</span> номерів 1 раз на 4 дні</li>
-        <li>Користування мангалом</li>
-        <li>Користування праскою</li>
-        <li>Виклик <span class="GreenHouseNormalTextP1">таксі</span></li>
-        <li>Надання інформаційних послуг щодо відпочинку</li>
-        <li>Місце для авто <span class="GreenHouseNormalTextP1">(за домовленістю)</span>
-        </li>
-    </ul>
-    <hr />
-    <p class="H1Text">
-        Послуги за додаткову оплату
-    </p>
-    <ul>
-        <li>Прання одягу</li>
-        <li>Консультація <span class="GreenHouseNormalTextP1">лікаря</span></li>
-        <li>Масаж</li>
-        <li><span class="GreenHouseNormalTextP1">Трансфер</span> з/до:</li>
-        <ul>
-            <li>Львова - 500 грн</li>
-            <li>Трускавця - 120 грн</li>
-        </ul>
-        <p class="SmalText">
-            (*ціни потрібно уточняти)</p>
-    </ul>
-    <hr />
+    <table width="100%">
+        <tr>
+            <td>
+                <p class="H1Text">
+                    Послуги включені у вартість
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <ul>
+                    <li>Зустріч у <span class="GreenHouseNormalTextP1">Східниці</span></li>
+                    <li>Зміна постелі (1 раз на 8 днів) та рушників (2 на особу 1 раз на 4 днів)</li>
+                    <li><span class="GreenHouseNormalTextP1">Прибирання</span> номерів 1 раз на 4 дні</li>
+                    <li>Користування мангалом</li>
+                    <li>Користування праскою</li>
+                    <li>Виклик <span class="GreenHouseNormalTextP1">таксі</span></li>
+                    <li>Надання інформаційних послуг щодо відпочинку</li>
+                    <li>Місце для авто <span class="GreenHouseNormalTextP1">(за домовленістю)</span>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td class="roomGalery">
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <p class="H1Text">
+                    Послуги за додаткову оплату
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <ul>
+                    <li>Прання одягу</li>
+                    <li>Консультація <span class="GreenHouseNormalTextP1">лікаря</span></li>
+                    <li>Масаж</li>
+                    <li><span class="GreenHouseNormalTextP1">Трансфер</span> з/до:</li>
+                    <ul>
+                        <li>Львова - 500 грн</li>
+                        <li>Трускавця - 120 грн</li>
+                    </ul>
+                    <p class="SmalText">
+                        (*ціни потрібно уточняти)</p>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td class="roomGalery">
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+            </td>
+        </tr>
+    </table>
 </asp:Content>
 <asp:Content ID="Content9" ContentPlaceHolderID="GreenHouseContentPlaceHolderTabPricesName"
     runat="server">
