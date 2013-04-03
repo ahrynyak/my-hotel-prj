@@ -66,8 +66,8 @@ body
 .content_box {
 padding-bottom: 30px;
 margin-bottom: 30px;
-border-bottom: 1px solid #ccc;
 text-align:justify;
+background: -webkit-gradient(linear, 0 80%, 0 100%, from(white), to(#C4EFAA));
 }
 /* end of main */
 /*Custom style*/
@@ -108,7 +108,7 @@ text-align:justify;
 
 .roomGalery
 {
-    background: -webkit-linear-gradient(top right, #fafafa, #C4EFAA)
+    background: linear-gradient(to bottom, white, white, #C4EFAA);
 }
 .subPartBody
 {
