@@ -108,8 +108,7 @@ text-align:justify;
 
 .roomGalery
 {
-    border-color: #ccc;
-    border-style: double;
+    background: -webkit-linear-gradient(top right, #fafafa, #C4EFAA)
 }
 .subPartBody
 {
@@ -147,7 +146,7 @@ text-align:justify;
     margin:0px 0.16em 0px 0px;
     padding:1px 0px 1px 0px;
     vertical-align: bottom;
-    border:solid 1px #a3a3a3;
+    /*border:solid 1px #a3a3a3;*/
     border-bottom-width:0px;
 }
 .ajax__tab_green-theme .ajax__tab_header .ajax__tab_tab
@@ -171,6 +170,6 @@ text-align:justify;
 .ajax__tab_green-theme .ajax__tab_body 
 {
     padding:0.25em 0.5em;
-    border:solid 1px #808080;
+/*    border:solid 1px #808080;*/
     min-height: 600px;
 }
