@@ -14,7 +14,7 @@
 </head>
 <body>
     <form id="MyHotelMgmtForm" runat="server">
-    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    <asp:ScriptManager ID="ScriptManager1" runat="server" EnableScriptGlobalization="true" >
     </asp:ScriptManager>
     <div class="main_div">
         <div class="main_header_div">

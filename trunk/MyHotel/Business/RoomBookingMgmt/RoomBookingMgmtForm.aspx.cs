@@ -35,7 +35,7 @@ namespace MyHotel.Business.RoomBookingMgmt
             }
             else
             {
-                Response.Redirect("OpenUIContents/LoginForm.aspx");
+                Response.Redirect("/LoginForm.aspx");
             }
         }
 
@@ -154,8 +154,7 @@ namespace MyHotel.Business.RoomBookingMgmt
                 // sets the column header
                 if (e.Start.DayOfWeek == DayOfWeek.Sunday)
                 {
-                    e.InnerHTML = "<strong>" + e.Start.ToString("dd (ddd)") + "</strong>";
-
+                    e.InnerHTML = @"<span class=""sundayheaderstyle""> <strong>" + e.Start.ToString("dd (ddd)") + "</strong> </span>";
                 }
                 else
                 {
@@ -166,13 +165,13 @@ namespace MyHotel.Business.RoomBookingMgmt
 
         protected void dayPilotScheduler_BeforeCellRender(object sender, DayPilot.Web.Ui.Events.BeforeCellRenderEventArgs e)
         {
-            if (e.Start < DateTime.Today)
-            {
-                e.CssClass = "pastday";
-            }
-            else if (e.Start.DayOfWeek == DayOfWeek.Sunday)
+            if (e.Start.DayOfWeek == DayOfWeek.Sunday)
             {
                 e.CssClass = "sundaycellstyle";
+            }
+            else if (e.Start < DateTime.Today)
+            {
+                e.CssClass = "pastday";
             }
             else
             {
@@ -196,7 +195,7 @@ namespace MyHotel.Business.RoomBookingMgmt
             {
                 FormsAuthentication.SignOut();
             }
-            Response.Redirect("~/OpenUIContents/LoginForm.aspx");
+            Response.Redirect("/LoginForm.aspx");
         }
     }
 }

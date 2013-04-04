@@ -1,34 +1,4 @@
-﻿/*---Main layout style begin---*/
-.main_div
-{
-    width: 70%;
-    padding: 40px 30px;
-    margin: 30px auto;
-    background: -webkit-gradient(linear, 0 20%, 0 100%, from(white), to(#C4EFAA));    
-    border-top-left-radius : 15px;
-    border-top-right-radius : 15px;
-}
-.main_header_div
-{
-    text-align:center;
-    background: -webkit-gradient(linear, 0 20%, 0 100%, from(white), to(#C4EFAA));    
-}
-.main_menu_div
-{
-}
-.main_content_div
-{
-    min-height: 600px;
-}
-.main_footer_div
-{
-    padding: 20px;
-    text-align: center;
-    width:70%;
-    margin: 30px auto;
-}
-/*---Main layout style end---*/
-body 
+﻿body 
 {
     color: #625e5e;
     margin: 0px;
@@ -50,9 +20,12 @@ body
 }
 .sundaycellstyle
 {
-    background-color:#86bf00;
 }
-
+.sundayheaderstyle
+{
+    color:#B00000;
+    
+}
 .weekday
 {
     background-color:White;
@@ -60,7 +33,7 @@ body
 
 .pastday
 {
-    background-color:#F5F5F5;
+    background-color:#CCCCCC;
 }
 .errorValidation
 {
@@ -81,4 +54,33 @@ body
     background: -webkit-gradient(linear, 0 20%, 0 100%, from(white), to(#C4EFAA));
     width:100%;
 }
+/*---Main layout style begin---*/
+.main_div
+{
+    width: 70%;
+    padding: 40px 30px;
+    margin: 30px auto;
+    border-top-left-radius : 15px;
+    border-top-right-radius : 15px;
+    background-color:White;
+}
+.main_header_div
+{
+    text-align:center;
+}
+.main_menu_div
+{
+}
+.main_content_div
+{
+    min-height: 600px;
+}
+.main_footer_div
+{
+    padding: 20px;
+    text-align: center;
+    width:70%;
+    margin: 30px auto;
+}
+/*---Main layout style end---*/
 
