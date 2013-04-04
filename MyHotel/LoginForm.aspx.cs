@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.Security;
 
-namespace MyHotel.OpenUIContents
+namespace MyHotel
 {
     public partial class LoginForm : System.Web.UI.Page
     {

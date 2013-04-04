@@ -63,14 +63,27 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Business\GreenHouseInfo\GreenHouseInfoUA.aspx" />
+    <Content Include="Business\GreenHouseInfo\img\ApartRoom\DSC_0420.jpg" />
+    <Content Include="Business\GreenHouseInfo\img\ApartRoom\DSC_0421.jpg" />
+    <Content Include="Business\GreenHouseInfo\img\ApartRoom\DSC_0422.jpg" />
+    <Content Include="Business\GreenHouseInfo\img\ApartRoom\DSC_0434.jpg" />
+    <Content Include="Business\GreenHouseInfo\img\DBLRoom\DSC_0437.jpg" />
+    <Content Include="Business\GreenHouseInfo\img\DBLRoom\DSC_0458.jpg" />
+    <Content Include="Business\GreenHouseInfo\img\DBLRoom\DSC_0467 - Copy.jpg" />
+    <Content Include="Business\GreenHouseInfo\img\DBLRoom\DSC_0467.jpg" />
+    <Content Include="Business\GreenHouseInfo\img\Kitchen\IMG_5849.JPG" />
+    <Content Include="Business\GreenHouseInfo\img\Kitchen\IMG_5851.JPG" />
+    <Content Include="Business\GreenHouseInfo\img\RelaxZones\IMG_7549.JPG" />
+    <Content Include="Business\GreenHouseInfo\img\RelaxZones\IMG_7554.JPG" />
     <Content Include="Business\RoomBookingMgmt\RoomBookingDetailsForm.aspx" />
     <Content Include="css\commonStyle.css" />
     <Content Include="css\DayPilot\myhstyle.css" />
-    <Content Include="css\LoginStyle.css" />
+    <Content Include="css\loginStyle.css" />
     <Content Include="css\main.css" />
     <None Include="DBScripts\InitDBScripts.sql" />
     <None Include="ExternalAss\DayPilot.dll" />
     <Content Include="css\greenHouseStyle.css" />
+    <Content Include="Default.aspx" />
     <Content Include="icons\1248809363_shidnicha.gif" />
     <Content Include="icons\1364080863_home_64.png" />
     <Content Include="icons\1364080984_money.png" />
@@ -84,12 +97,13 @@
     <Content Include="icons\greenhouse_logo.bmp" />
     <Content Include="icons\greenhouse_main.png" />
     <Content Include="icons\hotel_bed.png" />
+    <Content Include="icons\Kitchen.png" />
     <Content Include="icons\out5.jpg" />
     <Content Include="icons\refresh_green.ico" />
     <Content Include="icons\shidnycya_karta.jpg" />
     <Content Include="js\message.js" />
     <Content Include="js\modal.js" />
-    <Content Include="OpenUIContents\LoginForm.aspx" />
+    <Content Include="LoginForm.aspx" />
     <Content Include="Business\RoomBookingMgmt\RoomBookingMgmtForm.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -101,7 +115,6 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="MasterPages\GreenHouseInfo.Master" />
-    <Content Include="Web.sitemap" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Business\Entity\RoomDetailedEntity.cs" />
@@ -122,6 +135,13 @@
       <DependentUpon>RoomBookingDetailsForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Business\RoomBookingMgmt\RoomBookingMgmtController.cs" />
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
     <Compile Include="LINQDB\DataClasses.cs">
       <DependentUpon>DataClasses.dbml</DependentUpon>
     </Compile>
@@ -144,11 +164,11 @@
     <Compile Include="MasterPages\MyHotelMgmt.Master.designer.cs">
       <DependentUpon>MyHotelMgmt.Master</DependentUpon>
     </Compile>
-    <Compile Include="OpenUIContents\LoginForm.aspx.cs">
+    <Compile Include="LoginForm.aspx.cs">
       <DependentUpon>LoginForm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="OpenUIContents\LoginForm.aspx.designer.cs">
+    <Compile Include="LoginForm.aspx.designer.cs">
       <DependentUpon>LoginForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />

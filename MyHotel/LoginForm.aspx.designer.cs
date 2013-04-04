@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MyHotel.OpenUIContents {
+namespace MyHotel {
     
     
     public partial class LoginForm {
