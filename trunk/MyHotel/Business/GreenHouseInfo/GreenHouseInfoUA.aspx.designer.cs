@@ -31,13 +31,13 @@ namespace MyHotel.Business.GreenHouseInfo {
         protected global::OboutInc.ImageZoom.ImageZoom imageZoom;
         
         /// <summary>
-        /// imageZoom1 control.
+        /// imageZoomShidn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::OboutInc.ImageZoom.ImageZoom imageZoom1;
+        protected global::OboutInc.ImageZoom.ImageZoom imageZoomShidn;
         
         /// <summary>
         /// ImageZoomDBLRoom control.

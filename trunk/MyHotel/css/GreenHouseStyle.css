@@ -1,5 +1,4 @@
-﻿/*Page style*/
-body 
+﻿body 
 {
     margin: 0px;
     padding: 0px;
@@ -7,7 +6,7 @@ body
     font-family: Tahoma, Geneva, sans-serif;
     font-size: 14px;
 }
-/* main */
+/*---Main style start---*/
 #greenhouse_wrapper 
 {
     width: 900px;
@@ -27,13 +26,6 @@ body
     width: 840px;
     padding: 40px 30px;
     background: #fff url(/icons/greenhouse_main.png) no-repeat top;
-}
-#greenhouse_content {
-	float: left;
-	width: 100%;
-}
-#greenhouse_content p {
-	margin-bottom: 20px;
 }
 #greenhouse_footer {
     width: 840px;
@@ -62,62 +54,48 @@ body
 	margin-top: 5px;
 	letter-spacing: 5px;
 }
+/*---Main style start---*/
 
-.content_box {
-padding-bottom: 30px;
-margin-bottom: 30px;
-text-align:justify;
-background: -webkit-gradient(linear, 0 80%, 0 100%, from(white), to(#C4EFAA));
-}
-/* end of main */
-/*Custom style*/
-.topicImageDiv
+/*---Section layout style begin---*/
+.section
 {
-    text-align:center;
-    width:250px;
-    height:200px;
+    clear: both;
 }
-#aboutDiv
+.section_header
+{   
+    font-size:28px;
+    font-family: Geneva;
+    color: #9c6421;
+    padding:5px 0px;
+    margin: 0 0 10px 0;
+}
+.section_content
 {
-    float: right;
+    width: 60%;
+    float: left;
 }
-#mapDiv
-{
-    float: right;
-}
-#shidInfo
+.section_img
 {
     float: right;
+    text-align: right;
+    width: 40%;
+    font-size:small;
+    font-family:Geneva;
 }
+.section_gallery
+{
+    clear: both;
+}
+.section_footer
+{
+   clear:both;
+   background: -webkit-gradient(linear, 0 20%, 0 100%, from(white), to(#C4EFAA));    
+   width: 100%;
+   height: 30px;
+}
+/*---Section layout style begin---*/
 
-#dblImgDiv
-{
-    float: right;
-    text-align:center;
-}
-#apartImgDiv
-{
-    float: right;
-    text-align:center;
-}
-#kitchenDiv
-{
-    float: right;
-    text-align:center;
-}
-
-.roomGalery
-{
-    background: linear-gradient(to bottom, white, white, #C4EFAA);
-}
-.subPartBody
-{
-    vertical-align: top;
-}
-/*End of Custom style*/
-
-
-/*OBOUT*/
+/*--- OBOUT style start*/
 .ImageZoomEntryContainer
 {
     border:0 !important;
@@ -130,7 +108,7 @@ background: -webkit-gradient(linear, 0 80%, 0 100%, from(white), to(#C4EFAA));
 {
     margin:10px !important;
 }
-/**/
+/*--- OBOUT style end*/
 /* ajax__tab_green-theme theme (images/green.jpg) */
 .ajax__tab_green-theme
 {
@@ -173,3 +151,4 @@ background: -webkit-gradient(linear, 0 80%, 0 100%, from(white), to(#C4EFAA));
 /*    border:solid 1px #808080;*/
     min-height: 600px;
 }
+/* ajax__tab_green-theme theme (images/green.jpg) */

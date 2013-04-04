@@ -11,7 +11,7 @@ cite { font-weight: bold; color:#3b3823; }
 cite span { color: #696443; }
 em { color: #e55822; }
 
-/*Text style*/
+/*---Text style begin---*/
 .MainHeaderSmall
 {
     margin-top:15px;
@@ -43,27 +43,9 @@ em { color: #e55822; }
     font-weight: bolder;
     font-family: Verdana;
 }
-.H1Text
-{
-    font-size:28px;
-    font-family: Geneva;
-    color: #9c6421;
-    padding:5px 0px;
-    margin: 0 0 10px 0;
-}
-.H2Text
-{
-    font-style: italic;
-    font-weight: bold;
-    font-family:Geneva;
-}
-.NormalText
-{
-    font-family:Geneva;
-}
 .SmalText
 {
     font-family:Geneva;
     font-size:small;
 }
-/*End Text style*/
+/*---Text style end---*/
