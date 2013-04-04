@@ -16,40 +16,22 @@
     <form id="MyHotelMgmtForm" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>
-    <div>
-        <div class="MainDiv">
-            <table width="100%">
-                <tr>
-                    <td align='center'>
-                        <span class="MainHeaderBigP1">ЗЕЛЕНА </span><span class="MainHeaderBigP2">САДИБА</span>
-                        <br />
-                        <span class="MainHeaderSmall">ОЗДОРОВЛЕННЯ ТА ВІДПОЧИНОК</span>
-                        <hr />
-                    </td>
-                </tr>
-                <tr class="menu">
-                    <td class="menu">
-                        Menu | <a href="/Business/GreenHouseInfo/GreenHouseInfoUA.aspx">Інфо сайт</a>
-                    </td>
-                </tr>
-                <tr class="menu">
-                    <td class="menu">
-                        <hr class="menu" />
-                    </td>
-                </tr>
-                <tr>
-                    <td align='center'>
-                        <div class="MyHotelMgmtContentPlaceHolderDiv">
-                            <asp:ContentPlaceHolder ID="MyHotelMgmtContentPlaceHolder" runat="server">
-                            </asp:ContentPlaceHolder>
-                        </div>
-                    </td>
-                </tr>
-            </table>
+    <div class="main_div">
+        <div class="main_header_div">
+            <span class="MainHeaderBigP1">ЗЕЛЕНА </span><span class="MainHeaderBigP2">САДИБА</span>
+            <br />
+            <span class="MainHeaderSmall">ОЗДОРОВЛЕННЯ ТА ВІДПОЧИНОК</span>
         </div>
-        <div id="main_footer">
-            Copyright © 2013
+        <div class="main_menu_div">
+            Menu | <a href="/Business/GreenHouseInfo/GreenHouseInfoUA.aspx">Інфо сайт</a>
         </div>
+        <div class="main_content_div">
+            <asp:ContentPlaceHolder ID="MyHotelMgmtContentPlaceHolder" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+    <div class="main_footer_div">
+        Copyright © 2013
     </div>
     </form>
 </body>

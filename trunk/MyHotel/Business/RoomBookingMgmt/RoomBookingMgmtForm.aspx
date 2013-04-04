@@ -31,10 +31,12 @@
         }
 
     </script>
+    <div class="main_menu">
+    </div>
     <table width="100%">
         <tr>
             <td style="width: 120px">
-                <asp:Label ID="LabelVisiblePeriod" runat="server" Text="Видимий період:" CssClass="NormalText"></asp:Label>
+                Видимий період
             </td>
             <td style="width: 130px">
                 <asp:TextBox runat="server" ID="datePickeStart" autocomplete="off" AutoPostBack="True"
@@ -42,7 +44,7 @@
                 <ajaxToolkit:CalendarExtender ID="calendarExtenderStart" runat="server" TargetControlID="datePickeStart" />
             </td>
             <td style="width: 20px">
-                <asp:Label ID="LabelVisiblePeriodTo" runat="server" Text="до" CssClass="NormalText"></asp:Label>
+                до
             </td>
             <td style="width: 130px">
                 <asp:TextBox runat="server" ID="datePickeEnd" autocomplete="off" AutoPostBack="True"
