@@ -88,37 +88,15 @@ http://java.daypilot.org/
 .myhstyle_timeheadergroup,
 .myhstyle_timeheadercol
 {
-	color: #ffffff;
-	background: #a3a3a3;
-	
-	background: -moz-linear-gradient(
-		top,
-		#ababab 0%,
-		#9b9b9b);
-	background: -webkit-gradient(
-		linear, left top, left bottom, 
-		from(#ababab),
-		to(#9b9b9b));
-	filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr="#ababab", endColorStr="#9b9b9b");
-	
+	color: #666666;
+	background: #eeeeee;
 }
 
 .myhstyle_rowheader,
 .myhstyle_corner
 {
-	color: #ffffff;
-	background: #a3a3a3;
-	
-	background: -moz-linear-gradient(
-		left,
-		#ababab 0%,
-		#9b9b9b);
-	background: -webkit-gradient(
-		linear, left top, right top, 
-		from(#ababab),
-		to(#9b9b9b));
-	filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr="#ababab", endColorStr="#9b9b9b", GradientType=1);
-	
+	color: #666666;
+	background: #eeeeee;
 }
 
 .myhstyle_rowheader_inner {
@@ -146,13 +124,13 @@ http://java.daypilot.org/
 .myhstyle_divider_horizontal,
 .myhstyle_resourcedivider 
 {
-	background-color: #cccccc;
+	background-color: #625e5e;
 }
 
 .myhstyle_matrix_vertical_line,
 .myhstyle_matrix_horizontal_line 
 {
-	background-color: #eeeeee;
+	background-color: #625e5e;
 }
 
 .myhstyle_cellcolumn 
