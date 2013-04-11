@@ -13,14 +13,11 @@
     width: 70%;
     padding: 40px 30px;
     margin: 30px auto;
-    /*border-top-left-radius : 15px;
-    border-top-right-radius : 15px;*/
     background-color:White;
 }
 .main_header_div
 {
     text-align:center;
-    background-color:#eeeeee;
 }
 .main_menu_div
 {
@@ -63,6 +60,8 @@
 .eventNotConfirmed
 {
 	background-color: Red;
+	width:auto;
+	height:inherit;
 }
 .eventConfirmed
 {

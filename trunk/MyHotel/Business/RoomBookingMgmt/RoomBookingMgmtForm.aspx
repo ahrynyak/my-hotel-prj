@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" AutoEventWireup="true" MasterPageFile="~/MasterPages/MyHotelMgmt.Master"
     CodeBehind="RoomBookingMgmtForm.aspx.cs" Inherits="MyHotel.Business.RoomBookingMgmt.RoomBookingMgmtForm"
-    Culture="uk-UA" UICulture="uk-UA"%>
+    Culture="uk-UA" UICulture="uk-UA" %>
 
 <%@ Register Assembly="DayPilot" Namespace="DayPilot.Web.Ui" TagPrefix="DayPilot" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
@@ -33,8 +33,8 @@
     </script>
     <table width="100%">
         <tr>
-            <td style="width: 120px">
-                Видимий період
+            <td style="width: 130px">
+                <strong>Видимий період</strong>
             </td>
             <td style="width: 130px">
                 <asp:TextBox runat="server" ID="datePickeStart" autocomplete="off" AutoPostBack="True"
@@ -42,7 +42,7 @@
                 <ajaxToolkit:CalendarExtender ID="calendarExtenderStart" runat="server" TargetControlID="datePickeStart" />
             </td>
             <td style="width: 20px">
-                до
+                <strong>до</strong>
             </td>
             <td style="width: 130px">
                 <asp:TextBox runat="server" ID="datePickeEnd" autocomplete="off" AutoPostBack="True"
@@ -69,7 +69,8 @@
                     Font-Bold="False" HeaderHeight="35" LoadingLabelText="Завантажую..." EventMoveHandling="PostBack"
                     OnEventMove="dayPilotScheduler_EventMove" OnEventResize="dayPilotScheduler_EventResize"
                     Style="top: 0px; left: 0px" AfterRenderJavaScript="" HeaderDateFormat="d (ddd)"
-                    OnBeforeCellRender="dayPilotScheduler_BeforeCellRender" OnBeforeTimeHeaderRender="dayPilotScheduler_BeforeTimeHeaderRender" OnBeforeEventRender="dayPilotScheduler_BeforeEventRender">
+                    OnBeforeCellRender="dayPilotScheduler_BeforeCellRender" OnBeforeTimeHeaderRender="dayPilotScheduler_BeforeTimeHeaderRender"
+                    OnBeforeEventRender="dayPilotScheduler_BeforeEventRender">
                 </DayPilot:DayPilotScheduler>
             </td>
         </tr>
