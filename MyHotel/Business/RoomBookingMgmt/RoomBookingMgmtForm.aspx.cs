@@ -187,13 +187,15 @@ namespace MyHotel.Business.RoomBookingMgmt
                 var roomBookingEntity = e.DataItem.Source as RoomBookingEntity;
                 if (roomBookingEntity != null)
                 {
-                    e.InnerHTML = String.Format("{0} ({1})", roomBookingEntity.GuestName, roomBookingEntity.GuestPhone);
+                    string guestInfo = String.Format("{0} ({1})", roomBookingEntity.GuestName, roomBookingEntity.GuestPhone);
                     if (!string.IsNullOrEmpty(roomBookingEntity.AdditionalInfo))
                     {
-                        e.InnerHTML = e.InnerHTML + String.Format("<br />Інфо: {0}", roomBookingEntity.AdditionalInfo);
+                        guestInfo = guestInfo + String.Format("<br />Інфо: {0}", roomBookingEntity.AdditionalInfo);
                     }
+                    e.InnerHTML = "<span title='" + guestInfo.Replace("<br />", Environment.NewLine) + "'>" + guestInfo + "</span>";
                 }
             }
+
             EBookingStatus status = (EBookingStatus)Convert.ToInt32(e.Tag["BookingStatus"]);
             string cssClassName = "event" + status.ToString();
             e.ToolTip = status.ToString();

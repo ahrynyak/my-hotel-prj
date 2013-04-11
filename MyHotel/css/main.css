@@ -5,19 +5,37 @@
     padding: 0px;
     font-family: Tahoma, Geneva, sans-serif;
     font-size: 14px;
+    background: #959796 url(/icons/wood-repeat.jpg);
 }
-.labelBookingDetails
+/*---Main layout style begin---*/
+.main_div
 {
-    color: #666666;
-    background-color:transparent;
-    font-weight:bold;
+    width: 70%;
+    padding: 40px 30px;
+    margin: 30px auto;
+    /*border-top-left-radius : 15px;
+    border-top-right-radius : 15px;*/
+    background-color:White;
 }
-.labelBookingDetailsSpecial
+.main_header_div
 {
-    color: #7f6600;
-    background-color:transparent;
-    font-weight:bold;
+    text-align:center;
 }
+.main_menu_div
+{
+}
+.main_content_div
+{
+    min-height: 600px;
+}
+.main_footer_div
+{
+    padding: 20px;
+    text-align: center;
+    width:70%;
+    margin: 30px auto;
+}
+/*---Main layout style end---*/
 /*cell style start*/
 .sundaycellstyle
 {
@@ -46,20 +64,21 @@
 }
 .eventConfirmed
 {
-    
+    background-color: Orange;
 }
 .eventPrepaid
 {
-    background-color: blue;
+    background-color: Blue;
 }
 .eventFullpaid
 {
 }
 .eventProlongationPossible
 {
-    background-color: gray;
+    background-color: Orange;
 }
 /*event style end*/
+/*login form style start*/
 .loginForm
 {
     border-style:solid;
@@ -70,38 +89,23 @@
 {
     color: red;
 }
+/*login form style end*/
+/*bookigDetails style start*/
+.labelBookingDetails
+{
+    color: #666666;
+    background-color:transparent;
+    font-weight:bold;
+}
+.labelBookingDetailsSpecial
+{
+    color: #7f6600;
+    background-color:transparent;
+    font-weight:bold;
+}
 .bookigDetailsDiv
 {
-    background: -webkit-gradient(linear, 0 20%, 0 100%, from(white), to(#C4EFAA));
+    background-color:White; 
     width:100%;
 }
-/*---Main layout style begin---*/
-.main_div
-{
-    width: 70%;
-    padding: 40px 30px;
-    margin: 30px auto;
-    border-top-left-radius : 15px;
-    border-top-right-radius : 15px;
-    background-color:White;
-}
-.main_header_div
-{
-    text-align:center;
-}
-.main_menu_div
-{
-}
-.main_content_div
-{
-    min-height: 600px;
-}
-.main_footer_div
-{
-    padding: 20px;
-    text-align: center;
-    width:70%;
-    margin: 30px auto;
-}
-/*---Main layout style end---*/
-
+/*bookigDetails style end*/
