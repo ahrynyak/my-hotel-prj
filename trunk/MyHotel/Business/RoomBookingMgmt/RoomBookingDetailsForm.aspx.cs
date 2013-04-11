@@ -105,6 +105,7 @@ namespace MyHotel.Business.RoomBookingMgmt
                         DropDownListBookingStatus.Items.Add(listItem);
                     }
                     TextBoxAdditionalInfo.Text = roomBookingEntity.AdditionalInfo ?? "";
+                    TextBoxPaid.Text = roomBookingEntity.AlreadyPaid.ToString();
                 }
             }
             catch (Exception ex)
@@ -128,6 +129,7 @@ namespace MyHotel.Business.RoomBookingMgmt
                 roomBookingEntity.EndDate = DateTime.ParseExact(datePickeEnd.Text, HelperCommon.DateFormat, CultureInfo.CurrentCulture);
                 roomBookingEntity.BookingStatus = int.Parse((DropDownListBookingStatus.SelectedItem != null ? DropDownListBookingStatus.SelectedItem.Value : "0"));
                 roomBookingEntity.AdditionalInfo = TextBoxAdditionalInfo.Text;
+                roomBookingEntity.AlreadyPaid = int.Parse(TextBoxPaid.Text);
                 RoomBookingMgmtController.SaveRoomBooking(roomBookingEntity);
             }
         }

@@ -18,27 +18,48 @@
     background-color:transparent;
     font-weight:bold;
 }
+/*cell style start*/
 .sundaycellstyle
 {
 }
 .sundayheaderstyle
 {
     color:#B00000;
-    
 }
 .weekday
 {
     background-color:White;
 }
-
 .pastday
 {
     background-color:#CCCCCC;
 }
+/*cell style end*/
 .errorValidation
 {
     color: red;
 }
+/*event style start*/
+.eventNotConfirmed
+{
+	background-color: Red;
+}
+.eventConfirmed
+{
+    
+}
+.eventPrepaid
+{
+    background-color: blue;
+}
+.eventFullpaid
+{
+}
+.eventProlongationPossible
+{
+    background-color: gray;
+}
+/*event style end*/
 .loginForm
 {
     border-style:solid;

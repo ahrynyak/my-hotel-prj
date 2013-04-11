@@ -13,6 +13,7 @@ using System.IO;
 using MyHotel.Utils;
 using System.Globalization;
 using System.Web.Security;
+using MyHotel.Business.Entity;
 
 namespace MyHotel.Business.RoomBookingMgmt
 {
@@ -165,18 +166,38 @@ namespace MyHotel.Business.RoomBookingMgmt
 
         protected void dayPilotScheduler_BeforeCellRender(object sender, DayPilot.Web.Ui.Events.BeforeCellRenderEventArgs e)
         {
-            if (e.Start.DayOfWeek == DayOfWeek.Sunday)
-            {
-                e.CssClass = "sundaycellstyle";
-            }
-            else if (e.Start < DateTime.Today)
+            if (e.Start < DateTime.Today)
             {
                 e.CssClass = "pastday";
+            }
+            else if (e.Start.DayOfWeek == DayOfWeek.Sunday)
+            {
+                e.CssClass = "sundaycellstyle";
             }
             else
             {
                 e.CssClass = "weekday";
             }
+        }
+
+        protected void dayPilotScheduler_BeforeEventRender(object sender, DayPilot.Web.Ui.Events.Scheduler.BeforeEventRenderEventArgs e)
+        {
+            if (e.DataItem != null)
+            {
+                var roomBookingEntity = e.DataItem.Source as RoomBookingEntity;
+                if (roomBookingEntity != null)
+                {
+                    e.InnerHTML = String.Format("{0} ({1})", roomBookingEntity.GuestName, roomBookingEntity.GuestPhone);
+                    if (!string.IsNullOrEmpty(roomBookingEntity.AdditionalInfo))
+                    {
+                        e.InnerHTML = e.InnerHTML + String.Format("<br />Інфо: {0}", roomBookingEntity.AdditionalInfo);
+                    }
+                }
+            }
+            EBookingStatus status = (EBookingStatus)Convert.ToInt32(e.Tag["BookingStatus"]);
+            string cssClassName = "event" + status.ToString();
+            e.ToolTip = status.ToString();
+            e.InnerHTML = e.InnerHTML + String.Format("<br /><span class='" + cssClassName + "' >{0}</span>", e.ToolTip);
         }
 
         protected void datePickeStart_TextChanged(object sender, EventArgs e)
