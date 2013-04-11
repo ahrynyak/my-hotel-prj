@@ -37,7 +37,7 @@ http://java.daypilot.org/
 	
 	margin: 0px;
 
-	color: #ffffff;
+	color: Black;
 	background-color: #aaf200;
 	
 	background: -moz-linear-gradient(
@@ -50,23 +50,13 @@ http://java.daypilot.org/
 		to(#77a900));  
 	filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr="#c5ff3c", endColorStr="#77a900");
 	
-	
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 	border-radius: 5px;
 	
-	
 	padding: 3px;
 	
-	
 	border: 1px solid #b6bdb6;
-	
-	
-	text-shadow:
-	0px -1px 0px rgba(000,000,000,0.2),
-	0px 1px 0px rgba(255,255,255,1);
-	
-	
 	
 	left: 0px;
 	right: 2px;
