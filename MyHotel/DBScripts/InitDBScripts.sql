@@ -10,12 +10,12 @@ CREATE TABLE [Room]
 	Name nvarchar(100) NOT NULL,
 	Capacity int NOT NULL
 )
-INSERT INTO [Room](Name, Capacity) VALUES(N'1п DBL жовта',2)
-INSERT INTO [Room](Name, Capacity) VALUES(N'1п DBL рожева',2)
-INSERT INTO [Room](Name, Capacity) VALUES(N'1п Apart зелена',4)
-INSERT INTO [Room](Name, Capacity) VALUES(N'2п DBL біла',2)
-INSERT INTO [Room](Name, Capacity) VALUES(N'2п DBL червона',2)
-INSERT INTO [Room](Name, Capacity) VALUES(N'2п Apart жовта',4)
+INSERT INTO [Room](Name, Capacity) VALUES(N'1п жовта (DBL)',2)
+INSERT INTO [Room](Name, Capacity) VALUES(N'1п рожева (DBL)',2)
+INSERT INTO [Room](Name, Capacity) VALUES(N'1п зелена (Apart)',4)
+INSERT INTO [Room](Name, Capacity) VALUES(N'2п бежева (DBL)',2)
+INSERT INTO [Room](Name, Capacity) VALUES(N'2п червона (DBL)',2)
+INSERT INTO [Room](Name, Capacity) VALUES(N'2п зелена (Apart)',4)
 
 CREATE TABLE [RoomBooking]
 (
@@ -30,5 +30,6 @@ CREATE TABLE [RoomBooking]
 	StartDate date NOT NULL,
 	EndDate date NOT NULL,
 	BookingStatus int NOT NULL,
-	AdditionalInfo nvarchar(max) NULL 
+	AdditionalInfo nvarchar(max) NULL,
+	AlreadyPaid int NULL
 )

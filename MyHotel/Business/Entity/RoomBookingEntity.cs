@@ -19,5 +19,6 @@ namespace MyHotel.Business.Entity
         public DateTime EndDate { get; set; }
         public int BookingStatus { get; set; }
         public string AdditionalInfo { get; set; }
+        public int AlreadyPaid { get; set; }
     }
 }

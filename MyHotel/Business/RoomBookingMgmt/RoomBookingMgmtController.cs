@@ -47,7 +47,8 @@ namespace MyHotel.Business.RoomBookingMgmt
                     PricePerRoom = s.PricePerRoom,
                     RoomBookingID = s.RoomBookingID,
                     RoomID = s.RoomID,
-                    StartDate = s.StartDate
+                    StartDate = s.StartDate,
+                    AlreadyPaid = s.AlreadyPaid ?? 0
                 }).ToList();
             }
         }
@@ -66,7 +67,11 @@ namespace MyHotel.Business.RoomBookingMgmt
                             if (roomBooking != null)
                             {
                                 roomBooking.AdditionalInfo = roomBookingEntity.AdditionalInfo;
-                                roomBooking.BookingStatus = roomBookingEntity.BookingStatus;
+                                roomBooking.BookingStatus = 
+                                (roomBookingEntity.AlreadyPaid > 0
+                                &&
+                                (roomBookingEntity.BookingStatus == EBookingStatus.NotConfirmed.GetHashCode() || roomBookingEntity.BookingStatus == EBookingStatus.Confirmed.GetHashCode()))
+                                ? EBookingStatus.Prepaid.GetHashCode() : roomBookingEntity.BookingStatus;
                                 roomBooking.EndDate = roomBookingEntity.EndDate;
                                 roomBooking.GuestName = roomBookingEntity.GuestName;
                                 roomBooking.GuestPhone = roomBookingEntity.GuestPhone;
@@ -76,11 +81,12 @@ namespace MyHotel.Business.RoomBookingMgmt
                                 roomBooking.PricePerRoom = roomBookingEntity.PricePerRoom;
                                 roomBooking.RoomID = roomBookingEntity.RoomID;
                                 roomBooking.StartDate = roomBookingEntity.StartDate;
+                                roomBooking.AlreadyPaid = roomBookingEntity.AlreadyPaid;
                                 dataContext.SubmitChanges();
                             }
                             else
                             {
-                               throw new InvalidConstraintException("Бронь для зміни не знайдена №" + roomBookingEntity.RoomBookingID);
+                                throw new InvalidConstraintException("Бронь для зміни не знайдена №" + roomBookingEntity.RoomBookingID);
                             }
                         }
                         else
@@ -88,7 +94,11 @@ namespace MyHotel.Business.RoomBookingMgmt
                             dataContext.RoomBookings.InsertOnSubmit(new RoomBooking()
                             {
                                 AdditionalInfo = roomBookingEntity.AdditionalInfo,
-                                BookingStatus = roomBookingEntity.BookingStatus,
+                                BookingStatus = 
+                                (roomBookingEntity.AlreadyPaid > 0 
+                                &&
+                                (roomBookingEntity.BookingStatus == EBookingStatus.NotConfirmed.GetHashCode() || roomBookingEntity.BookingStatus == EBookingStatus.Confirmed.GetHashCode()))
+                                ? EBookingStatus.Prepaid.GetHashCode() : roomBookingEntity.BookingStatus,
                                 EndDate = roomBookingEntity.EndDate,
                                 GuestName = roomBookingEntity.GuestName,
                                 GuestPhone = roomBookingEntity.GuestPhone,
@@ -97,7 +107,8 @@ namespace MyHotel.Business.RoomBookingMgmt
                                 PriceOfAdditionalBed = roomBookingEntity.PriceOfAdditionalBed,
                                 PricePerRoom = roomBookingEntity.PricePerRoom,
                                 RoomID = roomBookingEntity.RoomID,
-                                StartDate = roomBookingEntity.StartDate
+                                StartDate = roomBookingEntity.StartDate,
+                                AlreadyPaid = roomBookingEntity.AlreadyPaid
                             });
                             dataContext.SubmitChanges();
                         }
@@ -123,8 +134,15 @@ namespace MyHotel.Business.RoomBookingMgmt
                 {
                     if (roomBooking.StartDate >= DateTime.Now)
                     {
-                        dataContext.RoomBookings.DeleteOnSubmit(roomBooking);
-                        dataContext.SubmitChanges();
+                        if ((roomBooking.AlreadyPaid ?? 0) > 0)
+                        {
+                            throw new InvalidConstraintException("Неможливо видалити оплачену бронь");
+                        }
+                        else
+                        {
+                            dataContext.RoomBookings.DeleteOnSubmit(roomBooking);
+                            dataContext.SubmitChanges();
+                        }
                     }
                     else
                     {
@@ -158,7 +176,8 @@ namespace MyHotel.Business.RoomBookingMgmt
                     PricePerRoom = roomBooking.PricePerRoom,
                     RoomBookingID = roomBooking.RoomBookingID,
                     RoomID = roomBooking.RoomID,
-                    StartDate = roomBooking.StartDate
+                    StartDate = roomBooking.StartDate,
+                    AlreadyPaid = roomBooking.AlreadyPaid ?? 0
                 };
                 }
             }
