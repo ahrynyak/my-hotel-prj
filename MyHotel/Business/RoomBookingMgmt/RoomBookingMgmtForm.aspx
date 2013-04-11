@@ -31,8 +31,6 @@
         }
 
     </script>
-    <div class="main_menu">
-    </div>
     <table width="100%">
         <tr>
             <td style="width: 120px">
