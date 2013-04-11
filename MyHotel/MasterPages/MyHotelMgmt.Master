@@ -14,7 +14,7 @@
 </head>
 <body>
     <form id="MyHotelMgmtForm" runat="server">
-    <asp:ScriptManager ID="ScriptManager1" runat="server" EnableScriptGlobalization="true" >
+    <asp:ScriptManager ID="ScriptManager1" runat="server" EnableScriptGlobalization="true">
     </asp:ScriptManager>
     <div class="main_div">
         <div class="main_header_div">
@@ -23,7 +23,13 @@
             <span class="MainHeaderSmall">ОЗДОРОВЛЕННЯ ТА ВІДПОЧИНОК</span>
         </div>
         <div class="main_menu_div">
-            Menu | <a href="/Business/GreenHouseInfo/GreenHouseInfoUA.aspx">Інфо сайт</a>
+            <a href="/Business/GreenHouseInfo/GreenHouseInfoUA.aspx"><span class="GreenHouseNormalTextP1">Інфо сайт </span></a>
+            |
+            <a href="#"><span class="GreenHouseNormalTextP1">Меню2 </span></a>
+            |
+            <a href="#"><span class="GreenHouseNormalTextP1">Меню3 </span></a>
+            |
+            <a href="#"><span class="GreenHouseNormalTextP1">Меню4 </span></a>
         </div>
         <div class="main_content_div">
             <asp:ContentPlaceHolder ID="MyHotelMgmtContentPlaceHolder" runat="server">
@@ -31,7 +37,7 @@
         </div>
     </div>
     <div class="main_footer_div">
-        Copyright © 2013
+        © 2013
     </div>
     </form>
 </body>

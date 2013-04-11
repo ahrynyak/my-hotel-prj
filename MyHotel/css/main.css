@@ -20,6 +20,7 @@
 .main_header_div
 {
     text-align:center;
+    background-color:#eeeeee;
 }
 .main_menu_div
 {
@@ -30,6 +31,7 @@
 }
 .main_footer_div
 {
+    color: White;
     padding: 20px;
     text-align: center;
     width:70%;
