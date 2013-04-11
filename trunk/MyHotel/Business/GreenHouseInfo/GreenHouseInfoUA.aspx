@@ -311,11 +311,18 @@
 <asp:Content ID="Content10" ContentPlaceHolderID="GreenHouseContentPlaceHolderTabPhotosName"
     runat="server">
     <p>
-        Фото
+        Галерея
     </p>
 </asp:Content>
 <asp:Content ID="Content5" ContentPlaceHolderID="GreenHouseContentPlaceHolderTabPhotos"
     runat="server">
+    <%--Галерея--%>
+    <div class="section">
+        <obout:ImageZoom ID="ImageZoomGallery" runat="server" ImageUrl="~/Business/GreenHouseInfo/img/Gallery"
+            ShowFooter="false" PageSize="50" AllowPaging="False" AllowPageSizeSelection="False" ShowHeader="False" />
+        <div class="section_footer">
+        </div>
+    </div>
 </asp:Content>
 <asp:Content ID="Content11" ContentPlaceHolderID="ContentPlaceHolderContactsName"
     runat="server">
