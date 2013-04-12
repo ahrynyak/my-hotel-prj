@@ -59,7 +59,7 @@
 /*event style start*/
 .eventNotConfirmed
 {
-	background-color: Red;
+	background-color: White;
 	width:auto;
 	height:inherit;
 }
@@ -69,14 +69,14 @@
 }
 .eventPrepaid
 {
-    background-color: Blue;
+    background-color: Red;
 }
 .eventFullpaid
 {
 }
 .eventProlongationPossible
 {
-    background-color: Orange;
+    background-color: #EE82EE;
 }
 /*event style end*/
 /*login form style start*/
