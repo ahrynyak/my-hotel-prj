@@ -156,11 +156,11 @@ namespace MyHotel.Business.RoomBookingMgmt
                 // sets the column header
                 if (e.Start.DayOfWeek == DayOfWeek.Sunday)
                 {
-                    e.InnerHTML = @"<span class=""sundayheaderstyle""> <strong>" + e.Start.ToString("GetExpensesItems (ddd)") + "</strong> </span>";
+                    e.InnerHTML = @"<span class=""sundayheaderstyle""> <strong>" + e.Start.ToString("dd (ddd)") + "</strong> </span>";
                 }
                 else
                 {
-                    e.InnerHTML = e.Start.ToString("GetExpensesItems (ddd)");
+                    e.InnerHTML = e.Start.ToString("dd (ddd)");
                 }
             }
         }
