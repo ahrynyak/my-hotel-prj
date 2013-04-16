@@ -41,6 +41,9 @@
       <HintPath>ExternalAss\DayPilot.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Obout.Ajax.UI, Version=2.13.312.2, Culture=neutral, PublicKeyToken=24f3c5cea456f322, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
     <Reference Include="obout_ImageZoom_NET">
       <HintPath>..\3rdParty\oboutSuite35\bin\obout_ImageZoom_NET.dll</HintPath>
     </Reference>
@@ -91,6 +94,7 @@
     <Content Include="Business\RoomBookingMgmt\RoomBookingDetailsForm.aspx" />
     <Content Include="css\commonStyle.css" />
     <Content Include="css\DayPilot\myhstyle.css" />
+    <Content Include="css\expenses.css" />
     <Content Include="css\loginStyle.css" />
     <Content Include="css\main.css" />
     <None Include="DBScripts\InitDBScripts.sql" />
@@ -131,9 +135,11 @@
     <Content Include="MasterPages\GreenHouseInfo.Master" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Business\Entity\RoomDetailedEntity.cs" />
-    <Compile Include="Business\Entity\RoomBookingEntity.cs" />
-    <Compile Include="Business\Entity\RoomEntity.cs" />
+    <Compile Include="Business\Entity\Expenses\ExpensesDetailsEntity.cs" />
+    <Compile Include="Business\Entity\Expenses\ExpensesItemsEntity.cs" />
+    <Compile Include="Business\Entity\RoomBooking\RoomDetailedEntity.cs" />
+    <Compile Include="Business\Entity\RoomBooking\RoomBookingEntity.cs" />
+    <Compile Include="Business\Entity\RoomBooking\RoomEntity.cs" />
     <Compile Include="Business\ExpensesMgmt\ExpensesMgmtForm.aspx.cs">
       <DependentUpon>ExpensesMgmtForm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -141,6 +147,7 @@
     <Compile Include="Business\ExpensesMgmt\ExpensesMgmtForm.aspx.designer.cs">
       <DependentUpon>ExpensesMgmtForm.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Business\ExpensesMgmt\ExpensesMgmtController.cs" />
     <Compile Include="Business\GreenHouseInfo\GreenHouseInfoUA.aspx.cs">
       <DependentUpon>GreenHouseInfoUA.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -223,6 +230,7 @@
       <DependentUpon>DataClasses.dbml</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <ProjectExtensions>

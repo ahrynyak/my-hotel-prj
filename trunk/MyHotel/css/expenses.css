@@ -1,0 +1,25 @@
+﻿.expensesitemname
+{
+    width: 150px;
+    display: inline-block;
+}
+.expensesitemsum
+{
+    width: 150px;
+    display: inline-block;
+}
+.expensesdetailscost
+{
+    width: 100px;
+    display: inline-block;
+}
+.expensesdetailsdate
+{
+    width: 150px;
+    display: inline-block;
+}
+.expensesdetailsdescription
+{
+    width: 350px;
+    display: inline-block;
+}

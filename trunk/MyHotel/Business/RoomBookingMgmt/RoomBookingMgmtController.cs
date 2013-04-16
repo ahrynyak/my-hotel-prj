@@ -7,6 +7,7 @@ using MyHotel.LINQDB;
 using MyHotel.Business.Entity;
 using MyHotel.Utils;
 using System.Web.UI;
+using MyHotel.Business.Entity.RoomBooking;
 
 namespace MyHotel.Business.RoomBookingMgmt
 {

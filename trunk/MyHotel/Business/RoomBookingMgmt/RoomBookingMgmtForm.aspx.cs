@@ -14,6 +14,7 @@ using MyHotel.Utils;
 using System.Globalization;
 using System.Web.Security;
 using MyHotel.Business.Entity;
+using MyHotel.Business.Entity.RoomBooking;
 
 namespace MyHotel.Business.RoomBookingMgmt
 {
@@ -155,11 +156,11 @@ namespace MyHotel.Business.RoomBookingMgmt
                 // sets the column header
                 if (e.Start.DayOfWeek == DayOfWeek.Sunday)
                 {
-                    e.InnerHTML = @"<span class=""sundayheaderstyle""> <strong>" + e.Start.ToString("dd (ddd)") + "</strong> </span>";
+                    e.InnerHTML = @"<span class=""sundayheaderstyle""> <strong>" + e.Start.ToString("GetExpensesItems (ddd)") + "</strong> </span>";
                 }
                 else
                 {
-                    e.InnerHTML = e.Start.ToString("dd (ddd)");
+                    e.InnerHTML = e.Start.ToString("GetExpensesItems (ddd)");
                 }
             }
         }
