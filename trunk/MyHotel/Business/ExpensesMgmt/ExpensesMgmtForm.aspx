@@ -2,7 +2,7 @@
 
 <%@ Register Assembly="Obout.Ajax.UI" Namespace="Obout.Ajax.UI.TreeView" TagPrefix="obout" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-<link href="/css/expenses.css" rel="stylesheet" type="text/css" />
+<link href="../../css/expenses.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MyHotelMgmtContentPlaceHolder" runat="server">
 

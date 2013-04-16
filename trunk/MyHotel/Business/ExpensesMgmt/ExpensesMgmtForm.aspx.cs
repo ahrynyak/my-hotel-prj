@@ -44,6 +44,7 @@ namespace MyHotel.Business.ExpensesMgmt
 
         private void updateVisiblePeriod()
         {
+            TreeExpenses.Nodes.Add(new Node(getHeaderText()));
             foreach (var group in ExpensesMgmtController.GetExpensesItemsGroups())
             {
                 double groupSum = 0;
@@ -61,23 +62,36 @@ namespace MyHotel.Business.ExpensesMgmt
                         expensesDetailsTreeNode.Value = expensesDetails.ExpensesDetailsID.ToString();
                         subGroupTreeNode.ChildNodes.Add(expensesDetailsTreeNode);
                     }
-                    subGroupTreeNode.Text = getExpensesItemsText(subGroup, subGroupSum);
+                    subGroupTreeNode.Text = getExpensesItemsSubGroupText(subGroup, subGroupSum);
                     groupTreeNode.ChildNodes.Add(subGroupTreeNode);
                     groupSum += subGroupSum;
                 }
-                groupTreeNode.Text = getExpensesItemsText(group, groupSum);
+                groupTreeNode.Text = getExpensesItemsGroupText(group, groupSum);
                 TreeExpenses.Nodes.Add(groupTreeNode);
             }
         }
-
-        private string getExpensesItemsText(ExpensesItemsEntity expensesItemsEntity, double sum)
+        #region css format for tree nodes
+        private string getHeaderText()
         {
-            return String.Format("<span class=\"expensesitemname\">{0}</span><span class=\"expensesitemsum\">{1}</span>", expensesItemsEntity.Name, sum);
+            return String.Format("<strong><span class=\"expensesItemGroupName\">{0}</span><span class=\"expensesDetailsCost\">{1}</span><span class=\"expensesDetailsDescription\">{2}</span></strong>", "Назва/Дата", "Cума", "Інфо");
+        }
+
+        private string getExpensesItemsGroupText(ExpensesItemsEntity expensesItemsEntity, double sum)
+        {
+            return String.Format("<span class=\"expensesItemGroupName\">{0}</span><span class=\"expensesItemGroupSum\">{1}</span>", expensesItemsEntity.Name, sum);
+        }
+
+        private string getExpensesItemsSubGroupText(ExpensesItemsEntity expensesItemsEntity, double sum)
+        {
+            return String.Format("<span class=\"expensesItemSubGroupName\">{0}</span><span class=\"expensesItemSubGroupSum\">{1}</span>", expensesItemsEntity.Name, sum);
         }
 
         private string getExpensesDetailsText(ExpensesDetailsEntity expensesDetailsEntity)
         {
-            return String.Format("<span class=\"expensesdetailsdate\">{0}</span><span class=\"expensesdetailscost\">{1}</span><span class=\"expensesdetailsdescription\">{2}</span>", expensesDetailsEntity.Date, expensesDetailsEntity.Cost, expensesDetailsEntity.Description);
+            return String.Format("<span class=\"expensesDetailsDate\">{0}</span><span class=\"expensesDetailsCost\">{1}</span><span class=\"expensesDetailsDescription\">{2}</span>", expensesDetailsEntity.Date.ToShortDateString(), expensesDetailsEntity.Cost, expensesDetailsEntity.Description);
         }
+
+        #endregion
+
     }
 }
