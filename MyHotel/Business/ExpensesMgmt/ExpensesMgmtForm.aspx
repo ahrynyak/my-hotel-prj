@@ -10,7 +10,7 @@
 here time range
 </div>
 <div>
-    <obout:Tree ID="TreeExpenses" runat="server" EnableViewState="false">
+    <obout:Tree ID="TreeExpenses" runat="server" EnableViewState="False" AllowNodeEdit="False" SelectedTreeNodeChanged="TreeExpenses_SelectedTreeNodeChanged">
     </obout:Tree>
 </div>
 </asp:Content>

@@ -37,6 +37,11 @@ namespace MyHotel.Business.ExpensesMgmt
 
         }
 
+        void TreeExpenses_SelectedTreeNodeChanged(object sender, NodeEventArgs e)
+        {
+            
+        }
+
         private void initCalendar()
         {
 
