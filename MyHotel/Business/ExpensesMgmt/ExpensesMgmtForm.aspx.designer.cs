@@ -13,12 +13,21 @@ namespace MyHotel.Business.ExpensesMgmt {
     public partial class ExpensesMgmtForm {
         
         /// <summary>
-        /// TreeExpenses control.
+        /// GridExpenses control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Obout.Ajax.UI.TreeView.Tree TreeExpenses;
+        protected global::Obout.Grid.Grid GridExpenses;
+        
+        /// <summary>
+        /// ObjectDataSourceExpensesGridView control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSourceExpensesGridView;
     }
 }
