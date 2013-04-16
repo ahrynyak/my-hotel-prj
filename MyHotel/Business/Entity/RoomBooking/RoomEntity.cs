@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace MyHotel.Business.Entity
+namespace MyHotel.Business.Entity.RoomBooking
 {
     public class RoomEntity
     {

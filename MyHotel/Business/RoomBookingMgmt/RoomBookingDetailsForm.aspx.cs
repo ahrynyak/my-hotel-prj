@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using MyHotel.Business.Entity;
 using MyHotel.Utils;
 using System.Globalization;
+using MyHotel.Business.Entity.RoomBooking;
 
 namespace MyHotel.Business.RoomBookingMgmt
 {
