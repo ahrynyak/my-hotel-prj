@@ -22,33 +22,52 @@ namespace MyHotel.Business.ExpensesMgmt
 
         #region Converters
 
-        private static ExpensesGridView expensesDetailsToExpensesDetailsEntity(ExpensesDetail e)
+        private static ExpensesDetailsEntity expensesDetailsToExpensesDetailsEntity(ExpensesDetail e)
         {
-            return new ExpensesGridView() { ExpensesDetailsID = e.ExpensesDetailsID, ExpensesItemID = e.ExpensesItemID, Cost = e.Cost, Date = e.Date, Description = e.Description, Name = e.ExpensesItem.Name, ParentExpensesItemID = e.ExpensesItem.ParentExpensesItemID ?? 0 };
+            return new ExpensesDetailsEntity() { ExpensesDetailsID = e.ExpensesDetailsID, ExpensesItemID = e.ExpensesItemID, Cost = e.Cost, Date = e.Date, Description = e.Description };
         }
 
+        private static ExpensesItemsEntity expensesDetailsToExpensesItemsEntity(ExpensesItem e)
+        {
+            return new ExpensesItemsEntity() { ExpensesItemID = e.ExpensesItemID, Name = e.Name, ParentExpensesItemID = e.ParentExpensesItemID ?? 0 };
+        }
+        
         #endregion
 
-        public static List<ExpensesGridView> GetExpensesGridView()
+        public static List<ExpensesItemsEntity> GetExpensesItems(int expensesItemID)
+        {
+            using (DataClassesDataContext dataContext = HelperCommon.GetDataContext())
+            {
+                if (expensesItemID == 0)
+                {
+                    return dataContext.ExpensesItems.Where(e => e.ParentExpensesItemID == null).Select(e => expensesDetailsToExpensesItemsEntity(e)).ToList();
+                }
+                else
+                {
+                    return dataContext.ExpensesItems.Where(e => e.ParentExpensesItemID == expensesItemID).Select(e => expensesDetailsToExpensesItemsEntity(e)).ToList();
+                }
+            }
+        }
+
+        public static List<ExpensesDetailsEntity> GetExpensesDetails(int expensesItemID)
         {
             using (DataClassesDataContext dataContext = HelperCommon.GetDataContext())
             {
 
-                return dataContext.ExpensesDetails.Select(e => expensesDetailsToExpensesDetailsEntity(e)).ToList();
+                return dataContext.ExpensesDetails.Where(e => e.ExpensesItemID == expensesItemID).Select(e => expensesDetailsToExpensesDetailsEntity(e)).ToList();
             }
         }
 
+        //public static void SaveExpensesDetails(ExpensesGridView expensesGridView)
+        //{
+        //    using (DataClassesDataContext dataContext = HelperCommon.GetDataContext())
+        //    { }
+        //}
 
-        public static void SaveExpensesDetails(ExpensesGridView expensesGridView)
-        {
-            using (DataClassesDataContext dataContext = HelperCommon.GetDataContext())
-            { }
-        }
-
-        public static void DeleteExpensesDetails(ExpensesGridView expensesGridView)
-        {
-            using (DataClassesDataContext dataContext = HelperCommon.GetDataContext())
-            { }
-        }
+        //public static void DeleteExpensesDetails(ExpensesGridView expensesGridView)
+        //{
+        //    using (DataClassesDataContext dataContext = HelperCommon.GetDataContext())
+        //    { }
+        //}
     }
 }
