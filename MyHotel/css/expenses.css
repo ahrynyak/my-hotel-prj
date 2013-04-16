@@ -1,24 +1,34 @@
-﻿.expensesitemname
+﻿.expensesItemGroupName
 {
     width: 150px;
     display: inline-block;
 }
-.expensesitemsum
+.expensesItemGroupSum
 {
     width: 150px;
     display: inline-block;
 }
-.expensesdetailscost
+.expensesItemSubGroupName
+{
+    width: 131px;
+    display: inline-block;
+}
+.expensesItemSubGroupSum
+{
+    width: 150px;
+    display: inline-block;
+}
+.expensesDetailsCost
 {
     width: 100px;
     display: inline-block;
 }
-.expensesdetailsdate
+.expensesDetailsDate
 {
-    width: 150px;
+    width: 112px;
     display: inline-block;
 }
-.expensesdetailsdescription
+.expensesDetailsDescription
 {
     width: 350px;
     display: inline-block;
