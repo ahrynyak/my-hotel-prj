@@ -36,10 +36,16 @@ namespace MyHotel.LINQDB
     partial void InsertRoomBooking(RoomBooking instance);
     partial void UpdateRoomBooking(RoomBooking instance);
     partial void DeleteRoomBooking(RoomBooking instance);
+    partial void InsertExpensesDetail(ExpensesDetail instance);
+    partial void UpdateExpensesDetail(ExpensesDetail instance);
+    partial void DeleteExpensesDetail(ExpensesDetail instance);
+    partial void InsertExpensesItem(ExpensesItem instance);
+    partial void UpdateExpensesItem(ExpensesItem instance);
+    partial void DeleteExpensesItem(ExpensesItem instance);
     #endregion
 		
 		public DataClassesDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["MyHotelDBConnectionString"].ConnectionString, mappingSource)
+				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["MyHotelDBConnectionString1"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -81,6 +87,22 @@ namespace MyHotel.LINQDB
 			get
 			{
 				return this.GetTable<RoomBooking>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ExpensesDetail> ExpensesDetails
+		{
+			get
+			{
+				return this.GetTable<ExpensesDetail>();
+			}
+		}
+		
+		public System.Data.Linq.Table<ExpensesItem> ExpensesItems
+		{
+			get
+			{
+				return this.GetTable<ExpensesItem>();
 			}
 		}
 	}
@@ -611,6 +633,343 @@ namespace MyHotel.LINQDB
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ExpensesDetails")]
+	public partial class ExpensesDetail : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ExpensesDetailsID;
+		
+		private int _ExpensesItemID;
+		
+		private System.DateTime _Date;
+		
+		private double _Cost;
+		
+		private string _Description;
+		
+		private EntityRef<ExpensesItem> _ExpensesItem;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnExpensesDetailsIDChanging(int value);
+    partial void OnExpensesDetailsIDChanged();
+    partial void OnExpensesItemIDChanging(int value);
+    partial void OnExpensesItemIDChanged();
+    partial void OnDateChanging(System.DateTime value);
+    partial void OnDateChanged();
+    partial void OnCostChanging(double value);
+    partial void OnCostChanged();
+    partial void OnDescriptionChanging(string value);
+    partial void OnDescriptionChanged();
+    #endregion
+		
+		public ExpensesDetail()
+		{
+			this._ExpensesItem = default(EntityRef<ExpensesItem>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ExpensesDetailsID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ExpensesDetailsID
+		{
+			get
+			{
+				return this._ExpensesDetailsID;
+			}
+			set
+			{
+				if ((this._ExpensesDetailsID != value))
+				{
+					this.OnExpensesDetailsIDChanging(value);
+					this.SendPropertyChanging();
+					this._ExpensesDetailsID = value;
+					this.SendPropertyChanged("ExpensesDetailsID");
+					this.OnExpensesDetailsIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ExpensesItemID", DbType="Int NOT NULL")]
+		public int ExpensesItemID
+		{
+			get
+			{
+				return this._ExpensesItemID;
+			}
+			set
+			{
+				if ((this._ExpensesItemID != value))
+				{
+					if (this._ExpensesItem.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnExpensesItemIDChanging(value);
+					this.SendPropertyChanging();
+					this._ExpensesItemID = value;
+					this.SendPropertyChanged("ExpensesItemID");
+					this.OnExpensesItemIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="Date NOT NULL")]
+		public System.DateTime Date
+		{
+			get
+			{
+				return this._Date;
+			}
+			set
+			{
+				if ((this._Date != value))
+				{
+					this.OnDateChanging(value);
+					this.SendPropertyChanging();
+					this._Date = value;
+					this.SendPropertyChanged("Date");
+					this.OnDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cost", DbType="Float NOT NULL")]
+		public double Cost
+		{
+			get
+			{
+				return this._Cost;
+			}
+			set
+			{
+				if ((this._Cost != value))
+				{
+					this.OnCostChanging(value);
+					this.SendPropertyChanging();
+					this._Cost = value;
+					this.SendPropertyChanged("Cost");
+					this.OnCostChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(MAX)")]
+		public string Description
+		{
+			get
+			{
+				return this._Description;
+			}
+			set
+			{
+				if ((this._Description != value))
+				{
+					this.OnDescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._Description = value;
+					this.SendPropertyChanged("Description");
+					this.OnDescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ExpensesItem_ExpensesDetail", Storage="_ExpensesItem", ThisKey="ExpensesItemID", OtherKey="ExpensesItemID", IsForeignKey=true)]
+		public ExpensesItem ExpensesItem
+		{
+			get
+			{
+				return this._ExpensesItem.Entity;
+			}
+			set
+			{
+				ExpensesItem previousValue = this._ExpensesItem.Entity;
+				if (((previousValue != value) 
+							|| (this._ExpensesItem.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._ExpensesItem.Entity = null;
+						previousValue.ExpensesDetails.Remove(this);
+					}
+					this._ExpensesItem.Entity = value;
+					if ((value != null))
+					{
+						value.ExpensesDetails.Add(this);
+						this._ExpensesItemID = value.ExpensesItemID;
+					}
+					else
+					{
+						this._ExpensesItemID = default(int);
+					}
+					this.SendPropertyChanged("ExpensesItem");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ExpensesItems")]
+	public partial class ExpensesItem : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ExpensesItemID;
+		
+		private System.Nullable<int> _ParentExpensesItemID;
+		
+		private string _Name;
+		
+		private EntitySet<ExpensesDetail> _ExpensesDetails;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnExpensesItemIDChanging(int value);
+    partial void OnExpensesItemIDChanged();
+    partial void OnParentExpensesItemIDChanging(System.Nullable<int> value);
+    partial void OnParentExpensesItemIDChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    #endregion
+		
+		public ExpensesItem()
+		{
+			this._ExpensesDetails = new EntitySet<ExpensesDetail>(new Action<ExpensesDetail>(this.attach_ExpensesDetails), new Action<ExpensesDetail>(this.detach_ExpensesDetails));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ExpensesItemID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ExpensesItemID
+		{
+			get
+			{
+				return this._ExpensesItemID;
+			}
+			set
+			{
+				if ((this._ExpensesItemID != value))
+				{
+					this.OnExpensesItemIDChanging(value);
+					this.SendPropertyChanging();
+					this._ExpensesItemID = value;
+					this.SendPropertyChanged("ExpensesItemID");
+					this.OnExpensesItemIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ParentExpensesItemID", DbType="Int")]
+		public System.Nullable<int> ParentExpensesItemID
+		{
+			get
+			{
+				return this._ParentExpensesItemID;
+			}
+			set
+			{
+				if ((this._ParentExpensesItemID != value))
+				{
+					this.OnParentExpensesItemIDChanging(value);
+					this.SendPropertyChanging();
+					this._ParentExpensesItemID = value;
+					this.SendPropertyChanged("ParentExpensesItemID");
+					this.OnParentExpensesItemIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ExpensesItem_ExpensesDetail", Storage="_ExpensesDetails", ThisKey="ExpensesItemID", OtherKey="ExpensesItemID")]
+		public EntitySet<ExpensesDetail> ExpensesDetails
+		{
+			get
+			{
+				return this._ExpensesDetails;
+			}
+			set
+			{
+				this._ExpensesDetails.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_ExpensesDetails(ExpensesDetail entity)
+		{
+			this.SendPropertyChanging();
+			entity.ExpensesItem = this;
+		}
+		
+		private void detach_ExpensesDetails(ExpensesDetail entity)
+		{
+			this.SendPropertyChanging();
+			entity.ExpensesItem = null;
 		}
 	}
 }
