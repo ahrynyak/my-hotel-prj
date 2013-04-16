@@ -44,6 +44,9 @@
     <Reference Include="Obout.Ajax.UI, Version=2.13.312.2, Culture=neutral, PublicKeyToken=24f3c5cea456f322, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
+    <Reference Include="obout_Grid_NET, Version=7.0.9.0, Culture=neutral, PublicKeyToken=5ddc49d3b53e3f98, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
     <Reference Include="obout_ImageZoom_NET">
       <HintPath>..\3rdParty\oboutSuite35\bin\obout_ImageZoom_NET.dll</HintPath>
     </Reference>
@@ -136,6 +139,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Business\Entity\Expenses\ExpensesDetailsEntity.cs" />
+    <Compile Include="Business\Entity\Expenses\ExpensesGridView.cs" />
     <Compile Include="Business\Entity\Expenses\ExpensesItemsEntity.cs" />
     <Compile Include="Business\Entity\RoomBooking\RoomDetailedEntity.cs" />
     <Compile Include="Business\Entity\RoomBooking\RoomBookingEntity.cs" />

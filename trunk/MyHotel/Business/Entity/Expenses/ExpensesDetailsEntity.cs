@@ -5,6 +5,7 @@ using System.Web;
 
 namespace MyHotel.Business.Entity.Expenses
 {
+    [Serializable]
     public class ExpensesDetailsEntity
     {
         public int ExpensesDetailsID { get; set; }

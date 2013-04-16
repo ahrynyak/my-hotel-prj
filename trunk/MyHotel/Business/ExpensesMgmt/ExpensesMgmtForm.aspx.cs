@@ -37,11 +37,6 @@ namespace MyHotel.Business.ExpensesMgmt
 
         }
 
-        void TreeExpenses_SelectedTreeNodeChanged(object sender, NodeEventArgs e)
-        {
-            
-        }
-
         private void initCalendar()
         {
 
@@ -49,31 +44,31 @@ namespace MyHotel.Business.ExpensesMgmt
 
         private void updateVisiblePeriod()
         {
-            TreeExpenses.Nodes.Add(new Node(getHeaderText()));
-            foreach (var group in ExpensesMgmtController.GetExpensesItemsGroups())
-            {
-                double groupSum = 0;
-                Node groupTreeNode = new Node();
-                groupTreeNode.Value = group.ExpensesItemID.ToString();
-                foreach (var subGroup in ExpensesMgmtController.GetExpensesItemsSubGroups(group))
-                {
-                    double subGroupSum = 0;
-                    Node subGroupTreeNode = new Node();
-                    subGroupTreeNode.Value = subGroup.ExpensesItemID.ToString();
-                    foreach (var expensesDetails in ExpensesMgmtController.GetExpensesDetails(subGroup))
-                    {
-                        subGroupSum += expensesDetails.Cost;
-                        Node expensesDetailsTreeNode = new Node(getExpensesDetailsText(expensesDetails));
-                        expensesDetailsTreeNode.Value = expensesDetails.ExpensesDetailsID.ToString();
-                        subGroupTreeNode.ChildNodes.Add(expensesDetailsTreeNode);
-                    }
-                    subGroupTreeNode.Text = getExpensesItemsSubGroupText(subGroup, subGroupSum);
-                    groupTreeNode.ChildNodes.Add(subGroupTreeNode);
-                    groupSum += subGroupSum;
-                }
-                groupTreeNode.Text = getExpensesItemsGroupText(group, groupSum);
-                TreeExpenses.Nodes.Add(groupTreeNode);
-            }
+            //TreeExpenses.Nodes.Add(new Node(getHeaderText()));
+            //foreach (var group in ExpensesMgmtController.GetExpensesItemsGroups())
+            //{
+            //    double groupSum = 0;
+            //    Node groupTreeNode = new Node();
+            //    groupTreeNode.Value = group.ExpensesItemID.ToString();
+            //    foreach (var subGroup in ExpensesMgmtController.GetExpensesItemsSubGroups(group))
+            //    {
+            //        double subGroupSum = 0;
+            //        Node subGroupTreeNode = new Node();
+            //        subGroupTreeNode.Value = subGroup.ExpensesItemID.ToString();
+            //        foreach (var expensesDetails in ExpensesMgmtController.GetExpensesDetails(subGroup))
+            //        {
+            //            subGroupSum += expensesDetails.Cost;
+            //            Node expensesDetailsTreeNode = new Node(getExpensesDetailsText(expensesDetails));
+            //            expensesDetailsTreeNode.Value = expensesDetails.ExpensesDetailsID.ToString();
+            //            subGroupTreeNode.ChildNodes.Add(expensesDetailsTreeNode);
+            //        }
+            //        subGroupTreeNode.Text = getExpensesItemsSubGroupText(subGroup, subGroupSum);
+            //        groupTreeNode.ChildNodes.Add(subGroupTreeNode);
+            //        groupSum += subGroupSum;
+            //    }
+            //    groupTreeNode.Text = getExpensesItemsGroupText(group, groupSum);
+            //    TreeExpenses.Nodes.Add(groupTreeNode);
+            //}
         }
         #region css format for tree nodes
         private string getHeaderText()
@@ -88,7 +83,8 @@ namespace MyHotel.Business.ExpensesMgmt
 
         private string getExpensesItemsSubGroupText(ExpensesItemsEntity expensesItemsEntity, double sum)
         {
-            return String.Format("<span class=\"expensesItemSubGroupName\">{0}</span><span class=\"expensesItemSubGroupSum\">{1}</span>", expensesItemsEntity.Name, sum);
+            
+            return String.Format("<span class=\"expensesItemSubGroupName\">{0}</span><span class=\"expensesItemSubGroupSum\">{1}</span> <asp:ImageButton ID=\"ImageButton1\" runat=\"server\" onclick=\"ImageButton1_Click\" ImageUrl=\"~/icons/refresh_green.ico\" />", expensesItemsEntity.Name, sum);
         }
 
         private string getExpensesDetailsText(ExpensesDetailsEntity expensesDetailsEntity)
@@ -97,6 +93,5 @@ namespace MyHotel.Business.ExpensesMgmt
         }
 
         #endregion
-
     }
 }
