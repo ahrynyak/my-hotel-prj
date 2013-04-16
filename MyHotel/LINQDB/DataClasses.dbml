@@ -26,4 +26,22 @@
       <Association Name="Room_RoomBooking" Member="Room" ThisKey="RoomID" OtherKey="RoomID" Type="Room" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.ExpensesDetails" Member="ExpensesDetails">
+    <Type Name="ExpensesDetail">
+      <Column Name="ExpensesDetailsID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ExpensesItemID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Cost" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="ExpensesItem_ExpensesDetail" Member="ExpensesItem" ThisKey="ExpensesItemID" OtherKey="ExpensesItemID" Type="ExpensesItem" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ExpensesItems" Member="ExpensesItems">
+    <Type Name="ExpensesItem">
+      <Column Name="ExpensesItemID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ParentExpensesItemID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="ExpensesItem_ExpensesDetail" Member="ExpensesDetails" ThisKey="ExpensesItemID" OtherKey="ExpensesItemID" Type="ExpensesDetail" />
+    </Type>
+  </Table>
 </Database>

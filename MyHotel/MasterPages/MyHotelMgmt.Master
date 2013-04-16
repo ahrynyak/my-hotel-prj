@@ -23,13 +23,10 @@
             <span class="MainHeaderSmall">ОЗДОРОВЛЕННЯ ТА ВІДПОЧИНОК</span>
         </div>
         <div class="main_menu_div">
-            <a href="/Business/GreenHouseInfo/GreenHouseInfoUA.aspx"><span class="GreenHouseNormalTextP1">Інфо сайт </span></a>
+            | <a href="/Business/RoomBookingMgmt/RoomBookingMgmtForm.aspx"><span class="GreenHouseNormalTextP1"> Бронювання </span></a>
+            | <a href="/Business/ExpensesMgmt/ExpensesMgmtForm.aspx"><span class="GreenHouseNormalTextP1"> Витрати </span></a>
+            | <a href="/Business/GreenHouseInfo/GreenHouseInfoUA.aspx"><span class="GreenHouseNormalTextP1"> Інфо сайт </span></a>
             |
-            <a href="#"><span class="GreenHouseNormalTextP1">Меню2 </span></a>
-            |
-            <a href="#"><span class="GreenHouseNormalTextP1">Меню3 </span></a>
-            |
-            <a href="#"><span class="GreenHouseNormalTextP1">Меню4 </span></a>
         </div>
         <div class="main_content_div">
             <asp:ContentPlaceHolder ID="MyHotelMgmtContentPlaceHolder" runat="server">
