@@ -44,8 +44,8 @@ namespace MyHotel.LINQDB
     partial void DeleteExpensesItem(ExpensesItem instance);
     #endregion
 		
-		public DataClassesDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["MyHotelDBConnectionString1"].ConnectionString, mappingSource)
+		public DataClassesDataContext() :
+        base(global::System.Configuration.ConfigurationManager.ConnectionStrings["MyHotelDBConnectionString"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}

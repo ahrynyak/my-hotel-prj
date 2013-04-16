@@ -44,31 +44,31 @@ namespace MyHotel.Business.ExpensesMgmt
 
         private void updateVisiblePeriod()
         {
-            //TreeExpenses.Nodes.Add(new Node(getHeaderText()));
-            //foreach (var group in ExpensesMgmtController.GetExpensesItemsGroups())
-            //{
-            //    double groupSum = 0;
-            //    Node groupTreeNode = new Node();
-            //    groupTreeNode.Value = group.ExpensesItemID.ToString();
-            //    foreach (var subGroup in ExpensesMgmtController.GetExpensesItemsSubGroups(group))
-            //    {
-            //        double subGroupSum = 0;
-            //        Node subGroupTreeNode = new Node();
-            //        subGroupTreeNode.Value = subGroup.ExpensesItemID.ToString();
-            //        foreach (var expensesDetails in ExpensesMgmtController.GetExpensesDetails(subGroup))
-            //        {
-            //            subGroupSum += expensesDetails.Cost;
-            //            Node expensesDetailsTreeNode = new Node(getExpensesDetailsText(expensesDetails));
-            //            expensesDetailsTreeNode.Value = expensesDetails.ExpensesDetailsID.ToString();
-            //            subGroupTreeNode.ChildNodes.Add(expensesDetailsTreeNode);
-            //        }
-            //        subGroupTreeNode.Text = getExpensesItemsSubGroupText(subGroup, subGroupSum);
-            //        groupTreeNode.ChildNodes.Add(subGroupTreeNode);
-            //        groupSum += subGroupSum;
-            //    }
-            //    groupTreeNode.Text = getExpensesItemsGroupText(group, groupSum);
-            //    TreeExpenses.Nodes.Add(groupTreeNode);
-            //}
+            TreeExpenses.Nodes.Add(new Node(getHeaderText()));
+            foreach (var group in ExpensesMgmtController.GetExpensesItems(0))
+            {
+                double groupSum = 0;
+                Node groupTreeNode = new Node();
+                groupTreeNode.Value = group.ExpensesItemID.ToString();
+                foreach (var subGroup in ExpensesMgmtController.GetExpensesItems(group.ExpensesItemID))
+                {
+                    double subGroupSum = 0;
+                    Node subGroupTreeNode = new Node();
+                    subGroupTreeNode.Value = subGroup.ExpensesItemID.ToString();
+                    foreach (var expensesDetails in ExpensesMgmtController.GetExpensesDetails(subGroup.ExpensesItemID))
+                    {
+                        subGroupSum += expensesDetails.Cost;
+                        Node expensesDetailsTreeNode = new Node(getExpensesDetailsText(expensesDetails));
+                        expensesDetailsTreeNode.Value = expensesDetails.ExpensesDetailsID.ToString();
+                        subGroupTreeNode.ChildNodes.Add(expensesDetailsTreeNode);
+                    }
+                    subGroupTreeNode.Text = getExpensesItemsSubGroupText(subGroup, subGroupSum);
+                    groupTreeNode.ChildNodes.Add(subGroupTreeNode);
+                    groupSum += subGroupSum;
+                }
+                groupTreeNode.Text = getExpensesItemsGroupText(group, groupSum);
+                TreeExpenses.Nodes.Add(groupTreeNode);
+            }
         }
         #region css format for tree nodes
         private string getHeaderText()
