@@ -71,6 +71,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Business\ExpensesMgmt\ExpensesDetailsMgmtForm.aspx" />
     <Content Include="Business\ExpensesMgmt\ExpensesMgmtForm.aspx" />
     <Content Include="Business\GreenHouseInfo\GreenHouseInfoUA.aspx" />
     <Content Include="Business\GreenHouseInfo\img\ApartRoom\DSC_0420.jpg" />
@@ -148,6 +149,13 @@
     <Compile Include="Business\Entity\RoomBooking\RoomDetailedEntity.cs" />
     <Compile Include="Business\Entity\RoomBooking\RoomBookingEntity.cs" />
     <Compile Include="Business\Entity\RoomBooking\RoomEntity.cs" />
+    <Compile Include="Business\ExpensesMgmt\ExpensesDetailsMgmtForm.aspx.cs">
+      <DependentUpon>ExpensesDetailsMgmtForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Business\ExpensesMgmt\ExpensesDetailsMgmtForm.aspx.designer.cs">
+      <DependentUpon>ExpensesDetailsMgmtForm.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Business\ExpensesMgmt\ExpensesMgmtForm.aspx.cs">
       <DependentUpon>ExpensesMgmtForm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
