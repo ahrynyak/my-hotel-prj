@@ -49,25 +49,53 @@ namespace MyHotel.Business.ExpensesMgmt
             }
         }
 
+        public static ExpensesItemsEntity GetExpensesItemsByID(int expensesItemID)
+        {
+            using (DataClassesDataContext dataContext = HelperCommon.GetDataContext())
+            {
+                return expensesDetailsToExpensesItemsEntity(dataContext.ExpensesItems.First(e => e.ExpensesItemID == expensesItemID));
+            }
+        }
+
         public static List<ExpensesDetailsEntity> GetExpensesDetails(int expensesItemID)
         {
             using (DataClassesDataContext dataContext = HelperCommon.GetDataContext())
             {
-
                 return dataContext.ExpensesDetails.Where(e => e.ExpensesItemID == expensesItemID).Select(e => expensesDetailsToExpensesDetailsEntity(e)).ToList();
             }
         }
 
-        //public static void SaveExpensesDetails(ExpensesGridView expensesGridView)
-        //{
-        //    using (DataClassesDataContext dataContext = HelperCommon.GetDataContext())
-        //    { }
-        //}
+        public static ExpensesDetailsEntity GetExpensesDetailsByID(int expensesDetailsID)
+        {
+            using (DataClassesDataContext dataContext = HelperCommon.GetDataContext())
+            {
+                return expensesDetailsToExpensesDetailsEntity(dataContext.ExpensesDetails.First(e => e.ExpensesDetailsID == expensesDetailsID));
+            }
+        }
 
-        //public static void DeleteExpensesDetails(ExpensesGridView expensesGridView)
-        //{
-        //    using (DataClassesDataContext dataContext = HelperCommon.GetDataContext())
-        //    { }
-        //}
+        public static void SaveExpensesDetails(ExpensesDetailsEntity expensesDetailsEntity)
+        {
+            using (DataClassesDataContext dataContext = HelperCommon.GetDataContext())
+            {
+                if (expensesDetailsEntity.ExpensesDetailsID > 0)
+                {
+                    //edit
+                    dataContext.ExpensesDetails.fi
+                }
+                else
+                {
+                    //new
+                }
+            }
+        }
+
+        public static void DeleteExpensesDetails(int expensesDetailsID)
+        {
+            using (DataClassesDataContext dataContext = HelperCommon.GetDataContext())
+            {
+                dataContext.ExpensesDetails.DeleteAllOnSubmit(dataContext.ExpensesDetails.Where(e => e.ExpensesDetailsID == expensesDetailsID));
+                dataContext.SubmitChanges();
+            }
+        }
     }
 }
