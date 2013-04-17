@@ -78,18 +78,29 @@ namespace MyHotel.Business.ExpensesMgmt
 
         private string getExpensesItemsGroupText(ExpensesItemsEntity expensesItemsEntity, double sum)
         {
-            return String.Format("<span class=\"expensesItemGroupName\">{0}</span><span class=\"expensesItemGroupSum\">{1}</span>", expensesItemsEntity.Name, sum);
+            return String.Format(
+                "<span class=\"expensesItemGroupName\">{0}</span>"+
+                "<span class=\"expensesItemGroupSum\">{1}</span>",
+                expensesItemsEntity.Name, sum);
         }
 
         private string getExpensesItemsSubGroupText(ExpensesItemsEntity expensesItemsEntity, double sum)
         {
-            
-            return String.Format("<span class=\"expensesItemSubGroupName\">{0}</span><span class=\"expensesItemSubGroupSum\">{1}</span> <asp:ImageButton ID=\"ImageButton1\" runat=\"server\" onclick=\"ImageButton1_Click\" ImageUrl=\"~/icons/refresh_green.ico\" />", expensesItemsEntity.Name, sum);
+            return String.Format(
+                "<img src=\"../../icons/add1.ico\" onclick=\"addNewExpenses(\'{2}\')\" class=\"expensesDetailsAdd\"/>" +
+                "<span class=\"expensesItemSubGroupName\">{0}</span>"+
+                "<span class=\"expensesItemSubGroupSum\">{1}</span>", 
+                expensesItemsEntity.Name, sum, expensesItemsEntity.ExpensesItemID);
         }
 
         private string getExpensesDetailsText(ExpensesDetailsEntity expensesDetailsEntity)
         {
-            return String.Format("<span class=\"expensesDetailsDate\">{0}</span><span class=\"expensesDetailsCost\">{1}</span><span class=\"expensesDetailsDescription\">{2}</span>", expensesDetailsEntity.Date.ToShortDateString(), expensesDetailsEntity.Cost, expensesDetailsEntity.Description);
+            return String.Format(
+                "<img src=\"../../icons/edit.ico\" onclick=\"editExpenses(\'{3}\')\" class=\"expensesDetailsEdit\"/>" +
+                "<span class=\"expensesDetailsDate\">{0}</span>"+
+                "<span class=\"expensesDetailsCost\">{1}</span>"+
+                "<span class=\"expensesDetailsDescription\">{2}</span>", 
+                expensesDetailsEntity.Date.ToShortDateString(), expensesDetailsEntity.Cost, expensesDetailsEntity.Description, expensesDetailsEntity.ExpensesDetailsID);
         }
 
         #endregion
