@@ -33,3 +33,13 @@
     width: 350px;
     display: inline-block;
 }
+.expensesDetailsEdit
+{
+    height: 16px;
+    width : 16px;
+}
+.expensesDetailsAdd
+{
+    height: 16px;
+    width : 16px;
+}

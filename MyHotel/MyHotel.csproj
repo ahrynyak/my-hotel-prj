@@ -50,6 +50,9 @@
     <Reference Include="obout_ImageZoom_NET">
       <HintPath>..\3rdParty\oboutSuite35\bin\obout_ImageZoom_NET.dll</HintPath>
     </Reference>
+    <Reference Include="obout_Window_NET, Version=1.6.2.4, Culture=neutral, PublicKeyToken=67a4511cc2f909f5, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
     <Reference Include="System.Data.Linq" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -109,6 +112,8 @@
     <Content Include="icons\1364080984_money.png" />
     <Content Include="icons\1364081059_Picture.png" />
     <Content Include="icons\1364081131_phone-1.png" />
+    <Content Include="icons\add1.ico" />
+    <Content Include="icons\edit.ico" />
     <Content Include="icons\GHApart.jpg" />
     <Content Include="icons\GHDBL.jpg" />
     <Content Include="icons\green.jpg" />
