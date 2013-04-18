@@ -9,6 +9,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
+    <link href="../../css/expenses.css" rel="stylesheet" type="text/css" />
     <asp:ScriptManager ID="ScriptManagerExpensesDetails" runat="server" />
     <asp:UpdatePanel ID="UpdatePanelBookingDetails" runat="server" UpdateMode="Conditional">
         <Triggers>
@@ -17,7 +18,11 @@
             <asp:PostBackTrigger ControlID="ButtonDelete" />
         </Triggers>
         <ContentTemplate>
-            <div>
+        <div class="expensesDetailsHeaderDiv">
+        <asp:Label ID="LabelHeader" runat="server" Text="..." class="labelBookingDetails" />
+        <hr />
+        </div>
+            <div class="expensesDetailsControlsDiv">
                 <table>
                     <tr>
                         <td>
@@ -49,16 +54,14 @@
                             <asp:TextBox ID="TextBoxInfo" runat="server" TextMode="MultiLine" Width="90%" />
                         </td>
                     </tr>
-                    <tr>
-                        <td colspan="2" align="right">
-                            <asp:Button ID="ButtonOK" runat="server" Text="OK" OnClick="ButtonOK_Click" />
-                            &nbsp;
-                            <asp:Button ID="ButtonCancel" runat="server" Text="Cancel" OnClick="ButtonCancel_Click" />
-                            &nbsp;
-                            <asp:Button ID="ButtonDelete" runat="server" Text="Delete" OnClick="ButtonDelete_Click" />
-                        </td>
-                    </tr>
                 </table>
+            </div>
+            <div class="expensesDetailsButtonDiv">
+                <asp:Button ID="ButtonOK" runat="server" Text="OK" OnClick="ButtonOK_Click" />
+                &nbsp;
+                <asp:Button ID="ButtonCancel" runat="server" Text="Cancel" OnClick="ButtonCancel_Click" />
+                &nbsp;
+                <asp:Button ID="ButtonDelete" runat="server" Text="Delete" OnClick="ButtonDelete_Click" />
             </div>
         </ContentTemplate>
     </asp:UpdatePanel>

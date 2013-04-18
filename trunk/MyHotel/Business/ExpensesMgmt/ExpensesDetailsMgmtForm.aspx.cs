@@ -73,6 +73,10 @@ namespace MyHotel.Business.ExpensesMgmt
             {
                 if (expensesDetailsEntity != null)
                 {
+                    if (expensesItemsEntity != null)
+                    {
+                        LabelHeader.Text = expensesItemsEntity.FullName;
+                    }
                     TextBoxDate.Text = expensesDetailsEntity.Date.ToString(HelperCommon.DateFormat);
                     CalendarExtenderDate.Format = HelperCommon.DateFormat;
                     TextBoxCost.Text = expensesDetailsEntity.Cost.ToString();

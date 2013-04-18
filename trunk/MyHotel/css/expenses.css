@@ -10,7 +10,7 @@
 }
 .expensesItemSubGroupName
 {
-    width: 131px;
+    width: 108px;
     display: inline-block;
 }
 .expensesItemSubGroupSum
@@ -25,7 +25,7 @@
 }
 .expensesDetailsDate
 {
-    width: 112px;
+    width: 92px;
     display: inline-block;
 }
 .expensesDetailsDescription
@@ -35,11 +35,26 @@
 }
 .expensesDetailsEdit
 {
+    padding-right: 10px;
     height: 16px;
     width : 16px;
 }
 .expensesDetailsAdd
 {
+    padding-right: 10px;
     height: 16px;
     width : 16px;
+}
+.expensesDetailsButtonDiv
+{
+    right: 0; 
+    position: absolute;
+    bottom: 0;
+}
+.expensesDetailsControlsDiv
+{
+}
+.expensesDetailsHeaderDiv
+{
+    font-weight: bolder;
 }

@@ -11,5 +11,6 @@ namespace MyHotel.Business.Entity.Expenses
         public int ExpensesItemID { get; set; }
         public int ParentExpensesItemID { get; set; }
         public string Name { get; set; }
+        public string FullName { get; set; }
     }
 }

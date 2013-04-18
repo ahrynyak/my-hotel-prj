@@ -109,19 +109,23 @@ namespace MyHotel.Business.ExpensesMgmt
         private string getExpensesItemsSubGroupText(ExpensesItemsEntity expensesItemsEntity, double sum)
         {
             return String.Format(
-                "<img src=\"../../icons/add1.ico\" onclick=\"addNewExpenses(\'{2}\')\" class=\"expensesDetailsAdd\"/>" +
-                "<span class=\"expensesItemSubGroupName\">{0}</span>" +
-                "<span class=\"expensesItemSubGroupSum\">{1}</span>",
+                "<span onclick=\"addNewExpenses(\'{2}\')\">" +
+                    "<img src=\"../../icons/add1.ico\" class=\"expensesDetailsAdd\"/>" +
+                    "<span class=\"expensesItemSubGroupName\">{0}</span>" +
+                    "<span class=\"expensesItemSubGroupSum\">{1}</span>" +
+                "</span>",
                 expensesItemsEntity.Name, sum, expensesItemsEntity.ExpensesItemID);
         }
 
         private string getExpensesDetailsText(ExpensesDetailsEntity expensesDetailsEntity)
         {
             return String.Format(
-                "<img src=\"../../icons/edit.ico\" onclick=\"editExpenses(\'{3}\')\" class=\"expensesDetailsEdit\"/>" +
-                "<span class=\"expensesDetailsDate\">{0}</span>" +
-                "<span class=\"expensesDetailsCost\">{1}</span>" +
-                "<span class=\"expensesDetailsDescription\">{2}</span>",
+                "<span onclick=\"editExpenses(\'{3}\')\" >" +
+                    "<img src=\"../../icons/edit.ico\" class=\"expensesDetailsEdit\"/>" +
+                    "<span class=\"expensesDetailsDate\">{0}</span>" +
+                    "<span class=\"expensesDetailsCost\">{1}</span>" +
+                    "<span class=\"expensesDetailsDescription\">{2}</span>" +
+                "</span>",
                 expensesDetailsEntity.Date.ToShortDateString(), expensesDetailsEntity.Cost, expensesDetailsEntity.Description, expensesDetailsEntity.ExpensesDetailsID);
         }
 

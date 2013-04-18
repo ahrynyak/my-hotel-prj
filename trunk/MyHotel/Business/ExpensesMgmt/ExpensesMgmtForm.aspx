@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/MyHotelMgmt.Master"
-    AutoEventWireup="true" CodeBehind="ExpensesMgmtForm.aspx.cs" Inherits="MyHotel.Business.ExpensesMgmt.ExpensesMgmtForm"  Culture="uk-UA" UICulture="uk-UA"%>
+    AutoEventWireup="true" CodeBehind="ExpensesMgmtForm.aspx.cs" Inherits="MyHotel.Business.ExpensesMgmt.ExpensesMgmtForm"
+    Culture="uk-UA" UICulture="uk-UA" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <%@ Register Assembly="Obout.Ajax.UI" Namespace="Obout.Ajax.UI.TreeView" TagPrefix="obout" %>
@@ -10,9 +11,9 @@
     <script type="text/javascript">
         var modal = new DayPilot.Modal();
         modal.top = 200;
-        modal.width = 230;
+        modal.width = 250;
         modal.opacity = 60;
-        modal.height = 200;
+        modal.height = 250;
         modal.border = "1px solid black";
         modal.closed = function () {
             if (this.result == "OK") {
@@ -39,7 +40,7 @@
             OnTextChanged="datePickeEnd_TextChanged" />
         <asp:CalendarExtender ID="calendarExtenderEnd" runat="server" TargetControlID="datePickeEnd"
             Format="" />
-            <hr />
+        <hr />
     </div>
     <div style="width: 100%;">
         <obout:Tree ID="TreeExpenses" runat="server" EnableViewState="False" ClientIDMode="AutoID"
