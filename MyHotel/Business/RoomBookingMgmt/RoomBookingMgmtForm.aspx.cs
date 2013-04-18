@@ -212,14 +212,5 @@ namespace MyHotel.Business.RoomBookingMgmt
         {
             updateVisiblePeriod();
         }
-
-        protected void linkButtonSignOut_Click(object sender, EventArgs e)
-        {
-            if (this.Page.User != null && this.Page.User.Identity.IsAuthenticated)
-            {
-                FormsAuthentication.SignOut();
-            }
-            Response.Redirect("/LoginForm.aspx");
-        }
     }
 }

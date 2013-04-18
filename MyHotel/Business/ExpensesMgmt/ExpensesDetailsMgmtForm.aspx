@@ -14,6 +14,7 @@
         <Triggers>
             <asp:PostBackTrigger ControlID="ButtonOK" />
             <asp:PostBackTrigger ControlID="ButtonCancel" />
+            <asp:PostBackTrigger ControlID="ButtonDelete" />
         </Triggers>
         <ContentTemplate>
             <div>
@@ -37,7 +38,7 @@
                             <asp:RequiredFieldValidator ID="RequiredFieldValidatorCost" runat="server" ErrorMessage="*"
                                 CssClass="errorValidation" ControlToValidate="TextBoxCost" ToolTip="Обов'язкове поле" />
                             <asp:FilteredTextBoxExtender ID="FilteredtextboxextenderCost" runat="server" TargetControlID="TextBoxCost"
-                                FilterType="Numbers" />
+                                FilterType="Custom" ValidChars="01234567890." />
                         </td>
                     </tr>
                     <tr>
@@ -50,13 +51,11 @@
                     </tr>
                     <tr>
                         <td colspan="2" align="right">
-                            <asp:Button ID="ButtonOK" runat="server" Text="OK" onclick="ButtonOK_Click" />
+                            <asp:Button ID="ButtonOK" runat="server" Text="OK" OnClick="ButtonOK_Click" />
                             &nbsp;
-                            <asp:Button ID="ButtonCancel" runat="server" Text="Cancel" 
-                                onclick="ButtonCancel_Click" />
+                            <asp:Button ID="ButtonCancel" runat="server" Text="Cancel" OnClick="ButtonCancel_Click" />
                             &nbsp;
-                            <asp:Button ID="ButtonDelete" runat="server" Text="Delete" 
-                                onclick="ButtonDelete_Click" />
+                            <asp:Button ID="ButtonDelete" runat="server" Text="Delete" OnClick="ButtonDelete_Click" />
                         </td>
                     </tr>
                 </table>

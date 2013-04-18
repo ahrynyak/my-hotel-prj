@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using MyHotel.Utils;
 using MyHotel.Business.Entity.Expenses;
+using System.Globalization;
 
 namespace MyHotel.Business.ExpensesMgmt
 {
@@ -43,7 +44,7 @@ namespace MyHotel.Business.ExpensesMgmt
                         //edit
                         isEdit = true;
                         string subGrID = Request.QueryString["subGrID"];
-                        if (!string.IsNullOrEmpty(expensID))
+                        if (!string.IsNullOrEmpty(subGrID))
                         {
                             expensesDetailsEntity = ExpensesMgmtController.GetExpensesDetailsByID(int.Parse(subGrID));
                             expensesItemsEntity = ExpensesMgmtController.GetExpensesItemsByID(expensesDetailsEntity.ExpensesItemID);
@@ -73,6 +74,7 @@ namespace MyHotel.Business.ExpensesMgmt
                 if (expensesDetailsEntity != null)
                 {
                     TextBoxDate.Text = expensesDetailsEntity.Date.ToString(HelperCommon.DateFormat);
+                    CalendarExtenderDate.Format = HelperCommon.DateFormat;
                     TextBoxCost.Text = expensesDetailsEntity.Cost.ToString();
                     TextBoxInfo.Text = expensesDetailsEntity.Description;
                 }
@@ -86,20 +88,12 @@ namespace MyHotel.Business.ExpensesMgmt
         private void saveData()
         {
             initData();
-            if (roomBookingEntity != null)
+            if (expensesDetailsEntity != null)
             {
-                roomBookingEntity.GuestName = TextBoxGuestName.Text;
-                roomBookingEntity.GuestPhone = TextBoxGuestPhone.Text;
-                roomBookingEntity.NumberOfAdult = int.Parse(string.IsNullOrEmpty(TextBoxAdultNumber.Text) ? "0" : TextBoxAdultNumber.Text);
-                roomBookingEntity.NumberOfChild = int.Parse(string.IsNullOrEmpty(TextBoxChildrenNumber.Text) ? "0" : TextBoxChildrenNumber.Text);
-                roomBookingEntity.PricePerRoom = int.Parse(string.IsNullOrEmpty(TextBoxPricePerRoom.Text) ? "0" : TextBoxPricePerRoom.Text);
-                roomBookingEntity.PriceOfAdditionalBed = int.Parse(string.IsNullOrEmpty(TextBoxPriceForExtraBed.Text) ? "0" : TextBoxPriceForExtraBed.Text);
-                roomBookingEntity.StartDate = DateTime.ParseExact(datePickeStart.Text, HelperCommon.DateFormat, CultureInfo.CurrentCulture);
-                roomBookingEntity.EndDate = DateTime.ParseExact(datePickeEnd.Text, HelperCommon.DateFormat, CultureInfo.CurrentCulture);
-                roomBookingEntity.BookingStatus = int.Parse((DropDownListBookingStatus.SelectedItem != null ? DropDownListBookingStatus.SelectedItem.Value : "0"));
-                roomBookingEntity.AdditionalInfo = TextBoxAdditionalInfo.Text;
-                roomBookingEntity.AlreadyPaid = int.Parse(TextBoxPaid.Text);
-                RoomBookingMgmtController.SaveRoomBooking(roomBookingEntity);
+                expensesDetailsEntity.Cost = double.Parse(TextBoxCost.Text);
+                expensesDetailsEntity.Date = DateTime.ParseExact(TextBoxDate.Text, HelperCommon.DateFormat, CultureInfo.CurrentCulture);
+                expensesDetailsEntity.Description = TextBoxInfo.Text;
+                ExpensesMgmtController.SaveExpensesDetails(expensesDetailsEntity);
             }
         }
 
@@ -125,8 +119,8 @@ namespace MyHotel.Business.ExpensesMgmt
         {
             try
             {
-                string id = Request.QueryString["id"];
-                RoomBookingMgmtController.DeleteRoomBooking(int.Parse(id));
+                string id = Request.QueryString["subGrID"];
+                ExpensesMgmtController.DeleteExpensesDetails(int.Parse(id));
                 Modal.Close(this, "OK");
             }
             catch (Exception ex)

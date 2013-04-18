@@ -31,48 +31,33 @@
         }
 
     </script>
-    <table width="100%">
-        <tr>
-            <td style="width: 130px">
-                <strong>Видимий період</strong>
-            </td>
-            <td style="width: 130px">
-                <asp:TextBox runat="server" ID="datePickeStart" autocomplete="off" AutoPostBack="True"
-                    OnTextChanged="datePickeStart_TextChanged" />
-                <ajaxToolkit:CalendarExtender ID="calendarExtenderStart" runat="server" TargetControlID="datePickeStart" />
-            </td>
-            <td style="width: 20px">
-                <strong>до</strong>
-            </td>
-            <td style="width: 130px">
-                <asp:TextBox runat="server" ID="datePickeEnd" autocomplete="off" AutoPostBack="True"
-                    OnTextChanged="datePickeEnd_TextChanged" />
-                <ajaxToolkit:CalendarExtender ID="calendarExtenderEnd" runat="server" TargetControlID="datePickeEnd"
-                    Format="" />
-            </td>
-            <td align="right">
-                <asp:LinkButton ID="linkButtonSignOut" runat="server" CssClass="loginoutbutton" Text="Sign out"
-                    OnClick="linkButtonSignOut_Click" />
-            </td>
-        </tr>
-        <tr>
-            <td align="left" colspan="5" class="dayPilotSchedulerDiv">
-                <DayPilot:DayPilotScheduler runat="server" ID="dayPilotScheduler" RowHeaderColumnWidths="150"
-                    CellGroupBy="Month" CellDuration="1440" DataEndField="EndDate" DataTextField="GuestName"
-                    DataValueField="RoomBookingID" DataResourceField="RoomID" DataTagFields="BookingStatus"
-                    DataStartField="StartDate" ClientObjectName="dps" Days="365" EventClickHandling="JavaScript"
-                    EventDoubleClickHandling="PostBack" EventEditHandling="PostBack" EventResizeHandling="PostBack"
-                    EventSelectHandling="PostBack" Height="350px" TimeRangeDoubleClickHandling="PostBack"
-                    TimeRangeSelectedHandling="JavaScript" TimeFormat="Clock24Hours" WeekStarts="Monday"
-                    Width="100%" EventClickJavaScript="editEvent(e.value());" TimeRangeSelectedJavaScript="createEvent(start, end, column);"
-                    CssClassPrefix="myhstyle" CssOnly="True" EventHeight="55" RowMinHeight="40" CellWidth="35"
-                    Font-Bold="False" HeaderHeight="35" LoadingLabelText="Завантажую..." EventMoveHandling="PostBack"
-                    OnEventMove="dayPilotScheduler_EventMove" OnEventResize="dayPilotScheduler_EventResize"
-                    Style="top: 0px; left: 0px" AfterRenderJavaScript="" HeaderDateFormat="d (ddd)"
-                    OnBeforeCellRender="dayPilotScheduler_BeforeCellRender" OnBeforeTimeHeaderRender="dayPilotScheduler_BeforeTimeHeaderRender"
-                    OnBeforeEventRender="dayPilotScheduler_BeforeEventRender">
-                </DayPilot:DayPilotScheduler>
-            </td>
-        </tr>
-    </table>
+    <div>
+        <strong>Видимий період</strong>
+        <asp:TextBox runat="server" ID="datePickeStart" autocomplete="off" AutoPostBack="True"
+            OnTextChanged="datePickeStart_TextChanged" />
+        <ajaxToolkit:CalendarExtender ID="calendarExtenderStart" runat="server" TargetControlID="datePickeStart" />
+        <strong>:</strong>
+        <asp:TextBox runat="server" ID="datePickeEnd" autocomplete="off" AutoPostBack="True"
+            OnTextChanged="datePickeEnd_TextChanged" />
+        <ajaxToolkit:CalendarExtender ID="calendarExtenderEnd" runat="server" TargetControlID="datePickeEnd"
+            Format="" />
+        <hr />
+    </div>
+    <div>
+        <DayPilot:DayPilotScheduler runat="server" ID="dayPilotScheduler" RowHeaderColumnWidths="150"
+            CellGroupBy="Month" CellDuration="1440" DataEndField="EndDate" DataTextField="GuestName"
+            DataValueField="RoomBookingID" DataResourceField="RoomID" DataTagFields="BookingStatus"
+            DataStartField="StartDate" ClientObjectName="dps" Days="365" EventClickHandling="JavaScript"
+            EventDoubleClickHandling="PostBack" EventEditHandling="PostBack" EventResizeHandling="PostBack"
+            EventSelectHandling="PostBack" Height="350px" TimeRangeDoubleClickHandling="PostBack"
+            TimeRangeSelectedHandling="JavaScript" TimeFormat="Clock24Hours" WeekStarts="Monday"
+            Width="100%" EventClickJavaScript="editEvent(e.value());" TimeRangeSelectedJavaScript="createEvent(start, end, column);"
+            CssClassPrefix="myhstyle" CssOnly="True" EventHeight="55" RowMinHeight="40" CellWidth="35"
+            Font-Bold="False" HeaderHeight="35" LoadingLabelText="Завантажую..." EventMoveHandling="PostBack"
+            OnEventMove="dayPilotScheduler_EventMove" OnEventResize="dayPilotScheduler_EventResize"
+            Style="top: 0px; left: 0px" AfterRenderJavaScript="" HeaderDateFormat="d (ddd)"
+            OnBeforeCellRender="dayPilotScheduler_BeforeCellRender" OnBeforeTimeHeaderRender="dayPilotScheduler_BeforeTimeHeaderRender"
+            OnBeforeEventRender="dayPilotScheduler_BeforeEventRender">
+        </DayPilot:DayPilotScheduler>
+    </div>
 </asp:Content>

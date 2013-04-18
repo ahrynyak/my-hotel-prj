@@ -19,5 +19,14 @@ namespace MyHotel.MasterPages
         {
 
         }
+
+        protected void linkButtonSignOut_Click(object sender, EventArgs e)
+        {
+            if (this.Page.User != null && this.Page.User.Identity.IsAuthenticated)
+            {
+                FormsAuthentication.SignOut();
+            }
+            Response.Redirect("/LoginForm.aspx");
+        }
     }
 }
