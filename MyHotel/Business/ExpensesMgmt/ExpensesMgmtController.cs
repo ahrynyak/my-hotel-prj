@@ -23,14 +23,14 @@ namespace MyHotel.Business.ExpensesMgmt
 
         #region Converters
 
-        private static ExpensesDetailsEntity expensesDetailsToExpensesDetailsEntity(ExpensesDetail e)
+        private static ExpensesDetailsEntity expensesDetailToExpensesDetailsEntity(ExpensesDetail e)
         {
             return new ExpensesDetailsEntity() { ExpensesDetailsID = e.ExpensesDetailsID, ExpensesItemID = e.ExpensesItemID, Cost = e.Cost, Date = e.Date, Description = e.Description };
         }
 
-        private static ExpensesItemsEntity expensesDetailsToExpensesItemsEntity(ExpensesItem e)
+        private static ExpensesItemsEntity ExpensesItemToExpensesItemsEntity(ExpensesItem e)
         {
-            return new ExpensesItemsEntity() { ExpensesItemID = e.ExpensesItemID, Name = e.Name, ParentExpensesItemID = e.ParentExpensesItemID ?? 0 };
+            return new ExpensesItemsEntity() { ExpensesItemID = e.ExpensesItemID, Name = e.Name, ParentExpensesItemID = e.ParentExpensesItemID ?? 0, FullName = e.ParentExpensesItemID != null ? e.ExpensesItem1.Name + "->" + e.Name : e.Name };
         }
 
         #endregion
@@ -39,7 +39,7 @@ namespace MyHotel.Business.ExpensesMgmt
         {
             using (DataClassesDataContext dataContext = HelperCommon.GetDataContext())
             {
-                return dataContext.ExpensesItems.Select(e => expensesDetailsToExpensesItemsEntity(e)).ToList();
+                return dataContext.ExpensesItems.Select(e => ExpensesItemToExpensesItemsEntity(e)).ToList();
             }
         }
 
@@ -47,7 +47,7 @@ namespace MyHotel.Business.ExpensesMgmt
         {
             using (DataClassesDataContext dataContext = HelperCommon.GetDataContext())
             {
-                return expensesDetailsToExpensesItemsEntity(dataContext.ExpensesItems.First(e => e.ExpensesItemID == expensesItemID));
+                return ExpensesItemToExpensesItemsEntity(dataContext.ExpensesItems.First(e => e.ExpensesItemID == expensesItemID));
             }
         }
 
@@ -55,7 +55,7 @@ namespace MyHotel.Business.ExpensesMgmt
         {
             using (DataClassesDataContext dataContext = HelperCommon.GetDataContext())
             {
-                return dataContext.ExpensesDetails.Where(e => e.Date >= startDate && e.Date <= endDate).Select(e => expensesDetailsToExpensesDetailsEntity(e)).ToList();
+                return dataContext.ExpensesDetails.Where(e => e.Date >= startDate && e.Date <= endDate).Select(e => expensesDetailToExpensesDetailsEntity(e)).ToList();
             }
         }
 
@@ -63,7 +63,7 @@ namespace MyHotel.Business.ExpensesMgmt
         {
             using (DataClassesDataContext dataContext = HelperCommon.GetDataContext())
             {
-                return expensesDetailsToExpensesDetailsEntity(dataContext.ExpensesDetails.First(e => e.ExpensesDetailsID == expensesDetailsID));
+                return expensesDetailToExpensesDetailsEntity(dataContext.ExpensesDetails.First(e => e.ExpensesDetailsID == expensesDetailsID));
             }
         }
 

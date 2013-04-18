@@ -45,7 +45,7 @@ DROP TABLE [ExpensesItems]
 CREATE TABLE [ExpensesItems]
 (
 	ExpensesItemID int IDENTITY(1,1) PRIMARY KEY,
-	ParentExpensesItemID int NULL,
+	ParentExpensesItemID int FOREIGN KEY REFERENCES [ExpensesItems](ExpensesItemID) NULL,
 	Name nvarchar(100) NOT NULL
 )
 
