@@ -22,11 +22,16 @@
             <br />
             <span class="MainHeaderSmall">ОЗДОРОВЛЕННЯ ТА ВІДПОЧИНОК</span>
         </div>
+        <div class="main_tool_div">
+            <a href="/Business/GreenHouseInfo/GreenHouseInfoUA.aspx">Інфо сайт</span></a> &nbsp;
+            <asp:LinkButton ID="linkButtonSignOut" runat="server" CssClass="loginoutbutton" Text="Sign out"
+                OnClick="linkButtonSignOut_Click" />
+        </div>
         <div class="main_menu_div">
-            | <a href="/Business/RoomBookingMgmt/RoomBookingMgmtForm.aspx"><span class="GreenHouseNormalTextP1"> Бронювання </span></a>
-            | <a href="/Business/ExpensesMgmt/ExpensesMgmtForm.aspx"><span class="GreenHouseNormalTextP1"> Витрати </span></a>
-            | <a href="/Business/GreenHouseInfo/GreenHouseInfoUA.aspx"><span class="GreenHouseNormalTextP1"> Інфо сайт </span></a>
-            |
+            <a href="/Business/RoomBookingMgmt/RoomBookingMgmtForm.aspx"><span class="GreenHouseNormalTextP1">
+                Бронювання</span></a>&nbsp; <a href="/Business/ExpensesMgmt/ExpensesMgmtForm.aspx">
+                    <span class="GreenHouseNormalTextP1">Витрати</span></a>&nbsp;
+                    <hr />
         </div>
         <div class="main_content_div">
             <asp:ContentPlaceHolder ID="MyHotelMgmtContentPlaceHolder" runat="server">

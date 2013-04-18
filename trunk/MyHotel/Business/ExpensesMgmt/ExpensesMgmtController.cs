@@ -5,6 +5,7 @@ using System.Web;
 using MyHotel.Utils;
 using MyHotel.LINQDB;
 using MyHotel.Business.Entity.Expenses;
+using System.Data;
 
 namespace MyHotel.Business.ExpensesMgmt
 {
@@ -12,12 +13,12 @@ namespace MyHotel.Business.ExpensesMgmt
     {
         public static DateTime GetDefaultStartDate()
         {
-            return DateTime.Now;
+            return DateTime.Now.AddDays(-DateTime.Now.Day + 1);
         }
 
         public static DateTime GetDefaultEndDate()
         {
-            return DateTime.Now.AddMonths(6);
+            return DateTime.Now;
         }
 
         #region Converters
@@ -31,21 +32,14 @@ namespace MyHotel.Business.ExpensesMgmt
         {
             return new ExpensesItemsEntity() { ExpensesItemID = e.ExpensesItemID, Name = e.Name, ParentExpensesItemID = e.ParentExpensesItemID ?? 0 };
         }
-        
+
         #endregion
 
-        public static List<ExpensesItemsEntity> GetExpensesItems(int expensesItemID)
+        public static List<ExpensesItemsEntity> GetExpensesItems()
         {
             using (DataClassesDataContext dataContext = HelperCommon.GetDataContext())
             {
-                if (expensesItemID == 0)
-                {
-                    return dataContext.ExpensesItems.Where(e => e.ParentExpensesItemID == null).Select(e => expensesDetailsToExpensesItemsEntity(e)).ToList();
-                }
-                else
-                {
-                    return dataContext.ExpensesItems.Where(e => e.ParentExpensesItemID == expensesItemID).Select(e => expensesDetailsToExpensesItemsEntity(e)).ToList();
-                }
+                return dataContext.ExpensesItems.Select(e => expensesDetailsToExpensesItemsEntity(e)).ToList();
             }
         }
 
@@ -57,11 +51,11 @@ namespace MyHotel.Business.ExpensesMgmt
             }
         }
 
-        public static List<ExpensesDetailsEntity> GetExpensesDetails(int expensesItemID)
+        public static List<ExpensesDetailsEntity> GetExpensesDetails(DateTime startDate, DateTime endDate)
         {
             using (DataClassesDataContext dataContext = HelperCommon.GetDataContext())
             {
-                return dataContext.ExpensesDetails.Where(e => e.ExpensesItemID == expensesItemID).Select(e => expensesDetailsToExpensesDetailsEntity(e)).ToList();
+                return dataContext.ExpensesDetails.Where(e => e.Date >= startDate && e.Date <= endDate).Select(e => expensesDetailsToExpensesDetailsEntity(e)).ToList();
             }
         }
 
@@ -80,11 +74,29 @@ namespace MyHotel.Business.ExpensesMgmt
                 if (expensesDetailsEntity.ExpensesDetailsID > 0)
                 {
                     //edit
-                    dataContext.ExpensesDetails.fi
+                    ExpensesDetail expensesDetail = dataContext.ExpensesDetails.FirstOrDefault(e => e.ExpensesDetailsID == expensesDetailsEntity.ExpensesDetailsID);
+                    if (expensesDetail != null)
+                    {
+                        expensesDetail.Cost = expensesDetailsEntity.Cost;
+                        expensesDetail.Date = expensesDetailsEntity.Date;
+                        expensesDetail.Description = expensesDetailsEntity.Description;
+                        dataContext.SubmitChanges();
+                    }
+                    else
+                    {
+                        throw new InvalidConstraintException("Запис з витратами для зміни не знайдений №" + expensesDetailsEntity.ExpensesDetailsID);
+                    }
                 }
                 else
                 {
                     //new
+                    dataContext.ExpensesDetails.InsertOnSubmit(new ExpensesDetail() 
+                    { 
+                        ExpensesItemID = expensesDetailsEntity.ExpensesItemID, 
+                        Cost = expensesDetailsEntity.Cost, 
+                        Date = expensesDetailsEntity.Date, 
+                        Description = expensesDetailsEntity.Description });
+                    dataContext.SubmitChanges();
                 }
             }
         }
