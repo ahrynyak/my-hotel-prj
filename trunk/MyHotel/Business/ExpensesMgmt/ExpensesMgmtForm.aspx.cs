@@ -24,8 +24,8 @@ namespace MyHotel.Business.ExpensesMgmt
                 if (!Page.IsPostBack)
                 {
                     initData();
+                    updateVisiblePeriod();
                 }
-                updateVisiblePeriod();
             }
             else
             {
@@ -57,6 +57,7 @@ namespace MyHotel.Business.ExpensesMgmt
         {
             if (!string.IsNullOrEmpty(datePickeStart.Text) && !string.IsNullOrEmpty(datePickeEnd.Text))
             {
+                TreeExpenses.Nodes.Clear();
                 TreeExpenses.Nodes.Add(new Node(getHeaderText()));
                 var allExpensesItems = ExpensesMgmtController.GetExpensesItems();
                 var allExpensesDetails = ExpensesMgmtController.GetExpensesDetails(DateTime.ParseExact(datePickeStart.Text, HelperCommon.DateFormat, CultureInfo.CurrentCulture), DateTime.ParseExact(datePickeEnd.Text, HelperCommon.DateFormat, CultureInfo.CurrentCulture));
