@@ -43,6 +43,7 @@ namespace MyHotel.Business.RoomBookingMgmt
 
         private void initData()
         {
+            CheckBoxEditPast.Checked = RoomBookingMgmtController.IsEditPastEnabled;
             dayPilotScheduler.Resources.Clear();
             foreach (var item in RoomBookingMgmtController.GetRooms())
             {
@@ -100,11 +101,11 @@ namespace MyHotel.Business.RoomBookingMgmt
             {
                 message = "Бронь не може перекриватись іншою броню";
             }
-            else if (e.OldStart < DateTime.Today)
+            else if (e.OldStart < DateTime.Today && !RoomBookingMgmtController.IsEditPastEnabled)
             {
                 message = "Ця бронь не може бути змінена";
             }
-            else if (e.NewStart < DateTime.Today)
+            else if (e.NewStart < DateTime.Today && !RoomBookingMgmtController.IsEditPastEnabled)
             {
                 message = "Ця бронь не може бути переміщена в минуле";
             }
@@ -130,7 +131,7 @@ namespace MyHotel.Business.RoomBookingMgmt
             {
                 message = "Ця бронь не може бути змінена";
             }
-            else if (e.NewStart < DateTime.Today)
+            else if (e.NewStart < DateTime.Today && !RoomBookingMgmtController.IsEditPastEnabled)
             {
                 message = "Ця бронь не може бути переміщена в минуле";
             }
@@ -211,6 +212,11 @@ namespace MyHotel.Business.RoomBookingMgmt
         protected void datePickeEnd_TextChanged(object sender, EventArgs e)
         {
             updateVisiblePeriod();
+        }
+
+        protected void CheckBoxEditPast_CheckedChanged(object sender, EventArgs e)
+        {
+            RoomBookingMgmtController.IsEditPastEnabled = ((CheckBox)sender).Checked;
         }
     }
 }

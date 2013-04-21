@@ -13,6 +13,8 @@ namespace MyHotel.Business.RoomBookingMgmt
 {
     public class RoomBookingMgmtController
     {
+        public static bool IsEditPastEnabled { get; set; }
+ 
         public static DateTime GetDefaultStartDate()
         {
             return DateTime.Now;
@@ -58,7 +60,7 @@ namespace MyHotel.Business.RoomBookingMgmt
         {
             using (DataClassesDataContext dataContext = HelperCommon.GetDataContext())
             {
-                if (roomBookingEntity.StartDate >= DateTime.Now)
+                if (IsEditPastEnabled || roomBookingEntity.StartDate >= DateTime.Now)
                 {
                     if (RoomBookingMgmtController.IsRoomBookingFree(roomBookingEntity.RoomBookingID, roomBookingEntity.RoomID, roomBookingEntity.StartDate, roomBookingEntity.EndDate))
                     {
@@ -133,7 +135,7 @@ namespace MyHotel.Business.RoomBookingMgmt
                 RoomBooking roomBooking = dataContext.RoomBookings.FirstOrDefault(s => s.RoomBookingID == roomBookingID);
                 if (roomBooking != null)
                 {
-                    if (roomBooking.StartDate >= DateTime.Now)
+                    if (IsEditPastEnabled || roomBooking.StartDate >= DateTime.Now)
                     {
                         if ((roomBooking.AlreadyPaid ?? 0) > 0)
                         {
