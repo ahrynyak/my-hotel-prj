@@ -127,7 +127,7 @@ namespace MyHotel.Business.RoomBookingMgmt
             {
                 message = "Бронь не може перекриватись іншою броню";
             }
-            else if (e.OldStart < DateTime.Today)
+            else if (e.OldStart < DateTime.Today && !RoomBookingMgmtController.IsEditPastEnabled)
             {
                 message = "Ця бронь не може бути змінена";
             }
