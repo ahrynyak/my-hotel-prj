@@ -49,12 +49,12 @@ namespace MyHotel.Business.ExpensesMgmt {
         protected global::AjaxControlToolkit.CalendarExtender calendarExtenderEnd;
         
         /// <summary>
-        /// TreeExpenses control.
+        /// ExpensesViewCtrl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Obout.Ajax.UI.TreeView.Tree TreeExpenses;
+        protected global::MyHotel.Business.WebControls.Expenses.ExpensesWebControl ExpensesViewCtrl;
     }
 }

@@ -103,7 +103,7 @@ namespace MyHotel.Business.RoomBookingMgmt
             }
             else if (e.OldStart < DateTime.Today && !RoomBookingMgmtController.IsEditPastEnabled)
             {
-                message = "Ця бронь не може бути змінена";
+                message = "Минула бронь не може бути змінена";
             }
             else if (e.NewStart < DateTime.Today && !RoomBookingMgmtController.IsEditPastEnabled)
             {
@@ -129,7 +129,7 @@ namespace MyHotel.Business.RoomBookingMgmt
             }
             else if (e.OldStart < DateTime.Today && !RoomBookingMgmtController.IsEditPastEnabled)
             {
-                message = "Ця бронь не може бути змінена";
+                message = "Минула бронь не може бути змінена";
             }
             else if (e.NewStart < DateTime.Today && !RoomBookingMgmtController.IsEditPastEnabled)
             {

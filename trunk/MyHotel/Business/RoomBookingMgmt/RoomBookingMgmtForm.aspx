@@ -42,7 +42,7 @@
         <ajaxToolkit:CalendarExtender ID="calendarExtenderEnd" runat="server" TargetControlID="datePickeEnd"
             Format="" />
         <asp:CheckBox ID="CheckBoxEditPast" runat="server" Text="Редагування минулого" AutoPostBack="True"
-            OnCheckedChanged="CheckBoxEditPast_CheckedChanged"  />
+            OnCheckedChanged="CheckBoxEditPast_CheckedChanged"  ToolTip="Дозволяє додавати або редагувати дані за минулий період" />
         <hr />
     </div>
     <div>

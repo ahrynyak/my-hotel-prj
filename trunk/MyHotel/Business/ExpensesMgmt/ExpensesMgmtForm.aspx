@@ -3,31 +3,11 @@
     Culture="uk-UA" UICulture="uk-UA" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
-<%@ Register Assembly="Obout.Ajax.UI" Namespace="Obout.Ajax.UI.TreeView" TagPrefix="obout" %>
-<%@ Register Assembly="DayPilot" Namespace="DayPilot.Web.Ui" TagPrefix="DayPilot" %>
+<%@ Register TagPrefix="ExpensesView" TagName="ExpensesWebControl" Src="~/Business/WebControls/Expenses/ExpensesWebControl.ascx" %>
+<%@ Register TagPrefix="IncomesView" TagName="IncomesWebControl" Src="~/Business/WebControls/Incomes/IncomesWebControl.ascx" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="../../css/expenses.css" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="../../js/modal.js"></script>
-    <script type="text/javascript">
-        var modal = new DayPilot.Modal();
-        modal.top = 200;
-        modal.width = 250;
-        modal.opacity = 60;
-        modal.height = 250;
-        modal.border = "1px solid black";
-        modal.closed = function () {
-            if (this.result == "OK") {
-                window.location.reload();
-            }
-        };
-
-        function addNewExpenses(expensID) {
-            modal.showUrl("ExpensesDetailsMgmtForm.aspx?expensID=" + expensID);
-        }
-        function editExpenses(subGrID) {
-            modal.showUrl("ExpensesDetailsMgmtForm.aspx?subGrID=" + subGrID);
-        }
-    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MyHotelMgmtContentPlaceHolder" runat="server">
     <div>
@@ -42,9 +22,10 @@
             Format="" />
         <hr />
     </div>
-    <div style="width: 100%;">
-        <obout:Tree ID="TreeExpenses" runat="server" EnableViewState="False" ClientIDMode="AutoID"
-            CssClass="vista">
-        </obout:Tree>
+    <div>
+        <ExpensesView:ExpensesWebControl runat="server" ID="ExpensesViewCtrl" />
     </div>
+    <%--<div>
+        <IncomesView:IncomesWebControl runat="server" ID="IncomesViewCtrl" />
+    </div>--%>
 </asp:Content>

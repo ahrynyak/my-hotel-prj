@@ -71,8 +71,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Business\ExpensesMgmt\ExpensesDetailsMgmtForm.aspx" />
+    <Content Include="Business\WebControls\Expenses\ExpensesDetailsForm.aspx" />
     <Content Include="Business\ExpensesMgmt\ExpensesMgmtForm.aspx" />
+    <Content Include="Business\WebControls\Expenses\ExpensesWebControl.ascx" />
     <Content Include="Business\GreenHouseInfo\GreenHouseInfoUA.aspx" />
     <Content Include="Business\GreenHouseInfo\img\ApartRoom\DSC_0420.jpg" />
     <Content Include="Business\GreenHouseInfo\img\ApartRoom\DSC_0421.jpg" />
@@ -98,6 +99,7 @@
     <Content Include="Business\GreenHouseInfo\img\Kitchen\IMG_5851.JPG" />
     <Content Include="Business\GreenHouseInfo\img\RelaxZones\IMG_7549.JPG" />
     <Content Include="Business\GreenHouseInfo\img\RelaxZones\IMG_7554.JPG" />
+    <Content Include="Business\WebControls\Incomes\IncomesWebControl.ascx" />
     <Content Include="Business\RoomBookingMgmt\RoomBookingDetailsForm.aspx" />
     <Content Include="css\commonStyle.css" />
     <Content Include="css\DayPilot\myhstyle.css" />
@@ -146,15 +148,16 @@
   <ItemGroup>
     <Compile Include="Business\Entity\Expenses\ExpensesDetailsEntity.cs" />
     <Compile Include="Business\Entity\Expenses\ExpensesItemsEntity.cs" />
+    <Compile Include="Business\Entity\IViewMgmt.cs" />
     <Compile Include="Business\Entity\RoomBooking\RoomDetailedEntity.cs" />
     <Compile Include="Business\Entity\RoomBooking\RoomBookingEntity.cs" />
     <Compile Include="Business\Entity\RoomBooking\RoomEntity.cs" />
-    <Compile Include="Business\ExpensesMgmt\ExpensesDetailsMgmtForm.aspx.cs">
-      <DependentUpon>ExpensesDetailsMgmtForm.aspx</DependentUpon>
+    <Compile Include="Business\WebControls\Expenses\ExpensesDetailsForm.aspx.cs">
+      <DependentUpon>ExpensesDetailsForm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Business\ExpensesMgmt\ExpensesDetailsMgmtForm.aspx.designer.cs">
-      <DependentUpon>ExpensesDetailsMgmtForm.aspx</DependentUpon>
+    <Compile Include="Business\WebControls\Expenses\ExpensesDetailsForm.aspx.designer.cs">
+      <DependentUpon>ExpensesDetailsForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Business\ExpensesMgmt\ExpensesMgmtForm.aspx.cs">
       <DependentUpon>ExpensesMgmtForm.aspx</DependentUpon>
@@ -163,7 +166,14 @@
     <Compile Include="Business\ExpensesMgmt\ExpensesMgmtForm.aspx.designer.cs">
       <DependentUpon>ExpensesMgmtForm.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Business\ExpensesMgmt\ExpensesMgmtController.cs" />
+    <Compile Include="Business\WebControls\Expenses\ExpensesController.cs" />
+    <Compile Include="Business\WebControls\Expenses\ExpensesWebControl.ascx.cs">
+      <DependentUpon>ExpensesWebControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Business\WebControls\Expenses\ExpensesWebControl.ascx.designer.cs">
+      <DependentUpon>ExpensesWebControl.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Business\GreenHouseInfo\GreenHouseInfoUA.aspx.cs">
       <DependentUpon>GreenHouseInfoUA.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -171,6 +181,14 @@
     <Compile Include="Business\GreenHouseInfo\GreenHouseInfoUA.aspx.designer.cs">
       <DependentUpon>GreenHouseInfoUA.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Business\WebControls\Incomes\IncomesWebControl.ascx.cs">
+      <DependentUpon>IncomesWebControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Business\WebControls\Incomes\IncomesWebControl.ascx.designer.cs">
+      <DependentUpon>IncomesWebControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Business\WebControls\Incomes\IncomesController.cs" />
     <Compile Include="Business\RoomBookingMgmt\RoomBookingDetailsForm.aspx.cs">
       <DependentUpon>RoomBookingDetailsForm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -246,7 +264,9 @@
       <DependentUpon>DataClasses.dbml</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Business\IncomeExpensesReport\" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <ProjectExtensions>
