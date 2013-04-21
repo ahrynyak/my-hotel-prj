@@ -8,9 +8,9 @@ using MyHotel.Utils;
 using MyHotel.Business.Entity.Expenses;
 using System.Globalization;
 
-namespace MyHotel.Business.ExpensesMgmt
+namespace MyHotel.Business.WebControls.Expenses
 {
-    public partial class ExpensesDetailsMgmtForm : System.Web.UI.Page
+    public partial class ExpensesDetailsForm : System.Web.UI.Page
     {
         private bool isEdit = false;
         private ExpensesDetailsEntity expensesDetailsEntity = null;
@@ -36,7 +36,7 @@ namespace MyHotel.Business.ExpensesMgmt
                     {
                         //new
                         isEdit = false;
-                        expensesItemsEntity = ExpensesMgmtController.GetExpensesItemsByID(int.Parse(expensID));
+                        expensesItemsEntity = ExpensesController.GetExpensesItemsByID(int.Parse(expensID));
                         expensesDetailsEntity = new ExpensesDetailsEntity() { ExpensesItemID = expensesItemsEntity.ExpensesItemID, Cost = 0, Date = DateTime.Now };
                     }
                     else
@@ -46,8 +46,8 @@ namespace MyHotel.Business.ExpensesMgmt
                         string subGrID = Request.QueryString["subGrID"];
                         if (!string.IsNullOrEmpty(subGrID))
                         {
-                            expensesDetailsEntity = ExpensesMgmtController.GetExpensesDetailsByID(int.Parse(subGrID));
-                            expensesItemsEntity = ExpensesMgmtController.GetExpensesItemsByID(expensesDetailsEntity.ExpensesItemID);
+                            expensesDetailsEntity = ExpensesController.GetExpensesDetailsByID(int.Parse(subGrID));
+                            expensesItemsEntity = ExpensesController.GetExpensesItemsByID(expensesDetailsEntity.ExpensesItemID);
                         }
                         else
                         {
@@ -97,7 +97,7 @@ namespace MyHotel.Business.ExpensesMgmt
                 expensesDetailsEntity.Cost = double.Parse(TextBoxCost.Text);
                 expensesDetailsEntity.Date = DateTime.ParseExact(TextBoxDate.Text, HelperCommon.DateFormat, CultureInfo.CurrentCulture);
                 expensesDetailsEntity.Description = TextBoxInfo.Text;
-                ExpensesMgmtController.SaveExpensesDetails(expensesDetailsEntity);
+                ExpensesController.SaveExpensesDetails(expensesDetailsEntity);
             }
         }
 
@@ -124,7 +124,7 @@ namespace MyHotel.Business.ExpensesMgmt
             try
             {
                 string id = Request.QueryString["subGrID"];
-                ExpensesMgmtController.DeleteExpensesDetails(int.Parse(id));
+                ExpensesController.DeleteExpensesDetails(int.Parse(id));
                 Modal.Close(this, "OK");
             }
             catch (Exception ex)

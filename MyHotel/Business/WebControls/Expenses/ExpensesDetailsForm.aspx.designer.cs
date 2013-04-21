@@ -7,10 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MyHotel.Business.ExpensesMgmt {
+namespace MyHotel.Business.WebControls.Expenses
+{
     
     
-    public partial class ExpensesDetailsMgmtForm {
+    public partial class ExpensesDetailsForm {
         
         /// <summary>
         /// form1 control.

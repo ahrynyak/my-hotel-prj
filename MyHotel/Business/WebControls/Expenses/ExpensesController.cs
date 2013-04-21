@@ -7,9 +7,9 @@ using MyHotel.LINQDB;
 using MyHotel.Business.Entity.Expenses;
 using System.Data;
 
-namespace MyHotel.Business.ExpensesMgmt
+namespace MyHotel.Business.WebControls.Expenses
 {
-    public class ExpensesMgmtController
+    public class ExpensesController
     {
         public static DateTime GetDefaultStartDate()
         {

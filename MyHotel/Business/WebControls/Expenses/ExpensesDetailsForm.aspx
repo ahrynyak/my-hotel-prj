@@ -1,5 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ExpensesDetailsMgmtForm.aspx.cs"
-    Inherits="MyHotel.Business.ExpensesMgmt.ExpensesDetailsMgmtForm" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ExpensesDetailsForm.aspx.cs"
+    Inherits="MyHotel.Business.WebControls.Expenses.ExpensesDetailsForm" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
@@ -9,7 +9,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <link href="../../css/expenses.css" rel="stylesheet" type="text/css" />
+    <link href="/css/expenses.css" rel="stylesheet" type="text/css" />
     <asp:ScriptManager ID="ScriptManagerExpensesDetails" runat="server" />
     <asp:UpdatePanel ID="UpdatePanelBookingDetails" runat="server" UpdateMode="Conditional">
         <Triggers>
