@@ -41,6 +41,8 @@
             OnTextChanged="datePickeEnd_TextChanged" />
         <ajaxToolkit:CalendarExtender ID="calendarExtenderEnd" runat="server" TargetControlID="datePickeEnd"
             Format="" />
+        <asp:CheckBox ID="CheckBoxEditPast" runat="server" Text="Редагування минулого" AutoPostBack="True"
+            OnCheckedChanged="CheckBoxEditPast_CheckedChanged" />
         <hr />
     </div>
     <div>
