@@ -11,16 +11,6 @@ namespace MyHotel.Business.WebControls.Expenses
 {
     public class ExpensesController
     {
-        public static DateTime GetDefaultStartDate()
-        {
-            return DateTime.Now.AddDays(-DateTime.Now.Day + 1);
-        }
-
-        public static DateTime GetDefaultEndDate()
-        {
-            return DateTime.Now;
-        }
-
         #region Converters
 
         private static ExpensesDetailsEntity expensesDetailToExpensesDetailsEntity(ExpensesDetail e)

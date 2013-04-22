@@ -71,6 +71,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Business\WebControls\DateRange\DateRangerControl.ascx" />
     <Content Include="Business\WebControls\Expenses\ExpensesDetailsForm.aspx" />
     <Content Include="Business\ExpensesMgmt\ExpensesMgmtForm.aspx" />
     <Content Include="Business\WebControls\Expenses\ExpensesWebControl.ascx" />
@@ -102,6 +103,7 @@
     <Content Include="Business\WebControls\Incomes\IncomesWebControl.ascx" />
     <Content Include="Business\RoomBookingMgmt\RoomBookingDetailsForm.aspx" />
     <Content Include="css\commonStyle.css" />
+    <Content Include="css\incomes.css" />
     <Content Include="css\DayPilot\myhstyle.css" />
     <Content Include="css\expenses.css" />
     <Content Include="css\loginStyle.css" />
@@ -148,10 +150,18 @@
   <ItemGroup>
     <Compile Include="Business\Entity\Expenses\ExpensesDetailsEntity.cs" />
     <Compile Include="Business\Entity\Expenses\ExpensesItemsEntity.cs" />
+    <Compile Include="Business\Entity\Incomes\IncomeByRoomEntity.cs" />
     <Compile Include="Business\Entity\IViewMgmt.cs" />
     <Compile Include="Business\Entity\RoomBooking\RoomDetailedEntity.cs" />
     <Compile Include="Business\Entity\RoomBooking\RoomBookingEntity.cs" />
     <Compile Include="Business\Entity\RoomBooking\RoomEntity.cs" />
+    <Compile Include="Business\WebControls\DateRange\DateRangerControl.ascx.cs">
+      <DependentUpon>DateRangerControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Business\WebControls\DateRange\DateRangerControl.ascx.designer.cs">
+      <DependentUpon>DateRangerControl.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Business\WebControls\Expenses\ExpensesDetailsForm.aspx.cs">
       <DependentUpon>ExpensesDetailsForm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

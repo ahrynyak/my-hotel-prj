@@ -53,16 +53,26 @@ namespace MyHotel.Business.RoomBookingMgmt
             initCalendar();
         }
 
+        private static DateTime getDefaultStartDate()
+        {
+            return DateTime.Now;
+        }
+
+        private static DateTime getDefaultEndDate()
+        {
+            return DateTime.Now.AddMonths(6);
+        }
+
         private void initCalendar()
         {
             if (string.IsNullOrEmpty(datePickeStart.Text))
             {
-                datePickeStart.Text = RoomBookingMgmtController.GetDefaultStartDate().ToString(HelperCommon.DateFormat).ToLower();
+                datePickeStart.Text = getDefaultStartDate().ToString(HelperCommon.DateFormat).ToLower();
                 calendarExtenderStart.Format = HelperCommon.DateFormat;
             }
             if (string.IsNullOrEmpty(datePickeEnd.Text))
             {
-                datePickeEnd.Text = RoomBookingMgmtController.GetDefaultEndDate().ToString(HelperCommon.DateFormat).ToLower();
+                datePickeEnd.Text = getDefaultEndDate().ToString(HelperCommon.DateFormat).ToLower();
                 calendarExtenderEnd.Format = HelperCommon.DateFormat;
             }
         }
@@ -150,7 +160,7 @@ namespace MyHotel.Business.RoomBookingMgmt
         {
             if (e.IsColGroup)
             {
-                e.InnerHTML = e.Start.ToString("MMMM-yyyy");  // sets the group header
+                e.InnerHTML = e.Start.ToString("MMMM-yyyy");  // sets the incomeByRoom header
             }
             else
             {

@@ -8,6 +8,5 @@ namespace MyHotel.Utils
         Confirmed = 1,
         Prepaid = 2,
         Fullpaid = 3,
-        ProlongationPossible = 4
     }
 }

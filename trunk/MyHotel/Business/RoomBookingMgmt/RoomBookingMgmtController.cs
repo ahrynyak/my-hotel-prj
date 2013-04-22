@@ -14,16 +14,6 @@ namespace MyHotel.Business.RoomBookingMgmt
     public class RoomBookingMgmtController
     {
         public static bool IsEditPastEnabled { get; set; }
- 
-        public static DateTime GetDefaultStartDate()
-        {
-            return DateTime.Now;
-        }
-
-        public static DateTime GetDefaultEndDate()
-        {
-            return DateTime.Now.AddMonths(6);
-        }
 
         public static List<RoomEntity> GetRooms()
         {
