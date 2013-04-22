@@ -7,27 +7,18 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MyHotel.Business.ExpensesMgmt {
+namespace MyHotel.Business.WebControls.Booking {
     
     
-    public partial class ExpensesMgmtForm {
+    public partial class BookingsWebControl {
         
         /// <summary>
-        /// DateRangerPeriod control.
+        /// dayPilotScheduler control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::MyHotel.Business.WebControls.DateRange.DateRangerControl DateRangerPeriod;
-        
-        /// <summary>
-        /// ExpensesViewCtrl control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::MyHotel.Business.WebControls.Expenses.ExpensesWebControl ExpensesViewCtrl;
+        protected global::DayPilot.Web.Ui.DayPilotScheduler dayPilotScheduler;
     }
 }

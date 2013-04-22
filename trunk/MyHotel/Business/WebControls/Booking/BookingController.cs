@@ -7,11 +7,11 @@ using MyHotel.LINQDB;
 using MyHotel.Business.Entity;
 using MyHotel.Utils;
 using System.Web.UI;
-using MyHotel.Business.Entity.RoomBooking;
+using MyHotel.Business.Entity.Booking;
 
-namespace MyHotel.Business.RoomBookingMgmt
+namespace MyHotel.Business.WebControls.Booking
 {
-    public class RoomBookingMgmtController
+    public class BookingController
     {
         public static bool IsEditPastEnabled { get; set; }
 
@@ -52,7 +52,7 @@ namespace MyHotel.Business.RoomBookingMgmt
             {
                 if (IsEditPastEnabled || roomBookingEntity.StartDate >= DateTime.Now)
                 {
-                    if (RoomBookingMgmtController.IsRoomBookingFree(roomBookingEntity.RoomBookingID, roomBookingEntity.RoomID, roomBookingEntity.StartDate, roomBookingEntity.EndDate))
+                    if (BookingController.IsRoomBookingFree(roomBookingEntity.RoomBookingID, roomBookingEntity.RoomID, roomBookingEntity.StartDate, roomBookingEntity.EndDate))
                     {
                         if (roomBookingEntity.RoomBookingID > 0)
                         {
@@ -60,7 +60,7 @@ namespace MyHotel.Business.RoomBookingMgmt
                             if (roomBooking != null)
                             {
                                 roomBooking.AdditionalInfo = roomBookingEntity.AdditionalInfo;
-                                roomBooking.BookingStatus = 
+                                roomBooking.BookingStatus =
                                 (roomBookingEntity.AlreadyPaid > 0
                                 &&
                                 (roomBookingEntity.BookingStatus == EBookingStatus.NotConfirmed.GetHashCode() || roomBookingEntity.BookingStatus == EBookingStatus.Confirmed.GetHashCode()))
@@ -87,8 +87,8 @@ namespace MyHotel.Business.RoomBookingMgmt
                             dataContext.RoomBookings.InsertOnSubmit(new RoomBooking()
                             {
                                 AdditionalInfo = roomBookingEntity.AdditionalInfo,
-                                BookingStatus = 
-                                (roomBookingEntity.AlreadyPaid > 0 
+                                BookingStatus =
+                                (roomBookingEntity.AlreadyPaid > 0
                                 &&
                                 (roomBookingEntity.BookingStatus == EBookingStatus.NotConfirmed.GetHashCode() || roomBookingEntity.BookingStatus == EBookingStatus.Confirmed.GetHashCode()))
                                 ? EBookingStatus.Prepaid.GetHashCode() : roomBookingEntity.BookingStatus,

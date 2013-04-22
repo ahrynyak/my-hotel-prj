@@ -71,6 +71,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Business\WebControls\Booking\BookingsWebControl.ascx" />
     <Content Include="Business\WebControls\DateRange\DateRangerControl.ascx" />
     <Content Include="Business\WebControls\Expenses\ExpensesDetailsForm.aspx" />
     <Content Include="Business\ExpensesMgmt\ExpensesMgmtForm.aspx" />
@@ -101,7 +102,7 @@
     <Content Include="Business\GreenHouseInfo\img\RelaxZones\IMG_7549.JPG" />
     <Content Include="Business\GreenHouseInfo\img\RelaxZones\IMG_7554.JPG" />
     <Content Include="Business\WebControls\Incomes\IncomesWebControl.ascx" />
-    <Content Include="Business\RoomBookingMgmt\RoomBookingDetailsForm.aspx" />
+    <Content Include="Business\WebControls\Booking\RoomBookingDetailsForm.aspx" />
     <Content Include="css\commonStyle.css" />
     <Content Include="css\incomes.css" />
     <Content Include="css\DayPilot\myhstyle.css" />
@@ -152,9 +153,16 @@
     <Compile Include="Business\Entity\Expenses\ExpensesItemsEntity.cs" />
     <Compile Include="Business\Entity\Incomes\IncomeByRoomEntity.cs" />
     <Compile Include="Business\Entity\IViewMgmt.cs" />
-    <Compile Include="Business\Entity\RoomBooking\RoomDetailedEntity.cs" />
-    <Compile Include="Business\Entity\RoomBooking\RoomBookingEntity.cs" />
-    <Compile Include="Business\Entity\RoomBooking\RoomEntity.cs" />
+    <Compile Include="Business\Entity\Booking\RoomDetailedEntity.cs" />
+    <Compile Include="Business\Entity\Booking\RoomBookingEntity.cs" />
+    <Compile Include="Business\Entity\Booking\RoomEntity.cs" />
+    <Compile Include="Business\WebControls\Booking\BookingsWebControl.ascx.cs">
+      <DependentUpon>BookingsWebControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Business\WebControls\Booking\BookingsWebControl.ascx.designer.cs">
+      <DependentUpon>BookingsWebControl.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Business\WebControls\DateRange\DateRangerControl.ascx.cs">
       <DependentUpon>DateRangerControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -199,14 +207,14 @@
       <DependentUpon>IncomesWebControl.ascx</DependentUpon>
     </Compile>
     <Compile Include="Business\WebControls\Incomes\IncomesController.cs" />
-    <Compile Include="Business\RoomBookingMgmt\RoomBookingDetailsForm.aspx.cs">
+    <Compile Include="Business\WebControls\Booking\RoomBookingDetailsForm.aspx.cs">
       <DependentUpon>RoomBookingDetailsForm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Business\RoomBookingMgmt\RoomBookingDetailsForm.aspx.designer.cs">
+    <Compile Include="Business\WebControls\Booking\RoomBookingDetailsForm.aspx.designer.cs">
       <DependentUpon>RoomBookingDetailsForm.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Business\RoomBookingMgmt\RoomBookingMgmtController.cs" />
+    <Compile Include="Business\WebControls\Booking\BookingController.cs" />
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -274,9 +282,7 @@
       <DependentUpon>DataClasses.dbml</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Business\IncomeExpensesReport\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <ProjectExtensions>

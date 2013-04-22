@@ -4,7 +4,6 @@
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <%@ Register TagPrefix="ExpensesView" TagName="ExpensesWebControl" Src="~/Business/WebControls/Expenses/ExpensesWebControl.ascx" %>
-<%@ Register TagPrefix="IncomesView" TagName="IncomesWebControl" Src="~/Business/WebControls/Incomes/IncomesWebControl.ascx" %>
 <%@ Register TagPrefix="DateRanger" TagName="DateRangerControl" Src="~/Business/WebControls/DateRange/DateRangerControl.ascx" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
@@ -14,10 +13,7 @@
         <DateRanger:DateRangerControl runat="server" ID="DateRangerPeriod" />
         <hr />
     </div>
-    <div style="float:left;">
+    <div>
         <ExpensesView:ExpensesWebControl runat="server" ID="ExpensesViewCtrl" />
-    </div>
-    <div style="float:left;">
-        <IncomesView:IncomesWebControl runat="server" ID="IncomesViewCtrl" />
     </div>
 </asp:Content>
