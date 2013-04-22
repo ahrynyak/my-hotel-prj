@@ -7,9 +7,9 @@ using System.Web.UI.WebControls;
 using MyHotel.Business.Entity;
 using MyHotel.Utils;
 using System.Globalization;
-using MyHotel.Business.Entity.RoomBooking;
+using MyHotel.Business.Entity.Booking;
 
-namespace MyHotel.Business.RoomBookingMgmt
+namespace MyHotel.Business.WebControls.Booking
 {
     public partial class RoomBookingDetailsForm : System.Web.UI.Page
     {
@@ -38,7 +38,7 @@ namespace MyHotel.Business.RoomBookingMgmt
                     {
                         isEdit = true;
                         //edit
-                        roomBookingEntity = RoomBookingMgmtController.GetRoomBookingByID(int.Parse(id));
+                        roomBookingEntity = BookingController.GetRoomBookingByID(int.Parse(id));
                     }
                     else
                     {
@@ -58,7 +58,7 @@ namespace MyHotel.Business.RoomBookingMgmt
                     LinkButtonDeleteBooking.Visible = isEdit;
                     if (roomBookingEntity != null)
                     {
-                        roomDetailedEntity = RoomBookingMgmtController.GetRoomDetailedByID(roomBookingEntity.RoomID);
+                        roomDetailedEntity = BookingController.GetRoomDetailedByID(roomBookingEntity.RoomID);
                         if (!isEdit && roomDetailedEntity != null)
                         {
                             roomBookingEntity.NumberOfAdult = roomDetailedEntity.Capacity;
@@ -99,7 +99,7 @@ namespace MyHotel.Business.RoomBookingMgmt
                     datePickeStart.Text = roomBookingEntity.StartDate.ToString(HelperCommon.DateFormat).ToLower();
                     datePickeEnd.Text = roomBookingEntity.EndDate.ToString(HelperCommon.DateFormat).ToLower();
                     DropDownListBookingStatus.Items.Clear();
-                    foreach (var item in RoomBookingMgmtController.GetStatuses())
+                    foreach (var item in BookingController.GetStatuses())
                     {
                         var listItem = new ListItem(item.Key, item.Value);
                         listItem.Selected = item.Value == roomBookingEntity.BookingStatus.GetHashCode().ToString();
@@ -131,7 +131,7 @@ namespace MyHotel.Business.RoomBookingMgmt
                 roomBookingEntity.BookingStatus = int.Parse((DropDownListBookingStatus.SelectedItem != null ? DropDownListBookingStatus.SelectedItem.Value : "0"));
                 roomBookingEntity.AdditionalInfo = TextBoxAdditionalInfo.Text;
                 roomBookingEntity.AlreadyPaid = int.Parse(TextBoxPaid.Text);
-                RoomBookingMgmtController.SaveRoomBooking(roomBookingEntity);
+                BookingController.SaveRoomBooking(roomBookingEntity);
             }
         }
 
@@ -158,7 +158,7 @@ namespace MyHotel.Business.RoomBookingMgmt
             try
             {
                 string id = Request.QueryString["id"];
-                RoomBookingMgmtController.DeleteRoomBooking(int.Parse(id));
+                BookingController.DeleteRoomBooking(int.Parse(id));
                 Modal.Close(this, "OK");
             }
             catch (Exception ex)

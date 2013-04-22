@@ -13,40 +13,13 @@ namespace MyHotel.Business.RoomBookingMgmt {
     public partial class RoomBookingMgmtForm {
         
         /// <summary>
-        /// datePickeStart control.
+        /// DateRangerPeriod control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox datePickeStart;
-        
-        /// <summary>
-        /// calendarExtenderStart control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender calendarExtenderStart;
-        
-        /// <summary>
-        /// datePickeEnd control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox datePickeEnd;
-        
-        /// <summary>
-        /// calendarExtenderEnd control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender calendarExtenderEnd;
+        protected global::MyHotel.Business.WebControls.DateRange.DateRangerControl DateRangerPeriod;
         
         /// <summary>
         /// CheckBoxEditPast control.
@@ -58,12 +31,12 @@ namespace MyHotel.Business.RoomBookingMgmt {
         protected global::System.Web.UI.WebControls.CheckBox CheckBoxEditPast;
         
         /// <summary>
-        /// dayPilotScheduler control.
+        /// BookingViewCtrl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DayPilot.Web.Ui.DayPilotScheduler dayPilotScheduler;
+        protected global::MyHotel.Business.WebControls.Booking.BookingsWebControl BookingViewCtrl;
     }
 }

@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MyHotel.Business.RoomBookingMgmt {
+namespace MyHotel.Business.WebControls.Booking {
     
     
     public partial class RoomBookingDetailsForm {

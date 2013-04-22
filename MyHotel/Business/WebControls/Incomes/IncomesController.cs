@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using MyHotel.Business.Entity.RoomBooking;
 using MyHotel.LINQDB;
 using MyHotel.Utils;
 using MyHotel.Business.Entity.Incomes;
+using MyHotel.Business.Entity.Booking;
 
 namespace MyHotel.Business.WebControls.Incomes
 {
