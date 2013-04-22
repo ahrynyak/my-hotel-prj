@@ -14,6 +14,22 @@ namespace MyHotel.Business.ExpensesMgmt
 {
     public partial class ExpensesMgmtForm : System.Web.UI.Page
     {
+        protected override void OnInit(EventArgs e)
+        {
+            base.OnInit(e);
+            DateRangerPeriod.DateChanged += new WebControls.DateRange.DateRangerControl.DateChangedEventHandler(DateRangerPeriod_DateChanged);
+        }
+
+        private static DateTime getDefaultStartDate()
+        {
+            return DateTime.Now.AddDays(-DateTime.Now.Day + 1);
+        }
+
+        private static DateTime getDefaultEndDate()
+        {
+            return DateTime.Now;
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (this.Page.User != null && this.Page.User.Identity.IsAuthenticated)
@@ -24,8 +40,7 @@ namespace MyHotel.Business.ExpensesMgmt
                 }
                 if (!Page.IsPostBack)
                 {
-                    initData();
-                    updateVisiblePeriod();
+                    DateRangerPeriod.SetDateRange(getDefaultStartDate(), getDefaultEndDate());
                 }
             }
             else
@@ -34,49 +49,15 @@ namespace MyHotel.Business.ExpensesMgmt
             }
         }
 
-        private void initData()
+        void DateRangerPeriod_DateChanged(object sender, WebControls.DateRange.DateEventArgs e)
         {
-            initCalendar();
-
+            updateVisiblePeriod(e.StartDate, e.EndDate);
         }
 
-        private void initCalendar()
+        private void updateVisiblePeriod(DateTime startDate, DateTime endDate)
         {
-            if (string.IsNullOrEmpty(datePickeStart.Text))
-            {
-                datePickeStart.Text = ExpensesController.GetDefaultStartDate().ToString(HelperCommon.DateFormat).ToLower();
-                calendarExtenderStart.Format = HelperCommon.DateFormat;
-            }
-            if (string.IsNullOrEmpty(datePickeEnd.Text))
-            {
-                datePickeEnd.Text = ExpensesController.GetDefaultEndDate().ToString(HelperCommon.DateFormat).ToLower();
-                calendarExtenderEnd.Format = HelperCommon.DateFormat;
-            }
-        }
-
-        private void updateVisiblePeriod()
-        {
-            if (!string.IsNullOrEmpty(datePickeStart.Text) && !string.IsNullOrEmpty(datePickeEnd.Text))
-            {
-                ExpensesViewCtrl.Reload(DateTime.ParseExact(datePickeStart.Text, HelperCommon.DateFormat, CultureInfo.CurrentCulture), DateTime.ParseExact(datePickeEnd.Text, HelperCommon.DateFormat, CultureInfo.CurrentCulture));
-                //IncomesViewCtrl.Reload(DateTime.ParseExact(datePickeStart.Text, HelperCommon.DateFormat, CultureInfo.CurrentCulture), DateTime.ParseExact(datePickeEnd.Text, HelperCommon.DateFormat, CultureInfo.CurrentCulture));
-            }
-            else
-            {
-                initCalendar();
-            }
-        }
-
-        
-
-        protected void datePickeStart_TextChanged(object sender, EventArgs e)
-        {
-            updateVisiblePeriod();
-        }
-
-        protected void datePickeEnd_TextChanged(object sender, EventArgs e)
-        {
-            updateVisiblePeriod();
+            ExpensesViewCtrl.Reload(startDate, endDate);
+            IncomesViewCtrl.Reload(startDate, endDate);
         }
 
     }

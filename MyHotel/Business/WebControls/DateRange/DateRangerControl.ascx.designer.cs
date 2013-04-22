@@ -7,36 +7,45 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MyHotel.Business.ExpensesMgmt {
+namespace MyHotel.Business.WebControls.DateRange {
     
     
-    public partial class ExpensesMgmtForm {
+    public partial class DateRangerControl {
         
         /// <summary>
-        /// DateRangerPeriod control.
+        /// datePickeStart control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::MyHotel.Business.WebControls.DateRange.DateRangerControl DateRangerPeriod;
+        protected global::System.Web.UI.WebControls.TextBox datePickeStart;
         
         /// <summary>
-        /// ExpensesViewCtrl control.
+        /// calendarExtenderStart control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::MyHotel.Business.WebControls.Expenses.ExpensesWebControl ExpensesViewCtrl;
+        protected global::AjaxControlToolkit.CalendarExtender calendarExtenderStart;
         
         /// <summary>
-        /// IncomesViewCtrl control.
+        /// datePickeEnd control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::MyHotel.Business.WebControls.Incomes.IncomesControl IncomesViewCtrl;
+        protected global::System.Web.UI.WebControls.TextBox datePickeEnd;
+        
+        /// <summary>
+        /// calendarExtenderEnd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CalendarExtender calendarExtenderEnd;
     }
 }
