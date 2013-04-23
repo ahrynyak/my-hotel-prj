@@ -12,17 +12,29 @@ namespace MyHotel.Business.WebControls.Expenses
 {
     public partial class ExpensesWebControl : System.Web.UI.UserControl, IViewData
     {
+        DateTime storedStartDate { get; set; }
+        DateTime storedEndDate { get; set; }
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
 
-        public void Reload(DateTime startDate, DateTime endDate)
+        [System.Web.Services.WebMethod]
+        public void Refresh(DateTime startDate, DateTime endDate)
+        {
+            this.storedStartDate = startDate;
+            this.storedEndDate = endDate;
+            Refresh();
+        }
+
+        [System.Web.Services.WebMethod]
+        public void Refresh()
         {
             TreeExpenses.Nodes.Clear();
             TreeExpenses.Nodes.Add(new Node(getHeaderText()));
             var allExpensesItems = ExpensesController.GetExpensesItems();
-            var allExpensesDetails = ExpensesController.GetExpensesDetails(startDate, endDate);
+            var allExpensesDetails = ExpensesController.GetExpensesDetails(this.storedStartDate, this.storedEndDate);
             foreach (var group in allExpensesItems.Where(e => e.ParentExpensesItemID == 0))
             {
                 double groupSum = 0;
@@ -48,6 +60,7 @@ namespace MyHotel.Business.WebControls.Expenses
                 TreeExpenses.Nodes.Add(groupTreeNode);
             }
             TreeExpenses.ExpandAll();
+            TreeExpenses.DataBind();
         }
 
         #region css format for tree nodes
@@ -88,6 +101,5 @@ namespace MyHotel.Business.WebControls.Expenses
         }
 
         #endregion
-
     }
 }

@@ -42,6 +42,10 @@ namespace MyHotel.Business.ExpensesMgmt
                 {
                     DateRangerPeriod.SetDateRange(getDefaultStartDate(), getDefaultEndDate());
                 }
+                else
+                {
+                    ExpensesViewCtrl.Refresh();
+                }
             }
             else
             {
@@ -51,7 +55,7 @@ namespace MyHotel.Business.ExpensesMgmt
 
         void DateRangerPeriod_DateChanged(object sender, WebControls.DateRange.DateEventArgs e)
         {
-            ExpensesViewCtrl.Reload(e.StartDate, e.EndDate);
+            ExpensesViewCtrl.Refresh(e.StartDate, e.EndDate);
         }
     }
 }
