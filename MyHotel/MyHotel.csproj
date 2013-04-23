@@ -45,9 +45,6 @@
     <Reference Include="Obout.Ajax.UI">
       <HintPath>..\3rdParty\oboutSuite35\bin\Obout.Ajax.UI.dll</HintPath>
     </Reference>
-    <Reference Include="obout_Grid_NET">
-      <HintPath>..\3rdParty\oboutSuite35\bin\obout_Grid_NET.dll</HintPath>
-    </Reference>
     <Reference Include="obout_ImageZoom_NET">
       <HintPath>..\3rdParty\oboutSuite35\bin\obout_ImageZoom_NET.dll</HintPath>
     </Reference>
