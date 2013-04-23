@@ -24,7 +24,7 @@
     }
 </script>
 <asp:Button ID="ButtonrRefresh" runat="server" Text="Button" 
-    ClientIDMode="Static" Visible="False" />
+    ClientIDMode="Static" Visible="True" />
 <div style="width: 100%;">
     <obout:Tree ID="TreeExpenses" runat="server" EnableViewState="False" ClientIDMode="Static"
         CssClass="vista">
