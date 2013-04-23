@@ -16,7 +16,7 @@
         modal.border = "1px solid black";
         modal.closed = function () {
             if (this.result == "OK") {
-                window.location.reload();
+                dps.commandCallBack('refresh');
             }
         };
         function createEvent(start, end, resource) {

@@ -1,5 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ExpensesWebControl.ascx.cs"
-    Inherits="MyHotel.Business.WebControls.Expenses.ExpensesWebControl" %>
+    Inherits="MyHotel.Business.WebControls.Expenses.ExpensesWebControl"%>
 <%@ Register Assembly="Obout.Ajax.UI" Namespace="Obout.Ajax.UI.TreeView" TagPrefix="obout" %>
     <link href="/css/expenses.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="/js/modal.js"></script>
@@ -12,7 +12,7 @@
     modal.border = "1px solid black";
     modal.closed = function () {
         if (this.result == "OK") {
-            window.location.reload();
+            PageMethods.Refresh();
         }
     };
 
@@ -24,7 +24,7 @@
     }
 </script>
 <div style="width: 100%;">
-    <obout:Tree ID="TreeExpenses" runat="server" EnableViewState="False" ClientIDMode="AutoID"
+    <obout:Tree ID="TreeExpenses" runat="server" EnableViewState="False" ClientIDMode="Static"
         CssClass="vista">
     </obout:Tree>
 </div>

@@ -49,6 +49,10 @@ namespace MyHotel.Business.RoomBookingMgmt
                     DateRangerPeriod.SetDateRange(getDefaultStartDate(), getDefaultEndDate());
                     CheckBoxEditPast.Checked = BookingController.IsEditPastEnabled;
                 }
+                else
+                {
+                    BookingViewCtrl.Refresh();
+                }
             }
             else
             {
@@ -58,7 +62,7 @@ namespace MyHotel.Business.RoomBookingMgmt
 
         void DateRangerPeriod_DateChanged(object sender, WebControls.DateRange.DateEventArgs e)
         {
-            BookingViewCtrl.Reload(e.StartDate, e.EndDate);
+            BookingViewCtrl.Refresh(e.StartDate, e.EndDate);
         }
 
         protected void CheckBoxEditPast_CheckedChanged(object sender, EventArgs e)

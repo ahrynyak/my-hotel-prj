@@ -47,7 +47,7 @@ namespace MyHotel.Business.WebControls.Booking
                 roomBookingEntity.EndDate = e.NewEnd;
                 BookingController.SaveRoomBooking(roomBookingEntity);
             }
-            Reload(dayPilotScheduler.StartDate, dayPilotScheduler.StartDate.AddDays(dayPilotScheduler.Days - 1), message);
+            refreshData(dayPilotScheduler.StartDate, dayPilotScheduler.StartDate.AddDays(dayPilotScheduler.Days - 1), message);
         }
 
         protected void dayPilotScheduler_EventMove(object sender, DayPilot.Web.Ui.Events.EventMoveEventArgs e)
@@ -74,7 +74,7 @@ namespace MyHotel.Business.WebControls.Booking
                 roomBookingEntity.RoomID = int.Parse(e.NewResource);
                 BookingController.SaveRoomBooking(roomBookingEntity);
             }
-            Reload(dayPilotScheduler.StartDate, dayPilotScheduler.StartDate.AddDays(dayPilotScheduler.Days - 1), message);
+            refreshData(dayPilotScheduler.StartDate, dayPilotScheduler.StartDate.AddDays(dayPilotScheduler.Days - 1), message);
         }
 
         protected void dayPilotScheduler_BeforeTimeHeaderRender(object sender, DayPilot.Web.Ui.Events.BeforeTimeHeaderRenderEventArgs e)
@@ -134,29 +134,37 @@ namespace MyHotel.Business.WebControls.Booking
             e.ToolTip = status.ToString();
             e.InnerHTML = e.InnerHTML + String.Format("<br /><span class='" + cssClassName + "' >{0}</span>", e.ToolTip);
         }
-        
-        public void Reload(DateTime startDate, DateTime endDate) 
-        {
-            Reload(startDate, endDate, "");
-        }
-
-        public void Reload(DateTime startDate, DateTime endDate, string message)
+        string messageToShow = "";
+        private void refreshData(DateTime startDate, DateTime endDate, string message)
         {
             dayPilotScheduler.StartDate = startDate;
             dayPilotScheduler.Days = (int)(endDate - startDate).TotalDays + 1;
+            this.messageToShow = message;
+            Refresh();
+           
+        }
+
+        public void Refresh(DateTime startDate, DateTime endDate)
+        {
+            refreshData(startDate, endDate, "");
+        }
+
+        public void Refresh()
+        {
             dayPilotScheduler.DataSource = BookingController.GetRoomBookings(dayPilotScheduler.StartDate, dayPilotScheduler.StartDate.AddDays(dayPilotScheduler.Days));
             dayPilotScheduler.DataBind();
             if (Page.IsPostBack)
             {
-                if (string.IsNullOrEmpty(message))
+                if (string.IsNullOrEmpty(this.messageToShow))
                 {
                     dayPilotScheduler.Update();
                 }
                 else
                 {
-                    dayPilotScheduler.UpdateWithMessage(message);
+                    dayPilotScheduler.UpdateWithMessage(this.messageToShow);
                 }
             }
+            this.messageToShow = "";
         }
     }
 }

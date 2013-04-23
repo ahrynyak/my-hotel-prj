@@ -1,5 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="DateRangerControl.ascx.cs"
-    Inherits="MyHotel.Business.WebControls.DateRange.DateRangerControl" %>
+    Inherits="MyHotel.Business.WebControls.DateRange.DateRangerControl"%>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 <div>
     <strong>Видимий період</strong>

@@ -7,6 +7,7 @@ namespace MyHotel.Business.Entity
 {
     interface IViewData
     {
-        void Reload(DateTime startDate, DateTime endDate);
+        void Refresh(DateTime startDate, DateTime endDate);
+        void Refresh();
     }
 }
