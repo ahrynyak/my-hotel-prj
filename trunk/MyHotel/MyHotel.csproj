@@ -22,7 +22,9 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DesktopBuildPackageLocation>C:\Users\anh\Desktop\MyHotel.zip</DesktopBuildPackageLocation>
+    <DesktopBuildPackageLocation>
+    </DesktopBuildPackageLocation>
+    <PackageAsSingleFile>false</PackageAsSingleFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
