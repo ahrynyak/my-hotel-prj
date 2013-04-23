@@ -22,10 +22,9 @@
         modal.showUrl("/Business/WebControls/Expenses/ExpensesDetailsForm.aspx?subGrID=" + subGrID + "&startDate=" + startDate);
     }
 </script>
-<asp:Button ID="ButtonrRefresh" runat="server" Text="Button" 
-    ClientIDMode="Static" Visible="True"/>
+
 <div style="width: 100%;">
-    <obout:Tree ID="TreeExpenses" runat="server" EnableViewState="False" ClientIDMode="Static"
-        CssClass="vista">
+    <asp:Button ID="ButtonrRefresh" runat="server" Text="Button" Height="1" Width="1" />
+    <obout:Tree ID="TreeExpenses" runat="server" CssClass="vista">
     </obout:Tree>
 </div>
