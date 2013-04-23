@@ -1,0 +1,312 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{BCA20D24-1416-4DA3-A2D5-C7755A212AA3}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MyHotel</RootNamespace>
+    <AssemblyName>MyHotel</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DesktopBuildPackageLocation>
+    </DesktopBuildPackageLocation>
+    <PackageAsSingleFile>false</PackageAsSingleFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=4.1.7.123, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\3rdParty\oboutSuite35\bin\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="DayPilot, Version=7.1.2702.1, Culture=neutral, PublicKeyToken=426941954f05e7fe, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\3rdParty\DayPilot\DayPilot.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Obout.Ajax.UI, Version=2.13.312.2, Culture=neutral, PublicKeyToken=24f3c5cea456f322, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\3rdParty\oboutSuite35\bin\Obout.Ajax.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="obout_ImageZoom_NET, Version=1.6.0.3, Culture=neutral, PublicKeyToken=c5bb29a21fa7230b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\3rdParty\oboutSuite35\bin\obout_ImageZoom_NET.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Business\WebControls\Booking\BookingsWebControl.ascx" />
+    <Content Include="Business\WebControls\DateRange\DateRangerControl.ascx" />
+    <Content Include="Business\WebControls\Expenses\ExpensesDetailsForm.aspx" />
+    <Content Include="Business\ExpensesMgmt\ExpensesMgmtForm.aspx" />
+    <Content Include="Business\WebControls\Expenses\ExpensesWebControl.ascx" />
+    <Content Include="Business\GreenHouseInfo\GreenHouseInfoUA.aspx" />
+    <Content Include="Business\GreenHouseInfo\img\ApartRoom\DSC_0420.jpg" />
+    <Content Include="Business\GreenHouseInfo\img\ApartRoom\DSC_0421.jpg" />
+    <Content Include="Business\GreenHouseInfo\img\ApartRoom\DSC_0422.jpg" />
+    <Content Include="Business\GreenHouseInfo\img\ApartRoom\DSC_0434.jpg" />
+    <Content Include="Business\GreenHouseInfo\img\DBLRoom\DSC_0437.jpg" />
+    <Content Include="Business\GreenHouseInfo\img\DBLRoom\DSC_0458.jpg" />
+    <Content Include="Business\GreenHouseInfo\img\DBLRoom\DSC_0467 - Copy.jpg" />
+    <Content Include="Business\GreenHouseInfo\img\DBLRoom\DSC_0467.jpg" />
+    <Content Include="Business\GreenHouseInfo\img\Gallery\Copy %282%29 of IMG_5849.JPG" />
+    <Content Include="Business\GreenHouseInfo\img\Gallery\Copy %282%29 of IMG_5851.JPG" />
+    <Content Include="Business\GreenHouseInfo\img\Gallery\Copy %283%29 of IMG_5849.JPG" />
+    <Content Include="Business\GreenHouseInfo\img\Gallery\Copy %283%29 of IMG_5851.JPG" />
+    <Content Include="Business\GreenHouseInfo\img\Gallery\Copy %284%29 of IMG_5849.JPG" />
+    <Content Include="Business\GreenHouseInfo\img\Gallery\Copy %284%29 of IMG_5851.JPG" />
+    <Content Include="Business\GreenHouseInfo\img\Gallery\Copy %285%29 of IMG_5849.JPG" />
+    <Content Include="Business\GreenHouseInfo\img\Gallery\Copy %285%29 of IMG_5851.JPG" />
+    <Content Include="Business\GreenHouseInfo\img\Gallery\Copy of IMG_5849.JPG" />
+    <Content Include="Business\GreenHouseInfo\img\Gallery\Copy of IMG_5851.JPG" />
+    <Content Include="Business\GreenHouseInfo\img\Gallery\IMG_5849.JPG" />
+    <Content Include="Business\GreenHouseInfo\img\Gallery\IMG_5851.JPG" />
+    <Content Include="Business\GreenHouseInfo\img\Kitchen\IMG_5849.JPG" />
+    <Content Include="Business\GreenHouseInfo\img\Kitchen\IMG_5851.JPG" />
+    <Content Include="Business\GreenHouseInfo\img\RelaxZones\IMG_7549.JPG" />
+    <Content Include="Business\GreenHouseInfo\img\RelaxZones\IMG_7554.JPG" />
+    <Content Include="Business\WebControls\Incomes\IncomesWebControl.ascx" />
+    <Content Include="Business\WebControls\Booking\RoomBookingDetailsForm.aspx" />
+    <Content Include="css\commonStyle.css" />
+    <Content Include="css\incomes.css" />
+    <Content Include="css\DayPilot\myhstyle.css" />
+    <Content Include="css\expenses.css" />
+    <Content Include="css\loginStyle.css" />
+    <Content Include="css\main.css" />
+    <None Include="DBScripts\InitDBScripts.sql" />
+    <None Include="ExternalAss\DayPilot.dll" />
+    <Content Include="css\greenHouseStyle.css" />
+    <Content Include="Default.aspx" />
+    <Content Include="icons\1248809363_shidnicha.gif" />
+    <Content Include="icons\1364080863_home_64.png" />
+    <Content Include="icons\1364080984_money.png" />
+    <Content Include="icons\1364081059_Picture.png" />
+    <Content Include="icons\1364081131_phone-1.png" />
+    <Content Include="icons\add1.ico" />
+    <Content Include="icons\edit.ico" />
+    <Content Include="icons\GHApart.jpg" />
+    <Content Include="icons\GHDBL.jpg" />
+    <Content Include="icons\green.jpg" />
+    <Content Include="icons\greenhouse_header.png" />
+    <Content Include="icons\greenhouse_image_frame.png" />
+    <Content Include="icons\greenhouse_logo.bmp" />
+    <Content Include="icons\greenhouse_main.png" />
+    <Content Include="icons\hotel_bed.png" />
+    <Content Include="icons\Kitchen.png" />
+    <Content Include="icons\out5.jpg" />
+    <Content Include="icons\refresh_green.ico" />
+    <Content Include="icons\shidnycya_karta.jpg" />
+    <Content Include="icons\wood-repeat.jpg" />
+    <Content Include="js\message.js" />
+    <Content Include="js\modal.js" />
+    <Content Include="LoginForm.aspx" />
+    <Content Include="Business\RoomBookingMgmt\RoomBookingMgmtForm.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="MasterPages\GreenHouseInfo.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Business\Entity\Expenses\ExpensesDetailsEntity.cs" />
+    <Compile Include="Business\Entity\Expenses\ExpensesItemsEntity.cs" />
+    <Compile Include="Business\Entity\Incomes\IncomeByRoomEntity.cs" />
+    <Compile Include="Business\Entity\Booking\RoomDetailedEntity.cs" />
+    <Compile Include="Business\Entity\Booking\RoomBookingEntity.cs" />
+    <Compile Include="Business\Entity\Booking\RoomEntity.cs" />
+    <Compile Include="Business\WebControls\Booking\BookingsWebControl.ascx.cs">
+      <DependentUpon>BookingsWebControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Business\WebControls\Booking\BookingsWebControl.ascx.designer.cs">
+      <DependentUpon>BookingsWebControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Business\WebControls\DateRange\DateRangerControl.ascx.cs">
+      <DependentUpon>DateRangerControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Business\WebControls\DateRange\DateRangerControl.ascx.designer.cs">
+      <DependentUpon>DateRangerControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Business\WebControls\Expenses\ExpensesDetailsForm.aspx.cs">
+      <DependentUpon>ExpensesDetailsForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Business\WebControls\Expenses\ExpensesDetailsForm.aspx.designer.cs">
+      <DependentUpon>ExpensesDetailsForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Business\ExpensesMgmt\ExpensesMgmtForm.aspx.cs">
+      <DependentUpon>ExpensesMgmtForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Business\ExpensesMgmt\ExpensesMgmtForm.aspx.designer.cs">
+      <DependentUpon>ExpensesMgmtForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Business\WebControls\Expenses\ExpensesController.cs" />
+    <Compile Include="Business\WebControls\Expenses\ExpensesWebControl.ascx.cs">
+      <DependentUpon>ExpensesWebControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Business\WebControls\Expenses\ExpensesWebControl.ascx.designer.cs">
+      <DependentUpon>ExpensesWebControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Business\GreenHouseInfo\GreenHouseInfoUA.aspx.cs">
+      <DependentUpon>GreenHouseInfoUA.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Business\GreenHouseInfo\GreenHouseInfoUA.aspx.designer.cs">
+      <DependentUpon>GreenHouseInfoUA.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Business\WebControls\Incomes\IncomesWebControl.ascx.cs">
+      <DependentUpon>IncomesWebControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Business\WebControls\Incomes\IncomesWebControl.ascx.designer.cs">
+      <DependentUpon>IncomesWebControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Business\WebControls\Incomes\IncomesController.cs" />
+    <Compile Include="Business\WebControls\Booking\RoomBookingDetailsForm.aspx.cs">
+      <DependentUpon>RoomBookingDetailsForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Business\WebControls\Booking\RoomBookingDetailsForm.aspx.designer.cs">
+      <DependentUpon>RoomBookingDetailsForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Business\WebControls\Booking\BookingController.cs" />
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LINQDB\DataClasses.cs">
+      <DependentUpon>DataClasses.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="LINQDB\DataClasses.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataClasses.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPages\GreenHouseInfo.Master.cs">
+      <DependentUpon>GreenHouseInfo.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPages\GreenHouseInfo.Master.designer.cs">
+      <DependentUpon>GreenHouseInfo.Master</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPages\MyHotelMgmt.Master.cs">
+      <DependentUpon>MyHotelMgmt.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPages\MyHotelMgmt.Master.designer.cs">
+      <DependentUpon>MyHotelMgmt.Master</DependentUpon>
+    </Compile>
+    <Compile Include="LoginForm.aspx.cs">
+      <DependentUpon>LoginForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoginForm.aspx.designer.cs">
+      <DependentUpon>LoginForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Business\RoomBookingMgmt\RoomBookingMgmtForm.aspx.cs">
+      <DependentUpon>RoomBookingMgmtForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Business\RoomBookingMgmt\RoomBookingMgmtForm.aspx.designer.cs">
+      <DependentUpon>RoomBookingMgmtForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\EBookingStatus.cs" />
+    <Compile Include="Utils\HelperCommon.cs" />
+    <Compile Include="Utils\MessageBox.cs" />
+    <Compile Include="Utils\Modal.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="MasterPages\MyHotelMgmt.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="LINQDB\DataClasses.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>DataClasses.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="LINQDB\DataClasses.dbml.layout">
+      <DependentUpon>DataClasses.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>51619</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

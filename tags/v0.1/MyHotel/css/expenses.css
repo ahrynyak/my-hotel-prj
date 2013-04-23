@@ -1,0 +1,60 @@
+﻿.expensesItemGroupName
+{
+    width: 150px;
+    display: inline-block;
+}
+.expensesItemGroupSum
+{
+    width: 150px;
+    display: inline-block;
+}
+.expensesItemSubGroupName
+{
+    width: 108px;
+    display: inline-block;
+}
+.expensesItemSubGroupSum
+{
+    width: 150px;
+    display: inline-block;
+}
+.expensesDetailsCost
+{
+    width: 100px;
+    display: inline-block;
+}
+.expensesDetailsDate
+{
+    width: 92px;
+    display: inline-block;
+}
+.expensesDetailsDescription
+{
+    width: 350px;
+    display: inline-block;
+}
+.expensesDetailsEdit
+{
+    padding-right: 10px;
+    height: 16px;
+    width : 16px;
+}
+.expensesDetailsAdd
+{
+    padding-right: 10px;
+    height: 16px;
+    width : 16px;
+}
+.expensesDetailsButtonDiv
+{
+    right: 0; 
+    position: absolute;
+    bottom: 0;
+}
+.expensesDetailsControlsDiv
+{
+}
+.expensesDetailsHeaderDiv
+{
+    font-weight: bolder;
+}
