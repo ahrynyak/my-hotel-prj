@@ -51,7 +51,7 @@ namespace MyHotel.Business.RoomBookingMgmt
                 }
                 else
                 {
-                    BookingViewCtrl.Refresh();
+                    BookingViewCtrl.Refresh(DateRangerPeriod.GetStartDate(), DateRangerPeriod.GetEndDate());
                 }
             }
             else

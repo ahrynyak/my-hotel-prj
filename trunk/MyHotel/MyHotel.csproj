@@ -152,7 +152,6 @@
     <Compile Include="Business\Entity\Expenses\ExpensesDetailsEntity.cs" />
     <Compile Include="Business\Entity\Expenses\ExpensesItemsEntity.cs" />
     <Compile Include="Business\Entity\Incomes\IncomeByRoomEntity.cs" />
-    <Compile Include="Business\Entity\IViewMgmt.cs" />
     <Compile Include="Business\Entity\Booking\RoomDetailedEntity.cs" />
     <Compile Include="Business\Entity\Booking\RoomBookingEntity.cs" />
     <Compile Include="Business\Entity\Booking\RoomEntity.cs" />

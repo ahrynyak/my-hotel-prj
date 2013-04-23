@@ -44,7 +44,7 @@ namespace MyHotel.Business.ExpensesMgmt
                 }
                 else
                 {
-                    ExpensesViewCtrl.Refresh();
+                    ExpensesViewCtrl.Refresh(DateRangerPeriod.GetStartDate(), DateRangerPeriod.GetEndDate());
                 }
             }
             else
