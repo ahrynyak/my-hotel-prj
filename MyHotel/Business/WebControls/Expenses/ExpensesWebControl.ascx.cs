@@ -73,7 +73,7 @@ namespace MyHotel.Business.WebControls.Expenses
                     "<span class=\"expensesItemSubGroupName\">{0}</span>" +
                     "<span class=\"expensesItemSubGroupSum\">{1}</span>" +
                 "</span>",
-                expensesItemsEntity.Name, sum, expensesItemsEntity.ExpensesItemID, startDate.ToString(HelperCommon.DateFormat).ToLower());
+                expensesItemsEntity.Name, sum, expensesItemsEntity.ExpensesItemID, startDate.ToShortDateString());
         }
 
         private string getExpensesDetailsText(ExpensesDetailsEntity expensesDetailsEntity, DateTime startDate)
@@ -86,7 +86,7 @@ namespace MyHotel.Business.WebControls.Expenses
                     "<span class=\"expensesDetailsDescription\">{2}</span>" +
                 "</span>",
                 expensesDetailsEntity.Date.ToShortDateString(), expensesDetailsEntity.Cost, expensesDetailsEntity.Description,
-                expensesDetailsEntity.ExpensesDetailsID, startDate.ToString(HelperCommon.DateFormat).ToLower());
+                expensesDetailsEntity.ExpensesDetailsID, startDate.ToShortDateString());
         }
 
         #endregion
