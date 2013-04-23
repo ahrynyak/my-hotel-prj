@@ -24,6 +24,15 @@ namespace MyHotel.Business.WebControls.DateRange
             initCalendar(startDate, endDate);
         }
 
+        public DateTime GetStartDate()
+        {
+            return DateTime.ParseExact(datePickeStart.Text, HelperCommon.DateFormat, CultureInfo.CurrentCulture);
+        }
+        public DateTime GetEndDate()
+        {
+            return DateTime.ParseExact(datePickeEnd.Text, HelperCommon.DateFormat, CultureInfo.CurrentCulture);
+        }
+
         private void initCalendar(DateTime startDate, DateTime endDate)
         {
             datePickeStart.Text = startDate.ToString(HelperCommon.DateFormat).ToLower();

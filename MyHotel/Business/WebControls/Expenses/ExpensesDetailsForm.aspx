@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ExpensesDetailsForm.aspx.cs"
-    Inherits="MyHotel.Business.WebControls.Expenses.ExpensesDetailsForm" %>
+    Inherits="MyHotel.Business.WebControls.Expenses.ExpensesDetailsForm" Culture="uk-UA" UICulture="uk-UA"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>

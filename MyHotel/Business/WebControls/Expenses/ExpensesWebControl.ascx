@@ -12,17 +12,19 @@
     modal.border = "1px solid black";
     modal.closed = function () {
         if (this.result == "OK") {
-            PageMethods.Refresh();
+            document.getElementById("ButtonrRefresh").click();
         }
     };
 
-    function addNewExpenses(expensID) {
-        modal.showUrl("/Business/WebControls/Expenses/ExpensesDetailsForm.aspx?expensID=" + expensID);
+    function addNewExpenses(expensID, startDate) {
+        modal.showUrl("/Business/WebControls/Expenses/ExpensesDetailsForm.aspx?expensID=" + expensID + "&startDate=" + startDate);
     }
-    function editExpenses(subGrID) {
-        modal.showUrl("/Business/WebControls/Expenses/ExpensesDetailsForm.aspx?subGrID=" + subGrID);
+    function editExpenses(subGrID, startDate) {
+        modal.showUrl("/Business/WebControls/Expenses/ExpensesDetailsForm.aspx?subGrID=" + subGrID + "&startDate=" + startDate);
     }
 </script>
+<asp:Button ID="ButtonrRefresh" runat="server" Text="Button" 
+    ClientIDMode="Static" Visible="False" />
 <div style="width: 100%;">
     <obout:Tree ID="TreeExpenses" runat="server" EnableViewState="False" ClientIDMode="Static"
         CssClass="vista">

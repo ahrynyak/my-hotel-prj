@@ -10,11 +10,8 @@ using MyHotel.Business.Entity.Incomes;
 
 namespace MyHotel.Business.WebControls.Incomes
 {
-    public partial class IncomesControl : System.Web.UI.UserControl, IViewData
+    public partial class IncomesControl : System.Web.UI.UserControl
     {
-        DateTime storedStartDate { get; set; }
-        DateTime storedEndDate { get; set; }
-
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -22,9 +19,16 @@ namespace MyHotel.Business.WebControls.Incomes
 
         public void Refresh(DateTime startDate, DateTime endDate)
         {
-            this.storedStartDate = startDate;
-            this.storedEndDate = endDate;
-            Refresh();
+            TreeIncomes.Nodes.Clear();
+            TreeIncomes.Nodes.Add(new Node(getHeaderText()));
+            var allIncomes = IncomesController.GetRoomIncomes(startDate, endDate);
+            foreach (var incomeByRoom in allIncomes)
+            {
+                Node roomTreeNode = new Node();
+                roomTreeNode.Text = getIncomeItemText(incomeByRoom);
+                TreeIncomes.Nodes.Add(roomTreeNode);
+            }
+            TreeIncomes.ExpandAll();
         }
 
         #region css format for tree nodes
@@ -61,21 +65,5 @@ namespace MyHotel.Business.WebControls.Incomes
         }
 
         #endregion
-
-
-        public void Refresh()
-        {
-            TreeIncomes.Nodes.Clear();
-            TreeIncomes.Nodes.Add(new Node(getHeaderText()));
-            var allIncomes = IncomesController.GetRoomIncomes(this.storedStartDate, this.storedEndDate);
-            foreach (var incomeByRoom in allIncomes)
-            {
-                Node roomTreeNode = new Node();
-                roomTreeNode.Text = getIncomeItemText(incomeByRoom);
-                TreeIncomes.Nodes.Add(roomTreeNode);
-            }
-            TreeIncomes.ExpandAll();
-            TreeIncomes.DataBind();
-        }
     }
 }

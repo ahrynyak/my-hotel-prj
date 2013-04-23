@@ -15,7 +15,7 @@ namespace MyHotel.Business.WebControls.Expenses
         private bool isEdit = false;
         private ExpensesDetailsEntity expensesDetailsEntity = null;
         private ExpensesItemsEntity expensesItemsEntity = null;
-
+        private DateTime starDate = DateTime.Now;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -31,13 +31,22 @@ namespace MyHotel.Business.WebControls.Expenses
             {
                 if (Request.QueryString.Count > 0)
                 {
+                    string startDateString = Request.QueryString["startDate"];
+                    if (!string.IsNullOrEmpty(startDateString))
+                    {
+                        starDate = DateTime.ParseExact(startDateString, HelperCommon.DateFormat, CultureInfo.CurrentCulture);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Некоректні параметри дати");
+                    }
                     string expensID = Request.QueryString["expensID"];
                     if (!string.IsNullOrEmpty(expensID))
                     {
                         //new
                         isEdit = false;
                         expensesItemsEntity = ExpensesController.GetExpensesItemsByID(int.Parse(expensID));
-                        expensesDetailsEntity = new ExpensesDetailsEntity() { ExpensesItemID = expensesItemsEntity.ExpensesItemID, Cost = 0, Date = DateTime.Now };
+                        expensesDetailsEntity = new ExpensesDetailsEntity() { ExpensesItemID = expensesItemsEntity.ExpensesItemID, Cost = 0, Date = starDate };
                     }
                     else
                     {
@@ -54,6 +63,7 @@ namespace MyHotel.Business.WebControls.Expenses
                             MessageBox.Show("Некоректні параметри");
                         }
                     }
+
                     ButtonDelete.Visible = isEdit;
                 }
                 else

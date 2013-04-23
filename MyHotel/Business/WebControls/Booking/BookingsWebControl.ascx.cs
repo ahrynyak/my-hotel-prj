@@ -10,7 +10,7 @@ using MyHotel.Business.Entity;
 
 namespace MyHotel.Business.WebControls.Booking
 {
-    public partial class BookingsWebControl : System.Web.UI.UserControl, IViewData
+    public partial class BookingsWebControl : System.Web.UI.UserControl
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -134,37 +134,30 @@ namespace MyHotel.Business.WebControls.Booking
             e.ToolTip = status.ToString();
             e.InnerHTML = e.InnerHTML + String.Format("<br /><span class='" + cssClassName + "' >{0}</span>", e.ToolTip);
         }
-        string messageToShow = "";
+
         private void refreshData(DateTime startDate, DateTime endDate, string message)
         {
             dayPilotScheduler.StartDate = startDate;
             dayPilotScheduler.Days = (int)(endDate - startDate).TotalDays + 1;
-            this.messageToShow = message;
-            Refresh();
-           
-        }
-
-        public void Refresh(DateTime startDate, DateTime endDate)
-        {
-            refreshData(startDate, endDate, "");
-        }
-
-        public void Refresh()
-        {
             dayPilotScheduler.DataSource = BookingController.GetRoomBookings(dayPilotScheduler.StartDate, dayPilotScheduler.StartDate.AddDays(dayPilotScheduler.Days));
             dayPilotScheduler.DataBind();
             if (Page.IsPostBack)
             {
-                if (string.IsNullOrEmpty(this.messageToShow))
+                if (string.IsNullOrEmpty(message))
                 {
                     dayPilotScheduler.Update();
                 }
                 else
                 {
-                    dayPilotScheduler.UpdateWithMessage(this.messageToShow);
+                    dayPilotScheduler.UpdateWithMessage(message);
                 }
             }
-            this.messageToShow = "";
+
+        }
+
+        public void Refresh(DateTime startDate, DateTime endDate)
+        {
+            refreshData(startDate, endDate, "");
         }
     }
 }
