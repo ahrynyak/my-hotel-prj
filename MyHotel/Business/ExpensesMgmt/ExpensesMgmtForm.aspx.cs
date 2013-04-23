@@ -57,5 +57,6 @@ namespace MyHotel.Business.ExpensesMgmt
         {
             ExpensesViewCtrl.Refresh(e.StartDate, e.EndDate);
         }
+
     }
 }
