@@ -23,7 +23,7 @@
             <span class="MainHeaderSmall">ОЗДОРОВЛЕННЯ ТА ВІДПОЧИНОК</span>
         </div>
         <div class="main_tool_div">
-            <a href="/Business/GreenHouseInfo/GreenHouseInfoUA.aspx">Інфо сайт</span></a> &nbsp;
+            <a href="/Business/GreenHouseInfo/GreenHouseInfoUA.aspx">Інфо сайт</a> &nbsp;
             <asp:LinkButton ID="linkButtonSignOut" runat="server" CssClass="loginoutbutton" Text="Sign out"
                 OnClick="linkButtonSignOut_Click" />
         </div>
