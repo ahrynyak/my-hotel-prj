@@ -34,7 +34,7 @@ namespace MyHotel.Business.WebControls.Expenses
                     string startDateString = Request.QueryString["startDate"];
                     if (!string.IsNullOrEmpty(startDateString))
                     {
-                        starDate = DateTime.ParseExact(startDateString, HelperCommon.DateFormat, CultureInfo.CurrentCulture);
+                        starDate = DateTime.Parse(startDateString, CultureInfo.CurrentCulture);
                     }
                     else
                     {
