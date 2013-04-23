@@ -7,20 +7,19 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MyHotel.Business.WebControls.Expenses
-{
+namespace MyHotel.Business.WebControls.Expenses {
     
     
     public partial class ExpensesDetailsForm {
         
         /// <summary>
-        /// form1 control.
+        /// formED control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.HtmlControls.HtmlForm formED;
         
         /// <summary>
         /// ScriptManagerExpensesDetails control.

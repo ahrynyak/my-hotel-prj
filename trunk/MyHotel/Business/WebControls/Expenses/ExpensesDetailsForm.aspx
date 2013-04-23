@@ -5,10 +5,10 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+        <link href="/css/expenses.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <form id="form1" runat="server">
-    <link href="/css/expenses.css" rel="stylesheet" type="text/css" />
+    <form id="formED" runat="server">
     <asp:ScriptManager ID="ScriptManagerExpensesDetails" runat="server" />
     <asp:UpdatePanel ID="UpdatePanelBookingDetails" runat="server" UpdateMode="Conditional">
         <Triggers>

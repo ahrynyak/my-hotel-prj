@@ -2,7 +2,7 @@
 <%@ Register Assembly="Obout.Ajax.UI" Namespace="Obout.Ajax.UI.TreeView" TagPrefix="obout" %>
 <link href="/css/incomes.css" rel="stylesheet" type="text/css" />
 <div style="width: 100%;">
-        <obout:Tree ID="TreeIncomes" runat="server" EnableViewState="False" ClientIDMode="AutoID"
+        <obout:Tree ID="TreeIncomes" runat="server"
             CssClass="vista">
         </obout:Tree>
 </div>
