@@ -1,24 +1,33 @@
 ﻿.incomesHeaderRow
 {
     background-color: #eeeeee;
+    text-align:center;
 }
 .incomesSubHeaderRow
 {
-    
+    text-align:center;
 }
 .incomesSubHeaderCell
 {
     width:150px;
     text-align:center;  
+    background-color: #eeeeee;
 }
 .incomesDataRow
 {
+    
+}
+.incomesDataStatusCell
+{
+    text-align:left;
     background-color: #eeeeee;   
+    width:250px;
 }
 .incomesDataCell
 {
     background-color: White;   
     text-align:center;
+    width:150px;
 }
 .incomesSubHeaderTotalCell
 {
