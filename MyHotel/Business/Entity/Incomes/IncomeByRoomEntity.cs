@@ -3,17 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using MyHotel.Business.Entity.Booking;
+using MyHotel.Utils;
 
 namespace MyHotel.Business.Entity.Incomes
 {
     public class IncomeByRoomEntity
     {
         public RoomEntity RoomEntity { get; set; }
-        public double NotConfirmedSum { get; set; }
-        public double ConfirmedSum { get; set; }
-        public double PrepaidSum { get; set; }
-        public double FullPaidSum { get; set; }
-        public int AmountOfDays { get; set; }
-        public double PercenInPeriod { get; set; }
+        public List<IncomesByStatus> IncomesByStatus { get; set; }
+    }
+
+    public class IncomesByStatus
+    {
+        public IncomesByStatus(EBookingStatus bookingStatus, double totalSum, int totalDays)
+        {
+            this.BookingStatus = bookingStatus;
+            this.TotalSum = totalSum;
+            this.TotalDays = totalDays;
+        }
+        public EBookingStatus BookingStatus { get; private set; }
+        public double TotalSum { get; private set; }
+        public int TotalDays { get; private set; }
     }
 }

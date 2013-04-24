@@ -19,50 +19,26 @@ namespace MyHotel.Business.WebControls.Incomes
 
         public void Refresh(DateTime startDate, DateTime endDate)
         {
-            TreeIncomes.Nodes.Clear();
-            TreeIncomes.Nodes.Add(new Node(getHeaderText()));
-            var allIncomes = IncomesController.GetRoomIncomes(startDate, endDate);
-            foreach (var incomeByRoom in allIncomes)
+            var allIncomes = IncomesController.GetPlanedIncomesData(startDate, endDate);
+            int numrows = 3;
+            int numcells = 2;
+            for (int j = 0; j < numrows; j++)
             {
-                Node roomTreeNode = new Node();
-                roomTreeNode.Text = getIncomeItemText(incomeByRoom);
-                TreeIncomes.Nodes.Add(roomTreeNode);
+                TableRow r = new TableRow();
+                for (int i = 0; i < numcells; i++)
+                {
+                    TableCell c = new TableCell();
+                    c.Controls.Add(new LiteralControl("row "
+                        + j.ToString() + ", cell " + i.ToString()));
+                    r.Cells.Add(c);
+                }
+                TablePlanned.Rows.Add(r);
             }
-            TreeIncomes.ExpandAll();
+
         }
 
         #region css format for tree nodes
-        private string getHeaderText()
-        {
-            return String.Format("<strong>" +
-            "<span class=\"incomesHeaderRoomNameDiv\">{0}</span>" +
-            "<span class=\"incomesHeaderSumDiv\">{1}</span>" +
-            "<span class=\"incomesHeaderSumDiv\">{2}</span>" +
-            "<span class=\"incomesHeaderSumDiv\">{3}</span>" +
-            "<span class=\"incomesHeaderSumDiv\">{4}</span>" +
-            "<span class=\"incomesHeaderAmountOfDayDiv\">{5}</span>" +
-            "<span class=\"incomesHeaderPercentDiv\">{6}</span></strong>", "Номер", "Не підв.сума", "Підв.сума", "Передопл.сума", "Оплачена сума", "К-ть днів", "%");
-        }
-
-        private string getIncomeItemText(IncomeByRoomEntity expensesItemsEntity)
-        {
-            return String.Format(
-                "<span class=\"incomesRoomNameDiv\">{0}</span>" +
-                "<span class=\"incomesSumDiv\">{1}</span>" +
-                "<span class=\"incomesSumDiv\">{2}</span>" +
-                "<span class=\"incomesSumDiv\">{3}</span>" +
-                "<span class=\"incomesSumDiv\">{4}</span>" +
-                "<span class=\"incomesAmountOfDayDiv\">{5}</span>" +
-                "<span class=\"incomesPercentDiv\">{6}</span>",
-                expensesItemsEntity.RoomEntity.Name,
-                expensesItemsEntity.NotConfirmedSum,
-                expensesItemsEntity.ConfirmedSum,
-                expensesItemsEntity.PrepaidSum,
-                expensesItemsEntity.FullPaidSum,
-                expensesItemsEntity.AmountOfDays,
-                expensesItemsEntity.PercenInPeriod
-                );
-        }
+       
 
         #endregion
     }
