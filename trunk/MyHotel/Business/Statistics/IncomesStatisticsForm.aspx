@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/MyHotelMgmt.Master"
-    AutoEventWireup="true" CodeBehind="IncomesStatisticsForm.aspx.cs" Inherits="MyHotel.Business.Statistics.IncomesStatisticsForm" %>
+    AutoEventWireup="true" CodeBehind="IncomesStatisticsForm.aspx.cs" Inherits="MyHotel.Business.Statistics.IncomesStatisticsForm"  Culture="uk-UA" UICulture="uk-UA" %>
 
 <%@ Register TagPrefix="IncomesView" TagName="IncomesWebControl" Src="~/Business/WebControls/Incomes/IncomesWebControl.ascx" %>
 <%@ Register TagPrefix="DateRanger" TagName="DateRangerControl" Src="~/Business/WebControls/DateRange/DateRangerControl.ascx" %>
