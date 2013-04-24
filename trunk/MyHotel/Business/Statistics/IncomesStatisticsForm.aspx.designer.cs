@@ -7,18 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MyHotel.Business.WebControls.Incomes {
+namespace MyHotel.Business.Statistics {
     
     
-    public partial class IncomesControl {
+    public partial class IncomesStatisticsForm {
         
         /// <summary>
-        /// TablePlanned control.
+        /// DateRangerPeriod control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Table TablePlanned;
+        protected global::MyHotel.Business.WebControls.DateRange.DateRangerControl DateRangerPeriod;
+        
+        /// <summary>
+        /// IncomesViewCtrl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::MyHotel.Business.WebControls.Incomes.IncomesControl IncomesViewCtrl;
     }
 }

@@ -31,6 +31,8 @@
             <a href="/Business/RoomBookingMgmt/RoomBookingMgmtForm.aspx"><span class="GreenHouseNormalTextP1">
                 Бронювання</span></a>&nbsp; <a href="/Business/ExpensesMgmt/ExpensesMgmtForm.aspx">
                     <span class="GreenHouseNormalTextP1">Витрати</span></a>&nbsp;
+                    <a href="/Business/Statistics/IncomesStatisticsForm.aspx">
+                    <span class="GreenHouseNormalTextP1">Статистика доходів</span></a>&nbsp;
                     <hr />
         </div>
         <div class="main_content_div">
