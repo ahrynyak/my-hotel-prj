@@ -16,9 +16,7 @@
     <form id="MyHotelMgmtForm" runat="server">
     <script type="text/javascript">
         window.onload = function () {
-            debugger;
             var all = document.getElementsByTagName("a");
-
             for (var i = 0, max = all.length; i < max; i++) {
                 if (all[i].href == document.URL) {
                     all[i].className += " button-link_active";
