@@ -10,14 +10,15 @@
 /*---Main layout style begin---*/
 .main_div
 {
-    width: 70%;
-    padding: 40px 30px;
+    width: 80%;
+    padding: 10px 20px;
     margin: 30px auto;
     background-color:White;
 }
 .main_header_div
 {
     text-align:center;
+    padding-bottom: 20px;
 }
 .main_tool_div
 {
@@ -29,7 +30,7 @@
 }
 .main_content_div
 {
-    min-height: 600px;
+    min-height: 500px;
 }
 .main_footer_div
 {
