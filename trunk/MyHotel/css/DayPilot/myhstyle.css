@@ -2,7 +2,7 @@
 /* 
 
 DayPilot Scheduler Theme 
-http://themes.daypilot.org/scheduler/theme/s3j3jh
+http://themes.daypilot.org/scheduler/theme/u2iilq
 
 Compatibility:
 
@@ -37,26 +37,32 @@ http://java.daypilot.org/
 	
 	margin: 0px;
 
-	color: Black;
-	background-color: #aaf200;
+	color: #ffffff;
+	background-color: #40d628;
 	
 	background: -moz-linear-gradient(
 		top,
-		#c5ff3c 0%,
-		#77a900);
+		#79e368 0%,
+		#2d961c);
 	background: -webkit-gradient(
 		linear, left top, left bottom, 
-		from(#c5ff3c),
-		to(#77a900));  
-	filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr="#c5ff3c", endColorStr="#77a900");
+		from(#79e368),
+		to(#2d961c));  
+	filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr="#79e368", endColorStr="#2d961c");
+	
 	
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 	border-radius: 5px;
 	
+	
 	padding: 3px;
 	
-	border: 1px solid #b6bdb6;
+	
+	border: 1px solid #40d628;
+	
+	
+	
 	
 	left: 0px;
 	right: 2px;
@@ -80,6 +86,17 @@ http://java.daypilot.org/
 {
 	color: #666666;
 	background: #eeeeee;
+	
+	background: -moz-linear-gradient(
+		top,
+		#fafafa 0%,
+		#e2e2e2);
+	background: -webkit-gradient(
+		linear, left top, left bottom, 
+		from(#fafafa),
+		to(#e2e2e2));
+	filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr="#fafafa", endColorStr="#e2e2e2");
+	
 }
 
 .myhstyle_rowheader,
@@ -87,6 +104,17 @@ http://java.daypilot.org/
 {
 	color: #666666;
 	background: #eeeeee;
+	
+	background: -moz-linear-gradient(
+		left,
+		#fafafa 0%,
+		#e2e2e2);
+	background: -webkit-gradient(
+		linear, left top, right top, 
+		from(#fafafa),
+		to(#e2e2e2));
+	filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr="#fafafa", endColorStr="#e2e2e2", GradientType=1);
+	
 }
 
 .myhstyle_rowheader_inner {
@@ -114,13 +142,13 @@ http://java.daypilot.org/
 .myhstyle_divider_horizontal,
 .myhstyle_resourcedivider 
 {
-	background-color: #625e5e;
+	background-color: #cccccc;
 }
 
 .myhstyle_matrix_vertical_line,
 .myhstyle_matrix_horizontal_line 
 {
-	background-color: #625e5e;
+	background-color: #eeeeee;
 }
 
 .myhstyle_cellcolumn 
@@ -135,17 +163,17 @@ http://java.daypilot.org/
 	filter: alpha(opacity=90);
 	
 	color: #ffffff;
-	background: #ff0000;
+	background: #777777;
 	
 	background: -moz-linear-gradient(
 		top,
-		#ff1a1a 0%,
-		#e60000);
+		#838383 0%,
+		#6b6b6b);
 	background: -webkit-gradient(
 		linear, left top, left bottom, 
-		from(#ff1a1a),
-		to(#e60000));
-	filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr="#ff1a1a", endColorStr="#e60000");
+		from(#838383),
+		to(#6b6b6b));
+	filter: progid:DXImageTransform.Microsoft.Gradient(startColorStr="#838383", endColorStr="#6b6b6b");
 	
 }
 

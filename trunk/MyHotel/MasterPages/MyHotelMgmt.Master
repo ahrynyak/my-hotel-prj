@@ -14,6 +14,18 @@
 </head>
 <body>
     <form id="MyHotelMgmtForm" runat="server">
+    <script type="text/javascript">
+        window.onload = function () {
+            debugger;
+            var all = document.getElementsByTagName("a");
+
+            for (var i = 0, max = all.length; i < max; i++) {
+                if (all[i].href == document.URL) {
+                    all[i].className += " button-link_active";
+                }
+            }
+        };
+    </script>
     <asp:ScriptManager ID="ScriptManager1" runat="server" EnableScriptGlobalization="true">
     </asp:ScriptManager>
     <div class="main_div">
@@ -28,12 +40,12 @@
                 OnClick="linkButtonSignOut_Click" />
         </div>
         <div class="main_menu_div">
-            <a href="/Business/RoomBookingMgmt/RoomBookingMgmtForm.aspx"><span class="GreenHouseNormalTextP1">
-                Бронювання</span></a>&nbsp; <a href="/Business/ExpensesMgmt/ExpensesMgmtForm.aspx">
-                    <span class="GreenHouseNormalTextP1">Витрати</span></a>&nbsp;
-                    <a href="/Business/Statistics/IncomesStatisticsForm.aspx">
-                    <span class="GreenHouseNormalTextP1">Статистика доходів</span></a>&nbsp;
-                    <hr />
+            <a href="/Business/RoomBookingMgmt/RoomBookingMgmtForm.aspx" class="button-link"><span>Бронювання</span></a>&nbsp; 
+            <a href="/Business/ExpensesMgmt/ExpensesMgmtForm.aspx" class="button-link"><span>Витрати</span></a>&nbsp;
+            <a href="/Business/Statistics/IncomesStatisticsForm.aspx" class="button-link"><span>Статистика доходів</span></a>&nbsp;
+            <br />
+            <br />
+            <hr />
         </div>
         <div class="main_content_div">
             <asp:ContentPlaceHolder ID="MyHotelMgmtContentPlaceHolder" runat="server">
