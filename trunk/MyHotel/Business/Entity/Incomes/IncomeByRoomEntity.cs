@@ -11,6 +11,7 @@ namespace MyHotel.Business.Entity.Incomes
     {
         public RoomEntity RoomEntity { get; set; }
         public List<IncomesByStatus> IncomesByStatus { get; set; }
+        public double AlreadyPaid { get; set; }
     }
 
     public class IncomesByStatus

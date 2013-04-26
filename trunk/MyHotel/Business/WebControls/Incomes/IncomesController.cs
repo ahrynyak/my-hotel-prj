@@ -36,6 +36,8 @@ namespace MyHotel.Business.WebControls.Incomes
                         IncomesByStatus incomesByStatus = new IncomesByStatus((EBookingStatus)Enum.Parse(typeof(EBookingStatus), statusValue.ToString()), totalSum, totalDays);
                         incomeByRoomEntity.IncomesByStatus.Add(incomesByStatus);
                     }
+
+                    incomeByRoomEntity.AlreadyPaid = allBookingsForRoom.Sum(s => s.AlreadyPaid ?? 0);
                     result.Add(incomeByRoomEntity);
                 }
 
