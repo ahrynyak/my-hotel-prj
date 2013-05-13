@@ -42,7 +42,7 @@
                             <asp:RequiredFieldValidator ID="RequiredFieldValidatorCost" runat="server" ErrorMessage="*"
                                 CssClass="errorValidation" ControlToValidate="TextBoxCost" ToolTip="Обов'язкове поле" />
                             <asp:FilteredTextBoxExtender ID="FilteredtextboxextenderCost" runat="server" TargetControlID="TextBoxCost"
-                                FilterType="Custom" ValidChars="01234567890." />
+                                FilterType="Custom" ValidChars="01234567890.," />
                         </td>
                     </tr>
                     <tr>
