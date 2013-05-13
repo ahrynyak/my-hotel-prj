@@ -87,8 +87,8 @@ namespace MyHotel.Business.WebControls.Expenses
                     {
                         LabelHeader.Text = expensesItemsEntity.FullName;
                     }
-                    TextBoxDate.Text = expensesDetailsEntity.Date.ToString(HelperCommon.DateFormat);
-                    CalendarExtenderDate.Format = HelperCommon.DateFormat;
+                    TextBoxDate.Text = expensesDetailsEntity.Date.ToString(CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern);
+                    CalendarExtenderDate.Format = CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern;
                     TextBoxCost.Text = expensesDetailsEntity.Cost.ToString();
                     TextBoxInfo.Text = expensesDetailsEntity.Description;
                 }
@@ -104,8 +104,8 @@ namespace MyHotel.Business.WebControls.Expenses
             initData();
             if (expensesDetailsEntity != null)
             {
-                expensesDetailsEntity.Cost = double.Parse(TextBoxCost.Text);
-                expensesDetailsEntity.Date = DateTime.ParseExact(TextBoxDate.Text, HelperCommon.DateFormat, CultureInfo.CurrentCulture);
+                expensesDetailsEntity.Cost = TextBoxCost.Text.ToDouble();
+                expensesDetailsEntity.Date = DateTime.ParseExact(TextBoxDate.Text, CultureInfo.CurrentCulture.DateTimeFormat.ShortDatePattern, CultureInfo.CurrentCulture);
                 expensesDetailsEntity.Description = TextBoxInfo.Text;
                 ExpensesController.SaveExpensesDetails(expensesDetailsEntity);
             }

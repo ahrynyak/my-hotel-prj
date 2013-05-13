@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using MyHotel.LINQDB;
+using System.Globalization;
 
 namespace MyHotel.Utils
 {
@@ -21,5 +22,10 @@ namespace MyHotel.Utils
         public const string DateFormat = "d-MMM-yyyy (dddd)";
 
         public const string DoubleFormat = "0.##";
+
+        public static double ToDouble(this string value)
+        {
+            return double.Parse(value.Replace(".", CultureInfo.CurrentCulture.NumberFormat.CurrencyDecimalSeparator).Replace(",", CultureInfo.CurrentCulture.NumberFormat.CurrencyDecimalSeparator));
+        }
     }
 }
