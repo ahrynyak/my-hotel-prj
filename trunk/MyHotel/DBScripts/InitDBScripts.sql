@@ -54,6 +54,8 @@ INSERT INTO [ExpensesItems](ExpensesItemID, ParentExpensesItemID, Name) VALUES(1
 INSERT INTO [ExpensesItems](ExpensesItemID, ParentExpensesItemID, Name) VALUES(11, 10, N'Газ')
 INSERT INTO [ExpensesItems](ExpensesItemID, ParentExpensesItemID, Name) VALUES(12, 10, N'Ел. енергія')
 INSERT INTO [ExpensesItems](ExpensesItemID, ParentExpensesItemID, Name) VALUES(13, 10, N'Вода')
+INSERT INTO [ExpensesItems](ExpensesItemID, ParentExpensesItemID, Name) VALUES(14, 10, N'Сміття')
+INSERT INTO [ExpensesItems](ExpensesItemID, ParentExpensesItemID, Name) VALUES(15, 10, N'Квартплата')
 
 INSERT INTO [ExpensesItems](ExpensesItemID, ParentExpensesItemID, Name) VALUES(20, null, N'Оплата праці')
 INSERT INTO [ExpensesItems](ExpensesItemID, ParentExpensesItemID, Name) VALUES(21, 20, N'п. Оля')
