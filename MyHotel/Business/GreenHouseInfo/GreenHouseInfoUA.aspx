@@ -270,7 +270,7 @@
     <%--Ціни на проживання--%>
     <div class="section">
         <div class="section_header">
-            Ціни на проживання
+            Ціни на проживання (за номер)
         </div>
         <div class="section_content">
             період 15.01 - 30.04 та 26.09 - 27.12 <span class="GreenHouseNormalTextP1">(низький сезон)</span>
