@@ -35,6 +35,10 @@
                     <br />
                     <span class="MainHeaderSmall">ОЗДОРОВЛЕННЯ ТА ВІДПОЧИНОК</span>
                 </div>
+                <div id="language_bar">
+                    <img src="../../icons/ua_Flag.png"  alt="Українська" title="Українська" />
+                    <img src="../../icons/flag_ru.png"  alt="Русский" title="Русский"/>
+                </div>
             </div>
             <div id="greenhouse_main">
                 <asp:TabContainer ID="TabContainerUA" runat="server" ActiveTabIndex="1" CssClass="ajax__tab_green-theme"

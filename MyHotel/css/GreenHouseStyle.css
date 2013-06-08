@@ -31,10 +31,16 @@ body
     padding: 40px 30px;
     background: #fff url(/icons/greenhouse_main.png) no-repeat top;
 }
-#greenhouse_footer {
+#greenhouse_footer 
+{
     width: 840px;
     padding: 20px;
     text-align: center;
+}
+#language_bar
+{
+    float:right;
+    margin: 70px 0 0 0;
 }
 #site_title 
 {
