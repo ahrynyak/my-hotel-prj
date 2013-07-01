@@ -16,7 +16,7 @@ namespace MyHotel.Business.Statistics
 
         private static DateTime getDefaultEndDate()
         {
-            return DateTime.Today.AddDays(-DateTime.Now.Day + 1).AddDays(DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month) - 1).AddMilliseconds(-1);
+            return DateTime.Today.AddDays(-DateTime.Now.Day + 1).AddDays(DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month)).AddMilliseconds(-1);
         }
 
         protected override void OnInit(EventArgs e)
