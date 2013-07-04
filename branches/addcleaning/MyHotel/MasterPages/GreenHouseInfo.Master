@@ -1,0 +1,131 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="GreenHouseInfo.master.cs"
+    Inherits="MyHotel.MasterPages.GreenHouseInfo" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link href="/css/GreenHouseStyle.css" rel="stylesheet" type="text/css" />
+    <link href="/css/commonStyle.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <script type="text/javascript">
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+  m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-41576611-1', 'zelenasadyba.info');
+        ga('send', 'pageview');
+
+    </script>
+    <asp:ScriptManager ID="ScriptManager1" runat="server">
+    </asp:ScriptManager>
+    <div>
+        <div id="greenhouse_wrapper">
+            <div id="greenhouse_header">
+                <div id="site_title">
+                    <span class="MainHeaderBigP1">ЗЕЛЕНА </span><span class="MainHeaderBigP2">САДИБА</span>
+                    <br />
+                    <span class="MainHeaderSmall">ОЗДОРОВЛЕННЯ ТА ВІДПОЧИНОК</span>
+                </div>
+                <div id="language_bar">
+                    <img src="../../icons/ua_Flag.png"  alt="Українська" title="Українська" />
+                    <img src="../../icons/flag_ru.png"  alt="Русский" title="Русский"/>
+                </div>
+            </div>
+            <div id="greenhouse_main">
+                <asp:TabContainer ID="TabContainerUA" runat="server" ActiveTabIndex="1" CssClass="ajax__tab_green-theme"
+                    Width="100%" ScrollBars="Auto">
+                    <asp:TabPanel ID="TabPanelHome" runat="server" HeaderText="Home">
+                        <HeaderTemplate>
+                            <div>
+                                <div>
+                                    <asp:ContentPlaceHolder ID="GreenHouseContentPlaceHolderTabHomeName" runat="server">
+                                    </asp:ContentPlaceHolder>
+                                </div>
+                            </div>
+                        </HeaderTemplate>
+                        <ContentTemplate>
+                            <asp:ContentPlaceHolder ID="GreenHouseContentPlaceHolderTabHome" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </ContentTemplate>
+                    </asp:TabPanel>
+                    <asp:TabPanel ID="TabPanelRooms" runat="server" HeaderText="Rooms">
+                        <HeaderTemplate>
+                            <div>
+                                <asp:ContentPlaceHolder ID="GreenHouseContentPlaceHolderTabRoomsName" runat="server">
+                                </asp:ContentPlaceHolder>
+                            </div>
+                        </HeaderTemplate>
+                        <ContentTemplate>
+                            <asp:ContentPlaceHolder ID="GreenHouseContentPlaceHolderTabRooms" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </ContentTemplate>
+                    </asp:TabPanel>
+                    <asp:TabPanel ID="TabPanelService" runat="server" HeaderText="Service">
+                        <HeaderTemplate>
+                            <div>
+                                <div>
+                                    <asp:ContentPlaceHolder ID="GreenHouseContentPlaceHolderTabServiceName" runat="server">
+                                    </asp:ContentPlaceHolder>
+                                </div>
+                            </div>
+                        </HeaderTemplate>
+                        <ContentTemplate>
+                            <asp:ContentPlaceHolder ID="GreenHouseContentPlaceHolderTabService" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </ContentTemplate>
+                    </asp:TabPanel>
+                    <asp:TabPanel ID="TabPanelPrices" runat="server" HeaderText="Prices">
+                        <HeaderTemplate>
+                            <div>
+                                <asp:ContentPlaceHolder ID="GreenHouseContentPlaceHolderTabPricesName" runat="server">
+                                </asp:ContentPlaceHolder>
+                            </div>
+                        </HeaderTemplate>
+                        <ContentTemplate>
+                            <asp:ContentPlaceHolder ID="GreenHouseContentPlaceHolderTabPrices" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </ContentTemplate>
+                    </asp:TabPanel>
+                    <asp:TabPanel ID="TabPanelPhotos" runat="server" HeaderText="Photos">
+                        <HeaderTemplate>
+                            <div>
+                                <asp:ContentPlaceHolder ID="GreenHouseContentPlaceHolderTabPhotosName" runat="server">
+                                </asp:ContentPlaceHolder>
+                            </div>
+                        </HeaderTemplate>
+                        <ContentTemplate>
+                            <asp:ContentPlaceHolder ID="GreenHouseContentPlaceHolderTabPhotos" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </ContentTemplate>
+                    </asp:TabPanel>
+                    <asp:TabPanel ID="TabPanelContacts" runat="server" HeaderText="Contacts">
+                        <HeaderTemplate>
+                            <div>
+                                <asp:ContentPlaceHolder ID="ContentPlaceHolderContactsName" runat="server">
+                                </asp:ContentPlaceHolder>
+                            </div>
+                        </HeaderTemplate>
+                        <ContentTemplate>
+                            <asp:ContentPlaceHolder ID="ContentPlaceHolderContacts" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </ContentTemplate>
+                    </asp:TabPanel>
+                </asp:TabContainer>
+            </div>
+            <div id="greenhouse_footer">
+                © 2013
+            </div>
+        </div>
+    </div>
+    </form>
+</body>
+</html>

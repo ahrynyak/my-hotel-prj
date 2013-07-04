@@ -1,0 +1,83 @@
+﻿/*Header begin*/
+.incomesRoomHeaderColl
+{
+    background-color: #eeeeee;
+    text-align:center;
+    font-weight:bold;
+    width:150px;
+}
+.incomesStatusHeaderCell
+{
+    background-color: #eeeeee;
+    text-align:center;
+    font-weight:bold;
+}
+
+.incomesSubHeaderColl
+{
+    background-color: #eeeeee;
+    text-align: center;  
+    width: 90px;
+}
+.incomesTotalHeaderColl
+{
+    background-color: #eeeeee;
+    text-align:center;  
+    font-weight:bold;
+    width:100px;
+}
+.incomesTotalHeaderRow
+{
+    background-color: #eeeeee;
+    text-align:center;  
+    font-weight:bold;
+}
+.incomesTotalHeaderSubRow
+{
+    background-color: #eeeeee;
+    text-align:center; 
+    font-weight:bold;
+}
+.incomesAlreadyPaidHeaderColl
+{
+    background-color: #eeeeee;
+    text-align:center;  
+    font-weight:bold;
+    width:100px;
+}
+/*Header end*/
+/*Data row begin*/
+.incomesRoomNameDataRow
+{
+    background-color: #eeeeee;
+}
+
+.incomesRoomSumDataRow
+{
+    background-color: #eeeeee;   
+}
+.incomesRoomDaysDataRow
+{
+    background-color: #eeeeee;        
+}
+.incomesRoomPercentDataRow
+{
+    background-color: #eeeeee;    
+}
+.incomesDataRow
+{
+    text-align:center;  
+}
+.incomesTotalDataRow
+{
+    background-color: #eeeeee;
+    text-align:center; 
+    font-weight:bold; 
+}
+.incomesAlreadyPaidDataRow
+{
+    background-color: #eeeeee;
+    text-align:center; 
+    font-weight:bold; 
+}
+/*Data row end*/

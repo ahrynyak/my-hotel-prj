@@ -1,0 +1,154 @@
+﻿body 
+{
+    color: #625e5e;
+    margin: 0px;
+    padding: 0px;
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 14px;
+    background: #959796 url(/icons/wood-repeat.jpg);
+}
+/*---Main layout style begin---*/
+.main_div
+{
+    width: 80%;
+    padding: 10px 20px;
+    margin: 30px auto;
+    background-color:White;
+}
+.main_header_div
+{
+    text-align:center;
+    padding-bottom: 20px;
+}
+.main_tool_div
+{
+    float:right;
+}
+.main_menu_div
+{
+    
+}
+.main_content_div
+{
+    min-height: 500px;
+}
+.main_footer_div
+{
+    color: White;
+    padding: 20px;
+    text-align: center;
+    width:70%;
+    margin: 30px auto;
+}
+/*---Main layout style end---*/
+/*cell style start*/
+.sundaycellstyle
+{
+}
+.sundayheaderstyle
+{
+    color:#B00000;
+}
+.weekday
+{
+    background-color:White;
+}
+.pastday
+{
+    background-color:#CCCCCC;
+}
+/*cell style end*/
+.errorValidation
+{
+    color: red;
+}
+/*event style start*/
+.eventNotConfirmed
+{
+	background-color: Silver;
+	width:auto;
+	height:inherit;
+}
+.eventConfirmed
+{
+    background-color: Orange;
+}
+.eventPrepaid
+{
+    background-color: Red;
+}
+.eventFullpaid
+{
+}
+/*event style end*/
+/*login form style start*/
+.loginForm
+{
+    border-style:solid;
+    border-width:2px;
+    border-color:White;
+}
+.loginoutbutton
+{
+    color: red;
+}
+/*login form style end*/
+/*bookigDetails style start*/
+.labelBookingDetails
+{
+    color: #666666;
+    background-color:transparent;
+    font-weight:bold;
+}
+.labelBookingDetailsSpecial
+{
+    color: #7f6600;
+    background-color:transparent;
+    font-weight:bold;
+}
+.bookigDetailsDiv
+{
+    background: #eeeeee; 
+    width:100%;
+}
+/*bookigDetails style end*/
+
+/*menu style start*/
+a, a:link, a:visited { color: #FFF; text-decoration: none; }
+a:hover { color: #FFF; text-decoration: none; }
+
+.button-link {
+    padding: 10px 15px;
+    background: #2d961c;
+    color: #FFF;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    border: solid 1px #2d961c;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    -webkit-transition-duration: 0.2s;
+    -moz-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+}
+.button-link:a
+{
+    color:White;
+}
+.button-link:hover {
+    background: #40d628;
+    border: solid 1px #2A4E77;
+    text-decoration: none;
+}
+.button-link_active {
+    background: #40d628;
+    border: solid 1px #2A4E77;
+    text-decoration: none;
+}
+/*menu style end*/

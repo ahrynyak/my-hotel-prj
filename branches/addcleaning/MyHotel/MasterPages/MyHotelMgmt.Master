@@ -1,0 +1,58 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MyHotelMgmt.master.cs"
+    Inherits="MyHotel.MasterPages.MyHotelMgmt" %>
+
+<%@ Register Assembly="DayPilot" Namespace="DayPilot.Web.Ui" TagPrefix="DayPilot" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link href="../css/main.css" rel="stylesheet" type="text/css" />
+    <link href="../css/commonStyle.css" rel="stylesheet" type="text/css" />
+    <link href="../css/DayPilot/myhstyle.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <form id="MyHotelMgmtForm" runat="server">
+    <script type="text/javascript">
+        window.onload = function () {
+            var all = document.getElementsByTagName("a");
+            for (var i = 0, max = all.length; i < max; i++) {
+                if (all[i].href == document.URL) {
+                    all[i].className += " button-link_active";
+                }
+            }
+        };
+    </script>
+    <asp:ScriptManager ID="ScriptManager1" runat="server" EnableScriptGlobalization="true">
+    </asp:ScriptManager>
+    <div class="main_div">
+        <div class="main_header_div">
+            <span class="MainHeaderBigP1">ЗЕЛЕНА </span><span class="MainHeaderBigP2">САДИБА</span>
+            <br />
+            <span class="MainHeaderSmall">ОЗДОРОВЛЕННЯ ТА ВІДПОЧИНОК</span>
+        </div>
+        <div class="main_tool_div">
+            <a href="/Business/GreenHouseInfo/GreenHouseInfoUA.aspx">Інфо сайт</a> &nbsp;
+            <asp:LinkButton ID="linkButtonSignOut" runat="server" CssClass="loginoutbutton" Text="Sign out"
+                OnClick="linkButtonSignOut_Click" />
+        </div>
+        <div class="main_menu_div">
+            <a href="/Business/RoomBookingMgmt/RoomBookingMgmtForm.aspx" class="button-link"><span>Бронювання</span></a>&nbsp; 
+            <a href="/Business/ExpensesMgmt/ExpensesMgmtForm.aspx" class="button-link"><span>Витрати</span></a>&nbsp;
+            <a href="/Business/Statistics/IncomesStatisticsForm.aspx" class="button-link"><span>Статистика доходів</span></a>&nbsp;
+            <br />
+            <br />
+            <hr />
+        </div>
+        <div class="main_content_div">
+            <asp:ContentPlaceHolder ID="MyHotelMgmtContentPlaceHolder" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </div>
+    <div class="main_footer_div">
+        © 2013
+    </div>
+    </form>
+</body>
+</html>
