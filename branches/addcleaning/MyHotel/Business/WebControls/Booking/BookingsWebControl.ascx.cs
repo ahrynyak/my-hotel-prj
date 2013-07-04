@@ -115,6 +115,7 @@ namespace MyHotel.Business.WebControls.Booking
 
         protected void dayPilotScheduler_BeforeEventRender(object sender, DayPilot.Web.Ui.Events.Scheduler.BeforeEventRenderEventArgs e)
         {
+            e.ContextMenuClientName = DayPilotEventMenu.ClientObjectName;
             if (e.DataItem != null)
             {
                 var roomBookingEntity = e.DataItem.Source as RoomBookingEntity;
@@ -158,6 +159,12 @@ namespace MyHotel.Business.WebControls.Booking
         public void Refresh(DateTime startDate, DateTime endDate)
         {
             refreshData(startDate, endDate, "");
+        }
+
+        protected void dayPilotScheduler_Command(object sender, DayPilot.Web.Ui.Events.CommandEventArgs e)
+        {
+            
+            
         }
     }
 }
