@@ -81,3 +81,15 @@ CREATE TABLE [ExpensesDetails]
 	Cost float NOT NULL,
 	[Description] nvarchar(max) NULL
 )
+
+
+
+IF OBJECT_ID (N'Cleaning', N'U') IS NOT NULL 
+DROP TABLE [Cleaning]
+
+CREATE TABLE [Cleaning]
+(
+	CleaningID int IDENTITY(1,1) PRIMARY KEY,
+	RoomID int FOREIGN KEY REFERENCES [Room](RoomID) NOT NULL,
+	DateOfCleaning date NOT NULL
+)

@@ -14,6 +14,7 @@ namespace MyHotel.Business.WebControls.Booking
     public class BookingController
     {
         public static bool IsEditPastEnabled { get; set; }
+        private static List<string> cleaningList;
 
         public static List<RoomEntity> GetRooms()
         {
@@ -213,6 +214,62 @@ namespace MyHotel.Business.WebControls.Booking
                 result.Add(Enum.GetName(typeof(EBookingStatus), item.GetHashCode()), item.GetHashCode().ToString());
             }
             return result;
+        }
+
+        public static bool IsCleaning(int roomID, DateTime dateOfCleaning)
+        {
+            if (cleaningList == null)
+            {
+                using (DataClassesDataContext dataContext = HelperCommon.GetDataContext())
+                {
+                    cleaningList = dataContext.Cleanings.Select(s => getCleaningKey(s.RoomID, s.DateOfCleaning)).ToList();
+                }
+            }
+            return cleaningList.Any(s => s == getCleaningKey(roomID, dateOfCleaning));
+        }
+
+        private static string getCleaningKey(int roomID, DateTime dateOfCleaning)
+        {
+            return "R" + roomID + "D" + dateOfCleaning.Date.Ticks;
+        }
+
+        private static bool isCleaningInDB(int roomID, DateTime dateOfCleaning, DataClassesDataContext dataContext)
+        {
+            return dataContext.Cleanings.Any(s => s.RoomID == roomID && s.DateOfCleaning == dateOfCleaning.Date);
+        }
+
+        public static void AddCleaning(int roomID, DateTime dateOfCleaning)
+        {
+            using (DataClassesDataContext dataContext = HelperCommon.GetDataContext())
+            {
+                if (!isCleaningInDB(roomID, dateOfCleaning, dataContext))
+                {
+                    Cleaning сleaning = new Cleaning();
+                    сleaning.DateOfCleaning = dateOfCleaning.Date;
+                    сleaning.RoomID = roomID;
+                    dataContext.Cleanings.InsertOnSubmit(сleaning);
+                    dataContext.SubmitChanges();
+                    cleaningList.Add(getCleaningKey(roomID, dateOfCleaning));
+                }
+            }
+        }
+
+        public static void RemoveCleaning(int roomID, DateTime dateOfCleaning)
+        {
+            using (DataClassesDataContext dataContext = HelperCommon.GetDataContext())
+            {
+                if (isCleaningInDB(roomID, dateOfCleaning, dataContext))
+                {
+                    dataContext.Cleanings.DeleteOnSubmit(dataContext.Cleanings.First(s => s.RoomID == roomID && s.DateOfCleaning == dateOfCleaning.Date));
+                    dataContext.SubmitChanges();
+                    cleaningList.Remove(getCleaningKey(roomID, dateOfCleaning));
+                }
+            }
+        }
+
+        public static void CleanCache()
+        {
+            cleaningList = null;
         }
     }
 }
