@@ -249,7 +249,7 @@ namespace MyHotel.Business.WebControls.Booking
                     сleaning.RoomID = roomID;
                     dataContext.Cleanings.InsertOnSubmit(сleaning);
                     dataContext.SubmitChanges();
-                    cleaningList = null;
+                    cleaningList.Add(getCleaningKey(roomID, dateOfCleaning));
                 }
             }
         }
@@ -262,9 +262,14 @@ namespace MyHotel.Business.WebControls.Booking
                 {
                     dataContext.Cleanings.DeleteOnSubmit(dataContext.Cleanings.First(s => s.RoomID == roomID && s.DateOfCleaning == dateOfCleaning.Date));
                     dataContext.SubmitChanges();
-                    cleaningList = null;
+                    cleaningList.Remove(getCleaningKey(roomID, dateOfCleaning));
                 }
             }
+        }
+
+        public static void CleanCache()
+        {
+            cleaningList = null;
         }
     }
 }
