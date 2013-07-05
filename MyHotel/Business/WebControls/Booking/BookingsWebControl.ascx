@@ -47,15 +47,7 @@
         EventDoubleClickJavaScript="dps.eventDoubleClickCallBack(e, e.start().addMinutes(dps.eventOffset.x/dps.cellWidth * dps.cellDuration));" 
         oneventdoubleclick="dayPilotScheduler_EventDoubleClick" 
         ontimerangedoubleclick="dayPilotScheduler_TimeRangeDoubleClick" 
-        TimeRangeDoubleClickHandling="CallBack" TimeRangeDoubleClickJavaScript="">
+        TimeRangeDoubleClickHandling="CallBack" TimeRangeDoubleClickJavaScript="" 
+        EventRightClickHandling="Disabled">
     </DayPilot:DayPilotScheduler>
-    <DayPilot:DayPilotMenu ID="DayPilotEventMenu" runat="server" ClientObjectName="EventMenuCtrl"
-        CssClassPrefix="menu_">
-        <DayPilot:MenuItem Action="JavaScript" Command="AddCleaning" JavaScript="dps.commandCallBack('Cleaning@'+e.start().addMinutes(dps.eventOffset.x/dps.cellWidth * dps.cellDuration), e);" 
-            Text="+прибирання" ToolTip="Додати прибирання" />
-        <DayPilot:MenuItem Text="-прибирання" Action="JavaScript" 
-            Command="RemoveCleaning" ToolTip="Видалити прибирання" 
-            JavaScript="dps.commandCallBack(command+'@'+e.start().addMinutes(dps.eventOffset.x/dps.cellWidth * dps.cellDuration), e);">
-        </DayPilot:MenuItem>
-    </DayPilot:DayPilotMenu>
 </div>
