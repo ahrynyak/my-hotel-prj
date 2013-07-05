@@ -22,7 +22,7 @@ namespace MyHotel.LINQDB
 	using System;
 	
 	
-	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="MyHotelDB")]
+	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="DB_99B829_UkrRoot")]
 	public partial class DataClassesDataContext : System.Data.Linq.DataContext
 	{
 		
@@ -42,6 +42,9 @@ namespace MyHotel.LINQDB
     partial void InsertExpensesDetail(ExpensesDetail instance);
     partial void UpdateExpensesDetail(ExpensesDetail instance);
     partial void DeleteExpensesDetail(ExpensesDetail instance);
+    partial void InsertCleaning(Cleaning instance);
+    partial void UpdateCleaning(Cleaning instance);
+    partial void DeleteCleaning(Cleaning instance);
     #endregion
 		
 		public DataClassesDataContext() :
@@ -105,6 +108,14 @@ namespace MyHotel.LINQDB
 				return this.GetTable<ExpensesDetail>();
 			}
 		}
+		
+		public System.Data.Linq.Table<Cleaning> Cleanings
+		{
+			get
+			{
+				return this.GetTable<Cleaning>();
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Room")]
@@ -121,6 +132,8 @@ namespace MyHotel.LINQDB
 		
 		private EntitySet<RoomBooking> _RoomBookings;
 		
+		private EntitySet<Cleaning> _Cleanings;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -136,6 +149,7 @@ namespace MyHotel.LINQDB
 		public Room()
 		{
 			this._RoomBookings = new EntitySet<RoomBooking>(new Action<RoomBooking>(this.attach_RoomBookings), new Action<RoomBooking>(this.detach_RoomBookings));
+			this._Cleanings = new EntitySet<Cleaning>(new Action<Cleaning>(this.attach_Cleanings), new Action<Cleaning>(this.detach_Cleanings));
 			OnCreated();
 		}
 		
@@ -212,6 +226,19 @@ namespace MyHotel.LINQDB
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Room_Cleaning", Storage="_Cleanings", ThisKey="RoomID", OtherKey="RoomID")]
+		public EntitySet<Cleaning> Cleanings
+		{
+			get
+			{
+				return this._Cleanings;
+			}
+			set
+			{
+				this._Cleanings.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -239,6 +266,18 @@ namespace MyHotel.LINQDB
 		}
 		
 		private void detach_RoomBookings(RoomBooking entity)
+		{
+			this.SendPropertyChanging();
+			entity.Room = null;
+		}
+		
+		private void attach_Cleanings(Cleaning entity)
+		{
+			this.SendPropertyChanging();
+			entity.Room = this;
+		}
+		
+		private void detach_Cleanings(Cleaning entity)
 		{
 			this.SendPropertyChanging();
 			entity.Room = null;
@@ -1017,6 +1056,157 @@ namespace MyHotel.LINQDB
 						this._ExpensesItemID = default(int);
 					}
 					this.SendPropertyChanged("ExpensesItem");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Cleaning")]
+	public partial class Cleaning : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _CleaningID;
+		
+		private int _RoomID;
+		
+		private System.DateTime _DateOfCleaning;
+		
+		private EntityRef<Room> _Room;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCleaningIDChanging(int value);
+    partial void OnCleaningIDChanged();
+    partial void OnRoomIDChanging(int value);
+    partial void OnRoomIDChanged();
+    partial void OnDateOfCleaningChanging(System.DateTime value);
+    partial void OnDateOfCleaningChanged();
+    #endregion
+		
+		public Cleaning()
+		{
+			this._Room = default(EntityRef<Room>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CleaningID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int CleaningID
+		{
+			get
+			{
+				return this._CleaningID;
+			}
+			set
+			{
+				if ((this._CleaningID != value))
+				{
+					this.OnCleaningIDChanging(value);
+					this.SendPropertyChanging();
+					this._CleaningID = value;
+					this.SendPropertyChanged("CleaningID");
+					this.OnCleaningIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RoomID", DbType="Int NOT NULL")]
+		public int RoomID
+		{
+			get
+			{
+				return this._RoomID;
+			}
+			set
+			{
+				if ((this._RoomID != value))
+				{
+					if (this._Room.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnRoomIDChanging(value);
+					this.SendPropertyChanging();
+					this._RoomID = value;
+					this.SendPropertyChanged("RoomID");
+					this.OnRoomIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateOfCleaning", DbType="Date NOT NULL")]
+		public System.DateTime DateOfCleaning
+		{
+			get
+			{
+				return this._DateOfCleaning;
+			}
+			set
+			{
+				if ((this._DateOfCleaning != value))
+				{
+					this.OnDateOfCleaningChanging(value);
+					this.SendPropertyChanging();
+					this._DateOfCleaning = value;
+					this.SendPropertyChanged("DateOfCleaning");
+					this.OnDateOfCleaningChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Room_Cleaning", Storage="_Room", ThisKey="RoomID", OtherKey="RoomID", IsForeignKey=true)]
+		public Room Room
+		{
+			get
+			{
+				return this._Room.Entity;
+			}
+			set
+			{
+				Room previousValue = this._Room.Entity;
+				if (((previousValue != value) 
+							|| (this._Room.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Room.Entity = null;
+						previousValue.Cleanings.Remove(this);
+					}
+					this._Room.Entity = value;
+					if ((value != null))
+					{
+						value.Cleanings.Add(this);
+						this._RoomID = value.RoomID;
+					}
+					else
+					{
+						this._RoomID = default(int);
+					}
+					this.SendPropertyChanged("Room");
 				}
 			}
 		}
