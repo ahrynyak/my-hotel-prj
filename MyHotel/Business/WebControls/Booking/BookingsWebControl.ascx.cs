@@ -7,6 +7,7 @@ using System.Web.UI.WebControls;
 using MyHotel.Business.Entity.Booking;
 using MyHotel.Utils;
 using MyHotel.Business.Entity;
+using DayPilot.Web.Ui.Events;
 
 namespace MyHotel.Business.WebControls.Booking
 {
@@ -163,8 +164,20 @@ namespace MyHotel.Business.WebControls.Booking
 
         protected void dayPilotScheduler_Command(object sender, DayPilot.Web.Ui.Events.CommandEventArgs e)
         {
-            
-            
+            EventData eventData = EventData.FromJson(e.Data);
+            string[] commandData = e.Command.Split('@');
+            if (eventData != null && commandData != null && commandData.Length == 2)
+            {
+                DateTime cleaningDate = DateTime.Parse(commandData[1]);
+                if (commandData[0] == "AddCleaning")
+                {
+                    
+                }
+                if (commandData[0] == "RemoveCleaning")
+                {
+
+                }
+            }
         }
     }
 }

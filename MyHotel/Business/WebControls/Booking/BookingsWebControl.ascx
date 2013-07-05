@@ -48,10 +48,11 @@
     </DayPilot:DayPilotScheduler>
     <DayPilot:DayPilotMenu ID="DayPilotEventMenu" runat="server" ClientObjectName="EventMenuCtrl"
         CssClassPrefix="menu_">
-        <DayPilot:MenuItem Action="JavaScript" Command="AddCleaning" JavaScript="dps.commandCallBack(command, e);" 
+        <DayPilot:MenuItem Action="JavaScript" Command="AddCleaning" JavaScript="dps.commandCallBack(command+'@'+e.start().addMinutes(dps.eventOffset.x/dps.cellWidth * dps.cellDuration), e);" 
             Text="+прибирання" ToolTip="Додати прибирання" />
-        <DayPilot:MenuItem Text="-прибирання" Action="PostBack" 
-            Command="RemoveCleaning" ToolTip="Видалити прибирання">
+        <DayPilot:MenuItem Text="-прибирання" Action="JavaScript" 
+            Command="RemoveCleaning" ToolTip="Видалити прибирання" 
+            JavaScript="dps.commandCallBack(command+'@'+e.start().addMinutes(dps.eventOffset.x/dps.cellWidth * dps.cellDuration), e);">
         </DayPilot:MenuItem>
     </DayPilot:DayPilotMenu>
 </div>
