@@ -121,7 +121,6 @@ namespace MyHotel.Business.WebControls.Booking
 
         protected void dayPilotScheduler_BeforeEventRender(object sender, DayPilot.Web.Ui.Events.Scheduler.BeforeEventRenderEventArgs e)
         {
-            e.ContextMenuClientName = DayPilotEventMenu.ClientObjectName;
             if (e.DataItem != null)
             {
                 var roomBookingEntity = e.DataItem.Source as RoomBookingEntity;
