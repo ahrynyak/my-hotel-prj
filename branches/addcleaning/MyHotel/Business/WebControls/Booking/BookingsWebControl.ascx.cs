@@ -100,7 +100,11 @@ namespace MyHotel.Business.WebControls.Booking
 
         protected void dayPilotScheduler_BeforeCellRender(object sender, DayPilot.Web.Ui.Events.BeforeCellRenderEventArgs e)
         {
-            if (e.Start < DateTime.Today)
+            if (BookingController.IsCleaning(int.Parse(e.ResourceId), e.Start.Date))
+            {
+                e.CssClass = "cleaningday";
+            }
+            else if (e.Start < DateTime.Today)
             {
                 e.CssClass = "pastday";
             }
@@ -154,7 +158,6 @@ namespace MyHotel.Business.WebControls.Booking
                     dayPilotScheduler.UpdateWithMessage(message);
                 }
             }
-
         }
 
         public void Refresh(DateTime startDate, DateTime endDate)
@@ -169,15 +172,23 @@ namespace MyHotel.Business.WebControls.Booking
             if (eventData != null && commandData != null && commandData.Length == 2)
             {
                 DateTime cleaningDate = DateTime.Parse(commandData[1]);
-                if (commandData[0] == "AddCleaning")
+                if (commandData[0] == "Cleaning")
                 {
-                    
-                }
-                if (commandData[0] == "RemoveCleaning")
-                {
-
+                    if (BookingController.IsCleaning(int.Parse(eventData.Resource), cleaningDate))
+                    {
+                        BookingController.RemoveCleaning(int.Parse(eventData.Resource), cleaningDate);
+                    }
+                    else
+                    {
+                        BookingController.AddCleaning(int.Parse(eventData.Resource), cleaningDate);
+                    }
                 }
             }
+        }
+
+        protected void dayPilotScheduler_EventDoubleClick(object sender, EventClickEventArgs e)
+        {
+
         }
     }
 }

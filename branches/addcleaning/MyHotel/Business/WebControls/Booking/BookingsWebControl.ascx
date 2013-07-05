@@ -33,22 +33,24 @@
         CellGroupBy="Month" CellDuration="1440" DataEndField="EndDate" DataTextField="GuestName"
         DataValueField="RoomBookingID" DataResourceField="RoomID" DataTagFields="BookingStatus"
         DataStartField="StartDate" ClientObjectName="dps" Days="365" EventClickHandling="JavaScript"
-        EventDoubleClickHandling="PostBack" EventEditHandling="PostBack" EventResizeHandling="PostBack"
+        EventDoubleClickHandling="JavaScript" EventEditHandling="PostBack" EventResizeHandling="PostBack"
         EventSelectHandling="PostBack" Height="350px" TimeRangeDoubleClickHandling="PostBack"
         TimeRangeSelectedHandling="JavaScript" TimeFormat="Clock24Hours" WeekStarts="Monday"
         Width="100%" EventClickJavaScript="editEvent(e.value());" TimeRangeSelectedJavaScript="createEvent(start, end, column);"
         CssClassPrefix="myhstyle" CssOnly="True" EventHeight="55" 
-        RowMinHeight="40" CellWidth="35"
+        RowMinHeight="60" CellWidth="35"
         Font-Bold="False" HeaderHeight="35" LoadingLabelText="Завантажую..." EventMoveHandling="PostBack"
         OnEventMove="dayPilotScheduler_EventMove" OnEventResize="dayPilotScheduler_EventResize"
         Style="top: 0px; left: 0px" AfterRenderJavaScript="" HeaderDateFormat="d (ddd)"
         OnBeforeCellRender="dayPilotScheduler_BeforeCellRender" OnBeforeTimeHeaderRender="dayPilotScheduler_BeforeTimeHeaderRender"
         OnBeforeEventRender="dayPilotScheduler_BeforeEventRender" 
-        oncommand="dayPilotScheduler_Command">
+        oncommand="dayPilotScheduler_Command" 
+        EventDoubleClickJavaScript="dps.commandCallBack('Cleaning@'+e.start().addMinutes(dps.eventOffset.x/dps.cellWidth * dps.cellDuration), e);" 
+        oneventdoubleclick="dayPilotScheduler_EventDoubleClick">
     </DayPilot:DayPilotScheduler>
     <DayPilot:DayPilotMenu ID="DayPilotEventMenu" runat="server" ClientObjectName="EventMenuCtrl"
         CssClassPrefix="menu_">
-        <DayPilot:MenuItem Action="JavaScript" Command="AddCleaning" JavaScript="dps.commandCallBack(command+'@'+e.start().addMinutes(dps.eventOffset.x/dps.cellWidth * dps.cellDuration), e);" 
+        <DayPilot:MenuItem Action="JavaScript" Command="AddCleaning" JavaScript="dps.commandCallBack('Cleaning@'+e.start().addMinutes(dps.eventOffset.x/dps.cellWidth * dps.cellDuration), e);" 
             Text="+прибирання" ToolTip="Додати прибирання" />
         <DayPilot:MenuItem Text="-прибирання" Action="JavaScript" 
             Command="RemoveCleaning" ToolTip="Видалити прибирання" 
