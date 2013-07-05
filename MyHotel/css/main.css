@@ -51,11 +51,15 @@
 }
 .weekday
 {
-    background-color:White;
+    background-color: White;
 }
 .pastday
 {
-    background-color:#CCCCCC;
+    background-color: #CCCCCC;
+}
+.cleaningday
+{
+    background-color: Violet;
 }
 /*cell style end*/
 .errorValidation
