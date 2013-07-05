@@ -33,8 +33,8 @@
         CellGroupBy="Month" CellDuration="1440" DataEndField="EndDate" DataTextField="GuestName"
         DataValueField="RoomBookingID" DataResourceField="RoomID" DataTagFields="BookingStatus"
         DataStartField="StartDate" ClientObjectName="dps" Days="365" EventClickHandling="JavaScript"
-        EventDoubleClickHandling="JavaScript" EventEditHandling="PostBack" EventResizeHandling="PostBack"
-        EventSelectHandling="PostBack" Height="350px" TimeRangeDoubleClickHandling="PostBack"
+        EventDoubleClickHandling="JavaScript" EventResizeHandling="PostBack"
+        EventSelectHandling="Disabled" Height="350px"
         TimeRangeSelectedHandling="JavaScript" TimeFormat="Clock24Hours" WeekStarts="Monday"
         Width="100%" EventClickJavaScript="editEvent(e.value());" TimeRangeSelectedJavaScript="createEvent(start, end, column);"
         CssClassPrefix="myhstyle" CssOnly="True" EventHeight="55" 
@@ -44,9 +44,10 @@
         Style="top: 0px; left: 0px" AfterRenderJavaScript="" HeaderDateFormat="d (ddd)"
         OnBeforeCellRender="dayPilotScheduler_BeforeCellRender" OnBeforeTimeHeaderRender="dayPilotScheduler_BeforeTimeHeaderRender"
         OnBeforeEventRender="dayPilotScheduler_BeforeEventRender" 
-        oncommand="dayPilotScheduler_Command" 
-        EventDoubleClickJavaScript="dps.commandCallBack('Cleaning@'+e.start().addMinutes(dps.eventOffset.x/dps.cellWidth * dps.cellDuration), e);" 
-        oneventdoubleclick="dayPilotScheduler_EventDoubleClick">
+        EventDoubleClickJavaScript="dps.eventDoubleClickCallBack(e, e.start().addMinutes(dps.eventOffset.x/dps.cellWidth * dps.cellDuration));" 
+        oneventdoubleclick="dayPilotScheduler_EventDoubleClick" 
+        ontimerangedoubleclick="dayPilotScheduler_TimeRangeDoubleClick" 
+        TimeRangeDoubleClickHandling="CallBack" TimeRangeDoubleClickJavaScript="">
     </DayPilot:DayPilotScheduler>
     <DayPilot:DayPilotMenu ID="DayPilotEventMenu" runat="server" ClientObjectName="EventMenuCtrl"
         CssClassPrefix="menu_">

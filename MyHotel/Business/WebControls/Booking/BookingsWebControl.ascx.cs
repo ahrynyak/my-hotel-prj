@@ -17,6 +17,7 @@ namespace MyHotel.Business.WebControls.Booking
         {
             if (!Page.IsPostBack)
             {
+                BookingController.CleanCache();
                 dayPilotScheduler.Resources.Clear();
                 foreach (var item in BookingController.GetRooms())
                 {
@@ -165,30 +166,32 @@ namespace MyHotel.Business.WebControls.Booking
             refreshData(startDate, endDate, "");
         }
 
-        protected void dayPilotScheduler_Command(object sender, DayPilot.Web.Ui.Events.CommandEventArgs e)
+        protected void dayPilotScheduler_EventDoubleClick(object sender, EventClickEventArgs e)
         {
-            EventData eventData = EventData.FromJson(e.Data);
-            string[] commandData = e.Command.Split('@');
-            if (eventData != null && commandData != null && commandData.Length == 2)
+            DateTime cleaningDate = DateTime.Parse(e.Data.ToString());
+            double dateDiff = (dayPilotScheduler.StartDate - e.Start.Date).TotalDays;
+            if (dateDiff > 0) 
             {
-                DateTime cleaningDate = DateTime.Parse(commandData[1]);
-                if (commandData[0] == "Cleaning")
-                {
-                    if (BookingController.IsCleaning(int.Parse(eventData.Resource), cleaningDate))
-                    {
-                        BookingController.RemoveCleaning(int.Parse(eventData.Resource), cleaningDate);
-                    }
-                    else
-                    {
-                        BookingController.AddCleaning(int.Parse(eventData.Resource), cleaningDate);
-                    }
-                }
+                cleaningDate = cleaningDate.AddDays(dateDiff);
+            }
+            manageCleaning(e.ResourceId, cleaningDate);
+        }
+
+        private static void manageCleaning(string resourceId, DateTime cleaningDate)
+        {
+            if (BookingController.IsCleaning(int.Parse(resourceId), cleaningDate))
+            {
+                BookingController.RemoveCleaning(int.Parse(resourceId), cleaningDate);
+            }
+            else
+            {
+                BookingController.AddCleaning(int.Parse(resourceId), cleaningDate);
             }
         }
 
-        protected void dayPilotScheduler_EventDoubleClick(object sender, EventClickEventArgs e)
+        protected void dayPilotScheduler_TimeRangeDoubleClick(object sender, TimeRangeDoubleClickEventArgs e)
         {
-
+            manageCleaning(e.Resource, e.Start.Date);
         }
     }
 }
