@@ -37,8 +37,11 @@
                     <span class="MainHeaderSmall">ОЗДОРОВЛЕННЯ ТА ВІДПОЧИНОК</span>
                 </div>
                 <div id="language_bar">
-                    <img src="../../icons/ua_Flag.png"  alt="Українська" title="Українська" />
-                    <img src="../../icons/flag_ru.png"  alt="Русский" title="Русский"/>
+                    <a href="/Business/GreenHouseInfo/GreenHouseInfoUA.aspx">
+                        <img src="/icons/ua_Flag.png" alt="Українська" title="Українська" />
+                    </a><a href="/Business/GreenHouseInfo/GreenHouseInfoRU.aspx">
+                        <img src="/icons/flag_ru.png" alt="Русский" title="Русский" />
+                    </a>
                 </div>
             </div>
             <div id="greenhouse_main">
