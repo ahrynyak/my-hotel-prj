@@ -70,6 +70,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Business\GreenHouseInfo\GreenHouseInfoRU.aspx" />
     <Content Include="Business\Statistics\IncomesStatisticsForm.aspx" />
     <Content Include="Business\WebControls\Booking\BookingsWebControl.ascx" />
     <Content Include="Business\WebControls\DateRange\DateRangerControl.ascx" />
@@ -111,6 +112,13 @@
     <Compile Include="Business\Entity\Booking\RoomDetailedEntity.cs" />
     <Compile Include="Business\Entity\Booking\RoomBookingEntity.cs" />
     <Compile Include="Business\Entity\Booking\RoomEntity.cs" />
+    <Compile Include="Business\GreenHouseInfo\GreenHouseInfoRU.aspx.cs">
+      <DependentUpon>GreenHouseInfoRU.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Business\GreenHouseInfo\GreenHouseInfoRU.aspx.designer.cs">
+      <DependentUpon>GreenHouseInfoRU.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Business\Statistics\IncomesStatisticsForm.aspx.cs">
       <DependentUpon>IncomesStatisticsForm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

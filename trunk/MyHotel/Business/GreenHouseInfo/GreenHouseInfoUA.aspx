@@ -81,7 +81,7 @@
             мінеральними природно-столовими водами.
             <br />
             <span class="GreenHouseNormalTextP1">Відпочинок в Східниці </span>- це чистісіньке
-            карпатське повітря, тиша гірського поселення і якнайкращі цілющі джерела Європи
+            карпатське повітря, тиша гірського поселення і якнайкращі цілющі джерела Європи.
         </div>
         <div class="section_img">
             <obout:ImageZoom ID="imageZoomShidn" runat="server" ImageUrl="../../icons/1248809363_shidnicha.gif"
@@ -132,7 +132,7 @@
         <br />
         <%--ApartRoom--%>
         <div class="section_content">
-            <span>Cімейний </span><span class="GreenHouseNormalTextP1">двокімнатний</span> <span>
+            <span>Сімейний </span><span class="GreenHouseNormalTextP1">двокімнатний</span> <span>
                 номер - </span><span class="GreenHouseNormalTextP1">4</span> спальних місця
             <ul>
                 <li><span class="GreenHouseNormalTextP1">Двоспальне</span> ортопедичне ліжко </li>
