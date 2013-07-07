@@ -11,6 +11,7 @@
     <link href="../css/main.css" rel="stylesheet" type="text/css" />
     <link href="../css/commonStyle.css" rel="stylesheet" type="text/css" />
     <link href="../css/DayPilot/myhstyle.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="../icons/favicon.ico" />
 </head>
 <body>
     <form id="MyHotelMgmtForm" runat="server">
