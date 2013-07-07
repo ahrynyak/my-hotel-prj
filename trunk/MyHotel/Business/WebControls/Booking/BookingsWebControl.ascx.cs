@@ -165,16 +165,16 @@ namespace MyHotel.Business.WebControls.Booking
             refreshData(startDate, endDate, "");
         }
 
-        protected void dayPilotScheduler_EventDoubleClick(object sender, EventClickEventArgs e)
-        {
-            DateTime cleaningDate = DateTime.Parse(e.Data.ToString());
-            double dateDiff = (dayPilotScheduler.StartDate - e.Start.Date).TotalDays;
-            if (dateDiff > 0) 
-            {
-                cleaningDate = cleaningDate.AddDays(dateDiff);
-            }
-            manageCleaning(e.ResourceId, cleaningDate);
-        }
+        //protected void dayPilotScheduler_EventDoubleClick(object sender, EventClickEventArgs e)
+        //{
+        //    DateTime cleaningDate = DateTime.Parse(e.Data.ToString());
+        //    double dateDiff = (dayPilotScheduler.StartDate - e.Start.Date).TotalDays;
+        //    if (dateDiff > 0) 
+        //    {
+        //        cleaningDate = cleaningDate.AddDays(dateDiff);
+        //    }
+        //    manageCleaning(e.ResourceId, cleaningDate);
+        //}
 
         private static void manageCleaning(string resourceId, DateTime cleaningDate)
         {
