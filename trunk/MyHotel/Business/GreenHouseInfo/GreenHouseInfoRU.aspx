@@ -7,7 +7,7 @@
 </asp:Content>
 <asp:Content ID="Content7" ContentPlaceHolderID="GreenHouseContentPlaceHolderTabHomeName"
     runat="server">
-    <p>
+    <p class="tabHeaderTextStyle">
         О Нас</p>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="GreenHouseContentPlaceHolderTabHome"
@@ -93,7 +93,7 @@
 </asp:Content>
 <asp:Content ID="Content8" ContentPlaceHolderID="GreenHouseContentPlaceHolderTabRoomsName"
     runat="server">
-    <p>
+    <p class="tabHeaderTextStyle">
         Проживание
     </p>
 </asp:Content>
@@ -210,7 +210,7 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content12" runat="server" ContentPlaceHolderID="GreenHouseContentPlaceHolderTabServiceName">
-    <p>
+    <p class="tabHeaderTextStyle">
         Услуги
     </p>
 </asp:Content>
@@ -262,7 +262,7 @@
 </asp:Content>
 <asp:Content ID="Content9" ContentPlaceHolderID="GreenHouseContentPlaceHolderTabPricesName"
     runat="server">
-    <p>
+    <p class="tabHeaderTextStyle">
         Цены
     </p>
 </asp:Content>
@@ -314,7 +314,7 @@
 </asp:Content>
 <asp:Content ID="Content10" ContentPlaceHolderID="GreenHouseContentPlaceHolderTabPhotosName"
     runat="server">
-    <p>
+    <p class="tabHeaderTextStyle">
         Галерея
     </p>
 </asp:Content>
@@ -331,7 +331,7 @@
 </asp:Content>
 <asp:Content ID="Content11" ContentPlaceHolderID="ContentPlaceHolderContactsName"
     runat="server">
-    <p>
+    <p class="tabHeaderTextStyle">
         Контакты
     </p>
 </asp:Content>
