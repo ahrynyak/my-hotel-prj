@@ -64,6 +64,12 @@ body
 	margin-top: 5px;
 	letter-spacing: 5px;
 }
+
+.tabHeaderTextStyle
+{
+    cursor: default;
+}
+
 /*---Main style start---*/
 
 /*---Section layout style begin---*/
