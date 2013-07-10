@@ -8,6 +8,7 @@ using MyHotel.Business.Entity;
 using MyHotel.Utils;
 using System.Web.UI;
 using MyHotel.Business.Entity.Booking;
+using MyHotel.Business.Entity.Common;
 
 namespace MyHotel.Business.WebControls.Booking
 {
@@ -270,6 +271,44 @@ namespace MyHotel.Business.WebControls.Booking
         public static void CleanCache()
         {
             cleaningList = null;
+        }
+
+        public static List<StatisticalInfo> GetStatisticalList(DateTime startDate, DateTime endDate)
+        {
+            List<StatisticalInfo> result = new List<StatisticalInfo>();
+            using (DataClassesDataContext dataContext = HelperCommon.GetDataContext())
+            {
+                TimeSpan diff = endDate - startDate;
+                int days = diff.Days;
+                for (var i = 0; i <= days; i++)
+                {
+                    var testDate = startDate.AddDays(i);
+                    switch (testDate.DayOfWeek)
+                    {
+                        case DayOfWeek.Sunday:
+                            DateTime weekStartDate = testDate.Date.AddDays(-6);
+                            DateTime weekEndDate = testDate.Date.AddDays(1).AddTicks(-1);
+                            StatisticalInfo statisticalInfo = new StatisticalInfo() { WeekStartDate = weekStartDate, WeekEndDate = weekEndDate };
+                            result.Add(statisticalInfo);
+                            statisticalInfo.AmountOfCheckIn = dataContext.RoomBookings.Count(s => (s.StartDate >= weekStartDate && s.StartDate <= weekEndDate));
+                            statisticalInfo.AmountOfCleaning = dataContext.Cleanings.Count(s => s.DateOfCleaning >= weekStartDate && s.DateOfCleaning <= weekEndDate);
+                            TimeSpan weekDiff = weekEndDate - weekStartDate;
+                            int workDays = 0;
+                            for (int y = 0; y < weekDiff.Days + 1; y++)
+                            {
+                                DateTime day = weekStartDate.AddDays(y + 1).AddTicks(-1);
+                                if (dataContext.RoomBookings.Any(s => (s.StartDate <= day && s.EndDate >= day)))
+                                {
+                                    workDays++;
+                                }
+                            }
+                            statisticalInfo.AmountOfWorkDay = workDays;
+                            break;
+                    }
+                }
+
+            }
+            return result;
         }
     }
 }

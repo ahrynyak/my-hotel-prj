@@ -106,6 +106,7 @@
     <Content Include="MasterPages\GreenHouseInfo.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Business\Entity\Common\StatisticalInfo.cs" />
     <Compile Include="Business\Entity\Expenses\ExpensesDetailsEntity.cs" />
     <Compile Include="Business\Entity\Expenses\ExpensesItemsEntity.cs" />
     <Compile Include="Business\Entity\Incomes\IncomeByRoomEntity.cs" />
