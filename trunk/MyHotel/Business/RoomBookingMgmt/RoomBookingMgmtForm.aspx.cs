@@ -27,7 +27,7 @@ namespace MyHotel.Business.RoomBookingMgmt
 
         private static DateTime getDefaultEndDate()
         {
-            return DateTime.Now.AddMonths(6);
+            return DateTime.Now.AddMonths(3);
         }
 
         protected override void OnInit(EventArgs e)
