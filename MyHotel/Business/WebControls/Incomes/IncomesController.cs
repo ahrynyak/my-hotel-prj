@@ -29,7 +29,7 @@ namespace MyHotel.Business.WebControls.Incomes
                         double totalSum = allDataByStatus.Sum(s =>
                              (double)
                              (
-                                 ((s.EndDate <= endDate ? s.EndDate : endDate) - (s.StartDate >= startDate ? s.StartDate : startDate)).TotalDays
+                                 ((s.EndDate <= endDate ? s.EndDate : endDate.AddDays(1)) - (s.StartDate >= startDate ? s.StartDate : startDate)).TotalDays
                                  *
                                  (s.PricePerRoom + s.PriceOfAdditionalBed)
                              ));
