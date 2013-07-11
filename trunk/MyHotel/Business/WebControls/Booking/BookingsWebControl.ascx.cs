@@ -8,6 +8,7 @@ using MyHotel.Business.Entity.Booking;
 using MyHotel.Utils;
 using MyHotel.Business.Entity;
 using DayPilot.Web.Ui.Events;
+using MyHotel.Business.Entity.Common;
 
 namespace MyHotel.Business.WebControls.Booking
 {
@@ -90,7 +91,19 @@ namespace MyHotel.Business.WebControls.Booking
                 // sets the column header
                 if (e.Start.DayOfWeek == DayOfWeek.Sunday)
                 {
-                    e.InnerHTML = @"<span class=""sundayheaderstyle""> <strong>" + e.Start.ToString("dd (ddd)") + "</strong> </span>";
+                    string title = string.Empty;
+                    if (statisticalList.Any())
+                    {
+                        var statistic = statisticalList.FirstOrDefault(s => s.WeekEndDate.Date == e.Start.Date);
+                        if (statistic != null)
+                        {
+                            title += "Період: " + statistic.WeekStartDate.ToString("dd.MM") + " - " + statistic.WeekEndDate.ToString("dd.MM") + Environment.NewLine;
+                            title += "Роб. дні: " + statistic.AmountOfWorkingDays + Environment.NewLine;
+                            title += "Поселення: " + statistic.AmountOfCheckIns + Environment.NewLine;
+                            title += "Прибирання: " + statistic.AmountOfCleaning + Environment.NewLine;
+                        }
+                    }
+                    e.InnerHTML = @"<span class=""sundayheaderstyle"" " + (string.IsNullOrEmpty(title) ? "" : "title=" + "\"" + title + "\"") + "> <strong>" + e.Start.ToString("dd (ddd)") + "</strong> </span>";
                 }
                 else
                 {
@@ -141,6 +154,8 @@ namespace MyHotel.Business.WebControls.Booking
             e.InnerHTML = e.InnerHTML + String.Format("<br /><span class='" + cssClassName + "' >{0}</span>", e.ToolTip);
         }
 
+        List<StatisticalInfo> statisticalList = new List<StatisticalInfo>();
+
         private void refreshData(DateTime startDate, DateTime endDate, string message)
         {
             dayPilotScheduler.StartDate = startDate;
@@ -160,9 +175,13 @@ namespace MyHotel.Business.WebControls.Booking
             }
         }
 
-        public void Refresh(DateTime startDate, DateTime endDate)
+        public void Refresh(DateTime startDate, DateTime endDate, bool needLoadStatisticalInfo = false)
         {
             refreshData(startDate, endDate, "");
+            if (needLoadStatisticalInfo)
+            {
+                statisticalList = BookingController.GetStatisticalList(startDate, endDate);
+            }
         }
 
         //protected void dayPilotScheduler_EventDoubleClick(object sender, EventClickEventArgs e)

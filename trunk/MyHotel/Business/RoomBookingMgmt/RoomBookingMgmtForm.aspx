@@ -9,6 +9,8 @@
         <DateRanger:DateRangerControl runat="server" ID="DateRangerPeriod" />
         <asp:CheckBox ID="CheckBoxEditPast" runat="server" Text="Редагування минулого" AutoPostBack="True"
             OnCheckedChanged="CheckBoxEditPast_CheckedChanged" ToolTip="Дозволяє додавати або редагувати дані за минулий період" />
+        <asp:CheckBox ID="CheckBoxNeedLoadStatisticalInfo" runat="server" Text="Тижнева статистика"
+            AutoPostBack="True" OnCheckedChanged="CheckBoxNeedLoadStatisticalInfo_CheckedChanged" ToolTip="При наведенні курсора на неділю показує статистику за цей тиждень" />
         <hr />
     </div>
     <div>
