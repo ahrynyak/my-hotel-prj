@@ -9,9 +9,9 @@ namespace MyHotel.Business.Entity.Common
     {
         public int AmountOfCleaning { get; set; }
 
-        public int AmountOfCheckIn { get; set; }
+        public int AmountOfCheckIns { get; set; }
 
-        public int AmountOfWorkDay { get; set; }
+        public int AmountOfWorkingDays { get; set; }
 
         public DateTime WeekStartDate { get; set; }
         

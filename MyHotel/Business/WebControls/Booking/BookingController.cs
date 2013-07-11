@@ -15,6 +15,8 @@ namespace MyHotel.Business.WebControls.Booking
     public class BookingController
     {
         public static bool IsEditPastEnabled { get; set; }
+        public static bool IsStatisticalInfoNeeded { get; set; }
+
         private static List<string> cleaningList;
 
         public static List<RoomEntity> GetRooms()
@@ -290,7 +292,7 @@ namespace MyHotel.Business.WebControls.Booking
                             DateTime weekEndDate = testDate.Date.AddDays(1).AddTicks(-1);
                             StatisticalInfo statisticalInfo = new StatisticalInfo() { WeekStartDate = weekStartDate, WeekEndDate = weekEndDate };
                             result.Add(statisticalInfo);
-                            statisticalInfo.AmountOfCheckIn = dataContext.RoomBookings.Count(s => (s.StartDate >= weekStartDate && s.StartDate <= weekEndDate));
+                            statisticalInfo.AmountOfCheckIns = dataContext.RoomBookings.Count(s => (s.StartDate >= weekStartDate && s.StartDate <= weekEndDate));
                             statisticalInfo.AmountOfCleaning = dataContext.Cleanings.Count(s => s.DateOfCleaning >= weekStartDate && s.DateOfCleaning <= weekEndDate);
                             TimeSpan weekDiff = weekEndDate - weekStartDate;
                             int workDays = 0;
@@ -302,7 +304,7 @@ namespace MyHotel.Business.WebControls.Booking
                                     workDays++;
                                 }
                             }
-                            statisticalInfo.AmountOfWorkDay = workDays;
+                            statisticalInfo.AmountOfWorkingDays = workDays;
                             break;
                     }
                 }

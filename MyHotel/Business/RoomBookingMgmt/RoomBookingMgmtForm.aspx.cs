@@ -48,10 +48,11 @@ namespace MyHotel.Business.RoomBookingMgmt
                 {
                     DateRangerPeriod.SetDateRange(getDefaultStartDate(), getDefaultEndDate());
                     CheckBoxEditPast.Checked = BookingController.IsEditPastEnabled;
+                    CheckBoxNeedLoadStatisticalInfo.Checked = BookingController.IsStatisticalInfoNeeded;
                 }
                 else
                 {
-                    BookingViewCtrl.Refresh(DateRangerPeriod.GetStartDate(), DateRangerPeriod.GetEndDate());
+                    BookingViewCtrl.Refresh(DateRangerPeriod.GetStartDate(), DateRangerPeriod.GetEndDate(), BookingController.IsStatisticalInfoNeeded);
                 }
             }
             else
@@ -62,12 +63,18 @@ namespace MyHotel.Business.RoomBookingMgmt
 
         void DateRangerPeriod_DateChanged(object sender, WebControls.DateRange.DateEventArgs e)
         {
-            BookingViewCtrl.Refresh(e.StartDate, e.EndDate);
+            BookingViewCtrl.Refresh(e.StartDate, e.EndDate, BookingController.IsStatisticalInfoNeeded);
         }
 
         protected void CheckBoxEditPast_CheckedChanged(object sender, EventArgs e)
         {
             BookingController.IsEditPastEnabled = ((CheckBox)sender).Checked;
+        }
+
+        protected void CheckBoxNeedLoadStatisticalInfo_CheckedChanged(object sender, EventArgs e)
+        {
+            BookingController.IsStatisticalInfoNeeded = ((CheckBox)sender).Checked;
+            BookingViewCtrl.Refresh(DateRangerPeriod.GetStartDate(), DateRangerPeriod.GetEndDate(), BookingController.IsStatisticalInfoNeeded);
         }
     }
 }
