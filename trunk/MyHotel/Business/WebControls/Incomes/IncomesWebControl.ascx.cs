@@ -49,8 +49,6 @@ namespace MyHotel.Business.WebControls.Incomes
             }
             header.Cells.Add(new TableCell() { Text = "Сума", RowSpan = 2, CssClass = "incomesTotalHeaderColl" });
 
-            header.Cells.Add(new TableCell() { Text = "Оплачено", RowSpan = 2, CssClass = "incomesAlreadyPaidHeaderColl" });
-
             result.Add(header);
             result.Add(subHeader);
             return result;
@@ -96,8 +94,6 @@ namespace MyHotel.Business.WebControls.Incomes
             result.Add(tableRowDays);
             result.Add(tableRowPercent);
 
-            tableRowSum.Cells.Add(new TableCell() { Text = incomeByRoomEntity.AlreadyPaid.ToString(HelperCommon.DoubleFormat), RowSpan = 4, CssClass = "incomesAlreadyPaidDataRow" });
-
             return result;
         }
 
@@ -139,8 +135,6 @@ namespace MyHotel.Business.WebControls.Incomes
             tableRowDays.Cells.Add(new TableCell() { Text = allDaysByRow.Where(s => s > 0).Sum().ToString(HelperCommon.DoubleFormat), CssClass = "incomesTotalHeaderSubRow" });
 
             tableRowPercent.Cells.Add(new TableCell() { Text = allPercentByRow.Where(s => s > 0).Sum().ToString(HelperCommon.DoubleFormat), CssClass = "incomesTotalHeaderSubRow" });
-
-            tableRowSum.Cells.Add(new TableCell() { Text = allIncomes.Sum(s => s.AlreadyPaid).ToString(HelperCommon.DoubleFormat), RowSpan = 4, CssClass = "incomesAlreadyPaidDataRow" });
 
             return result;
         }

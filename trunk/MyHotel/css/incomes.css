@@ -38,13 +38,6 @@
     text-align:center; 
     font-weight:bold;
 }
-.incomesAlreadyPaidHeaderColl
-{
-    background-color: #eeeeee;
-    text-align:center;  
-    font-weight:bold;
-    width:100px;
-}
 /*Header end*/
 /*Data row begin*/
 .incomesRoomNameDataRow
@@ -69,12 +62,6 @@
     text-align:center;  
 }
 .incomesTotalDataRow
-{
-    background-color: #eeeeee;
-    text-align:center; 
-    font-weight:bold; 
-}
-.incomesAlreadyPaidDataRow
 {
     background-color: #eeeeee;
     text-align:center; 
