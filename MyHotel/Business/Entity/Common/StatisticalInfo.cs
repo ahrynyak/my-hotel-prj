@@ -13,6 +13,8 @@ namespace MyHotel.Business.Entity.Common
 
         public int AmountOfWorkingDays { get; set; }
 
+        public int AmountOfExtraWorkingDays { get; set; }
+
         public DateTime WeekStartDate { get; set; }
         
         public DateTime WeekEndDate { get; set; }
