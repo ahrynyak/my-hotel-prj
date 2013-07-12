@@ -15,6 +15,8 @@ using System.Globalization;
 using System.Web.Security;
 using MyHotel.Business.Entity;
 using MyHotel.Business.WebControls.Booking;
+using MyHotel.Business.Entity.Common;
+using System.Web.Services;
 
 namespace MyHotel.Business.RoomBookingMgmt
 {
@@ -68,6 +70,22 @@ namespace MyHotel.Business.RoomBookingMgmt
         protected void CheckBoxEditPast_CheckedChanged(object sender, EventArgs e)
         {
             BookingController.IsEditPastEnabled = ((CheckBox)sender).Checked;
+        }
+
+        [WebMethod]
+        public static string GetStatisticalInfo(string dateStr)
+        {
+            string result = string.Empty;
+            DateTime date = DateTime.Parse(dateStr).Date;
+            StatisticalInfo statistic = BookingController.GetStatisticalList(date);
+            if (statistic != null)
+            {
+                result += "Період: " + statistic.WeekStartDate.ToString("dd-MM") + " - " + statistic.WeekEndDate.ToString("dd-MM") + Environment.NewLine;
+                result += "Роб. дні: " + statistic.AmountOfWorkingDays + Environment.NewLine;
+                result += "Поселення: " + statistic.AmountOfCheckIns + Environment.NewLine;
+                result += "Прибирання: " + statistic.AmountOfCleaning + Environment.NewLine;
+            }
+            return result;
         }
     }
 }

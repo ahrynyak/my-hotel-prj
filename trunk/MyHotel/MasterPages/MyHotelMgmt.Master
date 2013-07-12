@@ -25,7 +25,7 @@
             }
         };
     </script>
-    <asp:ScriptManager ID="ScriptManager1" runat="server" EnableScriptGlobalization="true">
+    <asp:ScriptManager ID="ScriptManager1" runat="server" EnableScriptGlobalization="true" EnablePageMethods="true">
     </asp:ScriptManager>
     <div class="main_div">
         <div class="main_header_div">

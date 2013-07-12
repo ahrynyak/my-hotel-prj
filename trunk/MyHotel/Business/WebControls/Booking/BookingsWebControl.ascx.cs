@@ -9,6 +9,7 @@ using MyHotel.Utils;
 using MyHotel.Business.Entity;
 using DayPilot.Web.Ui.Events;
 using MyHotel.Business.Entity.Common;
+using System.Web.Services;
 
 namespace MyHotel.Business.WebControls.Booking
 {
@@ -91,8 +92,7 @@ namespace MyHotel.Business.WebControls.Booking
                 // sets the column header
                 if (e.Start.DayOfWeek == DayOfWeek.Sunday)
                 {
-                    //onclick=\"showStatistic(\'{3}\',\'{4}\')\"
-                    e.InnerHTML = @"<span class=""sundayheaderstyle""> <strong>" + e.Start.ToString("dd (ddd)") + "</strong> </span>";
+                    e.InnerHTML = @"<span title=""Клікніть щоб подивитись статистику за тиждень"" " + string.Format("onclick=\"javascript:ShowStatistic(\'{0}\',\'{1}\')\"", e.Start.Ticks, e.Start.Date.ToShortDateString()) + @" class=""sundayheaderstyle"" id=""" + e.Start.Ticks.ToString() + @"""> <strong>" + e.Start.ToString("dd (ddd)") + "</strong> </span>";
                 }
                 else
                 {
@@ -193,20 +193,6 @@ namespace MyHotel.Business.WebControls.Booking
         protected void dayPilotScheduler_TimeRangeDoubleClick(object sender, TimeRangeDoubleClickEventArgs e)
         {
             manageCleaning(e.Resource, e.Start.Date);
-        }
-
-        public static string GetStatisticalInfo(DateTime date)
-        {
-            string result = string.Empty;
-            StatisticalInfo statistic = BookingController.GetStatisticalList(date);
-            if (statistic != null)
-            {
-                result += "Період: " + statistic.WeekStartDate.ToString("dd.MM") + " - " + statistic.WeekEndDate.ToString("dd.MM") + Environment.NewLine;
-                result += "Роб. дні: " + statistic.AmountOfWorkingDays + Environment.NewLine;
-                result += "Поселення: " + statistic.AmountOfCheckIns + Environment.NewLine;
-                result += "Прибирання: " + statistic.AmountOfCleaning + Environment.NewLine;
-            }
-            return result;
         }
     }
 }
