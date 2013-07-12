@@ -93,3 +93,5 @@ CREATE TABLE [Cleaning]
 	RoomID int FOREIGN KEY REFERENCES [Room](RoomID) NOT NULL,
 	DateOfCleaning date NOT NULL
 )
+ALTER TABLE Cleaning
+ADD UNIQUE(RoomID, DateOfCleaning) 
