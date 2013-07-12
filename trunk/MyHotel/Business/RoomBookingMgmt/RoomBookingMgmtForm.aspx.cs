@@ -76,7 +76,7 @@ namespace MyHotel.Business.RoomBookingMgmt
         public static string GetStatisticalInfo(string dateStr)
         {
             string result = string.Empty;
-            DateTime date = DateTime.Parse(dateStr).Date;
+            DateTime date = new DateTime(long.Parse(dateStr)).Date;
             StatisticalInfo statistic = BookingController.GetStatisticalList(date);
             if (statistic != null)
             {
