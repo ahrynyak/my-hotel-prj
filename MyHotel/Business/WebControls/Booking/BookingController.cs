@@ -287,7 +287,15 @@ namespace MyHotel.Business.WebControls.Booking
         {
             using (DataClassesDataContext dataContext = HelperCommon.GetDataContext())
             {
-                DateTime testDate = Next(date, DayOfWeek.Sunday);
+                DateTime testDate = DateTime.MinValue;
+                if (date.DayOfWeek != DayOfWeek.Sunday)
+                {
+                    testDate = Next(date, DayOfWeek.Sunday);
+                }
+                else
+                {
+                    testDate = date.Date;
+                }
                 DateTime weekStartDate = testDate.Date.AddDays(-6);
                 DateTime weekEndDate = testDate.Date.AddDays(1).AddTicks(-1);
                 StatisticalInfo result = new StatisticalInfo() { WeekStartDate = weekStartDate, WeekEndDate = weekEndDate };

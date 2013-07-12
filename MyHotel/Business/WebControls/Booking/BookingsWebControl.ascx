@@ -27,6 +27,21 @@
         modal.showUrl("/Business/WebControls/Booking/RoomBookingDetailsForm.aspx?id=" + id);
     }
 
+    function ShowStatistic(dest, dateStr) {
+        // call server side method
+        PageMethods.GetStatisticalInfo(dateStr, CallSuccess, CallFailed, dest);
+    }
+
+    // set the destination textbox value with the ContactName
+    function CallSuccess(res, destCtrl) {
+        var dest = document.getElementById(destCtrl);
+        dest.setAttribute("title", res);
+    }
+
+    // alert message on some failure
+    function CallFailed(res, destCtrl) {
+        alert(res.get_message());
+    }
 </script>
 <div>
     <DayPilot:DayPilotScheduler runat="server" ID="dayPilotScheduler" RowHeaderColumnWidths="150"
