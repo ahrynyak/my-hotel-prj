@@ -91,20 +91,8 @@ namespace MyHotel.Business.WebControls.Booking
                 // sets the column header
                 if (e.Start.DayOfWeek == DayOfWeek.Sunday)
                 {
-                    string title = string.Empty;
-                    if (statisticalList.Any())
-                    {
-                        var statistic = statisticalList.FirstOrDefault(s => s.WeekEndDate.Date == e.Start.Date);
-                        if (statistic != null)
-                        {
-                            title += "Період: " + statistic.WeekStartDate.ToString("dd.MM") + " - " + statistic.WeekEndDate.ToString("dd.MM") + Environment.NewLine;
-                            title += "Роб. дні: " + statistic.AmountOfWorkingDays + Environment.NewLine;
-                            title += "Поселення: " + statistic.AmountOfCheckIns + Environment.NewLine;
-                            title += "Прибирання: " + statistic.AmountOfCleaning + Environment.NewLine;
-                        }
-                    }
                     //onclick=\"showStatistic(\'{3}\',\'{4}\')\"
-                    e.InnerHTML = @"<span class=""sundayheaderstyle"" " + (string.IsNullOrEmpty(title) ? "" : "title=" + "\"" + title + "\"") + "> <strong>" + e.Start.ToString("dd (ddd)") + "</strong> </span>";
+                    e.InnerHTML = @"<span class=""sundayheaderstyle""> <strong>" + e.Start.ToString("dd (ddd)") + "</strong> </span>";
                 }
                 else
                 {
@@ -112,8 +100,6 @@ namespace MyHotel.Business.WebControls.Booking
                 }
             }
         }
-
-        
 
         protected void dayPilotScheduler_BeforeCellRender(object sender, DayPilot.Web.Ui.Events.BeforeCellRenderEventArgs e)
         {
@@ -147,7 +133,7 @@ namespace MyHotel.Business.WebControls.Booking
                     {
                         guestInfo = guestInfo + String.Format("<br />Інфо: {0}", roomBookingEntity.AdditionalInfo);
                     }
-                    e.InnerHTML = "<span title='" + guestInfo.Replace("<br />", Environment.NewLine) + "'>" + guestInfo + "</span>";
+                    e.InnerHTML = "<span result='" + guestInfo.Replace("<br />", Environment.NewLine) + "'>" + guestInfo + "</span>";
                 }
             }
 
@@ -156,8 +142,6 @@ namespace MyHotel.Business.WebControls.Booking
             e.ToolTip = status.ToString();
             e.InnerHTML = e.InnerHTML + String.Format("<br /><span class='" + cssClassName + "' >{0}</span>", e.ToolTip);
         }
-
-        List<StatisticalInfo> statisticalList = new List<StatisticalInfo>();
 
         private void refreshData(DateTime startDate, DateTime endDate, string message)
         {
@@ -209,6 +193,20 @@ namespace MyHotel.Business.WebControls.Booking
         protected void dayPilotScheduler_TimeRangeDoubleClick(object sender, TimeRangeDoubleClickEventArgs e)
         {
             manageCleaning(e.Resource, e.Start.Date);
+        }
+
+        public static string GetStatisticalInfo(DateTime date)
+        {
+            string result = string.Empty;
+            StatisticalInfo statistic = BookingController.GetStatisticalList(date);
+            if (statistic != null)
+            {
+                result += "Період: " + statistic.WeekStartDate.ToString("dd.MM") + " - " + statistic.WeekEndDate.ToString("dd.MM") + Environment.NewLine;
+                result += "Роб. дні: " + statistic.AmountOfWorkingDays + Environment.NewLine;
+                result += "Поселення: " + statistic.AmountOfCheckIns + Environment.NewLine;
+                result += "Прибирання: " + statistic.AmountOfCleaning + Environment.NewLine;
+            }
+            return result;
         }
     }
 }

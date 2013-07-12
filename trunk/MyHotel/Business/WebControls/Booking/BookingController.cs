@@ -274,42 +274,38 @@ namespace MyHotel.Business.WebControls.Booking
             cleaningList = null;
         }
 
-        public static List<StatisticalInfo> GetStatisticalList(DateTime startDate, DateTime endDate)
+        public static DateTime Next(DateTime from, DayOfWeek dayOfWeek)
         {
-            List<StatisticalInfo> result = new List<StatisticalInfo>();
+            int start = (int)from.DayOfWeek;
+            int target = (int)dayOfWeek;
+            if (target <= start)
+                target += 7;
+            return from.AddDays(target - start);
+        }
+
+        public static StatisticalInfo GetStatisticalList(DateTime date)
+        {
             using (DataClassesDataContext dataContext = HelperCommon.GetDataContext())
             {
-                TimeSpan diff = endDate - startDate;
-                int days = diff.Days;
-                for (var i = 0; i <= days; i++)
+                DateTime testDate = Next(date, DayOfWeek.Sunday);
+                DateTime weekStartDate = testDate.Date.AddDays(-6);
+                DateTime weekEndDate = testDate.Date.AddDays(1).AddTicks(-1);
+                StatisticalInfo result = new StatisticalInfo() { WeekStartDate = weekStartDate, WeekEndDate = weekEndDate };
+                result.AmountOfCheckIns = dataContext.RoomBookings.Count(s => (s.StartDate >= weekStartDate && s.StartDate <= weekEndDate));
+                result.AmountOfCleaning = dataContext.Cleanings.Count(s => s.DateOfCleaning >= weekStartDate && s.DateOfCleaning <= weekEndDate);
+                TimeSpan weekDiff = weekEndDate - weekStartDate;
+                int workDays = 0;
+                for (int y = 0; y < weekDiff.Days + 1; y++)
                 {
-                    var testDate = startDate.AddDays(i);
-                    switch (testDate.DayOfWeek)
+                    DateTime day = weekStartDate.AddDays(y + 1).AddTicks(-1);
+                    if (dataContext.RoomBookings.Any(s => (s.StartDate <= day && s.EndDate >= day)))
                     {
-                        case DayOfWeek.Sunday:
-                            DateTime weekStartDate = testDate.Date.AddDays(-6);
-                            DateTime weekEndDate = testDate.Date.AddDays(1).AddTicks(-1);
-                            StatisticalInfo statisticalInfo = new StatisticalInfo() { WeekStartDate = weekStartDate, WeekEndDate = weekEndDate };
-                            result.Add(statisticalInfo);
-                            statisticalInfo.AmountOfCheckIns = dataContext.RoomBookings.Count(s => (s.StartDate >= weekStartDate && s.StartDate <= weekEndDate));
-                            statisticalInfo.AmountOfCleaning = dataContext.Cleanings.Count(s => s.DateOfCleaning >= weekStartDate && s.DateOfCleaning <= weekEndDate);
-                            TimeSpan weekDiff = weekEndDate - weekStartDate;
-                            int workDays = 0;
-                            for (int y = 0; y < weekDiff.Days + 1; y++)
-                            {
-                                DateTime day = weekStartDate.AddDays(y + 1).AddTicks(-1);
-                                if (dataContext.RoomBookings.Any(s => (s.StartDate <= day && s.EndDate >= day)))
-                                {
-                                    workDays++;
-                                }
-                            }
-                            statisticalInfo.AmountOfWorkingDays = workDays;
-                            break;
+                        workDays++;
                     }
                 }
-
+                result.AmountOfWorkingDays = workDays;
+                return result;
             }
-            return result;
         }
     }
 }
