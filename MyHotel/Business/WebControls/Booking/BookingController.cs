@@ -15,7 +15,6 @@ namespace MyHotel.Business.WebControls.Booking
     public class BookingController
     {
         public static bool IsEditPastEnabled { get; set; }
-        public static bool IsStatisticalInfoNeeded { get; set; }
 
         private static List<string> cleaningList;
 
