@@ -92,7 +92,7 @@ namespace MyHotel.Business.WebControls.Booking
                 // sets the column header
                 if (e.Start.DayOfWeek == DayOfWeek.Sunday)
                 {
-                    e.InnerHTML = @"<span title=""Клікніть щоб подивитись статистику за тиждень"" " + string.Format("ondblclick=\"javascript:ShowStatistic(\'{0}\',\'{1}\')\"", e.Start.Ticks, e.Start.Date.ToShortDateString()) + @" class=""sundayheaderstyle"" id=""" + e.Start.Ticks.ToString() + @"""> <strong>" + e.Start.ToString("dd (ddd)") + "</strong> </span>";
+                    e.InnerHTML = @"<span title=""Подвійний клік для перегляду статистики"" " + string.Format("ondblclick=\"javascript:ShowStatistic(\'{0}\',\'{1}\')\"", e.Start.Ticks, e.Start.Date.ToShortDateString()) + @" class=""sundayheaderstyle"" id=""" + e.Start.Ticks.ToString() + @"""> <strong>" + e.Start.ToString("dd (ddd)") + "</strong> </span>";
                 }
                 else
                 {
