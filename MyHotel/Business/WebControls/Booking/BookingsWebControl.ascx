@@ -27,12 +27,12 @@
         modal.showUrl("/Business/WebControls/Booking/RoomBookingDetailsForm.aspx?id=" + id);
     }
 
-    function ShowStatistic(destCtrl, dateStr) {
+    function ShowStatistic(destCtrl) {
         document.body.style.cursor = 'wait'
         var dest = document.getElementById(destCtrl);
         dest.setAttribute("title", 'Зачекайте...');
         // call server side method
-        PageMethods.GetStatisticalInfo(dateStr, CallSuccess, CallFailed, destCtrl);
+        PageMethods.GetStatisticalInfo(destCtrl, CallSuccess, CallFailed, destCtrl);
     }
 
     // set the destination textbox value with the ContactName
