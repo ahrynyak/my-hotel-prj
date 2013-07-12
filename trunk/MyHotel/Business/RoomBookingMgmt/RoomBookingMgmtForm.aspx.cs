@@ -80,8 +80,9 @@ namespace MyHotel.Business.RoomBookingMgmt
             StatisticalInfo statistic = BookingController.GetStatisticalList(date);
             if (statistic != null)
             {
-                result += "Період: " + statistic.WeekStartDate.ToString("dd-MM") + " - " + statistic.WeekEndDate.ToString("dd-MM") + Environment.NewLine;
+                result += "Період: " + statistic.WeekStartDate.ToString("dd.MM") + " - " + statistic.WeekEndDate.ToString("dd.MM") + Environment.NewLine;
                 result += "Роб. дні: " + statistic.AmountOfWorkingDays + Environment.NewLine;
+                result += "Бонус: " + statistic.AmountOfExtraWorkingDays + Environment.NewLine;
                 result += "Поселення: " + statistic.AmountOfCheckIns + Environment.NewLine;
                 result += "Прибирання: " + statistic.AmountOfCleaning + Environment.NewLine;
             }

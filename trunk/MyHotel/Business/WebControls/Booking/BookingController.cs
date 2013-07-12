@@ -303,15 +303,22 @@ namespace MyHotel.Business.WebControls.Booking
                 result.AmountOfCleaning = dataContext.Cleanings.Count(s => s.DateOfCleaning >= weekStartDate && s.DateOfCleaning <= weekEndDate);
                 TimeSpan weekDiff = weekEndDate - weekStartDate;
                 int workDays = 0;
+                int extraWorkDays = 0;
                 for (int y = 0; y < weekDiff.Days + 1; y++)
                 {
                     DateTime day = weekStartDate.AddDays(y + 1).AddTicks(-1);
-                    if (dataContext.RoomBookings.Any(s => (s.StartDate <= day && s.EndDate >= day)))
+                    var rbPerDay = dataContext.RoomBookings.Where(s => (s.StartDate <= day && s.EndDate >= day));
+                    if (rbPerDay.Any(s => (s.StartDate <= day && s.EndDate >= day)))
                     {
                         workDays++;
                     }
+                    if (rbPerDay.Select(s => s.RoomID).Count() > 3)
+                    {
+                        extraWorkDays += rbPerDay.Select(s => s.RoomID).Distinct().Count() - 3;
+                    }
                 }
                 result.AmountOfWorkingDays = workDays;
+                result.AmountOfExtraWorkingDays = extraWorkDays;
                 return result;
             }
         }

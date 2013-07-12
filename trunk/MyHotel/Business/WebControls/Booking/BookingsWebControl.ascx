@@ -28,6 +28,7 @@
     }
 
     function ShowStatistic(dest, dateStr) {
+        document.body.style.cursor = 'wait'
         // call server side method
         PageMethods.GetStatisticalInfo(dateStr, CallSuccess, CallFailed, dest);
     }
@@ -36,10 +37,12 @@
     function CallSuccess(res, destCtrl) {
         var dest = document.getElementById(destCtrl);
         dest.setAttribute("title", res);
+        document.body.style.cursor = 'default';
     }
 
     // alert message on some failure
     function CallFailed(res, destCtrl) {
+        document.body.style.cursor = 'default';
         alert(res.get_message());
     }
 </script>
