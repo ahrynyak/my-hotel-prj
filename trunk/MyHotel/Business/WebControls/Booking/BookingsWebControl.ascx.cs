@@ -103,6 +103,7 @@ namespace MyHotel.Business.WebControls.Booking
                             title += "Прибирання: " + statistic.AmountOfCleaning + Environment.NewLine;
                         }
                     }
+                    //onclick=\"showStatistic(\'{3}\',\'{4}\')\"
                     e.InnerHTML = @"<span class=""sundayheaderstyle"" " + (string.IsNullOrEmpty(title) ? "" : "title=" + "\"" + title + "\"") + "> <strong>" + e.Start.ToString("dd (ddd)") + "</strong> </span>";
                 }
                 else
@@ -111,6 +112,8 @@ namespace MyHotel.Business.WebControls.Booking
                 }
             }
         }
+
+        
 
         protected void dayPilotScheduler_BeforeCellRender(object sender, DayPilot.Web.Ui.Events.BeforeCellRenderEventArgs e)
         {
@@ -175,13 +178,9 @@ namespace MyHotel.Business.WebControls.Booking
             }
         }
 
-        public void Refresh(DateTime startDate, DateTime endDate, bool needLoadStatisticalInfo = false)
+        public void Refresh(DateTime startDate, DateTime endDate)
         {
             refreshData(startDate, endDate, "");
-            if (needLoadStatisticalInfo)
-            {
-                statisticalList = BookingController.GetStatisticalList(startDate, endDate);
-            }
         }
 
         //protected void dayPilotScheduler_EventDoubleClick(object sender, EventClickEventArgs e)
