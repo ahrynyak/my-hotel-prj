@@ -24,6 +24,10 @@
 {
     float:right;
 }
+
+div.main_tool_div a, a:link, a:visited { color: #625e5e; text-decoration: none; }
+div.main_tool_div a:hover { color: #2d961c; text-decoration: none; }
+
 .main_menu_div
 {
     
