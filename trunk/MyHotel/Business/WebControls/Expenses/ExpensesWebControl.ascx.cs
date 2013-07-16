@@ -19,6 +19,10 @@ namespace MyHotel.Business.WebControls.Expenses
 
         public void Refresh(DateTime startDate, DateTime endDate)
         {
+            if (!Page.IsPostBack)
+            {
+                CheckBoxShowAllLevel.Checked = ExpensesController.ShowAllLevels;
+            }
             TreeExpenses.Nodes.Clear();
             TreeExpenses.Nodes.Add(new Node(getHeaderText()));
             var allExpensesItems = ExpensesController.GetExpensesItems();
@@ -36,9 +40,12 @@ namespace MyHotel.Business.WebControls.Expenses
                     foreach (var expensesDetails in allExpensesDetails.Where(e => e.ExpensesItemID == subGroup.ExpensesItemID))
                     {
                         subGroupSum += expensesDetails.Cost;
-                        Node expensesDetailsTreeNode = new Node(getExpensesDetailsText(expensesDetails, startDate));
-                        expensesDetailsTreeNode.Value = expensesDetails.ExpensesDetailsID.ToString();
-                        subGroupTreeNode.ChildNodes.Add(expensesDetailsTreeNode);
+                        if (ExpensesController.ShowAllLevels)
+                        {
+                            Node expensesDetailsTreeNode = new Node(getExpensesDetailsText(expensesDetails, startDate));
+                            expensesDetailsTreeNode.Value = expensesDetails.ExpensesDetailsID.ToString();
+                            subGroupTreeNode.ChildNodes.Add(expensesDetailsTreeNode);
+                        }
                     }
                     subGroupTreeNode.Text = getExpensesItemsSubGroupText(subGroup, subGroupSum, startDate);
                     groupTreeNode.ChildNodes.Add(subGroupTreeNode);
@@ -90,6 +97,11 @@ namespace MyHotel.Business.WebControls.Expenses
         }
 
         #endregion
+
+        protected void CheckBoxShowAllLevel_CheckedChanged(object sender, EventArgs e)
+        {
+            ExpensesController.ShowAllLevels = ((CheckBox)sender).Checked;
+        }
 
     }
 }

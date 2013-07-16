@@ -25,6 +25,8 @@
 
 <div style="width: 100%;">
     <asp:Button ID="ButtonrRefresh" runat="server" Text="Button" ClientIDMode="Static" Height="1" Width="1" />
+    <asp:CheckBox ID="CheckBoxShowAllLevel" runat="server" Text="Показувати всі рівні" AutoPostBack="True"
+            OnCheckedChanged="CheckBoxShowAllLevel_CheckedChanged" ToolTip="Показувати всі рівні" />
     <obout:Tree ID="TreeExpenses" runat="server" CssClass="vista">
     </obout:Tree>
 </div>
