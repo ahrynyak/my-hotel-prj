@@ -11,6 +11,7 @@
 .main_div
 {
     width: 80%;
+    min-width : 600px;
     padding: 10px 20px;
     margin: 30px auto;
     background-color:White;
