@@ -88,5 +88,11 @@ namespace MyHotel.Business.RoomBookingMgmt
             }
             return result;
         }
+
+        [WebMethod]
+        public static bool IsRoomBookingFree(string roomIDStr, string startDateStr, string endDateStr)
+        {
+            return BookingController.IsRoomBookingFree(0, int.Parse(roomIDStr), DateTime.Parse(startDateStr), DateTime.Parse(endDateStr));
+        }
     }
 }

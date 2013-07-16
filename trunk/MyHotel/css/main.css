@@ -20,17 +20,14 @@
     text-align:center;
     padding-bottom: 20px;
 }
+div.main_tool_div a:link, div.main_tool_div a:visited { color: #625e5e; text-decoration: none; }
+div.main_tool_div a:hover { color: #2d961c; text-decoration: none; }
 .main_tool_div
 {
     float:right;
 }
-
-div.main_tool_div a, a:link, a:visited { color: #625e5e; text-decoration: none; }
-div.main_tool_div a:hover { color: #2d961c; text-decoration: none; }
-
 .main_menu_div
 {
-    
 }
 .main_content_div
 {
@@ -119,11 +116,16 @@ div.main_tool_div a:hover { color: #2d961c; text-decoration: none; }
     background: #eeeeee; 
     width:100%;
 }
+.FormBookingDetails
+{
+    margin-bottom: 0px;
+}
 /*bookigDetails style end*/
 
 /*menu style start*/
-a, a:link, a:visited { color: #FFF; text-decoration: none; }
-a:hover { color: #FFF; text-decoration: none; }
+
+div.main_menu_div a:link, div.main_menu_div a:visited { color: #FFF; text-decoration: none; }
+div.main_menu_div a:hover { color: #FFF; text-decoration: none; }
 
 .button-link {
     padding: 10px 15px;

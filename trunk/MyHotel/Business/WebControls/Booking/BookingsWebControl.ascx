@@ -12,41 +12,60 @@
     modal.top = 60;
     modal.width = 400;
     modal.opacity = 60;
-    modal.height = 550;
+    modal.height = 514;
     modal.border = "1px solid black";
     modal.closed = function () {
         if (this.result == "OK") {
             dps.commandCallBack('refresh');
         }
     };
+    
+    //-----Create new booking-----
+
     function createEvent(start, end, resource) {
-        modal.showUrl("/Business/WebControls/Booking/RoomBookingDetailsForm.aspx?start=" + start.toStringSortable() + "&end=" + end.toStringSortable() + "&r=" + resource);
+        PageMethods.IsRoomBookingFree(resource, start.toStringSortable(), end.toStringSortable(), callCreateEventSuccess, callCreateEventFailed, "start=" + start.toStringSortable() + "&end=" + end.toStringSortable() + "&r=" + resource);
     }
 
+    function callCreateEventSuccess(pageMethodReturnValue, context) {
+        if (pageMethodReturnValue) {
+            modal.showUrl("/Business/WebControls/Booking/RoomBookingDetailsForm.aspx?" + context);
+        }
+    }
+
+    function callCreateEventFailed(pageMethodReturnValue, context) {
+        alert(pageMethodReturnValue.get_message());
+    }
+
+    //-----Create new booking-----
+    
+    //-----Edit existing booking-----
     function editEvent(id) {
         modal.showUrl("/Business/WebControls/Booking/RoomBookingDetailsForm.aspx?id=" + id);
     }
+    //-----Edit existing booking-----
 
-    function ShowStatistic(destCtrl) {
+    //-----ShowStatistic-----
+    function showStatistic(destCtrl) {
         document.body.style.cursor = 'wait'
         var dest = document.getElementById(destCtrl);
         dest.setAttribute("title", 'Зачекайте...');
         // call server side method
-        PageMethods.GetStatisticalInfo(destCtrl, CallSuccess, CallFailed, destCtrl);
+        PageMethods.GetStatisticalInfo(destCtrl, callStatisticSuccess, callStatisticFailed, destCtrl);
     }
 
     // set the destination textbox value with the ContactName
-    function CallSuccess(res, destCtrl) {
+    function callStatisticSuccess(res, destCtrl) {
         var dest = document.getElementById(destCtrl);
         dest.setAttribute("title", res);
         document.body.style.cursor = 'default';
     }
 
     // alert message on some failure
-    function CallFailed(res, destCtrl) {
+    function callStatisticFailed(res, destCtrl) {
         document.body.style.cursor = 'default';
         alert(res.get_message());
     }
+    //-----ShowStatistic-----
 </script>
 <div>
     <DayPilot:DayPilotScheduler runat="server" ID="dayPilotScheduler" RowHeaderColumnWidths="150"
