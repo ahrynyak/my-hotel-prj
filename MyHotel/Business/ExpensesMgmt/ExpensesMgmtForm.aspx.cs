@@ -40,9 +40,9 @@ namespace MyHotel.Business.ExpensesMgmt
                 }
                 if (!Page.IsPostBack)
                 {
-                    DateRangerPeriod.SetDateRange(getDefaultStartDate(), getDefaultEndDate());
                     ExpensesController.ShowAllLevels = true;
                     CheckBoxShowAllLevel.Checked = ExpensesController.ShowAllLevels;
+                    DateRangerPeriod.SetDateRange(getDefaultStartDate(), getDefaultEndDate());
                 }
                 else
                 {
