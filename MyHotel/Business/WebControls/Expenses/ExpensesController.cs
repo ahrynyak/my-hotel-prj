@@ -11,10 +11,6 @@ namespace MyHotel.Business.WebControls.Expenses
 {
     public class ExpensesController
     {
-        private ExpensesController()
-        {
-            ShowAllLevels = true;
-        }
         #region Converters
 
         private static ExpensesDetailsEntity expensesDetailToExpensesDetailsEntity(ExpensesDetail e)

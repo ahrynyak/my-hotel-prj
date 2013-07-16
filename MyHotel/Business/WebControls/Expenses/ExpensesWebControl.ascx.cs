@@ -19,10 +19,6 @@ namespace MyHotel.Business.WebControls.Expenses
 
         public void Refresh(DateTime startDate, DateTime endDate)
         {
-            if (!Page.IsPostBack)
-            {
-                CheckBoxShowAllLevel.Checked = ExpensesController.ShowAllLevels;
-            }
             TreeExpenses.Nodes.Clear();
             TreeExpenses.Nodes.Add(new Node(getHeaderText()));
             var allExpensesItems = ExpensesController.GetExpensesItems();
@@ -56,7 +52,6 @@ namespace MyHotel.Business.WebControls.Expenses
             }
             TreeExpenses.ExpandAll();
         }
-
 
         #region css format for tree nodes
         private string getHeaderText()
@@ -97,11 +92,5 @@ namespace MyHotel.Business.WebControls.Expenses
         }
 
         #endregion
-
-        protected void CheckBoxShowAllLevel_CheckedChanged(object sender, EventArgs e)
-        {
-            ExpensesController.ShowAllLevels = ((CheckBox)sender).Checked;
-        }
-
     }
 }
