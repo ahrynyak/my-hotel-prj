@@ -8,7 +8,7 @@
     <link href="/css/main.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <form id="formRBD" runat="server">
+    <form id="formRBD" runat="server" class="FormBookingDetails">
     <asp:ScriptManager ID="ScriptManagerBookingDetails" runat="server" />
     <asp:UpdatePanel ID="UpdatePanelBookingDetails" runat="server" UpdateMode="Conditional">
         <Triggers>
