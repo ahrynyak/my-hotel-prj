@@ -202,6 +202,15 @@ namespace MyHotel.Business.WebControls.Booking {
         protected global::System.Web.UI.WebControls.TextBox datePickeStart;
         
         /// <summary>
+        /// calendarExtenderStart control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CalendarExtender calendarExtenderStart;
+        
+        /// <summary>
         /// datePickeEnd control.
         /// </summary>
         /// <remarks>
@@ -209,6 +218,15 @@ namespace MyHotel.Business.WebControls.Booking {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox datePickeEnd;
+        
+        /// <summary>
+        /// calendarExtenderEnd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CalendarExtender calendarExtenderEnd;
         
         /// <summary>
         /// DropDownListBookingStatus control.

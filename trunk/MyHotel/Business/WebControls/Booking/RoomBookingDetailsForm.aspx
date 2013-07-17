@@ -9,7 +9,7 @@
 </head>
 <body>
     <form id="formRBD" runat="server" class="FormBookingDetails">
-    <asp:ScriptManager ID="ScriptManagerBookingDetails" runat="server" />
+    <asp:ScriptManager ID="ScriptManagerBookingDetails" runat="server" EnableScriptGlobalization="true" />
     <asp:UpdatePanel ID="UpdatePanelBookingDetails" runat="server" UpdateMode="Conditional">
         <Triggers>
             <asp:PostBackTrigger ControlID="ButtonOK" />
@@ -115,10 +115,14 @@
                     </tr>
                     <tr>
                         <td>
-                            <asp:TextBox runat="server" ID="datePickeStart" Width="90%" Enabled="False" />
+                            <asp:TextBox runat="server" ID="datePickeStart" Width="90%" autocomplete="off" AutoPostBack="True"
+                                ontextchanged="datePickeStart_TextChanged"/>
+                            <ajaxToolkit:CalendarExtender ID="calendarExtenderStart" runat="server" TargetControlID="datePickeStart" />
                         </td>
                         <td>
-                            <asp:TextBox runat="server" ID="datePickeEnd" Width="90%" Enabled="False" />
+                            <asp:TextBox runat="server" ID="datePickeEnd" Width="90%" autocomplete="off" AutoPostBack="True"
+                                ontextchanged="datePickeEnd_TextChanged"/>
+                            <ajaxToolkit:CalendarExtender ID="calendarExtenderEnd" runat="server" TargetControlID="datePickeEnd" />
                         </td>
                     </tr>
                     <tr>
