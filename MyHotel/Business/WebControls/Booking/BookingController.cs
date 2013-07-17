@@ -53,8 +53,12 @@ namespace MyHotel.Business.WebControls.Booking
         {
             using (DataClassesDataContext dataContext = HelperCommon.GetDataContext())
             {
-                if (IsEditPastEnabled || roomBookingEntity.StartDate >= DateTime.Now)
+                if (IsEditPastEnabled || roomBookingEntity.StartDate >= DateTime.Now.Date)
                 {
+                    if (roomBookingEntity.StartDate.Date >= roomBookingEntity.EndDate.Date)
+                    {
+                        throw new InvalidConstraintException("Дата заїзду повинна бути менша за дату виїзду");
+                    }
                     if (BookingController.IsRoomBookingFree(roomBookingEntity.RoomBookingID, roomBookingEntity.RoomID, roomBookingEntity.StartDate, roomBookingEntity.EndDate))
                     {
                         if (roomBookingEntity.RoomBookingID > 0)
@@ -111,7 +115,7 @@ namespace MyHotel.Business.WebControls.Booking
                     }
                     else
                     {
-                        throw new InvalidConstraintException("Номер зайнятий в вибраному періоді");
+                        throw new InvalidConstraintException("Бронь не може перекриватись іншою броню");
                     }
                 }
                 else
@@ -184,7 +188,7 @@ namespace MyHotel.Business.WebControls.Booking
         {
             using (DataClassesDataContext dataContext = HelperCommon.GetDataContext())
             {
-                return !dataContext.RoomBookings.Any(s => !((s.EndDate <= startDate) || (s.StartDate >= endDate)) && s.RoomBookingID != roomBookingID && s.RoomID == roomID);
+                return !dataContext.RoomBookings.Any(s => ((s.StartDate >= startDate && s.StartDate < endDate) || (s.EndDate > startDate && s.EndDate <= endDate)) && s.RoomBookingID != roomBookingID && s.RoomID == roomID);
             }
         }
 

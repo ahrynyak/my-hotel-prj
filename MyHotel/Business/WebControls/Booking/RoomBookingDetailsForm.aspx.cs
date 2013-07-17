@@ -96,6 +96,8 @@ namespace MyHotel.Business.WebControls.Booking
                     TextBoxChildrenNumber.Text = roomBookingEntity.NumberOfChild.ToString();
                     TextBoxPricePerRoom.Text = roomBookingEntity.PricePerRoom.ToString();
                     TextBoxPriceForExtraBed.Text = roomBookingEntity.PriceOfAdditionalBed.ToString();
+                    calendarExtenderStart.Format = HelperCommon.DateFormat;
+                    calendarExtenderEnd.Format = HelperCommon.DateFormat;
                     datePickeStart.Text = roomBookingEntity.StartDate.ToString(HelperCommon.DateFormat).ToLower();
                     datePickeEnd.Text = roomBookingEntity.EndDate.ToString(HelperCommon.DateFormat).ToLower();
                     DropDownListBookingStatus.Items.Clear();
@@ -211,6 +213,21 @@ namespace MyHotel.Business.WebControls.Booking
         }
 
         protected void ImageButtonRefreshCalculation_Click(object sender, ImageClickEventArgs e)
+        {
+            calculateSum();
+        }
+
+        protected void datePickeStart_TextChanged(object sender, EventArgs e)
+        {
+            bookingDateChanged(sender);
+        }
+
+        protected void datePickeEnd_TextChanged(object sender, EventArgs e)
+        {
+            bookingDateChanged(sender);
+        }
+
+        private void bookingDateChanged(object sender)
         {
             calculateSum();
         }
