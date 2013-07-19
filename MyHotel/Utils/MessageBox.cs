@@ -50,7 +50,7 @@ namespace MyHotel.Utils
         }
 
 
-        // Our page has finished rendering so lets output the JavaScript to produce the alert's
+        // Our page has finished rendering so lets output the JavaScript to produce the alert'e
         private static void ExecutingPage_Unload(object sender, EventArgs e)
         {
             // Get our message queue from the hashtable

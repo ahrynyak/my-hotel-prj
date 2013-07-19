@@ -6,9 +6,10 @@ using System.Data;
 using MyHotel.LINQDB;
 using MyHotel.Business.Entity;
 using MyHotel.Utils;
-using System.Web.UI;
 using MyHotel.Business.Entity.Booking;
 using MyHotel.Business.Entity.Common;
+using Google.GData.Calendar;
+using Google.GData.Extensions;
 
 namespace MyHotel.Business.WebControls.Booking
 {
@@ -28,25 +29,49 @@ namespace MyHotel.Business.WebControls.Booking
 
         public static List<RoomBookingEntity> GetRoomBookings(DateTime startDate, DateTime endDate)
         {
+            List<RoomBookingEntity> result = new List<RoomBookingEntity>();
+            Dictionary<string, EventEntry> calendarEvents = getCalendarEvents(startDate, endDate);
             using (DataClassesDataContext dataContext = HelperCommon.GetDataContext())
             {
-                return dataContext.RoomBookings.Where(s => (s.StartDate >= startDate && s.StartDate <= endDate) || (s.EndDate <= endDate && s.EndDate >= startDate)).Select(s => new RoomBookingEntity()
+                IQueryable<RoomBooking> resDB = dataContext.RoomBookings.Where(s => (s.StartDate >= startDate && s.StartDate <= endDate) || (s.EndDate <= endDate && s.EndDate >= startDate));
+                foreach (var roomBooking in resDB)
                 {
-                    AdditionalInfo = s.AdditionalInfo,
-                    BookingStatus = s.BookingStatus,
-                    EndDate = s.EndDate,
-                    GuestName = s.GuestName,
-                    GuestPhone = s.GuestPhone,
-                    NumberOfAdult = s.NumberOfAdult,
-                    NumberOfChild = s.NumberOfChild ?? 0,
-                    PriceOfAdditionalBed = s.PriceOfAdditionalBed ?? 0,
-                    PricePerRoom = s.PricePerRoom,
-                    RoomBookingID = s.RoomBookingID,
-                    RoomID = s.RoomID,
-                    StartDate = s.StartDate,
-                    AlreadyPaid = s.AlreadyPaid ?? 0
-                }).ToList();
+                    result.Add(
+                        new RoomBookingEntity()
+                        {
+                            AdditionalInfo = roomBooking.AdditionalInfo,
+                            BookingStatus = roomBooking.BookingStatus,
+                            EndDate = roomBooking.EndDate,
+                            GuestName = roomBooking.GuestName,
+                            GuestPhone = roomBooking.GuestPhone,
+                            NumberOfAdult = roomBooking.NumberOfAdult,
+                            NumberOfChild = roomBooking.NumberOfChild ?? 0,
+                            PriceOfAdditionalBed = roomBooking.PriceOfAdditionalBed ?? 0,
+                            PricePerRoom = roomBooking.PricePerRoom,
+                            RoomBookingID = roomBooking.RoomBookingID,
+                            RoomID = roomBooking.RoomID,
+                            StartDate = roomBooking.StartDate,
+                            AlreadyPaid = roomBooking.AlreadyPaid ?? 0,
+                            EventEntry = calendarEvents.Any(ce => ce.Key == roomBooking.RoomBookingID.ToString()) ? calendarEvents.FirstOrDefault(ce => ce.Key == roomBooking.RoomBookingID.ToString()).Value : null
+                        }
+                        );
+                }
+                return result;
             }
+        }
+
+        private static Dictionary<string, EventEntry> getCalendarEvents(DateTime startDate, DateTime endDate)
+        {
+            Dictionary<string, EventEntry> calendarEvents = new Dictionary<string, EventEntry>();
+            try
+            {
+                calendarEvents = GoogleCalendarHelper.GetRoomBookingEvents(startDate, endDate);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return calendarEvents;
         }
 
         public static void SaveRoomBooking(RoomBookingEntity roomBookingEntity)
@@ -83,6 +108,16 @@ namespace MyHotel.Business.WebControls.Booking
                                 roomBooking.StartDate = roomBookingEntity.StartDate;
                                 roomBooking.AlreadyPaid = roomBookingEntity.AlreadyPaid;
                                 dataContext.SubmitChanges();
+                                try
+                                {
+                                    string title = string.Format("{0} {1} ({2})", roomBooking.GuestPhone, roomBooking.GuestName, roomBooking.StartDate.ToString("dd.MM"));
+                                    string content = string.Format("{0}₴ {1}", roomBookingEntity.RemainsSum, roomBooking.AdditionalInfo);
+                                    GoogleCalendarHelper.ManageRoomBookingEvent(roomBooking.RoomBookingID.ToString(), title, content, roomBooking.StartDate.Date);
+                                }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show(ex.Message);
+                                }
                             }
                             else
                             {
@@ -163,22 +198,24 @@ namespace MyHotel.Business.WebControls.Booking
                 RoomBooking roomBooking = dataContext.RoomBookings.FirstOrDefault(s => s.RoomBookingID == roomBookingID);
                 if (roomBooking != null)
                 {
+                    Dictionary<string, EventEntry> calendarEvents = getCalendarEvents(roomBooking.StartDate, roomBooking.EndDate);
                     return new RoomBookingEntity()
-                {
-                    AdditionalInfo = roomBooking.AdditionalInfo,
-                    BookingStatus = roomBooking.BookingStatus,
-                    EndDate = roomBooking.EndDate,
-                    GuestName = roomBooking.GuestName,
-                    GuestPhone = roomBooking.GuestPhone,
-                    NumberOfAdult = roomBooking.NumberOfAdult,
-                    NumberOfChild = roomBooking.NumberOfChild ?? 0,
-                    PriceOfAdditionalBed = roomBooking.PriceOfAdditionalBed ?? 0,
-                    PricePerRoom = roomBooking.PricePerRoom,
-                    RoomBookingID = roomBooking.RoomBookingID,
-                    RoomID = roomBooking.RoomID,
-                    StartDate = roomBooking.StartDate,
-                    AlreadyPaid = roomBooking.AlreadyPaid ?? 0
-                };
+                    {
+                        AdditionalInfo = roomBooking.AdditionalInfo,
+                        BookingStatus = roomBooking.BookingStatus,
+                        EndDate = roomBooking.EndDate,
+                        GuestName = roomBooking.GuestName,
+                        GuestPhone = roomBooking.GuestPhone,
+                        NumberOfAdult = roomBooking.NumberOfAdult,
+                        NumberOfChild = roomBooking.NumberOfChild ?? 0,
+                        PriceOfAdditionalBed = roomBooking.PriceOfAdditionalBed ?? 0,
+                        PricePerRoom = roomBooking.PricePerRoom,
+                        RoomBookingID = roomBooking.RoomBookingID,
+                        RoomID = roomBooking.RoomID,
+                        StartDate = roomBooking.StartDate,
+                        AlreadyPaid = roomBooking.AlreadyPaid ?? 0,
+                        EventEntry = calendarEvents.Any(ce => ce.Key == roomBooking.RoomBookingID.ToString()) ? calendarEvents.FirstOrDefault(ce => ce.Key == roomBooking.RoomBookingID.ToString()).Value : null
+                    };
                 }
             }
             return null;
