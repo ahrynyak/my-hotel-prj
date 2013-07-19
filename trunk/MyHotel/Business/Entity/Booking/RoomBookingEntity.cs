@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Google.GData.Calendar;
 
 namespace MyHotel.Business.Entity.Booking
 {
@@ -20,5 +21,29 @@ namespace MyHotel.Business.Entity.Booking
         public int BookingStatus { get; set; }
         public string AdditionalInfo { get; set; }
         public int AlreadyPaid { get; set; }
+        public EventEntry EventEntry { get; set; }
+        public int AmountOfDays 
+        {
+            get
+            {
+                return (int)(EndDate - StartDate).TotalDays;
+            }
+        }
+
+        public int TotalSum 
+        {
+            get 
+            {
+                return (PricePerRoom + PriceOfAdditionalBed) * AmountOfDays;
+            }
+        }
+
+        public int RemainsSum
+        {
+            get
+            {
+                return TotalSum - AlreadyPaid;
+            }
+        }
     }
 }
