@@ -108,16 +108,7 @@ namespace MyHotel.Business.WebControls.Booking
                                 roomBooking.StartDate = roomBookingEntity.StartDate;
                                 roomBooking.AlreadyPaid = roomBookingEntity.AlreadyPaid;
                                 dataContext.SubmitChanges();
-                                try
-                                {
-                                    string title = string.Format("{0} {1} ({2})", roomBooking.GuestPhone, roomBooking.GuestName, roomBooking.StartDate.ToString("dd.MM"));
-                                    string content = string.Format("{0}₴ {1}", roomBookingEntity.RemainsSum, roomBooking.AdditionalInfo);
-                                    GoogleCalendarHelper.ManageRoomBookingEvent(roomBooking.RoomBookingID.ToString(), title, content, roomBooking.StartDate.Date);
-                                }
-                                catch (Exception ex)
-                                {
-                                    MessageBox.Show(ex.Message);
-                                }
+                                manageRoomBoookingCalendar(roomBookingEntity, roomBooking);
                             }
                             else
                             {
@@ -126,7 +117,7 @@ namespace MyHotel.Business.WebControls.Booking
                         }
                         else
                         {
-                            dataContext.RoomBookings.InsertOnSubmit(new RoomBooking()
+                            RoomBooking roomBooking = new RoomBooking()
                             {
                                 AdditionalInfo = roomBookingEntity.AdditionalInfo,
                                 BookingStatus =
@@ -144,8 +135,10 @@ namespace MyHotel.Business.WebControls.Booking
                                 RoomID = roomBookingEntity.RoomID,
                                 StartDate = roomBookingEntity.StartDate,
                                 AlreadyPaid = roomBookingEntity.AlreadyPaid
-                            });
+                            };
+                            dataContext.RoomBookings.InsertOnSubmit(roomBooking);
                             dataContext.SubmitChanges();
+                            manageRoomBoookingCalendar(roomBookingEntity, roomBooking);
                         }
                     }
                     else
@@ -157,6 +150,20 @@ namespace MyHotel.Business.WebControls.Booking
                 {
                     throw new InvalidConstraintException("Неможливо додати або модифікувати бронь в минулому");
                 }
+            }
+        }
+
+        private static void manageRoomBoookingCalendar(RoomBookingEntity roomBookingEntity, RoomBooking roomBooking)
+        {
+            try
+            {
+                string title = string.Format("{0} {1} ({2})", roomBooking.GuestPhone, roomBooking.GuestName, roomBooking.StartDate.ToString("dd.MM"));
+                string content = string.Format("{0}₴ {1}", roomBookingEntity.RemainsSum, roomBooking.AdditionalInfo);
+                GoogleCalendarHelper.ManageRoomBookingEvent(roomBooking.RoomBookingID.ToString(), title, content, roomBooking.StartDate.Date);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -177,6 +184,18 @@ namespace MyHotel.Business.WebControls.Booking
                         {
                             dataContext.RoomBookings.DeleteOnSubmit(roomBooking);
                             dataContext.SubmitChanges();
+                            try
+                            {
+                                Dictionary<string, EventEntry> calendarEvents = getCalendarEvents(roomBooking.StartDate, roomBooking.EndDate);
+                                if (calendarEvents.Any(ce => ce.Key == roomBooking.RoomBookingID.ToString()))
+                                {
+                                    calendarEvents.FirstOrDefault(ce => ce.Key == roomBooking.RoomBookingID.ToString()).Value.Delete();
+                                }
+                            }
+                            catch (Exception ex)
+                            {
+                                MessageBox.Show(ex.Message);
+                            }
                         }
                     }
                     else
