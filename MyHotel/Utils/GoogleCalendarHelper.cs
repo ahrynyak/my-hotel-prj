@@ -51,7 +51,7 @@ namespace MyHotel.Utils
             entry.Title.Text = title;
             entry.Content.Content = content;
 
-            When eventTime = new When(date.Date.AddHours(12), date.Date.AddHours(13));
+            When eventTime = new When(new DateTime(date.Date.Year, date.Date.Month, date.Date.Day, 9, 0, 0, DateTimeKind.Utc), new DateTime(date.Date.Year, date.Date.Month, date.Date.Day, 10, 0, 0, DateTimeKind.Utc));
             entry.Times.Clear();
             entry.Times.Add(eventTime);
 
