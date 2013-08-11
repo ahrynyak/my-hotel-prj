@@ -11,12 +11,12 @@ CREATE TABLE [Room]
 	Name nvarchar(100) NOT NULL,
 	Capacity int NOT NULL
 )
-INSERT INTO [Room](Name, Capacity) VALUES(N'1п жовта (DBL)',2)
-INSERT INTO [Room](Name, Capacity) VALUES(N'1п рожева (DBL)',2)
-INSERT INTO [Room](Name, Capacity) VALUES(N'1п зелена (Apart)',4)
-INSERT INTO [Room](Name, Capacity) VALUES(N'2п бежева (DBL)',2)
-INSERT INTO [Room](Name, Capacity) VALUES(N'2п червона (DBL)',2)
-INSERT INTO [Room](Name, Capacity) VALUES(N'2п зелена (Apart)',4)
+INSERT INTO [Room](Name, Capacity) VALUES(N'1 DBL',2)
+INSERT INTO [Room](Name, Capacity) VALUES(N'2 DBL',2)
+INSERT INTO [Room](Name, Capacity) VALUES(N'3 Apart',4)
+INSERT INTO [Room](Name, Capacity) VALUES(N'4 DBL',2)
+INSERT INTO [Room](Name, Capacity) VALUES(N'5 DBL',2)
+INSERT INTO [Room](Name, Capacity) VALUES(N'6 Apart',4)
 
 CREATE TABLE [RoomBooking]
 (
