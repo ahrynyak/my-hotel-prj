@@ -24,7 +24,7 @@ namespace MyHotel.Business.RoomBookingMgmt
     {
         private static DateTime getDefaultStartDate()
         {
-            return DateTime.Now;
+            return DateTime.Today;
         }
 
         private static DateTime getDefaultEndDate()
