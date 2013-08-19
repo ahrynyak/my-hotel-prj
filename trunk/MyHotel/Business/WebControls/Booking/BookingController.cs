@@ -157,7 +157,7 @@ namespace MyHotel.Business.WebControls.Booking
         {
             try
             {
-                string title = string.Format("{0} {1} ({2})", roomBooking.GuestPhone, roomBooking.GuestName, roomBooking.StartDate.ToString("dd.MM"));
+                string title = string.Format("{0} {1} ({2}) {3}₴", roomBooking.GuestPhone, roomBooking.GuestName, roomBooking.StartDate.ToString("dd.MM"), roomBookingEntity.RemainsSum);
                 string content = string.Format("{0}₴ {1}", roomBookingEntity.RemainsSum, roomBooking.AdditionalInfo);
                 GoogleCalendarHelper.ManageRoomBookingEvent(roomBooking.RoomBookingID.ToString(), title, content, roomBooking.StartDate.Date);
             }
