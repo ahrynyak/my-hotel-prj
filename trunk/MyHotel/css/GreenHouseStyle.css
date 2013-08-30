@@ -10,6 +10,17 @@ body
     font-family: Tahoma, Geneva, sans-serif;
     font-size: 14px;
 }
+
+#price_table, table, th, td
+{
+    width: 800px;
+    border: 1px solid #2d961c; 
+    border-bottom-color: #2d961c;
+    border-collapse:collapse;
+    text-align: center;
+}
+
+
 /*---Main style start---*/
 #greenhouse_wrapper 
 {
