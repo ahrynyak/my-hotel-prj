@@ -269,7 +269,7 @@
     <%--Ціни на проживання--%>
     <div class="section">
         <div class="section_header">
-            Ціни на проживання (за номер)
+            Ціни на проживання (за номер грн/доба)
         </div>
         <div class="section_content">
             <table class="price_table">
@@ -343,7 +343,7 @@
                         240
                     </td>
                     <td>
-                        200
+                        210
                     </td>
                     <td>
                         150/180

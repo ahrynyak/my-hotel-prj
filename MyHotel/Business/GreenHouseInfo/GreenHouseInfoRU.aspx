@@ -271,27 +271,102 @@
     <%--Ціни на проживання--%>
     <div class="section">
         <div class="section_header">
-            Цены на проживание (за номер)
+            Цены на проживание (за номер грн/сутки)
         </div>
         <div class="section_content">
-            период 15.01 - 30.04 и 26.09 - 27.12 <span class="GreenHouseNormalTextP1">(низкий сезон)</span>
-            <ul>
-                <li>двухместный однокомнатный номер - 140 грн/сутки </li>
-                <li>семейный двухкомнатный номер :</li>
-                <ul>
-                    <li>для 3-х человек - 200 грн/сутки</li>
-                    <li>для 4-х человек - 240 грн/сутки</li>
-                </ul>
-            </ul>
-            период 28.12 - 15.01 и 1.05 - 25.09 <span class="GreenHouseNormalTextP1">(высокий сезон)</span>
-            <ul>
-                <li>двухместный однокомнатный номер - 180 грн/сутки </li>
-                <li>семейный двухкомнатный номер :</li>
-                <ul>
-                    <li>для 3-х человек - 240 грн/сутки</li>
-                    <li>для 4-х человек - 280 грн/сутки</li>
-                </ul>
-            </ul>
+            <table class="price_table">
+                <tr>
+                    <td rowspan="4" class="price_table_colored">
+                        номера
+                    </td>
+                    <td colspan="4" class="price_table_colored">
+                        сезон
+                    </td>
+                </tr>
+                <tr>
+                    <td class="price_table_colored">
+                        высокий
+                    </td>
+                    <td class="price_table_colored">
+                        низкий №1
+                    </td>
+                    <td class="price_table_colored">
+                        низкий №2
+                    </td>
+                </tr>
+                <tr>
+                    <td class="price_table_colored">
+                        1.05- 25.09
+                    </td>
+                    <td class="price_table_colored">
+                        16.01 - 31.01
+                    </td>
+                    <td class="price_table_colored">
+                        1.02 - 30.04
+                    </td>
+                </tr>
+                <tr>
+                    <td class="price_table_colored">
+                        25.12 - 15.01
+                    </td>
+                    <td class="price_table_colored">
+                        26.09 - 31.10
+                    </td>
+                    <td class="price_table_colored">
+                        1.11 - 24.12
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: right;" class="price_table_colored">
+                        двухместный однокомнатный
+                    </td>
+                    <td>
+                        180
+                    </td>
+                    <td>
+                        140
+                    </td>
+                    <td>
+                        100/120
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: right;" class="price_table_colored">
+                        семейный двухкомнатный:
+                    </td>
+                    <td colspan="3">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: right;" class="price_table_colored">
+                        для 3-х человек
+                    </td>
+                    <td>
+                        240
+                    </td>
+                    <td>
+                        210
+                    </td>
+                    <td>
+                        150/180
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: right;" class="price_table_colored">
+                        для 4-х человек
+                    </td>
+                    <td>
+                        280
+                    </td>
+                    <td>
+                        240
+                    </td>
+                    <td>
+                        200/240
+                    </td>
+                </tr>
+            </table>
+            <br />
         </div>
         <div class="section_footer">
         </div>
