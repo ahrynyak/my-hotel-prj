@@ -274,49 +274,49 @@
         <div class="section_content">
             <table class="price_table">
                 <tr>
-                    <td rowspan="4">
+                    <td rowspan="4" class="price_table_colored">
                         номери
                     </td>
-                    <td colspan="4">
+                    <td colspan="4" class="price_table_colored">
                         сезон
                     </td>
                 </tr>
                 <tr>
-                    <td>
+                    <td class="price_table_colored">
                         високий
                     </td>
-                    <td>
+                    <td class="price_table_colored">
                         низький №1
                     </td>
-                    <td>
+                    <td class="price_table_colored">
                         низький №2
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        1 травня- 25 вересня
+                    <td class="price_table_colored">
+                        1.05- 25.09
                     </td>
-                    <td>
-                        16 січня - 31 січня
+                    <td class="price_table_colored">
+                        16.01 - 31.01
                     </td>
-                    <td>
-                        1 лютого - 30 квітня
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        25 грудня - 15 січня
-                    </td>
-                    <td>
-                        26 вересня - 31 жовтня
-                    </td>
-                    <td>
-                        1 листопада - 24 грудня
+                    <td class="price_table_colored">
+                        1.02 - 30.04
                     </td>
                 </tr>
                 <tr>
-                    <td style="text-align: right;">
-                        двомісний однокімнатний номер
+                    <td class="price_table_colored">
+                        25.12 - 15.01
+                    </td>
+                    <td class="price_table_colored">
+                        26.09 - 31.10
+                    </td>
+                    <td class="price_table_colored">
+                        1.11 - 24.12
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: right;" class="price_table_colored">
+                        двомісний однокімнатний
                     </td>
                     <td>
                         180
@@ -329,14 +329,14 @@
                     </td>
                 </tr>
                 <tr>
-                    <td style="text-align: right;">
-                        сімейний двокімнатний номер:
+                    <td style="text-align: right;" class="price_table_colored">
+                        сімейний двокімнатний:
                     </td>
                     <td colspan="3">
                     </td>
                 </tr>
                 <tr>
-                    <td style="text-align: right;">
+                    <td style="text-align: right;" class="price_table_colored">
                         для 3-ох осіб
                     </td>
                     <td>
@@ -350,7 +350,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td style="text-align: right;">
+                    <td style="text-align: right;" class="price_table_colored">
                         для 4-ох осіб
                     </td>
                     <td>
@@ -364,25 +364,7 @@
                     </td>
                 </tr>
             </table>
-           <%-- період 15.01 - 30.04 та 26.09 - 27.12 <span class="GreenHouseNormalTextP1">(низький
-                сезон)</span>
-            <ul>
-                <li>двомісний однокімнатний номер - 140 грн/доба </li>
-                <li>сімейний двокімнатний номер :</li>
-                <ul>
-                    <li>для 3-ох осіб - 200 грн/доба</li>
-                    <li>для 4-ох осіб - 240 грн/доба</li>
-                </ul>
-            </ul>
-            період 28.12 - 15.01 та 1.05 - 25.09 <span class="GreenHouseNormalTextP1">(високий сезон)</span>
-            <ul>
-                <li>двомісний однокімнатний номер - 180 грн/доба </li>
-                <li>сімейний двокімнатний номер :</li>
-                <ul>
-                    <li>для 3-ох осіб - 240 грн/доба</li>
-                    <li>для 4-ох осіб - 280 грн/доба</li>
-                </ul>
-            </ul>--%>
+            <br />
         </div>
         <div class="section_footer">
         </div>

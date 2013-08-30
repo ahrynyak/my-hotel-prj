@@ -11,6 +11,12 @@ body
     font-size: 14px;
 }
 
+.price_table_colored
+{
+    background-color: #C4EFAA;
+    font-weight: bolder;
+}
+
 #price_table, table, th, td
 {
     width: 800px;
@@ -19,7 +25,6 @@ body
     border-collapse:collapse;
     text-align: center;
 }
-
 
 /*---Main style start---*/
 #greenhouse_wrapper 
