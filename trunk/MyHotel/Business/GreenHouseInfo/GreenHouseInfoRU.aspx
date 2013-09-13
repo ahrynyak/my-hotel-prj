@@ -279,7 +279,7 @@
                     <td rowspan="4" class="price_table_colored">
                         номера
                     </td>
-                    <td colspan="4" class="price_table_colored">
+                    <td colspan="6" class="price_table_colored">
                         сезон
                     </td>
                 </tr>
@@ -293,27 +293,39 @@
                     <td class="price_table_colored">
                         низкий №2
                     </td>
+                    <td class="price_table_colored" colspan="2">
+                        праздничный
+                    </td>
                 </tr>
                 <tr>
-                    <td class="price_table_colored">
-                        1.05 - 25.09
+                    <td class="price_table_colored" rowspan="2">
+                        1.06 - 31.08
                     </td>
-                    <td class="price_table_colored">
+                   
+                    <td class="price_table_colored" rowspan="2">
                         16.01 - 31.01
+                        <br />
+                        01.05 - 31.05
+                        <br />
+                        01.09 - 31.10
+                        <br />
                     </td>
-                    <td class="price_table_colored">
-                        1.02 - 30.04
+                    <td class="price_table_colored" rowspan="2">
+                        01.02 - 30.04
+                        <br />
+                        01.11 - 24.12
+                        <br />
                     </td>
-                </tr>
-                <tr>
-                    <td class="price_table_colored">
+                     <td class="price_table_colored" colspan="2">
                         25.12 - 15.01
                     </td>
-                    <td class="price_table_colored">
-                        26.09 - 31.10
+                </tr>
+                <tr class="price_table_colored">
+                    <td>
+                        5-7 дней
                     </td>
-                    <td class="price_table_colored">
-                        1.11 - 24.12
+                    <td>
+                        від 7 дней
                     </td>
                 </tr>
                 <tr>
@@ -329,19 +341,25 @@
                     <td>
                         100/120
                     </td>
+                    <td>
+                        200
+                    </td>
+                    <td>
+                        180
+                    </td>
                 </tr>
                 <tr>
                     <td style="text-align: right;" class="price_table_colored">
                         семейный двухкомнатный:
                     </td>
-                    <td colspan="3">
+                    <td colspan="5">
                     </td>
                 </tr>
                 <tr>
                     <td style="text-align: right;" class="price_table_colored">
                         для 3-х человек
                     </td>
-                    <td>
+                     <td>
                         240
                     </td>
                     <td>
@@ -349,6 +367,12 @@
                     </td>
                     <td>
                         150/180
+                    </td>
+                    <td>
+                        300
+                    </td>
+                    <td>
+                        270
                     </td>
                 </tr>
                 <tr>
@@ -364,6 +388,12 @@
                     <td>
                         200/240
                     </td>
+                    <td>
+                        400
+                    </td>
+                    <td>
+                        360
+                    </td>
                 </tr>
             </table>
             <br />
@@ -378,8 +408,8 @@
         </div>
         <div class="section_content">
             <ul>
-                <li>при поселении в течение следующих 5 дней от даты заказа, цена на проживание от 60-70 грн с человека</li>
                 <li>при проживании более 15 дней скидка 10 грн от стоимости номера</li>
+                <li>цены могут меняться в меньшую сторону, звоните уточняйте</li>
             </ul>
         </div>
         <div class="section_footer">
