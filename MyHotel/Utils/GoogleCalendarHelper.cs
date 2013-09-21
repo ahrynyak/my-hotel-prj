@@ -23,7 +23,7 @@ namespace MyHotel.Utils
         public static void ManageRoomBookingEvent(string dbID, string title, string content, DateTime date)
         {
             EventEntry entry = null;
-            Dictionary<string, EventEntry> existingEvents = GetRoomBookingEvents(new DateTime(date.Year, date.Month - 1, 1), new DateTime(date.Year, date.Month + 1, 1));
+            Dictionary<string, EventEntry> existingEvents = GetRoomBookingEvents(new DateTime(date.Year - 1, 1, 1), new DateTime(date.Year + 1, 1, 1));
             if (existingEvents.Any(s => s.Key == dbID))
             {
                 entry = existingEvents.First(s => s.Key == dbID).Value;
