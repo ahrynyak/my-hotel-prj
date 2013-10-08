@@ -16,16 +16,16 @@ namespace MyHotel.Business.WebControls.Incomes
             List<IncomeByRoomEntity> result = new List<IncomeByRoomEntity>();
             using (DataClassesDataContext dataContext = HelperCommon.GetDataContext())
             {
-
                 foreach (var room in dataContext.Rooms)
                 {
                     IncomeByRoomEntity incomeByRoomEntity = new IncomeByRoomEntity() { RoomEntity = new RoomEntity() { RoomID = room.RoomID, Name = room.Name, Capacity = room.Capacity }, IncomesByStatus = new List<IncomesByStatus>() };
 
-                    var allBookingsForRoom = room.RoomBookings.Where(s => ((s.StartDate >= startDate && s.StartDate <= endDate) || (s.EndDate <= endDate && s.EndDate >= startDate)));
+                    var allBookingsForRoom = room.RoomBookings.Where(s => s.StartDate <= endDate && s.EndDate > startDate);
                     foreach (var statusValue in Enum.GetValues(typeof(EBookingStatus)))
                     {
                         var allDataByStatus = allBookingsForRoom.Where(s => s.BookingStatus == statusValue.GetHashCode());
                         int totalDays = allDataByStatus.Sum(s => (int)((s.EndDate <= endDate ? s.EndDate : endDate) - (s.StartDate >= startDate ? s.StartDate : startDate)).TotalDays);
+                        totalDays = totalDays == 0 ? 1 : totalDays;
                         double totalSum = allDataByStatus.Sum(s =>
                              (double)
                              (
