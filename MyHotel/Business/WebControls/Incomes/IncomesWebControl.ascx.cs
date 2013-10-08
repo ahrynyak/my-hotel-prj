@@ -24,12 +24,14 @@ namespace MyHotel.Business.WebControls.Incomes
             var allIncomes = IncomesController.GetPlanedIncomesData(startDate, endDate);
             this.TablePlanned.Rows.Clear();
             this.TablePlanned.Rows.AddRange(getHeaderRow().ToArray());
+            int totalDays = (int)(endDate - startDate).TotalDays;
+            totalDays = totalDays == 0 ? 1 : totalDays;
             foreach (var room in allIncomes)
             {
-                this.TablePlanned.Rows.AddRange(getDataRow(room, (int)(endDate - startDate).TotalDays).ToArray());
+                this.TablePlanned.Rows.AddRange(getDataRow(room, totalDays).ToArray());
             }
 
-            this.TablePlanned.Rows.AddRange(getTotalRow(allIncomes, (int)(endDate - startDate).TotalDays).ToArray());
+            this.TablePlanned.Rows.AddRange(getTotalRow(allIncomes, totalDays).ToArray());
         }
 
         private List<TableRow> getHeaderRow()
