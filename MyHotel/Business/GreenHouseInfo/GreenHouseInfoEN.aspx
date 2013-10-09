@@ -18,13 +18,13 @@
             Welcome
         </div>
         <div class="section_content">
-            <span class="GreenHouseNormalTextP1">"ЗЕЛЕНА </span><span class="GreenHouseNormalTextP2">
-                САДИБА"</span> invites you to relax in the guesthouse and offers accommodation
+            <span class="GreenHouseNormalTextP1">"Zelena </span><span class="GreenHouseNormalTextP2">
+                Sadyba"</span> invites you to relax in the guesthouse and offers accommodation
             in double, triple and four beds rooms.
             <br />
-            Also, we offer our guests a fully equipped kitchen, barbecue, swing and tables in
-            the courtyard. Despite the fact that the house is not far from the village center,
-            vehicular traffic will not interfere with your rest.
+            Also, we offer to our guests a fully equipped kitchen, barbecue, swing and tables
+            in the courtyard. Despite of the fact that the house is not far from the village
+            center, the vehicular traffic will not interfere with your rest.
         </div>
         <div class="section_img">
             <obout:ImageZoom ID="imageZoomAbout" runat="server" ImageUrl="../../icons/out5.jpg"
@@ -39,13 +39,13 @@
             Our location
         </div>
         <div class="section_content">
-            <span class="GreenHouseNormalTextP1">"ЗЕЛЕНА </span><span class="GreenHouseNormalTextP2">
-                САДИБА"</span> located in a picturesque corner of Skhidnytsya with beautiful
-            views and close to the forest. We are also a five minute walk from the village center
-            (400m) and 10 min walk from the bus station. Market, shops and food outlets are
-            located in 5-10 min walk. Nearest water springs are located near the homestead:
-            #15 and Glycerine water springs - 5 min walk, #2c (soda) - 15 min walk, #18 - 20
-            min walk, #8,9,10 - 10 min walk.
+            <span class="GreenHouseNormalTextP1">"Zelena </span><span class="GreenHouseNormalTextP2">
+                Sadyba"</span> is located in a picturesque corner of Skhidnytsya with beautiful
+            views and it is close to the forest. We are also located a five minute walk from
+            the village center (400m) and 10 minute walk from the bus station. Market, shops
+            and food outlets are 5-10 minute walk. The nearest water springs which are located
+            near the homestead are: №15 and Glycerin water springs - 5 min walk, №2c (soda)
+            - 15 min walk, №18 - 20 min walk, №8,9,10 - 10 min walk.
         </div>
         <div class="section_img">
             <obout:ImageZoom ID="imageZoom" runat="server" ImageUrl="../../icons/shidnycya_karta.jpg"
@@ -76,8 +76,8 @@
             <span class="SmalText">(*extra bed on request)</span>
             <ul>
                 <li>One large<span class="GreenHouseNormalTextP1"> double</span> or two <span class="GreenHouseNormalTextP1">
-                    single</span> orthopedic beds </li>
-                <li>TV with satellite channels </li>
+                    single</span> beds </li>
+                <li>Satellite TV </li>
                 <li>Wardrobe </li>
                 <li>Coffee table, dressing table </li>
                 <li>Bathroom (WC, wash basin, shower) </li>
@@ -99,9 +99,9 @@
             <span>Family </span><span class="GreenHouseNormalTextP1">suite</span> <span>(two rooms,
                 4 guests)</span>
             <ul>
-                <li>Large<span class="GreenHouseNormalTextP1"> double </span>orthopedic beds</li>
+                <li>One large<span class="GreenHouseNormalTextP1"> double </span>or two single beds</li>
                 <li>Sofa</li>
-                <li>TV with satellite channels </li>
+                <li>Satellite TV </li>
                 <li>Wardrobe </li>
                 <li>Coffee table, dressing table </li>
                 <li>Bathroom (WC, wash basin, shower) </li>
@@ -124,9 +124,8 @@
             Kitchen
         </div>
         <div class="section_content">
-            <span>We offer our guests </span><span class="GreenHouseNormalTextP1">shared kitchen</span>
-            <span>You need not worry about the dishes on kitchen appliances because the kitchen
-                is fully equipped:</span>
+            <span>We offer to our guests  </span><span class="GreenHouseNormalTextP1">shared kitchen</span>
+            <span>You do not need to worry about utensils and appliances on the kitchen because the kitchen is fully equipped:</span>
             <ul>
                 <li>Two gas stoves</li>
                 <li>Two kitchen sinks</li>
@@ -155,12 +154,12 @@
             In the yard
         </div>
         <div class="section_content">
-            <span>Our guests can spend time in </span><span class="GreenHouseNormalTextP1">cozy</span>
-            <span>corners, including:</span>
+            <span>Our guests can relax in </span><span class="GreenHouseNormalTextP1">cozy</span>
+            <span>corners which include:</span>
             <ul>
                 <li>Swing</li>
                 <li>Barbecue</li>
-                <li>Tables with frame</li>
+                <li>Wooden tables</li>
             </ul>
         </div>
         <div class="section_gallery">
@@ -188,11 +187,11 @@
         <div class="section_content">
             <ul>
                 <li>Meeting in <span class="GreenHouseNormalTextP1">Skhidnytsya</span></li>
-                <li>Change of clothes (every 8 days) and towels (2 per person every 4 days)</li>
-                <li><span class="GreenHouseNormalTextP1">Cleaning</span> of room every 4 days</li>
+                <li>Changing of the bedclothes (every 8 days) and towels (2 per person every 4 days)</li>
+                <li>Rooms <span class="GreenHouseNormalTextP1">cleaning</span> every 4 days</li>
                 <li>Barbecue facilities</li>
-                <li>Use iron</li>
-                <li>Using a hair dryer</li>
+                <li>Iron</li>
+                <li>Hair dryer</li>
                 <li>Providing information services for recreation</li>
                 <li>Parking <span class="GreenHouseNormalTextP1">(on request)</span> </li>
             </ul>
@@ -207,16 +206,16 @@
         </div>
         <div class="section_content">
             <ul>
-                <li>Washing clothes</li>
-                <li>Consultation <span class="GreenHouseNormalTextP1">with an doctor</span></li>
+                <li>Laundry</li>
+                <li>Doctor's <span class="GreenHouseNormalTextP1">consultation</span></li>
                 <li>Massage</li>
-                <li><span class="GreenHouseNormalTextP1">Transfer</span> from/to:</li>
+                <li><span class="GreenHouseNormalTextP1">Shuttle </span>service (from/to):</li>
                 <ul>
                     <li>Lviv - 500 uah</li>
                     <li>Truskavets- 120 uah</li>
                 </ul>
                 <p class="SmalText">
-                    (*prices should be clarified)</p>
+                    (*prices can vary)</p>
             </ul>
         </div>
         <div class="section_footer">
@@ -415,6 +414,8 @@
             Drogobytsky district
             <br />
             Lviv region.
+            <br />
+            Ukraine 
         </div>
         <div class="section_footer">
         </div>
