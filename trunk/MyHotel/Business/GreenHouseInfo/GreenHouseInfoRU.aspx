@@ -120,7 +120,7 @@
             </ul>
         </div>
         <div class="section_img">
-            <img src="../../icons/GHDBL.jpg" alt="Схема однокімнатного номеру" />
+            <img src="../../icons/GHDBL.jpg" alt="Схема однокомнатного номера" />
         </div>
         <div class="section_gallery">
             <obout:ImageZoom ID="ImageZoomDBLRoom" runat="server" ImageUrl="~/Business/GreenHouseInfo/img/DBLRoom"
@@ -145,7 +145,7 @@
             </ul>
         </div>
         <div class="section_img">
-            <img src="../../icons/GHApart.jpg" alt="Схема двокімнатного номеру" />
+            <img src="../../icons/GHApart.jpg" alt="Схема двухкомнатного номера" />
         </div>
         <div class="section_gallery">
             <obout:ImageZoom ID="ImageZoomApartRoom" runat="server" ImageUrl="~/Business/GreenHouseInfo/img/ApartRoom"
@@ -176,7 +176,7 @@
             </ul>
         </div>
         <div class="section_img">
-            <img src="../../icons/Kitchen.png" alt="Схема кухні-їдальні" />
+            <img src="../../icons/Kitchen.png" alt="Схема кухни-столовой" />
         </div>
         <div class="section_gallery">
             <obout:ImageZoom ID="ImageZoomKitchen" runat="server" ImageUrl="~/Business/GreenHouseInfo/img/Kitchen"
@@ -322,10 +322,10 @@
                 </tr>
                 <tr class="price_table_colored">
                     <td>
-                        5-7 дней
+                        5 - 7 дней
                     </td>
                     <td>
-                        від 7 дней
+                        от 7 дней
                     </td>
                 </tr>
                 <tr>

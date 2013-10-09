@@ -174,7 +174,7 @@
 </asp:Content>
 <asp:Content ID="Content6" ContentPlaceHolderID="GreenHouseContentPlaceHolderTabServiceName"
     runat="server">
-     <p class="tabHeaderTextStyle">
+    <p class="tabHeaderTextStyle">
         Services
     </p>
 </asp:Content>
@@ -194,8 +194,7 @@
                 <li>Use iron</li>
                 <li>Using a hair dryer</li>
                 <li>Providing information services for recreation</li>
-                <li>Parking <span class="GreenHouseNormalTextP1">(on request)</span>
-                </li>
+                <li>Parking <span class="GreenHouseNormalTextP1">(on request)</span> </li>
             </ul>
         </div>
         <div class="section_footer">
@@ -226,18 +225,257 @@
 </asp:Content>
 <asp:Content ID="Content8" ContentPlaceHolderID="GreenHouseContentPlaceHolderTabPricesName"
     runat="server">
+    <p class="tabHeaderTextStyle">
+        Prices
+    </p>
 </asp:Content>
 <asp:Content ID="Content9" ContentPlaceHolderID="GreenHouseContentPlaceHolderTabPrices"
     runat="server">
+    <%--Ціни на проживання--%>
+    <div class="section">
+        <div class="section_header">
+            Accommodation prices (per room UAH/day)
+        </div>
+        <div class="section_content">
+            <table class="price_table">
+                <tr>
+                    <td rowspan="4" class="price_table_colored">
+                        rooms
+                    </td>
+                    <td colspan="6" class="price_table_colored">
+                        season
+                    </td>
+                </tr>
+                <tr>
+                    <td class="price_table_colored">
+                        high
+                    </td>
+                    <td class="price_table_colored">
+                        low №1
+                    </td>
+                    <td class="price_table_colored">
+                        low №2
+                    </td>
+                    <td class="price_table_colored" colspan="2">
+                        holiday
+                    </td>
+                </tr>
+                <tr>
+                    <td class="price_table_colored" rowspan="2">
+                        1.06 - 31.08
+                    </td>
+                    <td class="price_table_colored" rowspan="2">
+                        16.01 - 31.01
+                        <br />
+                        01.05 - 31.05
+                        <br />
+                        01.09 - 31.10
+                        <br />
+                    </td>
+                    <td class="price_table_colored" rowspan="2">
+                        01.02 - 30.04
+                        <br />
+                        01.11 - 24.12
+                        <br />
+                    </td>
+                    <td class="price_table_colored" colspan="2">
+                        25.12 - 15.01
+                    </td>
+                </tr>
+                <tr class="price_table_colored">
+                    <td>
+                        5 - 7 days
+                    </td>
+                    <td>
+                        from 7 days
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: right;" class="price_table_colored">
+                        standard double
+                    </td>
+                    <td>
+                        180
+                    </td>
+                    <td>
+                        140
+                    </td>
+                    <td>
+                        100/120
+                    </td>
+                    <td>
+                        200
+                    </td>
+                    <td>
+                        180
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: right;" class="price_table_colored">
+                        family suite:
+                    </td>
+                    <td colspan="5">
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: right;" class="price_table_colored">
+                        for 3 guests
+                    </td>
+                    <td>
+                        240
+                    </td>
+                    <td>
+                        210
+                    </td>
+                    <td>
+                        150/180
+                    </td>
+                    <td>
+                        300
+                    </td>
+                    <td>
+                        270
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: right;" class="price_table_colored">
+                        for 4 guests
+                    </td>
+                    <td>
+                        280
+                    </td>
+                    <td>
+                        240
+                    </td>
+                    <td>
+                        200/240
+                    </td>
+                    <td>
+                        400
+                    </td>
+                    <td>
+                        360
+                    </td>
+                </tr>
+            </table>
+            <br />
+        </div>
+        <div class="section_footer">
+        </div>
+    </div>
+    <%--Знижки--%>
+    <div class="section">
+        <div class="section_header">
+            Discounts
+        </div>
+        <div class="section_content">
+            <ul>
+                <li>for stays longer than 15 days discount - 10 UAH per room</li>
+                <li>prices can be lower, contact us </li>
+            </ul>
+        </div>
+        <div class="section_footer">
+        </div>
+    </div>
 </asp:Content>
 <asp:Content ID="Content10" ContentPlaceHolderID="GreenHouseContentPlaceHolderTabPhotosName"
     runat="server">
+    <p class="tabHeaderTextStyle">
+        Gallery
+    </p>
 </asp:Content>
 <asp:Content ID="Content11" ContentPlaceHolderID="GreenHouseContentPlaceHolderTabPhotos"
     runat="server">
+    <%--Галерея--%>
+    <div class="section">
+        <obout:ImageZoom ID="ImageZoomGallery" runat="server" ImageUrl="~/Business/GreenHouseInfo/img/Gallery"
+            ShowFooter="false" PageSize="50" AllowPaging="False" AllowPageSizeSelection="False"
+            ShowHeader="False" />
+        <div class="section_footer">
+        </div>
+    </div>
 </asp:Content>
 <asp:Content ID="Content12" ContentPlaceHolderID="ContentPlaceHolderContactsName"
     runat="server">
+    <p class="tabHeaderTextStyle">
+        Contacts
+    </p>
 </asp:Content>
 <asp:Content ID="Content13" ContentPlaceHolderID="ContentPlaceHolderContacts" runat="server">
+    <%--Поштова адреса--%>
+    <div class="section">
+        <div class="section_header">
+            Address
+        </div>
+        <div class="section_content">
+            Skhidnytsia
+            <br />
+            str. Promyslova 58
+            <br />
+            Drogobytsky district
+            <br />
+            Lviv region.
+        </div>
+        <div class="section_footer">
+        </div>
+    </div>
+    <%--Телефон--%>
+    <div class="section">
+        <div class="section_header">
+            Phone
+        </div>
+        <div class="section_content">
+            +38 (096) 812-20-98,
+            <br />
+            +38 (093) 873-83-94,
+            <br />
+            +38 (093) 566-66-89
+        </div>
+        <div class="section_footer">
+        </div>
+    </div>
+    <%--E-mail--%>
+    <div class="section">
+        <div class="section_header">
+            E-mail
+        </div>
+        <div class="section_content">
+            <a href="mailto:ukr_root@ukr.net">ukr_root@ukr.net</a>
+        </div>
+        <div class="section_footer">
+        </div>
+    </div>
+    <%--GPS координати--%>
+    <div class="section">
+        <div class="section_header">
+            GPS coordinates
+        </div>
+        <div class="section_content">
+            <strong>N</strong>: 49.227798
+            <br />
+            <strong>E</strong>: 23.343444
+            <br />
+            <a href="https://maps.google.com.ua/maps?q=49.227798+23.343444&hl=uk&ll=49.227798,23.343444&spn=0.095845,0.264187&t=m&z=13">
+                Show on map</a>
+        </div>
+        <div class="section_footer">
+        </div>
+    </div>
+    <%--Як доїхати--%>
+    <div class="section">
+        <div class="section_header">
+            How to get there
+        </div>
+        <div class="section_content">
+            <strong>Public transport </strong>From Lviv by bus which is departing from the main
+            train station (every hour).
+            <br />
+            <br />
+            <strong>By car </strong>direction is through Truskavec. In Skhidnytsya go to the
+            bus station, then in the direction of the pointer on the pansion "Gutsulka". Homestead
+            is on the right of the road (100 m from the pansion).
+        </div>
+        <div class="section_footer">
+        </div>
+    </div>
 </asp:Content>
