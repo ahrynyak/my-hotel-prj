@@ -65,5 +65,14 @@ namespace MyHotel.Business.GreenHouseInfo {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::OboutInc.ImageZoom.ImageZoom ImageZoomRelaxZones;
+        
+        /// <summary>
+        /// ImageZoomGallery control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::OboutInc.ImageZoom.ImageZoom ImageZoomGallery;
     }
 }

@@ -319,7 +319,7 @@
                 </tr>
                 <tr class="price_table_colored">
                     <td>
-                        5-7 днів
+                        5 - 7 днів
                     </td>
                     <td>
                         від 7 днів
