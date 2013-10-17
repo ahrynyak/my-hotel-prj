@@ -21,7 +21,7 @@ namespace MyHotel.Utils
 
         public const string DateFormat = "d-MMM-yyyy (dddd)";
 
-        public const string DoubleFormat = "0.##";
+        public const string DoubleFormat = "0.#";
 
         public static double ToDouble(this string value)
         {

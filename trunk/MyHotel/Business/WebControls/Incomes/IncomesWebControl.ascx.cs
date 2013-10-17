@@ -82,7 +82,7 @@ namespace MyHotel.Business.WebControls.Incomes
                 tableRowSum.Cells.Add(new TableCell() { Text = allSumByRow.Last().ToString(HelperCommon.DoubleFormat), CssClass = "incomesDataRow" });
                 allDaysByRow.Add(valueByStatus.TotalDays);
                 tableRowDays.Cells.Add(new TableCell() { Text = allDaysByRow.Last().ToString(), CssClass = "incomesDataRow" });
-                allPercentByRow.Add(((double)(valueByStatus.TotalDays * 100 / daysInSelectedRange)));
+                allPercentByRow.Add(((double)(valueByStatus.TotalDays == 0 ? 0 : (valueByStatus.TotalDays * 100.00 / daysInSelectedRange))));
                 tableRowPercent.Cells.Add(new TableCell() { Text = allPercentByRow.Last().ToString(HelperCommon.DoubleFormat), CssClass = "incomesDataRow" });
             }
 
@@ -128,7 +128,7 @@ namespace MyHotel.Business.WebControls.Incomes
                 tableRowSum.Cells.Add(new TableCell() { Text = allSumByRow.Last().ToString(HelperCommon.DoubleFormat), CssClass = "incomesTotalHeaderSubRow" });
                 allDaysByRow.Add(valueByStatus.Sum(s=>s.TotalDays));
                 tableRowDays.Cells.Add(new TableCell() { Text = allDaysByRow.Last().ToString(), CssClass = "incomesTotalHeaderSubRow" });
-                allPercentByRow.Add(valueByStatus.Sum(s => (double)(s.TotalDays * 100 / daysInSelectedRange)));
+                allPercentByRow.Add(valueByStatus.Average(s => (double)(s.TotalDays * 100.00 / daysInSelectedRange)));
                 tableRowPercent.Cells.Add(new TableCell() { Text = allPercentByRow.Last().ToString(HelperCommon.DoubleFormat), CssClass = "incomesTotalHeaderSubRow" });
             }
 

@@ -25,7 +25,6 @@ namespace MyHotel.Business.WebControls.Incomes
                     {
                         var allDataByStatus = allBookingsForRoom.Where(s => s.BookingStatus == statusValue.GetHashCode());
                         int totalDays = allDataByStatus.Sum(s => (int)((s.EndDate <= endDate ? s.EndDate : endDate) - (s.StartDate >= startDate ? s.StartDate : startDate)).TotalDays);
-                        totalDays = totalDays == 0 ? 1 : totalDays;
                         double totalSum = allDataByStatus.Sum(s =>
                              (double)
                              (
