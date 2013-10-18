@@ -1,67 +1,98 @@
 ﻿/*Header begin*/
 .incomesRoomHeaderColl
 {
-    background-color: #eeeeee;
+    background-color: #CACACA;
     text-align:center;
     font-weight:bold;
     width:150px;
 }
 .incomesStatusHeaderCell
 {
-    background-color: #eeeeee;
+    background-color: #CACACA;
     text-align:center;
     font-weight:bold;
 }
 
 .incomesSubHeaderColl
 {
-    background-color: #eeeeee;
+    background-color: #CACACA;
     text-align: center;  
     width: 90px;
 }
 .incomesTotalHeaderColl
 {
-    background-color: #eeeeee;
+    background-color: #CACACA;
     text-align:center;  
     font-weight:bold;
     width:100px;
 }
 .incomesTotalHeaderRow
 {
-    background-color: #eeeeee;
+    background-color: #CACACA;
     text-align:center;  
     font-weight:bold;
 }
 .incomesTotalHeaderSubRow
 {
-    background-color: #eeeeee;
+    background-color: #CACACA;
     text-align:center; 
     font-weight:bold;
 }
 /*Header end*/
-/*Data row begin*/
-.incomesRoomNameDataRow
+/*Data row begin White*/
+.incomesRoomNameDataRowWhite
+{
+    /*background-color: #eeeeee;*/
+}
+
+.incomesRoomSumDataRowWhite
+{
+    /*background-color: #eeeeee;*/
+}
+.incomesRoomDaysDataRowWhite
+{
+    /*background-color: #eeeeee;*/    
+}
+.incomesRoomPercentDataRowWhite
+{
+    /*background-color: #eeeeee;*/
+}
+.incomesDataRowWhite
+{
+    text-align:center;  
+}
+.incomesTotalDataRowWhite
+{
+    /*background-color: #eeeeee;*/
+    text-align:center; 
+    font-weight:bold; 
+}
+/*Data row end*/
+
+/*Data row begin Silver*/
+.incomesRoomNameDataRowSilver
 {
     background-color: #eeeeee;
 }
 
-.incomesRoomSumDataRow
+.incomesRoomSumDataRowSilver
 {
     background-color: #eeeeee;   
 }
-.incomesRoomDaysDataRow
+.incomesRoomDaysDataRowSilver
 {
     background-color: #eeeeee;        
 }
-.incomesRoomPercentDataRow
+.incomesRoomPercentDataRowSilver
 {
     background-color: #eeeeee;    
 }
-.incomesDataRow
+.incomesDataRowSilver
 {
     text-align:center;  
+    background-color: #eeeeee;
 }
-.incomesTotalDataRow
+.incomesTotalDataRowSilver
 {
     background-color: #eeeeee;
     text-align:center; 
