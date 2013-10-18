@@ -33,7 +33,7 @@ namespace MyHotel.Business.WebControls.Booking
             Dictionary<string, EventEntry> calendarEvents = getCalendarEvents(startDate, endDate);
             using (DataClassesDataContext dataContext = HelperCommon.GetDataContext())
             {
-                IQueryable<RoomBooking> resDB = dataContext.RoomBookings.Where(s => (s.StartDate >= startDate && s.StartDate <= endDate) || (s.EndDate <= endDate && s.EndDate >= startDate));
+                IQueryable<RoomBooking> resDB = GetRoomBookingsFromDB(startDate, endDate, dataContext.RoomBookings);
                 foreach (var roomBooking in resDB)
                 {
                     result.Add(
@@ -58,6 +58,11 @@ namespace MyHotel.Business.WebControls.Booking
                 }
                 return result;
             }
+        }
+
+        public static IQueryable<RoomBooking> GetRoomBookingsFromDB(DateTime startDate, DateTime endDate, IQueryable<RoomBooking> roomBookings)
+        {
+            return roomBookings.Where(s => s.StartDate <= endDate && s.EndDate > startDate);
         }
 
         private static Dictionary<string, EventEntry> getCalendarEvents(DateTime startDate, DateTime endDate)
@@ -244,7 +249,7 @@ namespace MyHotel.Business.WebControls.Booking
         {
             using (DataClassesDataContext dataContext = HelperCommon.GetDataContext())
             {
-                return !dataContext.RoomBookings.Any(s => ((s.StartDate >= startDate && s.StartDate < endDate) || (s.EndDate > startDate && s.EndDate <= endDate)) && s.RoomBookingID != roomBookingID && s.RoomID == roomID);
+                return !GetRoomBookingsFromDB(startDate, endDate, dataContext.RoomBookings).Any(s => s.RoomBookingID != roomBookingID && s.RoomID == roomID);
             }
         }
 

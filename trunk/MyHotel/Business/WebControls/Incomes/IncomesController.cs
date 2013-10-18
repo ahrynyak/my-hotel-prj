@@ -6,6 +6,7 @@ using MyHotel.LINQDB;
 using MyHotel.Utils;
 using MyHotel.Business.Entity.Incomes;
 using MyHotel.Business.Entity.Booking;
+using MyHotel.Business.WebControls.Booking;
 
 namespace MyHotel.Business.WebControls.Incomes
 {
@@ -19,16 +20,15 @@ namespace MyHotel.Business.WebControls.Incomes
                 foreach (var room in dataContext.Rooms)
                 {
                     IncomeByRoomEntity incomeByRoomEntity = new IncomeByRoomEntity() { RoomEntity = new RoomEntity() { RoomID = room.RoomID, Name = room.Name, Capacity = room.Capacity }, IncomesByStatus = new List<IncomesByStatus>() };
-
-                    var allBookingsForRoom = room.RoomBookings.Where(s => s.StartDate <= endDate && s.EndDate > startDate);
+                    var allBookingsForRoom = BookingController.GetRoomBookingsFromDB(startDate, endDate, room.RoomBookings.AsQueryable());
                     foreach (var statusValue in Enum.GetValues(typeof(EBookingStatus)))
                     {
                         var allDataByStatus = allBookingsForRoom.Where(s => s.BookingStatus == statusValue.GetHashCode());
-                        int totalDays = allDataByStatus.Sum(s => (int)((s.EndDate <= endDate ? s.EndDate : endDate) - (s.StartDate >= startDate ? s.StartDate : startDate)).TotalDays);
+                        int totalDays = allDataByStatus.Sum(s => (int)getTotalPaidDaysInRange(startDate, endDate, s.StartDate, s.EndDate));
                         double totalSum = allDataByStatus.Sum(s =>
                              (double)
                              (
-                                 ((s.EndDate <= endDate ? s.EndDate : endDate.AddDays(1)) - (s.StartDate >= startDate ? s.StartDate : startDate)).TotalDays
+                                 getTotalPaidDaysInRange(startDate, endDate, s.StartDate, s.EndDate)
                                  *
                                  (s.PricePerRoom + s.PriceOfAdditionalBed)
                              ));
@@ -42,6 +42,11 @@ namespace MyHotel.Business.WebControls.Incomes
 
             }
             return result;
+        }
+
+        private static double getTotalPaidDaysInRange(DateTime startRangeDate, DateTime endRangeDate, DateTime roomBookingStartDate, DateTime roomBookingEndDate)
+        {
+            return ((roomBookingEndDate <= endRangeDate ? roomBookingEndDate : endRangeDate) - (roomBookingStartDate >= startRangeDate ? roomBookingStartDate : startRangeDate)).TotalDays;
         }
     }
 }
