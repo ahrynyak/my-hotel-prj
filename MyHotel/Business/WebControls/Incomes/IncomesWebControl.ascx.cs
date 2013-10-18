@@ -26,9 +26,12 @@ namespace MyHotel.Business.WebControls.Incomes
             this.TablePlanned.Rows.AddRange(getHeaderRow().ToArray());
             int totalDays = (int)(endDate - startDate).TotalDays;
             totalDays = totalDays == 0 ? 1 : totalDays;
+            List<string> cssStyleList = new List<string>() { "White", "Silver" };
+            int cssIdx = 0;
             foreach (var room in allIncomes)
             {
-                this.TablePlanned.Rows.AddRange(getDataRow(room, totalDays).ToArray());
+                this.TablePlanned.Rows.AddRange(getDataRow(room, totalDays, cssStyleList[cssIdx]).ToArray());
+                cssIdx = cssIdx == 0 ? 1 : 0;
             }
 
             this.TablePlanned.Rows.AddRange(getTotalRow(allIncomes, totalDays).ToArray());
@@ -57,21 +60,21 @@ namespace MyHotel.Business.WebControls.Incomes
 
         }
 
-        private List<TableRow> getDataRow(IncomeByRoomEntity incomeByRoomEntity, int daysInSelectedRange)
+        private List<TableRow> getDataRow(IncomeByRoomEntity incomeByRoomEntity, int daysInSelectedRange, string cssIdx)
         {
             List<TableRow> result = new List<TableRow>();
             TableRow roomName = new TableRow();
-            roomName.Cells.Add(new TableCell() { Text = incomeByRoomEntity.RoomEntity.Name, RowSpan = 4, CssClass = "incomesRoomNameDataRow" });
+            roomName.Cells.Add(new TableCell() { Text = incomeByRoomEntity.RoomEntity.Name, RowSpan = 4, CssClass = "incomesRoomNameDataRow" + cssIdx });
             result.Add(roomName);
 
             TableRow tableRowSum = new TableRow();
-            tableRowSum.Cells.Add(new TableCell() { Text = "∑", CssClass = "incomesRoomSumDataRow" });
-            
+            tableRowSum.Cells.Add(new TableCell() { Text = "∑", CssClass = "incomesRoomSumDataRow" + cssIdx });
+
             TableRow tableRowDays = new TableRow();
-            tableRowDays.Cells.Add(new TableCell() { Text = "днів", CssClass = "incomesRoomDaysDataRow" });
-            
+            tableRowDays.Cells.Add(new TableCell() { Text = "днів", CssClass = "incomesRoomDaysDataRow" + cssIdx });
+
             TableRow tableRowPercent = new TableRow();
-            tableRowPercent.Cells.Add(new TableCell() { Text = "%", CssClass = "incomesRoomPercentDataRow" });
+            tableRowPercent.Cells.Add(new TableCell() { Text = "%", CssClass = "incomesRoomPercentDataRow" + cssIdx });
 
             List<double> allSumByRow = new List<double>();
             List<double> allDaysByRow = new List<double>();
@@ -79,23 +82,22 @@ namespace MyHotel.Business.WebControls.Incomes
             foreach (var valueByStatus in incomeByRoomEntity.IncomesByStatus)
             {
                 allSumByRow.Add(valueByStatus.TotalSum);
-                tableRowSum.Cells.Add(new TableCell() { Text = allSumByRow.Last().ToString(HelperCommon.DoubleFormat), CssClass = "incomesDataRow" });
+                tableRowSum.Cells.Add(new TableCell() { Text = allSumByRow.Last().ToString(HelperCommon.DoubleFormat), CssClass = "incomesDataRow" + cssIdx });
                 allDaysByRow.Add(valueByStatus.TotalDays);
-                tableRowDays.Cells.Add(new TableCell() { Text = allDaysByRow.Last().ToString(), CssClass = "incomesDataRow" });
+                tableRowDays.Cells.Add(new TableCell() { Text = allDaysByRow.Last().ToString(), CssClass = "incomesDataRow" + cssIdx });
                 allPercentByRow.Add(((double)(valueByStatus.TotalDays == 0 ? 0 : (valueByStatus.TotalDays * 100.00 / daysInSelectedRange))));
-                tableRowPercent.Cells.Add(new TableCell() { Text = allPercentByRow.Last().ToString(HelperCommon.DoubleFormat), CssClass = "incomesDataRow" });
+                tableRowPercent.Cells.Add(new TableCell() { Text = allPercentByRow.Last().ToString(HelperCommon.DoubleFormat), CssClass = "incomesDataRow" + cssIdx });
             }
 
-            tableRowSum.Cells.Add(new TableCell() { Text = allSumByRow.Where(s => s > 0).Sum().ToString(HelperCommon.DoubleFormat), CssClass = "incomesTotalDataRow" });
+            tableRowSum.Cells.Add(new TableCell() { Text = allSumByRow.Where(s => s > 0).Sum().ToString(HelperCommon.DoubleFormat), CssClass = "incomesTotalDataRow" + cssIdx });
 
-            tableRowDays.Cells.Add(new TableCell() { Text = allDaysByRow.Where(s => s > 0).Sum().ToString(HelperCommon.DoubleFormat), CssClass = "incomesTotalDataRow" });
+            tableRowDays.Cells.Add(new TableCell() { Text = allDaysByRow.Where(s => s > 0).Sum().ToString(HelperCommon.DoubleFormat), CssClass = "incomesTotalDataRow" + cssIdx });
 
-            tableRowPercent.Cells.Add(new TableCell() { Text = allPercentByRow.Where(s => s > 0).Sum().ToString(HelperCommon.DoubleFormat), CssClass = "incomesTotalDataRow" });
+            tableRowPercent.Cells.Add(new TableCell() { Text = allPercentByRow.Where(s => s > 0).Sum().ToString(HelperCommon.DoubleFormat), CssClass = "incomesTotalDataRow" + cssIdx });
 
             result.Add(tableRowSum);
             result.Add(tableRowDays);
             result.Add(tableRowPercent);
-
             return result;
         }
 

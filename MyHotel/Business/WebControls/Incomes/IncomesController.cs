@@ -46,7 +46,7 @@ namespace MyHotel.Business.WebControls.Incomes
 
         private static double getTotalPaidDaysInRange(DateTime startRangeDate, DateTime endRangeDate, DateTime roomBookingStartDate, DateTime roomBookingEndDate)
         {
-            return ((roomBookingEndDate <= endRangeDate ? roomBookingEndDate : endRangeDate) - (roomBookingStartDate >= startRangeDate ? roomBookingStartDate : startRangeDate)).TotalDays;
+            return ((roomBookingEndDate <= endRangeDate ? roomBookingEndDate : endRangeDate.AddDays(1)) - (roomBookingStartDate >= startRangeDate ? roomBookingStartDate : startRangeDate)).TotalDays;
         }
     }
 }

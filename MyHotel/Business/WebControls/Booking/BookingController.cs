@@ -249,7 +249,7 @@ namespace MyHotel.Business.WebControls.Booking
         {
             using (DataClassesDataContext dataContext = HelperCommon.GetDataContext())
             {
-                return !GetRoomBookingsFromDB(startDate, endDate, dataContext.RoomBookings).Any(s => s.RoomBookingID != roomBookingID && s.RoomID == roomID);
+                return !GetRoomBookingsFromDB(startDate, endDate, dataContext.RoomBookings).Any(s => s.RoomBookingID != roomBookingID && s.RoomID == roomID && endDate > s.StartDate);
             }
         }
 
