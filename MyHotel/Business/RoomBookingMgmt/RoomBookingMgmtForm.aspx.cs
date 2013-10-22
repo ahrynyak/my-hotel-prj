@@ -24,12 +24,12 @@ namespace MyHotel.Business.RoomBookingMgmt
     {
         private static DateTime getDefaultStartDate()
         {
-            return DateTime.Today;
+            return DateTime.Today.ToUniversalTime();
         }
 
         private static DateTime getDefaultEndDate()
         {
-            return DateTime.Now.AddMonths(3);
+            return DateTime.UtcNow.AddMonths(3);
         }
 
         protected override void OnInit(EventArgs e)

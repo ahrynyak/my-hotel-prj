@@ -1,0 +1,15 @@
+﻿.utilitiesDetailsControlsDiv
+{
+}
+
+.utilitiesDetailsHeaderDiv
+{
+    font-weight: bolder;
+}
+
+.utilitiesDetailsButtonDiv
+{
+    right: 0; 
+    position: absolute;
+    bottom: 0;
+}

@@ -1,27 +1,27 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ExpensesDetailsForm.aspx.cs" Inherits="MyHotel.Business.WebControls.Expenses.ExpensesDetailsForm" Culture="uk-UA" UICulture="uk-UA" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UtilitiesDetailsForm.aspx.cs" Inherits="MyHotel.Business.WebControls.Utilities.UtilitiesDetailsForm"  Culture="uk-UA" UICulture="uk-UA" %>
 
-<%--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">--%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-        <link href="/css/expenses.css" rel="stylesheet" type="text/css" />
+    <link href="/css/utilities.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <form id="formED" runat="server">
-    <asp:ScriptManager ID="ScriptManagerExpensesDetails" runat="server" />
-    <asp:UpdatePanel ID="UpdatePanelExpensesDetails" runat="server" UpdateMode="Conditional">
+    <form id="formUD" runat="server">
+<asp:ScriptManager ID="ScriptManagerUtilitiesDetails" runat="server" />
+    <asp:UpdatePanel ID="UpdatePanelUtilitiesDetails" runat="server" UpdateMode="Conditional">
         <Triggers>
             <asp:PostBackTrigger ControlID="ButtonOK" />
             <asp:PostBackTrigger ControlID="ButtonCancel" />
             <asp:PostBackTrigger ControlID="ButtonDelete" />
         </Triggers>
         <ContentTemplate>
-        <div class="expensesDetailsHeaderDiv">
+        <div class="utilitiesDetailsHeaderDiv">
         <asp:Label ID="LabelHeader" runat="server" Text="..." class="labelBookingDetails" />
         <hr />
         </div>
-            <div class="expensesDetailsControlsDiv">
+            <div class="utilitiesDetailsControlsDiv">
                 <table>
                     <tr>
                         <td>
@@ -55,7 +55,7 @@
                     </tr>
                 </table>
             </div>
-            <div class="expensesDetailsButtonDiv">
+            <div class="utilitiesDetailsButtonDiv">
                 <asp:Button ID="ButtonOK" runat="server" Text="OK" OnClick="ButtonOK_Click" />
                 &nbsp;
                 <asp:Button ID="ButtonCancel" runat="server" Text="Cancel" OnClick="ButtonCancel_Click" />

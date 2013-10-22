@@ -83,7 +83,6 @@ CREATE TABLE [ExpensesDetails]
 )
 
 
-
 IF OBJECT_ID (N'Cleaning', N'U') IS NOT NULL 
 DROP TABLE [Cleaning]
 
@@ -95,3 +94,35 @@ CREATE TABLE [Cleaning]
 )
 ALTER TABLE Cleaning
 ADD UNIQUE(RoomID, DateOfCleaning) 
+
+
+IF OBJECT_ID (N'UtilitiesItemsDetails', N'U') IS NOT NULL 
+DROP TABLE [UtilitiesItemsDetails]
+
+IF OBJECT_ID (N'UtilitiesItems', N'U') IS NOT NULL 
+DROP TABLE [UtilitiesItems]
+
+CREATE TABLE [UtilitiesItems]
+(
+	UtilitiesItemsID int IDENTITY(1,1) PRIMARY KEY,
+	Name nvarchar(100) NOT NULL
+)
+
+SET IDENTITY_INSERT [UtilitiesItems] ON
+INSERT INTO [UtilitiesItems](UtilitiesItemsID, Name) VALUES(1,N'Газ')
+INSERT INTO [UtilitiesItems](UtilitiesItemsID, Name) VALUES(2,N'Ел.енергія')
+INSERT INTO [UtilitiesItems](UtilitiesItemsID, Name) VALUES(3,N'Вода НХ')
+INSERT INTO [UtilitiesItems](UtilitiesItemsID, Name) VALUES(4,N'Вода СХ')
+SET IDENTITY_INSERT [ExpensesItems] OFF
+
+CREATE TABLE [UtilitiesItemsDetails]
+(
+	UtilitiesItemsDetailsID int IDENTITY(1,1) PRIMARY KEY,
+	UtilitiesItemsID int FOREIGN KEY REFERENCES [UtilitiesItems](UtilitiesItemsID) NOT NULL,
+    [Date] date NOT NULL,
+	Value int NOT NULL,
+	[Description] nvarchar(max) NULL
+)
+ALTER TABLE [UtilitiesItemsDetails]
+ADD UNIQUE(UtilitiesItemsID, [Date]) 
+
