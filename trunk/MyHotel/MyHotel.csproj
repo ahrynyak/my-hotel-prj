@@ -93,6 +93,7 @@
     <Content Include="Business\GreenHouseInfo\GreenHouseInfoEN.aspx" />
     <Content Include="Business\GreenHouseInfo\GreenHouseInfoRU.aspx" />
     <Content Include="Business\Statistics\IncomesStatisticsForm.aspx" />
+    <Content Include="Business\Utilities\UtilitiesForm.aspx" />
     <Content Include="Business\WebControls\Booking\BookingsWebControl.ascx" />
     <Content Include="Business\WebControls\DateRange\DateRangerControl.ascx" />
     <Content Include="Business\WebControls\Expenses\ExpensesDetailsForm.aspx" />
@@ -101,6 +102,8 @@
     <Content Include="Business\GreenHouseInfo\GreenHouseInfoUA.aspx" />
     <Content Include="Business\WebControls\Incomes\IncomesWebControl.ascx" />
     <Content Include="Business\WebControls\Booking\RoomBookingDetailsForm.aspx" />
+    <Content Include="Business\WebControls\Utilities\UtilitiesDetailsForm.aspx" />
+    <Content Include="Business\WebControls\Utilities\UtilitiesWebControl.ascx" />
     <Content Include="css\commonStyle.css" />
     <Content Include="css\incomes.css" />
     <Content Include="css\DayPilot\myhstyle.css" />
@@ -110,6 +113,7 @@
     <None Include="DBScripts\InitDBScripts.sql" />
     <None Include="ExternalAss\DayPilot.dll" />
     <Content Include="css\greenHouseStyle.css" />
+    <Content Include="css\utilities.css" />
     <Content Include="Default.aspx" />
     <Content Include="js\message.js" />
     <Content Include="js\modal.js" />
@@ -154,6 +158,13 @@
     </Compile>
     <Compile Include="Business\Statistics\IncomesStatisticsForm.aspx.designer.cs">
       <DependentUpon>IncomesStatisticsForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Business\Utilities\UtilitiesForm.aspx.cs">
+      <DependentUpon>UtilitiesForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Business\Utilities\UtilitiesForm.aspx.designer.cs">
+      <DependentUpon>UtilitiesForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Business\WebControls\Booking\BookingsWebControl.ascx.cs">
       <DependentUpon>BookingsWebControl.ascx</DependentUpon>
@@ -214,6 +225,21 @@
       <DependentUpon>RoomBookingDetailsForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Business\WebControls\Booking\BookingController.cs" />
+    <Compile Include="Business\WebControls\Utilities\UtilitiesController.cs" />
+    <Compile Include="Business\WebControls\Utilities\UtilitiesDetailsForm.aspx.cs">
+      <DependentUpon>UtilitiesDetailsForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Business\WebControls\Utilities\UtilitiesDetailsForm.aspx.designer.cs">
+      <DependentUpon>UtilitiesDetailsForm.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Business\WebControls\Utilities\UtilitiesWebControl.ascx.cs">
+      <DependentUpon>UtilitiesWebControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Business\WebControls\Utilities\UtilitiesWebControl.ascx.designer.cs">
+      <DependentUpon>UtilitiesWebControl.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -7,37 +7,37 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MyHotel.Business.WebControls.Expenses {
+namespace MyHotel.Business.WebControls.Utilities {
     
     
-    public partial class ExpensesDetailsForm {
+    public partial class UtilitiesDetailsForm {
         
         /// <summary>
-        /// formED control.
+        /// formUD control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm formED;
+        protected global::System.Web.UI.HtmlControls.HtmlForm formUD;
         
         /// <summary>
-        /// ScriptManagerExpensesDetails control.
+        /// ScriptManagerUtilitiesDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManagerExpensesDetails;
+        protected global::System.Web.UI.ScriptManager ScriptManagerUtilitiesDetails;
         
         /// <summary>
-        /// UpdatePanelExpensesDetails control.
+        /// UpdatePanelUtilitiesDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.UpdatePanel UpdatePanelExpensesDetails;
+        protected global::System.Web.UI.UpdatePanel UpdatePanelUtilitiesDetails;
         
         /// <summary>
         /// LabelHeader control.

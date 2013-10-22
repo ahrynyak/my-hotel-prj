@@ -4,24 +4,19 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using MyHotel.Business.Entity.Expenses;
-using Obout.Ajax.UI.TreeView;
-using MyHotel.Utils;
-using System.Globalization;
-using MyHotel.Business.WebControls.Expenses;
 
-namespace MyHotel.Business.ExpensesMgmt
+namespace MyHotel.Business.Utilities
 {
-    public partial class ExpensesMgmtForm : System.Web.UI.Page
+    public partial class UtilitiesForm : System.Web.UI.Page
     {
         private static DateTime getDefaultStartDate()
         {
-            return DateTime.Today.ToUniversalTime().AddDays(-DateTime.Now.Day + 1);
+            return DateTime.Today.ToUniversalTime().AddDays(-DateTime.UtcNow.Day + 1);
         }
 
         private static DateTime getDefaultEndDate()
         {
-            return DateTime.Today.ToUniversalTime().AddDays(-DateTime.Now.Day + 1).AddDays(DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month)).AddMilliseconds(-1);
+            return DateTime.Today.ToUniversalTime().AddDays(-DateTime.UtcNow.Day + 1).AddDays(DateTime.DaysInMonth(DateTime.UtcNow.Year, DateTime.UtcNow.Month)).AddMilliseconds(-1);
         }
 
         protected override void OnInit(EventArgs e)
@@ -40,13 +35,11 @@ namespace MyHotel.Business.ExpensesMgmt
                 }
                 if (!Page.IsPostBack)
                 {
-                    ExpensesController.ShowAllLevels = true;
-                    CheckBoxShowAllLevel.Checked = ExpensesController.ShowAllLevels;
                     DateRangerPeriod.SetDateRange(getDefaultStartDate(), getDefaultEndDate());
                 }
                 else
                 {
-                    ExpensesViewCtrl.Refresh(DateRangerPeriod.GetStartDate(), DateRangerPeriod.GetEndDate());
+                    //IncomesViewCtrl.Refresh(DateRangerPeriod.GetStartDate(), DateRangerPeriod.GetEndDate());
                 }
             }
             else
@@ -57,13 +50,7 @@ namespace MyHotel.Business.ExpensesMgmt
 
         void DateRangerPeriod_DateChanged(object sender, WebControls.DateRange.DateEventArgs e)
         {
-            ExpensesViewCtrl.Refresh(e.StartDate, e.EndDate);
-        }
-
-        protected void CheckBoxShowAllLevel_CheckedChanged(object sender, EventArgs e)
-        {
-            ExpensesController.ShowAllLevels = ((CheckBox)sender).Checked;
-            ExpensesViewCtrl.Refresh(DateRangerPeriod.GetStartDate(), DateRangerPeriod.GetEndDate());
+            //IncomesViewCtrl.Refresh(e.StartDate, e.EndDate);
         }
     }
 }

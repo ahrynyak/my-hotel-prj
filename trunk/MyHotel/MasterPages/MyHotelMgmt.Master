@@ -42,6 +42,7 @@
             <a href="/Business/RoomBookingMgmt/RoomBookingMgmtForm.aspx" class="button-link"><span>Бронювання</span></a>&nbsp; 
             <a href="/Business/ExpensesMgmt/ExpensesMgmtForm.aspx" class="button-link"><span>Витрати</span></a>&nbsp;
             <a href="/Business/Statistics/IncomesStatisticsForm.aspx" class="button-link"><span>Статистика доходів</span></a>&nbsp;
+            <a href="/Business/Utilities/UtilitiesForm.aspx" class="button-link"><span>Ком. послуги</span></a>&nbsp;
             <br />
             <br />
             <hr />

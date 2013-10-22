@@ -11,12 +11,12 @@ namespace MyHotel.Business.Statistics
     {
         private static DateTime getDefaultStartDate()
         {
-            return DateTime.Today.AddDays(-DateTime.Now.Day + 1);
+            return DateTime.Today.ToUniversalTime().AddDays(-DateTime.UtcNow.Day + 1);
         }
 
         private static DateTime getDefaultEndDate()
         {
-            return DateTime.Today.AddDays(-DateTime.Now.Day + 1).AddDays(DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month)).AddMilliseconds(-1);
+            return DateTime.Today.ToUniversalTime().AddDays(-DateTime.UtcNow.Day + 1).AddDays(DateTime.DaysInMonth(DateTime.UtcNow.Year, DateTime.UtcNow.Month)).AddMilliseconds(-1);
         }
 
         protected override void OnInit(EventArgs e)

@@ -36,11 +36,11 @@ namespace MyHotel.Business.WebControls.Booking
             {
                 message = "Бронь не може перекриватись іншою броню";
             }
-            else if (e.OldStart < DateTime.Today && !BookingController.IsEditPastEnabled)
+            else if (e.OldStart < DateTime.Today.ToUniversalTime() && !BookingController.IsEditPastEnabled)
             {
                 message = "Минула бронь не може бути змінена";
             }
-            else if (e.NewStart < DateTime.Today && !BookingController.IsEditPastEnabled)
+            else if (e.NewStart < DateTime.Today.ToUniversalTime() && !BookingController.IsEditPastEnabled)
             {
                 message = "Ця бронь не може бути переміщена в минуле";
             }
@@ -62,11 +62,11 @@ namespace MyHotel.Business.WebControls.Booking
             {
                 message = "Бронь не може перекриватись іншою броню";
             }
-            else if (e.OldStart < DateTime.Today && !BookingController.IsEditPastEnabled)
+            else if (e.OldStart < DateTime.Today.ToUniversalTime() && !BookingController.IsEditPastEnabled)
             {
                 message = "Минула бронь не може бути змінена";
             }
-            else if (e.NewStart < DateTime.Today && !BookingController.IsEditPastEnabled)
+            else if (e.NewStart < DateTime.Today.ToUniversalTime() && !BookingController.IsEditPastEnabled)
             {
                 message = "Ця бронь не може бути переміщена в минуле";
             }
@@ -107,7 +107,7 @@ namespace MyHotel.Business.WebControls.Booking
             {
                 e.CssClass = "cleaningday";
             }
-            else if (e.Start < DateTime.Today)
+            else if (e.Start < DateTime.Today.ToUniversalTime())
             {
                 e.CssClass = "pastday";
             }
