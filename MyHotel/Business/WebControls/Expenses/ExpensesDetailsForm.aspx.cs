@@ -35,7 +35,7 @@ namespace MyHotel.Business.WebControls.Expenses
                     if (!string.IsNullOrEmpty(expensID))
                     {
                         DateTime starDate = DateTime.Now;
-                        string startDateString = Request.QueryString["startRangeDate"];
+                        string startDateString = Request.QueryString["startDate"];
                         if (!string.IsNullOrEmpty(startDateString))
                         {
                             starDate = DateTime.Parse(startDateString, CultureInfo.CurrentCulture);
