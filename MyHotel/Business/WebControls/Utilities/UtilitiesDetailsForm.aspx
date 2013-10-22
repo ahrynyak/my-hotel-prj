@@ -8,7 +8,7 @@
     <link href="/css/utilities.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <form id="formUD" runat="server">
+    <form id="formUD" runat="server" clientidmode="Static">
 <asp:ScriptManager ID="ScriptManagerUtilitiesDetails" runat="server" />
     <asp:UpdatePanel ID="UpdatePanelUtilitiesDetails" runat="server" UpdateMode="Conditional">
         <Triggers>
@@ -22,7 +22,7 @@
         <hr />
         </div>
             <div class="utilitiesDetailsControlsDiv">
-                <table>
+                <table id="utilitiesDetailsMainTable">
                     <tr>
                         <td>
                             <asp:Label ID="LabelDate" runat="server" Text="Дата" class="labelBookingDetails" />

@@ -138,6 +138,8 @@
     <Compile Include="Business\Entity\Booking\RoomDetailedEntity.cs" />
     <Compile Include="Business\Entity\Booking\RoomBookingEntity.cs" />
     <Compile Include="Business\Entity\Booking\RoomEntity.cs" />
+    <Compile Include="Business\Entity\Utilities\UtilitiesDetailsEntity.cs" />
+    <Compile Include="Business\Entity\Utilities\UtilitiesItemsEntity.cs" />
     <Compile Include="Business\GreenHouseInfo\GreenHouseInfoEN.aspx.cs">
       <DependentUpon>GreenHouseInfoEN.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
