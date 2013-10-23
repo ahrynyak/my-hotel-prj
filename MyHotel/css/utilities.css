@@ -13,3 +13,14 @@
     position: absolute;
     bottom: 0;
 }
+.errorValidation
+{
+    color: red;
+}
+
+.boldLabel
+{
+    color: #666666;
+    background-color:transparent;
+    font-weight:bold;
+}
