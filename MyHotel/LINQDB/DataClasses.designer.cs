@@ -53,8 +53,8 @@ namespace MyHotel.LINQDB
     partial void DeleteUtilitiesItem(UtilitiesItem instance);
     #endregion
 		
-		public DataClassesDataContext() : 
-				base(global::System.Configuration.ConfigurationManager.ConnectionStrings["DB_99B829_UkrRootConnectionString"].ConnectionString, mappingSource)
+		public DataClassesDataContext() :
+        base(global::System.Configuration.ConfigurationManager.ConnectionStrings["MyHotelDBConnectionString"].ConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
