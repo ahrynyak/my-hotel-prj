@@ -76,7 +76,7 @@ namespace MyHotel.Business.WebControls.Booking
             }
             catch (Exception ex)
             {
-                HelperCommon.ProcessException(ex);
+                HelperCommon.ProcessException(LabelError, ex);
             }
         }
 
@@ -113,7 +113,7 @@ namespace MyHotel.Business.WebControls.Booking
             }
             catch (Exception ex)
             {
-                HelperCommon.ProcessException(ex);
+                HelperCommon.ProcessException(LabelError, ex);
             }
         }
 
@@ -146,7 +146,7 @@ namespace MyHotel.Business.WebControls.Booking
             }
             catch (Exception ex)
             {
-                HelperCommon.ProcessException(ex);
+                HelperCommon.ProcessException(LabelError, ex);
             }
         }
 
@@ -165,7 +165,7 @@ namespace MyHotel.Business.WebControls.Booking
             }
             catch (Exception ex)
             {
-                HelperCommon.ProcessException(ex);
+                HelperCommon.ProcessException(LabelError, ex);
             }
         }
 
@@ -183,7 +183,7 @@ namespace MyHotel.Business.WebControls.Booking
             }
             catch (Exception ex)
             {
-                HelperCommon.ProcessException(ex);
+                HelperCommon.ProcessException(LabelError, ex);
             }
         }
 

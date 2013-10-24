@@ -79,81 +79,86 @@ namespace MyHotel.Business.WebControls.Booking
             return calendarEvents;
         }
 
+        private static object roomBookingLock = new object();
+
         public static void SaveRoomBooking(RoomBookingEntity roomBookingEntity)
         {
-            using (DataClassesDataContext dataContext = HelperCommon.GetDataContext())
+            lock (roomBookingLock)
             {
-                if (IsEditPastEnabled || roomBookingEntity.StartDate >= HelperCommon.GetUADateTimeNow().Date)
+                using (DataClassesDataContext dataContext = HelperCommon.GetDataContext())
                 {
-                    if (roomBookingEntity.StartDate.Date >= roomBookingEntity.EndDate.Date)
+                    if (IsEditPastEnabled || roomBookingEntity.StartDate >= HelperCommon.GetUADateTimeNow().Date)
                     {
-                        throw new InvalidConstraintException("Дата заїзду повинна бути менша за дату виїзду");
-                    }
-                    if (BookingController.IsRoomBookingFree(roomBookingEntity.RoomBookingID, roomBookingEntity.RoomID, roomBookingEntity.StartDate, roomBookingEntity.EndDate))
-                    {
-                        if (roomBookingEntity.RoomBookingID > 0)
+                        if (roomBookingEntity.StartDate.Date >= roomBookingEntity.EndDate.Date)
                         {
-                            RoomBooking roomBooking = dataContext.RoomBookings.FirstOrDefault(s => s.RoomBookingID == roomBookingEntity.RoomBookingID);
-                            if (roomBooking != null)
+                            throw new InvalidConstraintException("Дата заїзду повинна бути менша за дату виїзду");
+                        }
+                        if (BookingController.IsRoomBookingFree(roomBookingEntity.RoomBookingID, roomBookingEntity.RoomID, roomBookingEntity.StartDate, roomBookingEntity.EndDate))
+                        {
+                            if (roomBookingEntity.RoomBookingID > 0)
                             {
-                                roomBooking.AdditionalInfo = roomBookingEntity.AdditionalInfo;
-                                roomBooking.BookingStatus =
-                                (roomBookingEntity.AlreadyPaid > 0
-                                &&
-                                (roomBookingEntity.BookingStatus == EBookingStatus.NotConfirmed.GetHashCode() || roomBookingEntity.BookingStatus == EBookingStatus.Confirmed.GetHashCode()))
-                                ? EBookingStatus.Prepaid.GetHashCode() : roomBookingEntity.BookingStatus;
-                                roomBooking.EndDate = roomBookingEntity.EndDate;
-                                roomBooking.GuestName = roomBookingEntity.GuestName;
-                                roomBooking.GuestPhone = roomBookingEntity.GuestPhone;
-                                roomBooking.NumberOfAdult = roomBookingEntity.NumberOfAdult;
-                                roomBooking.NumberOfChild = roomBookingEntity.NumberOfChild;
-                                roomBooking.PriceOfAdditionalBed = roomBookingEntity.PriceOfAdditionalBed;
-                                roomBooking.PricePerRoom = roomBookingEntity.PricePerRoom;
-                                roomBooking.RoomID = roomBookingEntity.RoomID;
-                                roomBooking.StartDate = roomBookingEntity.StartDate;
-                                roomBooking.AlreadyPaid = roomBookingEntity.AlreadyPaid;
-                                dataContext.SubmitChanges();
-                                manageRoomBoookingCalendar(roomBookingEntity, roomBooking);
+                                RoomBooking roomBooking = dataContext.RoomBookings.FirstOrDefault(s => s.RoomBookingID == roomBookingEntity.RoomBookingID);
+                                if (roomBooking != null)
+                                {
+                                    roomBooking.AdditionalInfo = roomBookingEntity.AdditionalInfo;
+                                    roomBooking.BookingStatus =
+                                    (roomBookingEntity.AlreadyPaid > 0
+                                    &&
+                                    (roomBookingEntity.BookingStatus == EBookingStatus.NotConfirmed.GetHashCode() || roomBookingEntity.BookingStatus == EBookingStatus.Confirmed.GetHashCode()))
+                                    ? EBookingStatus.Prepaid.GetHashCode() : roomBookingEntity.BookingStatus;
+                                    roomBooking.EndDate = roomBookingEntity.EndDate;
+                                    roomBooking.GuestName = roomBookingEntity.GuestName;
+                                    roomBooking.GuestPhone = roomBookingEntity.GuestPhone;
+                                    roomBooking.NumberOfAdult = roomBookingEntity.NumberOfAdult;
+                                    roomBooking.NumberOfChild = roomBookingEntity.NumberOfChild;
+                                    roomBooking.PriceOfAdditionalBed = roomBookingEntity.PriceOfAdditionalBed;
+                                    roomBooking.PricePerRoom = roomBookingEntity.PricePerRoom;
+                                    roomBooking.RoomID = roomBookingEntity.RoomID;
+                                    roomBooking.StartDate = roomBookingEntity.StartDate;
+                                    roomBooking.AlreadyPaid = roomBookingEntity.AlreadyPaid;
+                                    dataContext.SubmitChanges();
+                                    manageRoomBoookingCalendar(roomBookingEntity, roomBooking);
+                                }
+                                else
+                                {
+                                    throw new InvalidConstraintException("Бронь для зміни не знайдена №" + roomBookingEntity.RoomBookingID);
+                                }
                             }
                             else
                             {
-                                throw new InvalidConstraintException("Бронь для зміни не знайдена №" + roomBookingEntity.RoomBookingID);
+                                RoomBooking roomBooking = new RoomBooking()
+                                {
+                                    AdditionalInfo = roomBookingEntity.AdditionalInfo,
+                                    BookingStatus =
+                                    (roomBookingEntity.AlreadyPaid > 0
+                                    &&
+                                    (roomBookingEntity.BookingStatus == EBookingStatus.NotConfirmed.GetHashCode() || roomBookingEntity.BookingStatus == EBookingStatus.Confirmed.GetHashCode()))
+                                    ? EBookingStatus.Prepaid.GetHashCode() : roomBookingEntity.BookingStatus,
+                                    EndDate = roomBookingEntity.EndDate,
+                                    GuestName = roomBookingEntity.GuestName,
+                                    GuestPhone = roomBookingEntity.GuestPhone,
+                                    NumberOfAdult = roomBookingEntity.NumberOfAdult,
+                                    NumberOfChild = roomBookingEntity.NumberOfChild,
+                                    PriceOfAdditionalBed = roomBookingEntity.PriceOfAdditionalBed,
+                                    PricePerRoom = roomBookingEntity.PricePerRoom,
+                                    RoomID = roomBookingEntity.RoomID,
+                                    StartDate = roomBookingEntity.StartDate,
+                                    AlreadyPaid = roomBookingEntity.AlreadyPaid
+                                };
+                                dataContext.RoomBookings.InsertOnSubmit(roomBooking);
+                                dataContext.SubmitChanges();
+                                manageRoomBoookingCalendar(roomBookingEntity, roomBooking);
                             }
                         }
                         else
                         {
-                            RoomBooking roomBooking = new RoomBooking()
-                            {
-                                AdditionalInfo = roomBookingEntity.AdditionalInfo,
-                                BookingStatus =
-                                (roomBookingEntity.AlreadyPaid > 0
-                                &&
-                                (roomBookingEntity.BookingStatus == EBookingStatus.NotConfirmed.GetHashCode() || roomBookingEntity.BookingStatus == EBookingStatus.Confirmed.GetHashCode()))
-                                ? EBookingStatus.Prepaid.GetHashCode() : roomBookingEntity.BookingStatus,
-                                EndDate = roomBookingEntity.EndDate,
-                                GuestName = roomBookingEntity.GuestName,
-                                GuestPhone = roomBookingEntity.GuestPhone,
-                                NumberOfAdult = roomBookingEntity.NumberOfAdult,
-                                NumberOfChild = roomBookingEntity.NumberOfChild,
-                                PriceOfAdditionalBed = roomBookingEntity.PriceOfAdditionalBed,
-                                PricePerRoom = roomBookingEntity.PricePerRoom,
-                                RoomID = roomBookingEntity.RoomID,
-                                StartDate = roomBookingEntity.StartDate,
-                                AlreadyPaid = roomBookingEntity.AlreadyPaid
-                            };
-                            dataContext.RoomBookings.InsertOnSubmit(roomBooking);
-                            dataContext.SubmitChanges();
-                            manageRoomBoookingCalendar(roomBookingEntity, roomBooking);
+                            throw new InvalidConstraintException("Бронь не може перекриватись іншою броню");
                         }
                     }
                     else
                     {
-                        throw new InvalidConstraintException("Бронь не може перекриватись іншою броню");
+                        throw new InvalidConstraintException("Неможливо додати або модифікувати бронь в минулому");
                     }
-                }
-                else
-                {
-                    throw new InvalidConstraintException("Неможливо додати або модифікувати бронь в минулому");
                 }
             }
         }
@@ -174,43 +179,46 @@ namespace MyHotel.Business.WebControls.Booking
 
         public static void DeleteRoomBooking(int roomBookingID)
         {
-            using (DataClassesDataContext dataContext = HelperCommon.GetDataContext())
+            lock (roomBookingLock)
             {
-                RoomBooking roomBooking = dataContext.RoomBookings.FirstOrDefault(s => s.RoomBookingID == roomBookingID);
-                if (roomBooking != null)
+                using (DataClassesDataContext dataContext = HelperCommon.GetDataContext())
                 {
-                    if (IsEditPastEnabled || roomBooking.StartDate >= HelperCommon.GetUADateTimeNow().Date)
+                    RoomBooking roomBooking = dataContext.RoomBookings.FirstOrDefault(s => s.RoomBookingID == roomBookingID);
+                    if (roomBooking != null)
                     {
-                        if ((roomBooking.AlreadyPaid ?? 0) > 0)
+                        if (IsEditPastEnabled || roomBooking.StartDate >= HelperCommon.GetUADateTimeNow().Date)
                         {
-                            throw new InvalidConstraintException("Неможливо видалити оплачену бронь");
+                            if ((roomBooking.AlreadyPaid ?? 0) > 0)
+                            {
+                                throw new InvalidConstraintException("Неможливо видалити оплачену бронь");
+                            }
+                            else
+                            {
+                                dataContext.RoomBookings.DeleteOnSubmit(roomBooking);
+                                dataContext.SubmitChanges();
+                                try
+                                {
+                                    Dictionary<string, EventEntry> calendarEvents = getCalendarEvents(roomBooking.StartDate, roomBooking.EndDate);
+                                    if (calendarEvents.Any(ce => ce.Key == roomBooking.RoomBookingID.ToString()))
+                                    {
+                                        calendarEvents.FirstOrDefault(ce => ce.Key == roomBooking.RoomBookingID.ToString()).Value.Delete();
+                                    }
+                                }
+                                catch (Exception ex)
+                                {
+                                    MessageBox.Show(ex.Message);
+                                }
+                            }
                         }
                         else
                         {
-                            dataContext.RoomBookings.DeleteOnSubmit(roomBooking);
-                            dataContext.SubmitChanges();
-                            try
-                            {
-                                Dictionary<string, EventEntry> calendarEvents = getCalendarEvents(roomBooking.StartDate, roomBooking.EndDate);
-                                if (calendarEvents.Any(ce => ce.Key == roomBooking.RoomBookingID.ToString()))
-                                {
-                                    calendarEvents.FirstOrDefault(ce => ce.Key == roomBooking.RoomBookingID.ToString()).Value.Delete();
-                                }
-                            }
-                            catch (Exception ex)
-                            {
-                                MessageBox.Show(ex.Message);
-                            }
+                            throw new InvalidConstraintException("Неможливо видалити бронь в минулому");
                         }
                     }
                     else
                     {
-                        throw new InvalidConstraintException("Неможливо видалити бронь в минулому");
+                        throw new InvalidConstraintException("Бронь для видалення не знайдена №" + roomBookingID);
                     }
-                }
-                else
-                {
-                    throw new InvalidConstraintException("Бронь для видалення не знайдена №" + roomBookingID);
                 }
             }
         }

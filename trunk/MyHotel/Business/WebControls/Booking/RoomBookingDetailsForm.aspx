@@ -1,4 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RoomBookingDetailsForm.aspx.cs" Inherits="MyHotel.Business.WebControls.Booking.RoomBookingDetailsForm" Culture="uk-UA" UICulture="uk-UA" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RoomBookingDetailsForm.aspx.cs"
+    Inherits="MyHotel.Business.WebControls.Booking.RoomBookingDetailsForm" Culture="uk-UA"
+    UICulture="uk-UA" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 <%--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">--%>
@@ -116,12 +118,12 @@
                     <tr>
                         <td>
                             <asp:TextBox runat="server" ID="datePickeStart" Width="90%" autocomplete="off" AutoPostBack="True"
-                                ontextchanged="datePickeStart_TextChanged"/>
+                                OnTextChanged="datePickeStart_TextChanged" />
                             <ajaxToolkit:CalendarExtender ID="calendarExtenderStart" runat="server" TargetControlID="datePickeStart" />
                         </td>
                         <td>
                             <asp:TextBox runat="server" ID="datePickeEnd" Width="90%" autocomplete="off" AutoPostBack="True"
-                                ontextchanged="datePickeEnd_TextChanged"/>
+                                OnTextChanged="datePickeEnd_TextChanged" />
                             <ajaxToolkit:CalendarExtender ID="calendarExtenderEnd" runat="server" TargetControlID="datePickeEnd" />
                         </td>
                     </tr>
@@ -181,6 +183,7 @@
                         <td>
                             <asp:ImageButton ID="ImageButtonRefreshCalculation" runat="server" OnClick="ImageButtonRefreshCalculation_Click"
                                 ImageUrl="~/icons/refresh_green.ico" Height="16px" Width="16px" />
+                            <asp:Label ID="LabelError" runat="server" Text="..." CssClass="errorValidation" Visible="false" Width="60%" />
                         </td>
                     </tr>
                     <tr>
