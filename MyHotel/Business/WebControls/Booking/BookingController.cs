@@ -83,7 +83,7 @@ namespace MyHotel.Business.WebControls.Booking
         {
             using (DataClassesDataContext dataContext = HelperCommon.GetDataContext())
             {
-                if (IsEditPastEnabled || roomBookingEntity.StartDate >= DateTime.Now.Date)
+                if (IsEditPastEnabled || roomBookingEntity.StartDate >= HelperCommon.GetUADateTimeNow().Date)
                 {
                     if (roomBookingEntity.StartDate.Date >= roomBookingEntity.EndDate.Date)
                     {
@@ -179,7 +179,7 @@ namespace MyHotel.Business.WebControls.Booking
                 RoomBooking roomBooking = dataContext.RoomBookings.FirstOrDefault(s => s.RoomBookingID == roomBookingID);
                 if (roomBooking != null)
                 {
-                    if (IsEditPastEnabled || roomBooking.StartDate >= DateTime.Now)
+                    if (IsEditPastEnabled || roomBooking.StartDate >= HelperCommon.GetUADateTimeNow().Date)
                     {
                         if ((roomBooking.AlreadyPaid ?? 0) > 0)
                         {

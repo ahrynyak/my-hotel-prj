@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using MyHotel.Utils;
 
 namespace MyHotel.Business.Statistics
 {
@@ -11,12 +12,12 @@ namespace MyHotel.Business.Statistics
     {
         private static DateTime getDefaultStartDate()
         {
-            return DateTime.Today.ToUniversalTime().AddDays(-DateTime.UtcNow.Day + 1);
+            return HelperCommon.GetUADateTimeNow().Date.AddDays(-HelperCommon.GetUADateTimeNow().Day + 1);
         }
 
         private static DateTime getDefaultEndDate()
         {
-            return DateTime.Today.ToUniversalTime().AddDays(-DateTime.UtcNow.Day + 1).AddDays(DateTime.DaysInMonth(DateTime.UtcNow.Year, DateTime.UtcNow.Month)).AddMilliseconds(-1);
+            return HelperCommon.GetUADateTimeNow().Date.AddDays(-HelperCommon.GetUADateTimeNow().Day + 1).AddDays(DateTime.DaysInMonth(HelperCommon.GetUADateTimeNow().Year, HelperCommon.GetUADateTimeNow().Month)).AddMilliseconds(-1);
         }
 
         protected override void OnInit(EventArgs e)

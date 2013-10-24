@@ -107,7 +107,7 @@ namespace MyHotel.Business.WebControls.Booking
             {
                 e.CssClass = "cleaningday";
             }
-            else if (e.Start < DateTime.Today.ToUniversalTime())
+            else if (e.Start < HelperCommon.GetUADateTimeNow().Date)
             {
                 e.CssClass = "pastday";
             }

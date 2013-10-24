@@ -34,7 +34,7 @@ namespace MyHotel.Business.WebControls.Expenses
                     string expensID = Request.QueryString["expensID"];
                     if (!string.IsNullOrEmpty(expensID))
                     {
-                        DateTime starDate = DateTime.Now;
+                        DateTime starDate = HelperCommon.GetUADateTimeNow();
                         string startDateString = Request.QueryString["startDate"];
                         if (!string.IsNullOrEmpty(startDateString))
                         {

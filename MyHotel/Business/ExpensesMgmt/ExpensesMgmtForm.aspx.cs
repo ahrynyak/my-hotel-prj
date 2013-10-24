@@ -16,12 +16,12 @@ namespace MyHotel.Business.ExpensesMgmt
     {
         private static DateTime getDefaultStartDate()
         {
-            return DateTime.Today.ToUniversalTime().AddDays(-DateTime.Now.Day + 1);
+            return HelperCommon.GetUADateTimeNow().Date.AddDays(-HelperCommon.GetUADateTimeNow().Day + 1);
         }
 
         private static DateTime getDefaultEndDate()
         {
-            return DateTime.Today.ToUniversalTime().AddDays(-DateTime.Now.Day + 1).AddDays(DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month)).AddMilliseconds(-1);
+            return HelperCommon.GetUADateTimeNow().Date.AddDays(-HelperCommon.GetUADateTimeNow().Day + 1).AddDays(DateTime.DaysInMonth(HelperCommon.GetUADateTimeNow().Year, HelperCommon.GetUADateTimeNow().Month)).AddMilliseconds(-1);
         }
 
         protected override void OnInit(EventArgs e)
