@@ -81,6 +81,8 @@ CREATE TABLE [ExpensesDetails]
 	Cost float NOT NULL,
 	[Description] nvarchar(max) NULL
 )
+ALTER TABLE ExpensesDetails
+ADD UNIQUE(ExpensesItemID, [Date]) 
 
 
 IF OBJECT_ID (N'Cleaning', N'U') IS NOT NULL 

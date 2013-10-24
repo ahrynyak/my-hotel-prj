@@ -19,6 +19,14 @@ namespace MyHotel.Utils
             MessageBox.Show(ex.Message);
         }
 
+        public const string UATimeZoneKey = "FLE Standard Time";
+
+        public static DateTime GetUADateTimeNow()
+        {
+            TimeZoneInfo uaTimeZone = TimeZoneInfo.FindSystemTimeZoneById(HelperCommon.UATimeZoneKey);
+            return TimeZoneInfo.ConvertTimeFromUtc(DateTime.UtcNow, uaTimeZone);
+        }
+
         public const string DateFormat = "d-MMM-yyyy (dddd)";
 
         public const string DoubleFormat = "0.#";
