@@ -42,5 +42,10 @@ namespace MyHotel.Utils
             page.Response.Flush();
             page.Response.Close();
         }
+
+        public static void ShowMessage(Page page, string message)
+        {
+            page.Response.Write("<script language='javascript'>window.alert('" + message + "');</script>");
+        }
     }
 }

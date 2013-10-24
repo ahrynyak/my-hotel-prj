@@ -15,7 +15,7 @@ namespace MyHotel.Business.WebControls.Expenses
         private bool isEdit = false;
         private ExpensesDetailsEntity expensesDetailsEntity = null;
         private ExpensesItemsEntity expensesItemsEntity = null;
-        
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -44,7 +44,7 @@ namespace MyHotel.Business.WebControls.Expenses
                         {
                             MessageBox.Show("Некоректні параметри дати");
                         }
-                       
+
                         //new
                         isEdit = false;
                         expensesItemsEntity = ExpensesController.GetExpensesItemsByID(int.Parse(expensID));
@@ -75,7 +75,7 @@ namespace MyHotel.Business.WebControls.Expenses
             }
             catch (Exception ex)
             {
-                HelperCommon.ProcessException(ex);
+                HelperCommon.ProcessException(LabelError, ex);
             }
         }
 
@@ -97,7 +97,7 @@ namespace MyHotel.Business.WebControls.Expenses
             }
             catch (Exception ex)
             {
-                HelperCommon.ProcessException(ex);
+                HelperCommon.ProcessException(LabelError, ex);
             }
         }
 
@@ -122,7 +122,7 @@ namespace MyHotel.Business.WebControls.Expenses
             }
             catch (Exception ex)
             {
-                HelperCommon.ProcessException(ex);
+                HelperCommon.ProcessException(LabelError, ex);
             }
         }
 
@@ -141,7 +141,7 @@ namespace MyHotel.Business.WebControls.Expenses
             }
             catch (Exception ex)
             {
-                HelperCommon.ProcessException(ex);
+                HelperCommon.ProcessException(LabelError, ex);
             }
 
         }

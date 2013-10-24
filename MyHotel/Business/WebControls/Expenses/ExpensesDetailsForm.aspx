@@ -1,11 +1,13 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ExpensesDetailsForm.aspx.cs" Inherits="MyHotel.Business.WebControls.Expenses.ExpensesDetailsForm" Culture="uk-UA" UICulture="uk-UA" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ExpensesDetailsForm.aspx.cs"
+    Inherits="MyHotel.Business.WebControls.Expenses.ExpensesDetailsForm" Culture="uk-UA"
+    UICulture="uk-UA" %>
 
 <%--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">--%>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
-        <link href="/css/expenses.css" rel="stylesheet" type="text/css" />
+    <link href="/css/expenses.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
     <form id="formED" runat="server">
@@ -17,10 +19,10 @@
             <asp:PostBackTrigger ControlID="ButtonDelete" />
         </Triggers>
         <ContentTemplate>
-        <div class="expensesDetailsHeaderDiv">
-        <asp:Label ID="LabelHeader" runat="server" Text="..." class="labelBookingDetails" />
-        <hr />
-        </div>
+            <div class="expensesDetailsHeaderDiv">
+                <asp:Label ID="LabelHeader" runat="server" Text="..." class="labelBookingDetails" />
+                <hr />
+            </div>
             <div class="expensesDetailsControlsDiv">
                 <table>
                     <tr>
@@ -51,6 +53,12 @@
                         </td>
                         <td>
                             <asp:TextBox ID="TextBoxInfo" runat="server" TextMode="MultiLine" Width="90%" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <asp:Label ID="LabelError" runat="server" Text="..." CssClass="errorValidation" Visible="false"
+                                Width="90%" />
                         </td>
                     </tr>
                 </table>

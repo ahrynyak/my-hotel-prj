@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using MyHotel.LINQDB;
 using System.Globalization;
+using System.Web.UI;
+using System.Web.UI.WebControls;
 
 namespace MyHotel.Utils
 {
@@ -14,9 +16,11 @@ namespace MyHotel.Utils
             return new DataClassesDataContext();
         }
 
-        public static void ProcessException(Exception ex)
+        public static void ProcessException(Label labelError, Exception ex)
         {
-            MessageBox.Show(ex.Message);
+            labelError.Visible = true;
+            labelError.Text = "Error see hint";
+            labelError.ToolTip = ex.Message;
         }
 
         public const string UATimeZoneKey = "FLE Standard Time";

@@ -63,40 +63,47 @@ namespace MyHotel.Business.WebControls.Expenses
         {
             using (DataClassesDataContext dataContext = HelperCommon.GetDataContext())
             {
-                if (expensesDetailsEntity.Cost > 0)
+                if (!dataContext.ExpensesDetails.Any(e => e.Date == expensesDetailsEntity.Date && e.ExpensesItemID == expensesDetailsEntity.ExpensesItemID && e.ExpensesDetailsID != expensesDetailsEntity.ExpensesDetailsID))
                 {
-                    if (expensesDetailsEntity.ExpensesDetailsID > 0)
+                    if (expensesDetailsEntity.Cost > 0)
                     {
-                        //edit
-                        ExpensesDetail expensesDetail = dataContext.ExpensesDetails.FirstOrDefault(e => e.ExpensesDetailsID == expensesDetailsEntity.ExpensesDetailsID);
-                        if (expensesDetail != null)
+                        if (expensesDetailsEntity.ExpensesDetailsID > 0)
                         {
-                            expensesDetail.Cost = expensesDetailsEntity.Cost;
-                            expensesDetail.Date = expensesDetailsEntity.Date;
-                            expensesDetail.Description = expensesDetailsEntity.Description;
-                            dataContext.SubmitChanges();
+                            //edit
+                            ExpensesDetail expensesDetail = dataContext.ExpensesDetails.FirstOrDefault(e => e.ExpensesDetailsID == expensesDetailsEntity.ExpensesDetailsID);
+                            if (expensesDetail != null)
+                            {
+                                expensesDetail.Cost = expensesDetailsEntity.Cost;
+                                expensesDetail.Date = expensesDetailsEntity.Date;
+                                expensesDetail.Description = expensesDetailsEntity.Description;
+                                dataContext.SubmitChanges();
+                            }
+                            else
+                            {
+                                throw new InvalidConstraintException("Запис з витратами для зміни не знайдений №" + expensesDetailsEntity.ExpensesDetailsID);
+                            }
                         }
                         else
                         {
-                            throw new InvalidConstraintException("Запис з витратами для зміни не знайдений №" + expensesDetailsEntity.ExpensesDetailsID);
+                            //new
+                            dataContext.ExpensesDetails.InsertOnSubmit(new ExpensesDetail()
+                            {
+                                ExpensesItemID = expensesDetailsEntity.ExpensesItemID,
+                                Cost = expensesDetailsEntity.Cost,
+                                Date = expensesDetailsEntity.Date,
+                                Description = expensesDetailsEntity.Description
+                            });
+                            dataContext.SubmitChanges();
                         }
                     }
                     else
                     {
-                        //new
-                        dataContext.ExpensesDetails.InsertOnSubmit(new ExpensesDetail()
-                        {
-                            ExpensesItemID = expensesDetailsEntity.ExpensesItemID,
-                            Cost = expensesDetailsEntity.Cost,
-                            Date = expensesDetailsEntity.Date,
-                            Description = expensesDetailsEntity.Description
-                        });
-                        dataContext.SubmitChanges();
+                        throw new InvalidConstraintException("Сума повинна бути > 0");
                     }
                 }
                 else
                 {
-                    throw new InvalidConstraintException("Сума повинна бути > 0");
+                    throw new InvalidConstraintException("На вказану дату вже існує запис");
                 }
             }
         }

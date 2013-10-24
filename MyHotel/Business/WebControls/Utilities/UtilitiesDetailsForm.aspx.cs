@@ -75,7 +75,7 @@ namespace MyHotel.Business.WebControls.Utilities
             }
             catch (Exception ex)
             {
-                HelperCommon.ProcessException(ex);
+                //HelperCommon.ProcessException(La, ex);
             }
         }
 
@@ -87,7 +87,7 @@ namespace MyHotel.Business.WebControls.Utilities
             }
             catch (Exception ex)
             {
-                HelperCommon.ProcessException(ex);
+                //HelperCommon.ProcessException(this, ex);
             }
         }
         protected void ButtonOK_Click(object sender, EventArgs e)
