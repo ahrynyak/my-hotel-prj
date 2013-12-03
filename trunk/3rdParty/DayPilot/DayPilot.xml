@@ -277,12 +277,6 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:DayPilot.Web.Ui.Colors.CellTable.GetColors">
-            <summary>
-            Returns an array with palette codes.
-            </summary>
-            <returns></returns>
-        </member>
         <member name="P:DayPilot.Web.Ui.Conflict.Conflict.Events">
             <summary>
             List of conflicting events.
@@ -312,6 +306,122 @@
             <summary>
             It is set to true if resourceFieldName is specified at least once - in Load(), Add(), or AddRecurring().
             Passed further to Day class.
+            </summary>
+        </member>
+        <member name="T:DayPilot.Web.Ui.Design.DatePickerControlConverter">
+            <summary>
+            Control list filtering class.
+            </summary>
+        </member>
+        <member name="M:DayPilot.Web.Ui.Design.DatePickerControlConverter.FilterControl(System.Web.UI.Control)">
+            <summary>
+            Returns true for allowed control.
+            </summary>
+            <param name="control"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DayPilot.Web.Ui.Enums.Month.HeightSpec">
+            <summary>
+            Height specification types.
+            </summary>
+        </member>
+        <member name="F:DayPilot.Web.Ui.Enums.Month.HeightSpec.Auto">
+            <summary>
+            Stretches the height to show all resources.
+            </summary>
+        </member>
+        <member name="F:DayPilot.Web.Ui.Enums.Month.HeightSpec.Fixed">
+            <summary>
+            Uses the height specified in Height property. The hidden parts are accessible using a scrollbar.
+            </summary>
+        </member>
+        <member name="F:DayPilot.Web.Ui.Enums.Month.HeightSpec.Parent100Pct">
+            <summary>
+            The total height of the control will be set to 100% of the parent element.
+            </summary>
+        </member>
+        <member name="T:DayPilot.Web.Ui.Events.Scheduler.IncludeCellEventHandler">
+            <summary>
+            ResourceHeaderClick event handler delegate.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="T:DayPilot.Web.Ui.Events.Scheduler.IncludeCellEventArgs">
+            <summary>
+            Holds ResourceHeaderClick event arguments.
+            </summary>
+        </member>
+        <member name="T:DayPilot.Web.Ui.Events.DayPilotEventArgs">
+            <summary>
+            Base EventArgs that allow to specify event source (PostBack or CallBack).
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.Events.DayPilotEventArgs.Source">
+            <summary>
+            Event source: PostBack or CallBack.
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.Events.DayPilotEventArgs.Data">
+            <summary>
+            Custom data.
+            </summary>
+        </member>
+        <member name="T:DayPilot.Web.Ui.DayPilotDatePicker">
+            <summary>
+            Control that shows Outlook-like month calendar view (one cell = one day, one row = one week).
+            </summary>
+            <remarks>
+            </remarks>
+        </member>
+        <member name="M:DayPilot.Web.Ui.DayPilotDatePicker.Render(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Renders control HTML.
+            </summary>
+            <param name="output"></param>
+        </member>
+        <member name="M:DayPilot.Web.Ui.DayPilotDatePicker.ResolveUrlSafe(System.String)">
+            <summary>
+            Checks for null or empty string and calls Control.ResolveUrl().
+            </summary>
+            <param name="url"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DayPilot.Web.Ui.DayPilotDatePicker.OnLoad(System.EventArgs)">
+            <summary>
+            Handles the <see cref="E:System.Web.UI.Control.Load"></see> event.
+            </summary>
+            
+            <param name="e">An <see cref="T:System.EventArgs"></see> object that contains event data.</param>
+        </member>
+        <member name="P:DayPilot.Web.Ui.DayPilotDatePicker.ClientObjectName">
+            <summary>
+            JavaScript instance name on the client-side. If it is not specified the control ClientID will be used.
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.DayPilotDatePicker.TargetID">
+            <summary>
+            ID of the target control (Label or TextBox) that holds the selected date.
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.DayPilotDatePicker.TimeRangeSelectedJavaScript">
+            <summary>
+            Gets or sets the Javascript code that is executed when a user selects a time range.
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.DayPilotDatePicker.CssClassPrefix">
+            <summary>
+            Specifies the prefix of the CSS classes that contain style definitions for the elements of this control.
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.DayPilotDatePicker.ImageUrl">
+            <summary>
+            Specifies the URL of the date picker image.
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.DayPilotDatePicker.ImageVerticalAlign">
+            <summary>
+            Specifies the vertical-align style of the image. The default value is 'text-bottom'.
             </summary>
         </member>
         <member name="F:DayPilot.Web.Ui.Data.AreaAction.None">
@@ -514,12 +624,22 @@
         </member>
         <member name="P:DayPilot.Web.Ui.Events.Calendar.BeforeEventRenderEventArgs.InnerHTML">
             <summary>
+            Inner HTML of the event (use it to rewrite the default content). Obsolete. Use .Html instead.
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.Events.Calendar.BeforeEventRenderEventArgs.Html">
+            <summary>
             Inner HTML of the event (use it to rewrite the default content).
             </summary>
         </member>
         <member name="P:DayPilot.Web.Ui.Events.Calendar.BeforeEventRenderEventArgs.Value">
             <summary>
-            Event value (<see cref="P:DayPilot.Web.Ui.DayPilotCalendar.DataValueField">DayPilotCalendar.DataValueField</see> property). Read-only.
+            Event value (<see cref="P:DayPilot.Web.Ui.DayPilotCalendar.DataValueField">DayPilotCalendar.DataValueField</see> property). Read-only. Obsolete. Use .Id instead.
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.Events.Calendar.BeforeEventRenderEventArgs.Id">
+            <summary>
+            Event id.
             </summary>
         </member>
         <member name="P:DayPilot.Web.Ui.Events.Calendar.BeforeEventRenderEventArgs.Start">
@@ -549,7 +669,7 @@
         </member>
         <member name="P:DayPilot.Web.Ui.Events.Calendar.BeforeEventRenderEventArgs.ServerTag">
             <summary>
-            Custom event data (<see cref="P:DayPilot.Web.Ui.DayPilotCalendar.DataTagFields">DayPilotCalendar.DataServerTagFields</see> property). Read-only.
+            Custom event data (<see cref="P:DayPilot.Web.Ui.DayPilotCalendar.DataServerTagFields">DayPilotCalendar.DataServerTagFields</see> property). Read-only. Obsolete. Use .DataItem instead.
             </summary>
         </member>
         <member name="P:DayPilot.Web.Ui.Events.Calendar.BeforeEventRenderEventArgs.IsAllDay">
@@ -632,6 +752,11 @@
         </member>
         <member name="P:DayPilot.Web.Ui.Events.Calendar.BeforeEventRenderEventArgs.StaticBubbleHTML">
             <summary>
+            Specifies HTML code to be used for bubble content. If this property is specified the bubble content is not reqested from the server. Obsolete. Use .BubbleHtml instead.
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.Events.Calendar.BeforeEventRenderEventArgs.BubbleHtml">
+            <summary>
             Specifies HTML code to be used for bubble content. If this property is specified the bubble content is not reqested from the server.
             </summary>
         </member>
@@ -670,21 +795,6 @@
             DataSource element containing the source data for this event.
             </summary>
         </member>
-        <member name="T:DayPilot.Web.Ui.Events.DayPilotEventArgs">
-            <summary>
-            Base EventArgs that allow to specify event source (PostBack or CallBack).
-            </summary>
-        </member>
-        <member name="P:DayPilot.Web.Ui.Events.DayPilotEventArgs.Source">
-            <summary>
-            Event source: PostBack or CallBack.
-            </summary>
-        </member>
-        <member name="P:DayPilot.Web.Ui.Events.DayPilotEventArgs.Data">
-            <summary>
-            Custom data.
-            </summary>
-        </member>
         <member name="T:DayPilot.Web.Ui.Events.Navigator.BeforeCellRenderEventHandler">
             <summary>
             Delegate for <see cref="E:DayPilot.Web.Ui.DayPilotMonth.BeforeCellRender">DayPilotMonth.BeforeCellRender</see> event.
@@ -715,6 +825,86 @@
             HTML to be placed inside the cell.
             </summary>
         </member>
+        <member name="T:DayPilot.Web.Ui.Events.Scheduler.BeforeResHeaderRenderEventHandler">
+            <summary>
+            Delegate for BeforeResHeaderRender event.
+            </summary>
+        </member>
+        <member name="T:DayPilot.Web.Ui.Events.Scheduler.BeforeResHeaderRenderEventArgs">
+            <summary>
+            Class that holds event arguments for BeforeResHeaderRender event.
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.Events.Scheduler.BeforeResHeaderRenderEventArgs.Areas">
+            <summary>
+            Active areas.
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.Events.Scheduler.BeforeResHeaderRenderEventArgs.BackgroundColor">
+            <summary>
+            Get or set the background color of the column/row header, e.g. "#FF0000", "blue".
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.Events.Scheduler.BeforeResHeaderRenderEventArgs.CssClass">
+            <summary>
+            Get or set the CSS class for a column/row header.
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.Events.Scheduler.BeforeResHeaderRenderEventArgs.ToolTip">
+            <summary>
+            Get or set the column/row header tooltip.
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.Events.Scheduler.BeforeResHeaderRenderEventArgs.InnerHTML">
+            <summary>
+            Get or set the column/row header HTML. Obsolete. Use .Html instead.
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.Events.Scheduler.BeforeResHeaderRenderEventArgs.Html">
+            <summary>
+            Get or set the column/row header HTML.
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.Events.Scheduler.BeforeResHeaderRenderEventArgs.Value">
+            <summary>
+            Get the column/row id (see <see cref="P:DayPilot.Web.Ui.Column.Value">Column.Value</see>, <see cref="P:DayPilot.Web.Ui.Resource.Value">Resource.Value</see>). Obsolete. Use .Id instead.
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.Events.Scheduler.BeforeResHeaderRenderEventArgs.Id">
+            <summary>
+            Get the column/row id (see <see cref="P:DayPilot.Web.Ui.Column.Value">Column.Value</see>, <see cref="P:DayPilot.Web.Ui.Resource.Value">Resource.Value</see>).
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.Events.Scheduler.BeforeResHeaderRenderEventArgs.Name">
+            <summary>
+            Get the column/row name (see <see cref="P:DayPilot.Web.Ui.Column.Name">Column.Name</see>, <see cref="P:DayPilot.Web.Ui.Resource.Name">Resource.Name</see>).
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.Events.Scheduler.BeforeResHeaderRenderEventArgs.Date">
+            <summary>
+            Get the column date (see <see cref="P:DayPilot.Web.Ui.Column.Date">Column.Date</see>, only available in the Calendar).
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.Events.Scheduler.BeforeResHeaderRenderEventArgs.IsCorner">
+            <summary>
+            True for the upper-left corner header cell. Obsolete. Use DayPilotScheduler.CornerHtml and DayPilotScheduler.CornerBackColor instead. BeforeResHeader render is no longer called for the upper-left corner cell.
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.Events.Scheduler.BeforeResHeaderRenderEventArgs.ContextMenuClientName">
+            <summary>
+            Custom context menu.
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.Events.Scheduler.BeforeResHeaderRenderEventArgs.DataItem">
+            <summary>
+            Original source object.
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.Events.Scheduler.BeforeResHeaderRenderEventArgs.Columns">
+            <summary>
+            Row header columns.
+            </summary>
+        </member>
         <member name="T:DayPilot.Web.Ui.Events.Scheduler.TimeHeaderClickEventHandler">
             <summary>
             ResourceHeaderClick event handler delegate.
@@ -732,6 +922,154 @@
             Wrapper to make the API compatible with the Java version. 
             For internal use.
             </summary>
+        </member>
+        <member name="T:DayPilot.Web.Ui.RowHeaderColumn">
+            <summary>
+            Class representing a resource <see cref="T:DayPilot.Web.Ui.DayPilotScheduler">DayPilotScheduler</see>.
+            </summary>
+        </member>
+        <member name="M:DayPilot.Web.Ui.RowHeaderColumn.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:DayPilot.Web.Ui.RowHeaderColumn.#ctor(System.String,System.Int32)">
+            <summary>
+            Constructor that sets the default values.
+            </summary>
+            <param name="title">Row name (visible).</param>
+            <param name="val">Row value (id).</param>
+        </member>
+        <member name="M:DayPilot.Web.Ui.RowHeaderColumn.ToString">
+            <summary>
+            Returns a <see cref="T:System.String"></see> that represents the current <see cref="T:System.Object"></see>.
+            </summary>
+            
+            <returns>
+            A <see cref="T:System.String"></see> that represents the current <see cref="T:System.Object"></see>.
+            </returns>
+            <filterpriority>2</filterpriority>
+        </member>
+        <member name="P:DayPilot.Web.Ui.RowHeaderColumn.Width">
+            <summary>
+            Column width in pixels.
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.RowHeaderColumn.Title">
+            <summary>
+            Get or set the column name.
+            </summary>
+        </member>
+        <member name="T:DayPilot.Web.Ui.RowHeaderColumnCollection">
+            <summary>
+            Collection of resources definitions.
+            </summary>
+        </member>
+        <member name="M:DayPilot.Web.Ui.RowHeaderColumnCollection.ToArrayList">
+            <summary>
+            Converts ResourceCollection to ArrayList.
+            </summary>
+            <returns>ArrayList with ResourceCollection items.</returns>
+        </member>
+        <member name="M:DayPilot.Web.Ui.RowHeaderColumnCollection.Add(DayPilot.Web.Ui.RowHeaderColumn)">
+            <summary>
+            Adds a new <see cref="T:DayPilot.Web.Ui.Resource">Resource</see> to the collection.
+            </summary>
+            <param name="value">Resource to be added.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DayPilot.Web.Ui.RowHeaderColumnCollection.Add(System.String,System.Int32)">
+            <summary>
+            Adds a new <see cref="T:DayPilot.Web.Ui.Resource">Resource</see> to the collection.
+            </summary>
+            <param name="name">Resource name</param>
+            <param name="id">Resource id</param>
+            <returns></returns>
+        </member>
+        <member name="M:DayPilot.Web.Ui.RowHeaderColumnCollection.IndexOf(DayPilot.Web.Ui.RowHeaderColumn)">
+            <summary>
+            Determines the index of a specific item in the collection.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DayPilot.Web.Ui.RowHeaderColumnCollection.Insert(System.Int32,DayPilot.Web.Ui.RowHeaderColumn)">
+            <summary>
+            Inserts a new resource at the specified position.
+            </summary>
+            <param name="index">New resource position.</param>
+            <param name="value">Resource to be added.</param>
+        </member>
+        <member name="M:DayPilot.Web.Ui.RowHeaderColumnCollection.Remove(DayPilot.Web.Ui.RowHeaderColumn)">
+            <summary>
+            Removes a Resource from the collection.
+            </summary>
+            <param name="value">Resource to be removed.</param>
+        </member>
+        <member name="M:DayPilot.Web.Ui.RowHeaderColumnCollection.Contains(DayPilot.Web.Ui.RowHeaderColumn)">
+            <summary>
+            Determines whether the collection contains a specified resource.
+            </summary>
+            <param name="value">Resource to be found.</param>
+            <returns>True if the collection contains the resource</returns>
+        </member>
+        <member name="M:DayPilot.Web.Ui.RowHeaderColumnCollection.#ctor(System.Collections.ArrayList)">
+            <summary>
+            Creates a new collection from an ArrayList.
+            </summary>
+            <param name="items">ArrayList that contains the new resources.</param>
+        </member>
+        <member name="M:DayPilot.Web.Ui.RowHeaderColumnCollection.#ctor">
+            <summary>
+            Creates a new ResourceCollection.
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.RowHeaderColumnCollection.Item(System.Int32)">
+            <summary>
+            Gets the specified <see cref="T:DayPilot.Web.Ui.Resource">Resource</see>.
+            </summary>
+            <param name="index">Item index</param>
+            <returns>Resource at the specified position.</returns>
+        </member>
+        <member name="T:DayPilot.Web.Ui.Serialization.RowHeaderColumnCollectionConverter">
+            <summary>
+            Internal class for serializing ResourceCollection (ViewState).
+            </summary>
+        </member>
+        <member name="M:DayPilot.Web.Ui.Serialization.RowHeaderColumnCollectionConverter.CanConvertFrom(System.ComponentModel.ITypeDescriptorContext,System.Type)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+            <param name="sourceType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DayPilot.Web.Ui.Serialization.RowHeaderColumnCollectionConverter.CanConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Type)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+            <param name="destinationType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DayPilot.Web.Ui.Serialization.RowHeaderColumnCollectionConverter.ConvertFrom(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+            <param name="culture"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DayPilot.Web.Ui.Serialization.RowHeaderColumnCollectionConverter.ConvertTo(System.ComponentModel.ITypeDescriptorContext,System.Globalization.CultureInfo,System.Object,System.Type)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+            <param name="culture"></param>
+            <param name="value"></param>
+            <param name="destinationType"></param>
+            <returns></returns>
         </member>
         <member name="T:DayPilot.Web.Ui.Serialization.TimeHeaderCollectionConverter">
             <summary>
@@ -772,6 +1110,117 @@
             <param name="value"></param>
             <param name="destinationType"></param>
             <returns></returns>
+        </member>
+        <member name="T:DayPilot.Web.Ui.TimeCell">
+            <summary>
+            Class representing a resource <see cref="T:DayPilot.Web.Ui.DayPilotScheduler">DayPilotScheduler</see>.
+            </summary>
+        </member>
+        <member name="M:DayPilot.Web.Ui.TimeCell.#ctor">
+            <summary>
+            Default constructor.
+            </summary>
+        </member>
+        <member name="M:DayPilot.Web.Ui.TimeCell.#ctor(System.DateTime,System.DateTime,System.Int32)">
+            <summary>
+            Constructor that sets the default values.
+            </summary>
+            <param name="start">Time cell start.</param>
+            <param name="end">Time cell end</param>
+            <param name="width">Time cell width in pixels</param>
+        </member>
+        <member name="M:DayPilot.Web.Ui.TimeCell.#ctor(System.DateTime,System.DateTime)">
+            <summary>
+            Constructor that sets the default values.
+            </summary>
+            <param name="start">Time cell start.</param>
+            <param name="end">Time cell end</param>
+        </member>
+        <member name="P:DayPilot.Web.Ui.TimeCell.Start">
+            <summary>
+            Cell start date and time.
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.TimeCell.End">
+            <summary>
+            Cell end date and time.
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.TimeCell.Width">
+            <summary>
+            Time cell width (optional).
+            </summary>
+        </member>
+        <member name="T:DayPilot.Web.Ui.TimeCellCollection">
+            <summary>
+            Collection of TimeCells definitions.
+            </summary>
+        </member>
+        <member name="M:DayPilot.Web.Ui.TimeCellCollection.ToArrayList">
+            <summary>
+            Converts TimeCellCollection to ArrayList.
+            </summary>
+            <returns>ArrayList with TimeCellCollection items.</returns>
+        </member>
+        <member name="M:DayPilot.Web.Ui.TimeCellCollection.Add(DayPilot.Web.Ui.TimeCell)">
+            <summary>
+            Adds a new <see cref="T:DayPilot.Web.Ui.TimeCell">TimeCell</see> to the collection.
+            </summary>
+            <param name="value">TimeCell to be added.</param>
+            <returns></returns>
+        </member>
+        <member name="M:DayPilot.Web.Ui.TimeCellCollection.Add(System.DateTime,System.DateTime)">
+            <summary>
+            Adds a new <see cref="T:DayPilot.Web.Ui.TimeCell">TimeCell</see> to the collection.
+            </summary>
+            <param name="name">TimeCell name</param>
+            <param name="id">TimeCell id</param>
+            <returns></returns>
+        </member>
+        <member name="M:DayPilot.Web.Ui.TimeCellCollection.IndexOf(DayPilot.Web.Ui.TimeCell)">
+            <summary>
+            Determines the index of a specific item in the collection.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DayPilot.Web.Ui.TimeCellCollection.Insert(System.Int32,DayPilot.Web.Ui.TimeCell)">
+            <summary>
+            Inserts a new TimeCell at the specified position.
+            </summary>
+            <param name="index">New TimeCell position.</param>
+            <param name="value">TimeCell to be added.</param>
+        </member>
+        <member name="M:DayPilot.Web.Ui.TimeCellCollection.Remove(DayPilot.Web.Ui.TimeCell)">
+            <summary>
+            Removes a TimeCell from the collection.
+            </summary>
+            <param name="value">TimeCell to be removed.</param>
+        </member>
+        <member name="M:DayPilot.Web.Ui.TimeCellCollection.Contains(DayPilot.Web.Ui.TimeCell)">
+            <summary>
+            Determines whether the collection contains a specified TimeCell.
+            </summary>
+            <param name="value">TimeCell to be found.</param>
+            <returns>True if the collection contains the TimeCell</returns>
+        </member>
+        <member name="M:DayPilot.Web.Ui.TimeCellCollection.#ctor(System.Collections.ArrayList)">
+            <summary>
+            Creates a new collection from an ArrayList.
+            </summary>
+            <param name="items">ArrayList that contains the new TimeCells.</param>
+        </member>
+        <member name="M:DayPilot.Web.Ui.TimeCellCollection.#ctor">
+            <summary>
+            Creates a new TimeCellCollection.
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.TimeCellCollection.Item(System.Int32)">
+            <summary>
+            Gets the specified <see cref="T:DayPilot.Web.Ui.TimeCell">TimeCell</see>.
+            </summary>
+            <param name="index">Item index</param>
+            <returns>TimeCell at the specified position.</returns>
         </member>
         <member name="T:DayPilot.Web.Ui.TimeHeaderCollection">
             <summary>
@@ -1023,6 +1472,11 @@
             </summary>
         </member>
         <member name="P:DayPilot.Web.Ui.Events.Calendar.BeforeTimeHeaderRenderEventArgs.InnerHTML">
+            <summary>
+            The HTML that will be rendered in the time header cell.
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.Events.Calendar.BeforeTimeHeaderRenderEventArgs.Html">
             <summary>
             The HTML that will be rendered in the time header cell.
             </summary>
@@ -1547,6 +2001,11 @@
             Move event by dragging left border.
             </summary>
         </member>
+        <member name="F:DayPilot.Web.Ui.Enums.DragArea.Full">
+            <summary>
+            Move event by dragging any part of it.
+            </summary>
+        </member>
         <member name="F:DayPilot.Web.Ui.Enums.DragArea.Disabled">
             <summary>
             No active drag area. Drag areas can be added manually using active Areas.
@@ -1850,7 +2309,7 @@
             Event text.
             </summary>
         </member>
-        <member name="F:DayPilot.Web.Ui.Data.Event.Value">
+        <member name="F:DayPilot.Web.Ui.Data.Event.Id">
             <summary>
             Event primary key.
             </summary>
@@ -1864,7 +2323,7 @@
             <summary>
             Constructor that prefills the fields.
             </summary>
-            <param name="value"></param>
+            <param name="id"></param>
             <param name="start"></param>
             <param name="end"></param>
             <param name="text"></param>
@@ -2403,7 +2862,12 @@
         </member>
         <member name="P:DayPilot.Web.Ui.DayPilotNavigator.DataValueField">
             <summary>
-            Gets or sets the name of the column that contains the primary key. The primary key will be used for rendering the custom JavaScript actions.
+            Gets or sets the name of the column that contains the id (primary key). Obsolete. Use .DataIdField instead.
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.DayPilotNavigator.DataIdField">
+            <summary>
+            Gets or sets the name of the column that contains the id (primary key).
             </summary>
         </member>
         <member name="P:DayPilot.Web.Ui.DayPilotNavigator.DataRecurrenceField">
@@ -2967,6 +3431,11 @@
             HTML to be shown in this header column.
             </summary>
         </member>
+        <member name="P:DayPilot.Web.Ui.ResourceColumn.Html">
+            <summary>
+            HTML to be shown in this header column.
+            </summary>
+        </member>
         <member name="T:DayPilot.Web.Ui.SeparatorCollection">
             <summary>
             Collection of Separator definitions.
@@ -3194,6 +3663,11 @@
             Whether an animation is used during bubble popup. Disables loading label (regardless of ShowLoadingLabel value).
             </summary>
         </member>
+        <member name="P:DayPilot.Web.Ui.DayPilotBubble.Animation">
+            <summary>
+            Animation type.
+            </summary>
+        </member>
         <member name="T:DayPilot.Web.Ui.DayPilotMonth">
             <summary>
             Control that shows Outlook-like month calendar view (one cell = one day, one row = one week).
@@ -3397,6 +3871,21 @@
             Fires when queued client-side operations are notified to the server.
             </summary>
         </member>
+        <member name="E:DayPilot.Web.Ui.DayPilotMonth.EventUpdate">
+            <summary>
+            Fires when client-side EventUpdate event is notified to the server.
+            </summary>
+        </member>
+        <member name="E:DayPilot.Web.Ui.DayPilotMonth.EventRemove">
+            <summary>
+            Fires when client-side EventRemove event is notified to the server.
+            </summary>
+        </member>
+        <member name="E:DayPilot.Web.Ui.DayPilotMonth.EventAdd">
+            <summary>
+            Fires when client-side EventAdd event is notified to the server.
+            </summary>
+        </member>
         <member name="E:DayPilot.Web.Ui.DayPilotMonth.BeforeEventRender">
             <summary>
             This event is fired before events are rendered. 
@@ -3504,7 +3993,12 @@
         </member>
         <member name="P:DayPilot.Web.Ui.DayPilotMonth.DataValueField">
             <summary>
-            Gets or sets the name of the column that contains the primary key. The primary key will be used for rendering the custom JavaScript actions.
+            Gets or sets the name of the column that contains the id (primary key). Obsolete. Use .DataIdField instead.
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.DayPilotMonth.DataIdField">
+            <summary>
+            Gets or sets the name of the column that contains the id (primary key).
             </summary>
         </member>
         <member name="P:DayPilot.Web.Ui.DayPilotMonth.DataTagFields">
@@ -3907,6 +4401,26 @@
             The timeout delay of the message bar (in milliseconds).
             </summary>
         </member>
+        <member name="P:DayPilot.Web.Ui.DayPilotMonth.HeightSpec">
+            <summary>
+            Specifies whether the height should be adjusted automatically to show all resources (Auto) or fixed (Fixed). Fixed height is specified using Height property.
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.DayPilotMonth.Height">
+            <summary>
+            Gets or sets the control height. Only pixel values are allowed.
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.DayPilotMonth.CellMarginBottom">
+            <summary>
+            Minimal space below the events in a cell.
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.DayPilotMonth.DoubleClickTimeout">
+            <summary>
+            Double-click timeout in milliseconds.
+            </summary>
+        </member>
         <member name="T:DayPilot.Web.Ui.Design.BubbleControlConverter">
             <summary>
             IDConverter for DayPilotMenu.
@@ -4280,6 +4794,11 @@
         </member>
         <member name="P:DayPilot.Web.Ui.Events.Month.BeforeEventRenderEventArgs.StaticBubbleHTML">
             <summary>
+            Specifies HTML code to be used for bubble content. If this property is specified the bubble content is not reqested from the server. Obsolete. Use .BubbleHtml instead.
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.Events.Month.BeforeEventRenderEventArgs.BubbleHtml">
+            <summary>
             Specifies HTML code to be used for bubble content. If this property is specified the bubble content is not reqested from the server.
             </summary>
         </member>
@@ -4290,12 +4809,22 @@
         </member>
         <member name="P:DayPilot.Web.Ui.Events.Month.BeforeEventRenderEventArgs.InnerHTML">
             <summary>
+            Inner HTML of the event (use it to rewrite the default content). Obsolete. Use .Html instead.
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.Events.Month.BeforeEventRenderEventArgs.Html">
+            <summary>
             Inner HTML of the event (use it to rewrite the default content).
             </summary>
         </member>
         <member name="P:DayPilot.Web.Ui.Events.Month.BeforeEventRenderEventArgs.Value">
             <summary>
-            Event value (<see cref="P:DayPilot.Web.Ui.DayPilotCalendar.DataValueField">DayPilotCalendar.DataValueField</see> property). Read-only.
+            Event value (<see cref="P:DayPilot.Web.Ui.DayPilotCalendar.DataValueField">DayPilotCalendar.DataValueField</see> property). Read-only. Obsolete. Use .Id instead.
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.Events.Month.BeforeEventRenderEventArgs.Id">
+            <summary>
+            Event id.
             </summary>
         </member>
         <member name="P:DayPilot.Web.Ui.Events.Month.BeforeEventRenderEventArgs.Start">
@@ -4350,13 +4879,53 @@
         </member>
         <member name="P:DayPilot.Web.Ui.Events.Month.BeforeEventRenderEventArgs.ServerTag">
             <summary>
-            Custom event data (<see cref="P:DayPilot.Web.Ui.DayPilotMonth.DataServerTagFields">DayPilotMonth.DataServerTagFields</see> property). Read-only.
+            Custom event data (<see cref="P:DayPilot.Web.Ui.DayPilotMonth.DataServerTagFields">DayPilotMonth.DataServerTagFields</see> property). Read-only. Obsolete. Use .DataItem instead.
             </summary>
         </member>
         <member name="P:DayPilot.Web.Ui.Events.Month.BeforeEventRenderEventArgs.DataItem">
             <summary>
             DataSource element containing the source data for this event.
             </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.Events.Month.BeforeEventRenderEventArgs.EventResizeEnabled">
+            <summary>
+            Set to false to disable resizing of this event on the client-side.
+            </summary>
+            <remarks>
+            The resizing will be enabled only if these two conditions are met: <see cref="P:DayPilot.Web.Ui.DayPilotCalendar.EventResizeHandling">DayPilotCalendar.EventResizeHandling</see> is not set to Disabled and EventResizeEnabled is set to true.
+            </remarks>
+        </member>
+        <member name="P:DayPilot.Web.Ui.Events.Month.BeforeEventRenderEventArgs.EventMoveEnabled">
+            <summary>
+            Set to false to disable moving of this calendar event on the client-side.
+            </summary>
+            <remarks>
+            The moving will be enabled only if these two conditions are met: <see cref="P:DayPilot.Web.Ui.DayPilotCalendar.EventMoveHandling">DayPilotCalendar.EventMoveHandling</see> is not set to Disabled and EventMoveEnabled is set to true.
+            </remarks>
+        </member>
+        <member name="P:DayPilot.Web.Ui.Events.Month.BeforeEventRenderEventArgs.EventClickEnabled">
+            <summary>
+            Set to false to disable clicking on this calendar event on the client-side.
+            </summary>
+            <remarks>
+            The clicking will be enabled only if these two conditions are met: <see cref="P:DayPilot.Web.Ui.DayPilotCalendar.EventClickHandling">DayPilotCalendar.EventClickHandling</see> is not set to Disabled and EventClickEnabled is set to true.
+            </remarks>
+        </member>
+        <member name="P:DayPilot.Web.Ui.Events.Month.BeforeEventRenderEventArgs.EventDoubleClickEnabled">
+            <summary>
+            Set to false to disable double clicking on this calendar event on the client-side.
+            </summary>
+            <remarks>
+            The double clicking will be enabled only if these two conditions are met: <see cref="P:DayPilot.Web.Ui.DayPilotCalendar.EventDoubleClickHandling">DayPilotCalendar.EventDoubleClickHandling</see> is not set to Disabled and EventDoubleClickEnabled is set to true.
+            </remarks>
+        </member>
+        <member name="P:DayPilot.Web.Ui.Events.Month.BeforeEventRenderEventArgs.EventRightClickEnabled">
+            <summary>
+            Set to false to disable right mouse click on this calendar event on the client-side.
+            </summary>
+            <remarks>
+            The right mouse click will be enabled only if these two conditions are met: <see cref="P:DayPilot.Web.Ui.DayPilotCalendar.EventRightClickHandling">DayPilotCalendar.EventRightClickHandling</see> is not set to Disabled and EventRightClickEnabled is set to true.
+            </remarks>
         </member>
         <member name="T:DayPilot.Web.Ui.Events.Month.BeforeHeaderRenderEventHandler">
             <summary>
@@ -4374,6 +4943,11 @@
             </summary>
         </member>
         <member name="P:DayPilot.Web.Ui.Events.Month.BeforeHeaderRenderEventArgs.InnerHTML">
+            <summary>
+            Get or set the column header HTML.
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.Events.Month.BeforeHeaderRenderEventArgs.Html">
             <summary>
             Get or set the column header HTML.
             </summary>
@@ -4632,6 +5206,11 @@
             No grouping.
             </summary>
         </member>
+        <member name="F:DayPilot.Web.Ui.Enums.GroupByEnum.Cell">
+            <summary>
+            Matches grid cells.
+            </summary>
+        </member>
         <member name="T:DayPilot.Web.Ui.Enums.TimeRangeSelectedHandling">
             <summary>
             UserActionHandling enumeration defines possible types of user event handling.
@@ -4731,11 +5310,13 @@
         <member name="P:DayPilot.Web.Ui.Events.BeforeTimeHeaderRenderEventArgs.Visible">
             <summary>
             Whether this column should be displayed when ShowNonBusiness == false. Ignored for IsColGroup == true.
+            Obsolete: This property is ignored. Use DayPilotScheduler.IncludeCell event to customize time cell visibility.
             </summary>
         </member>
         <member name="P:DayPilot.Web.Ui.Events.BeforeTimeHeaderRenderEventArgs.IsColGroup">
             <summary>
             True if this cell is in a column group header (i.e. not the bottom row).
+            Obsolete: This property is always true. Use Level instead to detect the header level.
             </summary>
         </member>
         <member name="T:DayPilot.Web.Ui.Events.TagCollection">
@@ -4807,6 +5388,11 @@
             Renders the component HTML code.
             </summary>
             <param name="output"></param>
+        </member>
+        <member name="M:DayPilot.Web.Ui.DayPilotScheduler.LoadRows">
+            <summary>
+            Used in DesignMode and during Export.
+            </summary>
         </member>
         <member name="M:DayPilot.Web.Ui.DayPilotScheduler.System#Web#UI#ICallbackEventHandler#GetCallbackResult">
             <summary>
@@ -5133,7 +5719,12 @@
         </member>
         <member name="P:DayPilot.Web.Ui.DayPilotScheduler.DataValueField">
             <summary>
-            Gets or sets the name of the column that contains the primary key. The primary key will be used for rendering the custom JavaScript actions.
+            Gets or sets the name of the column that contains the id (primary key). Obsolete. Use .DataIdField instead.
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.DayPilotScheduler.DataIdField">
+            <summary>
+            Gets or sets the name of the column that contains the id (primary key).
             </summary>
         </member>
         <member name="P:DayPilot.Web.Ui.DayPilotScheduler.DataResourceField">
@@ -5467,7 +6058,7 @@
         </member>
         <member name="P:DayPilot.Web.Ui.DayPilotScheduler.CellGroupBy">
             <summary>
-            Defines column group size (first row of the column headers on top of the Scheduler). 
+            Defines column group size (first row of the column headers on top of the Scheduler).
             </summary>
         </member>
         <member name="P:DayPilot.Web.Ui.DayPilotScheduler.ShowToolTip">
@@ -5805,6 +6396,11 @@
             Gets or sets the Javascript code that is executed after a user expands a resource tree node.
             </summary>
         </member>
+        <member name="P:DayPilot.Web.Ui.DayPilotScheduler.AutoRefreshJavaScript">
+            <summary>
+            Javascript code that is executed before an auto refresh is requested.
+            </summary>
+        </member>
         <member name="P:DayPilot.Web.Ui.DayPilotScheduler.TimeHeaders">
             <summary>
             Collection of time header groups.
@@ -5849,6 +6445,46 @@
         <member name="P:DayPilot.Web.Ui.DayPilotScheduler.MessageHideAfter">
             <summary>
             The timeout delay of the message bar (in milliseconds).
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.DayPilotScheduler.HeaderColumns">
+            <summary>
+            Collection of row header columns.
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.DayPilotScheduler.CornerHtml">
+            <summary>
+            HTML of the upper-left corner.
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.DayPilotScheduler.CornerBackColor">
+            <summary>
+            Background color of the upper-left corner.
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.DayPilotScheduler.MessageBarPosition">
+            <summary>
+            Message bar position (top/bottom).
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.DayPilotScheduler.ShowBaseTimeHeader">
+            <summary>
+            Whether to display the base time header (cells corresponding to CellDuration).
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.DayPilotScheduler.Scale">
+            <summary>
+            Time scale unit.
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.DayPilotScheduler.Timeline">
+            <summary>
+            Time line cell collection.
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.DayPilotScheduler.DoubleClickTimeout">
+            <summary>
+            Double-click timeout in milliseconds.
             </summary>
         </member>
         <member name="T:DayPilot.Web.Ui.Enums.EventRightClickHandlingEnum">
@@ -5896,64 +6532,84 @@
             A bubble will be activated.
             </summary>
         </member>
-        <member name="T:DayPilot.Web.Ui.Events.BeforeHeaderRenderEventHandler">
+        <member name="T:DayPilot.Web.Ui.Events.Calendar.BeforeHeaderRenderEventHandler">
             <summary>
             Delegate for BeforeResHeaderRender event.
             </summary>
         </member>
-        <member name="T:DayPilot.Web.Ui.Events.BeforeHeaderRenderEventArgs">
+        <member name="T:DayPilot.Web.Ui.Events.Calendar.BeforeHeaderRenderEventArgs">
             <summary>
             Class that holds event arguments for BeforeResHeaderRender event.
             </summary>
         </member>
-        <member name="P:DayPilot.Web.Ui.Events.BeforeHeaderRenderEventArgs.Areas">
+        <member name="P:DayPilot.Web.Ui.Events.Calendar.BeforeHeaderRenderEventArgs.Areas">
             <summary>
             Active areas.
             </summary>
         </member>
-        <member name="P:DayPilot.Web.Ui.Events.BeforeHeaderRenderEventArgs.BackgroundColor">
+        <member name="P:DayPilot.Web.Ui.Events.Calendar.BeforeHeaderRenderEventArgs.BackgroundColor">
             <summary>
             Get or set the background color of the column/row header, e.g. "#FF0000", "blue".
             </summary>
         </member>
-        <member name="P:DayPilot.Web.Ui.Events.BeforeHeaderRenderEventArgs.CssClass">
+        <member name="P:DayPilot.Web.Ui.Events.Calendar.BeforeHeaderRenderEventArgs.CssClass">
             <summary>
             Get or set the CSS class for a column/row header.
             </summary>
         </member>
-        <member name="P:DayPilot.Web.Ui.Events.BeforeHeaderRenderEventArgs.ToolTip">
+        <member name="P:DayPilot.Web.Ui.Events.Calendar.BeforeHeaderRenderEventArgs.ToolTip">
             <summary>
             Get or set the column/row header tooltip.
             </summary>
         </member>
-        <member name="P:DayPilot.Web.Ui.Events.BeforeHeaderRenderEventArgs.InnerHTML">
+        <member name="P:DayPilot.Web.Ui.Events.Calendar.BeforeHeaderRenderEventArgs.InnerHTML">
+            <summary>
+            Get or set the column/row header HTML. Obsolete. Use .Html instead.
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.Events.Calendar.BeforeHeaderRenderEventArgs.Html">
             <summary>
             Get or set the column/row header HTML.
             </summary>
         </member>
-        <member name="P:DayPilot.Web.Ui.Events.BeforeHeaderRenderEventArgs.Value">
+        <member name="P:DayPilot.Web.Ui.Events.Calendar.BeforeHeaderRenderEventArgs.Value">
             <summary>
-            Get the column/row value (see <see cref="P:DayPilot.Web.Ui.Column.Value">Column.Value</see>, <see cref="P:DayPilot.Web.Ui.Resource.Value">Resource.Value</see>).
+            Get the column/row id (see <see cref="P:DayPilot.Web.Ui.Column.Value">Column.Value</see>, <see cref="P:DayPilot.Web.Ui.Resource.Value">Resource.Value</see>). Obsolete. Use .Id instead.
             </summary>
         </member>
-        <member name="P:DayPilot.Web.Ui.Events.BeforeHeaderRenderEventArgs.Name">
+        <member name="P:DayPilot.Web.Ui.Events.Calendar.BeforeHeaderRenderEventArgs.Id">
+            <summary>
+            Get the column/row id (see <see cref="P:DayPilot.Web.Ui.Column.Value">Column.Value</see>, <see cref="P:DayPilot.Web.Ui.Resource.Value">Resource.Value</see>).
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.Events.Calendar.BeforeHeaderRenderEventArgs.Name">
             <summary>
             Get the column/row name (see <see cref="P:DayPilot.Web.Ui.Column.Name">Column.Name</see>, <see cref="P:DayPilot.Web.Ui.Resource.Name">Resource.Name</see>).
             </summary>
         </member>
-        <member name="P:DayPilot.Web.Ui.Events.BeforeHeaderRenderEventArgs.Date">
+        <member name="P:DayPilot.Web.Ui.Events.Calendar.BeforeHeaderRenderEventArgs.Date">
             <summary>
             Get the column date (see <see cref="P:DayPilot.Web.Ui.Column.Date">Column.Date</see>, only available in the Calendar).
             </summary>
         </member>
-        <member name="P:DayPilot.Web.Ui.Events.BeforeHeaderRenderEventArgs.IsCorner">
+        <member name="P:DayPilot.Web.Ui.Events.Calendar.BeforeHeaderRenderEventArgs.IsCorner">
             <summary>
             True for the upper-left corner header cell.
             </summary>
         </member>
-        <member name="P:DayPilot.Web.Ui.Events.BeforeHeaderRenderEventArgs.ContextMenuClientName">
+        <member name="P:DayPilot.Web.Ui.Events.Calendar.BeforeHeaderRenderEventArgs.ContextMenuClientName">
             <summary>
             Custom context menu.
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.Events.Calendar.BeforeHeaderRenderEventArgs.DataItem">
+            <summary>
+            Original source object.
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.Events.Calendar.BeforeHeaderRenderEventArgs.Columns">
+            <summary>
+            Row header columns.
             </summary>
         </member>
         <member name="T:DayPilot.Web.Ui.Events.EventSelectEventHandler">
@@ -6160,14 +6816,14 @@
             Constructor that sets the default values.
             </summary>
             <param name="name">Row name (visible).</param>
-            <param name="val">Row value (id).</param>
+            <param name="id">Row value (id).</param>
         </member>
         <member name="M:DayPilot.Web.Ui.Resource.#ctor(System.String,System.String,System.Boolean)">
             <summary>
             Constructor that sets the default values.
             </summary>
             <param name="name">Row name (visible).</param>
-            <param name="val">Row value (id).</param>
+            <param name="id">Row value (id).</param>
             <param name="childrenLoaded">Set to false to enable dynamic loading.</param>
         </member>
         <member name="M:DayPilot.Web.Ui.Resource.ToString">
@@ -6183,6 +6839,11 @@
         <member name="P:DayPilot.Web.Ui.Resource.Value">
             <summary>
             Row value (id).
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.Resource.Id">
+            <summary>
+            Row id.
             </summary>
         </member>
         <member name="P:DayPilot.Web.Ui.Resource.Name">
@@ -6212,12 +6873,22 @@
         </member>
         <member name="P:DayPilot.Web.Ui.Resource.ChildrenLoaded">
             <summary>
-            False for dynamic children loading.
+            False for dynamic children loading. Obsolete. Use !DynamicChildren instead.
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.Resource.DynamicChildren">
+            <summary>
+            Children will be loaded on demand (on expand icon click).
             </summary>
         </member>
         <member name="P:DayPilot.Web.Ui.Resource.IsParent">
             <summary>
             Force parent status.
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.Resource.DataItem">
+            <summary>
+            Custom object to be passed to DayPilotScheduler.BeforeResHeaderRender.
             </summary>
         </member>
         <member name="T:DayPilot.Web.Ui.ResourceCollection">
@@ -6293,10 +6964,15 @@
         </member>
         <member name="M:DayPilot.Web.Ui.ResourceCollection.FindByValue(System.String)">
             <summary>
-            Finds a resource by its Value.
+            Finds a resource by its Id. Obsolete. Use .FindById() instead.
             </summary>
             <param name="value"></param>
             <returns></returns>
+        </member>
+        <member name="M:DayPilot.Web.Ui.ResourceCollection.FindById(System.String)">
+            <summary>
+            Finds a resource by its Id.
+            </summary>
         </member>
         <member name="M:DayPilot.Web.Ui.ResourceCollection.FindParent(DayPilot.Web.Ui.Resource)">
             <summary>
@@ -6728,7 +7404,12 @@
         </member>
         <member name="P:DayPilot.Web.Ui.Events.BeforeCellRenderEventArgs.InnerHTML">
             <summary>
-            HTML to be placed inside the cell.
+            Inner HTML of the event (use it to rewrite the default content). Obsolete. Use .Html instead.
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.Events.BeforeCellRenderEventArgs.Html">
+            <summary>
+            Inner HTML of the event (use it to rewrite the default content).
             </summary>
         </member>
         <member name="T:DayPilot.Web.Ui.Data.Block">
@@ -6738,7 +7419,7 @@
         </member>
         <member name="T:DayPilot.Web.Ui.Column">
             <summary>
-            Class representing calendar column in <see cref="!:ViewTypeEnum.Resources">resources view</see>.
+            Class representing a calendar column.
             </summary>
         </member>
         <member name="M:DayPilot.Web.Ui.Column.#ctor">
@@ -6751,7 +7432,7 @@
             Constructor that sets the default values.
             </summary>
             <param name="name">Column name (visible).</param>
-            <param name="val">Column value (id).</param>
+            <param name="id">Column value (id).</param>
         </member>
         <member name="M:DayPilot.Web.Ui.Column.ToString">
             <summary>
@@ -6765,7 +7446,12 @@
         </member>
         <member name="P:DayPilot.Web.Ui.Column.Value">
             <summary>
-            Column value (id).
+            Column value (id). Obsolete. Use .Id instead.
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.Column.Id">
+            <summary>
+            Column id.
             </summary>
         </member>
         <member name="P:DayPilot.Web.Ui.Column.Name">
@@ -7196,6 +7882,21 @@
             Fires when queued client-side operations are notified to the server.
             </summary>
         </member>
+        <member name="E:DayPilot.Web.Ui.DayPilotCalendar.EventUpdate">
+            <summary>
+            Fires when client-side EventUpdate event is notified to the server.
+            </summary>
+        </member>
+        <member name="E:DayPilot.Web.Ui.DayPilotCalendar.EventRemove">
+            <summary>
+            Fires when client-side EventRemove event is notified to the server.
+            </summary>
+        </member>
+        <member name="E:DayPilot.Web.Ui.DayPilotCalendar.EventAdd">
+            <summary>
+            Fires when client-side EventAdd event is notified to the server.
+            </summary>
+        </member>
         <member name="P:DayPilot.Web.Ui.DayPilotCalendar.IsExport">
             <summary>
             True if the control is beign exported using <see cref="M:DayPilot.Web.Ui.DayPilotCalendar.Export(System.Drawing.Imaging.ImageFormat)">Export()</see> method. Useful inside Before__RenderEvent event handlers.
@@ -7333,7 +8034,12 @@
         </member>
         <member name="P:DayPilot.Web.Ui.DayPilotCalendar.DataValueField">
             <summary>
-            Gets or sets the name of the column that contains the primary key. The primary key will be used for rendering the custom JavaScript actions.
+            Gets or sets the name of the column that contains the id (primary key). Obsolete. Use .DataIdField instead.
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.DayPilotCalendar.DataIdField">
+            <summary>
+            Gets or sets the name of the column that contains the id (primary key).
             </summary>
         </member>
         <member name="P:DayPilot.Web.Ui.DayPilotCalendar.DataColumnField">
@@ -7822,7 +8528,7 @@
         </member>
         <member name="P:DayPilot.Web.Ui.DayPilotCalendar.Direction">
             <summary>
-            Calendar direction (RTL/LTR). Not supported officially.
+            Calendar direction (RTL/LTR).
             </summary>
         </member>
         <member name="P:DayPilot.Web.Ui.DayPilotCalendar.HeaderLevels">
@@ -7968,6 +8674,31 @@
             The timeout delay of the message bar (in milliseconds).
             </summary>
         </member>
+        <member name="P:DayPilot.Web.Ui.DayPilotCalendar.CornerHtml">
+            <summary>
+            HTML of the upper-left corner.
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.DayPilotCalendar.CornerBackColor">
+            <summary>
+            Background color of the upper-left corner.
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.DayPilotCalendar.ColumnWidthSpec">
+            <summary>
+            How the column width is determined (Fixed, see ColumnWidth; Auto - calculated to fit the width).
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.DayPilotCalendar.ColumnWidth">
+            <summary>
+            Column width for ColumnWidthSpec=Fixed mode.
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.DayPilotCalendar.DoubleClickTimeout">
+            <summary>
+            Double-click timeout in milliseconds.
+            </summary>
+        </member>
         <member name="T:DayPilot.Web.Ui.Design.DayPilotCalendarDesigner">
             <summary>
             </summary>
@@ -8032,12 +8763,22 @@
         </member>
         <member name="P:DayPilot.Web.Ui.Events.Scheduler.BeforeEventRenderEventArgs.InnerHTML">
             <summary>
+            Inner HTML of the event (use it to rewrite the default content). Obsolete. Use .Html instead.
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.Events.Scheduler.BeforeEventRenderEventArgs.Html">
+            <summary>
             Inner HTML of the event (use it to rewrite the default content).
             </summary>
         </member>
         <member name="P:DayPilot.Web.Ui.Events.Scheduler.BeforeEventRenderEventArgs.Value">
             <summary>
-            Event value (<see cref="P:DayPilot.Web.Ui.DayPilotCalendar.DataValueField">DayPilotCalendar.DataValueField</see> property). Read-only.
+            Event value (<see cref="P:DayPilot.Web.Ui.DayPilotCalendar.DataValueField">DayPilotCalendar.DataValueField</see> property). Read-only. Obsolete. Use .Id instead.
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.Events.Scheduler.BeforeEventRenderEventArgs.Id">
+            <summary>
+            Event id.
             </summary>
         </member>
         <member name="P:DayPilot.Web.Ui.Events.Scheduler.BeforeEventRenderEventArgs.Start">
@@ -8062,7 +8803,7 @@
         </member>
         <member name="P:DayPilot.Web.Ui.Events.Scheduler.BeforeEventRenderEventArgs.ServerTag">
             <summary>
-            Custom event data (<see cref="P:DayPilot.Web.Ui.DayPilotCalendar.DataTagFields">DayPilotCalendar.DataServerTagFields</see> property). Read-only.
+            Custom event data (<see cref="P:DayPilot.Web.Ui.DayPilotScheduler.DataServerTagFields">DayPilotScheduler.DataServerTagFields</see> property). Read-only. Obsolete. Use .DataItem instead.
             </summary>
         </member>
         <member name="P:DayPilot.Web.Ui.Events.Scheduler.BeforeEventRenderEventArgs.ToolTip">
@@ -8149,6 +8890,11 @@
             </summary>
         </member>
         <member name="P:DayPilot.Web.Ui.Events.Scheduler.BeforeEventRenderEventArgs.StaticBubbleHTML">
+            <summary>
+            Specifies HTML code to be used for bubble content. If this property is specified the bubble content is not reqested from the server. Obsolete. Use .BubbleHtml instead.
+            </summary>
+        </member>
+        <member name="P:DayPilot.Web.Ui.Events.Scheduler.BeforeEventRenderEventArgs.BubbleHtml">
             <summary>
             Specifies HTML code to be used for bubble content. If this property is specified the bubble content is not reqested from the server.
             </summary>
@@ -8412,6 +9158,11 @@
             URL of the menu item (used when <see cref="P:DayPilot.Web.Ui.MenuItem.Action"></see> is set to <see cref="F:DayPilot.Web.Ui.MenuItemAction.NavigateUrl"></see>).
             </summary>
         </member>
+        <member name="P:DayPilot.Web.Ui.MenuItem.MenuItems">
+            <summary>
+            Collection of menu items.
+            </summary>
+        </member>
         <member name="P:DayPilot.Web.Ui.MenuItem.NavigateUrlTarget">
             <summary>
             Target of the menu item hyperlink (used when <see cref="P:DayPilot.Web.Ui.MenuItem.Action"></see> is set to <see cref="F:DayPilot.Web.Ui.MenuItemAction.NavigateUrl"></see>).
@@ -8577,6 +9328,11 @@
             <param name="value"></param>
             <param name="destinationType"></param>
             <returns></returns>
+        </member>
+        <member name="P:DayPilot.Web.Ui.TimeHeader.Format">
+            <summary>
+            DateTime format string (optional)
+            </summary>
         </member>
     </members>
 </doc>

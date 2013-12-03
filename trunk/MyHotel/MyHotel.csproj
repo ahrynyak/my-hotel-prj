@@ -39,9 +39,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\3rdParty\oboutSuite35\bin\AjaxControlToolkit.dll</HintPath>
     </Reference>
-    <Reference Include="DayPilot, Version=7.1.2702.1, Culture=neutral, PublicKeyToken=426941954f05e7fe, processorArchitecture=MSIL">
+    <Reference Include="DayPilot, Version=7.6.3006.1, Culture=neutral, PublicKeyToken=426941954f05e7fe, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\3rdParty\DayPilot\DayPilot.dll</HintPath>
+      <HintPath>ExternalAss\DayPilot.dll</HintPath>
     </Reference>
     <Reference Include="Google.GData.AccessControl, Version=2.2.0.0, Culture=neutral, PublicKeyToken=b4b8eb9a7afc8328, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
