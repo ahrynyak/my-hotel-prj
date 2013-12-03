@@ -83,7 +83,7 @@ namespace MyHotel.Business.WebControls.Booking
 
         protected void dayPilotScheduler_BeforeTimeHeaderRender(object sender, DayPilot.Web.Ui.Events.BeforeTimeHeaderRenderEventArgs e)
         {
-            if (e.IsColGroup)
+            if (e.Level == 0)
             {
                 e.InnerHTML = e.Start.ToString("MMMM-yyyy");  // sets the incomeByRoom header
             }
@@ -133,14 +133,13 @@ namespace MyHotel.Business.WebControls.Booking
                     {
                         guestInfo = guestInfo + String.Format("<br />Інфо: {0}", roomBookingEntity.AdditionalInfo);
                     }
-                    e.InnerHTML = "<span result='" + guestInfo.Replace("<br />", Environment.NewLine) + "'>" + guestInfo + "</span>";
+                    e.Html = "<span result='" + guestInfo.Replace("<br />", Environment.NewLine) + "'>" + guestInfo + "</span>";
                 }
             }
-
             EBookingStatus status = (EBookingStatus)Convert.ToInt32(e.Tag["BookingStatus"]);
             string cssClassName = "event" + status.ToString();
             e.ToolTip = status.ToString();
-            e.InnerHTML = e.InnerHTML + String.Format("<br /><span class='" + cssClassName + "' >{0}</span>", e.ToolTip);
+            e.Html = e.Html + String.Format("<br /><span class='" + cssClassName + "' >{0}</span>", e.ToolTip);
         }
 
         private void refreshData(DateTime startDate, DateTime endDate, string message)
