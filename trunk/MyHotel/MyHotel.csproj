@@ -13,6 +13,7 @@
     <RootNamespace>MyHotel</RootNamespace>
     <AssemblyName>MyHotel</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -113,6 +114,7 @@
     <None Include="DBScripts\InitDBScripts.sql" />
     <None Include="ExternalAss\DayPilot.dll" />
     <Content Include="css\greenHouseStyle.css" />
+    <Content Include="css\Mobile7Inch\main.css" />
     <Content Include="css\utilities.css" />
     <Content Include="Default.aspx" />
     <Content Include="js\message.js" />
@@ -129,8 +131,12 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="MasterPages\GreenHouseInfo.Master" />
+    <Content Include="MasterPages\MyHotelMobile7InchMgmt.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseWebFormMgmt.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Business\Entity\Common\StatisticalInfo.cs" />
     <Compile Include="Business\Entity\Expenses\ExpensesDetailsEntity.cs" />
     <Compile Include="Business\Entity\Expenses\ExpensesItemsEntity.cs" />
@@ -256,6 +262,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataClasses.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPages\MyHotelMobile7InchMgmt.Master.cs">
+      <DependentUpon>MyHotelMobile7InchMgmt.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPages\MyHotelMobile7InchMgmt.Master.designer.cs">
+      <DependentUpon>MyHotelMobile7InchMgmt.Master</DependentUpon>
     </Compile>
     <Compile Include="MasterPages\GreenHouseInfo.Master.cs">
       <DependentUpon>GreenHouseInfo.Master</DependentUpon>

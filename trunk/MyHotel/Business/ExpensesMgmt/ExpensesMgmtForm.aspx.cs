@@ -12,7 +12,7 @@ using MyHotel.Business.WebControls.Expenses;
 
 namespace MyHotel.Business.ExpensesMgmt
 {
-    public partial class ExpensesMgmtForm : System.Web.UI.Page
+    public partial class ExpensesMgmtForm : BaseWebFormMgmt
     {
         private static DateTime getDefaultStartDate()
         {

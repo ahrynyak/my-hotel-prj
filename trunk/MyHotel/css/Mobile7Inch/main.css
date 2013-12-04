@@ -1,0 +1,144 @@
+﻿body 
+{
+    color: #625e5e;
+    margin: 0px;
+    padding: 0px;
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 14px;
+}
+/*---Main layout style begin---*/
+.main_div
+{
+    width: 80%;
+    min-width : 600px;
+    margin: 30px auto;
+}
+.main_header_div
+{
+    position: absolute;
+    left: -140px;
+    -moz-transform: rotate(-90.0deg);  /* FF3.5+ */
+    -o-transform: rotate(-90.0deg);  /* Opera 10.5 */
+    -webkit-transform: rotate(-90.0deg);  /* Saf3.1+, Chrome */
+    filter:  progid:DXImageTransform.Microsoft.BasicImage(rotation=0.083);  /* IE6,IE7 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0.083)"; /* IE8 */
+}
+div.main_tool_div a:link, div.main_tool_div a:visited { color: #625e5e; text-decoration: none; }
+div.main_tool_div a:hover { color: #2d961c; text-decoration: none; }
+.main_tool_div
+{
+    float:right;
+}
+.main_menu_div
+{
+}
+.main_content_div
+{
+    min-height: 500px;
+}
+.main_footer_div
+{
+    color: White;
+    padding: 20px;
+    text-align: center;
+    width:70%;
+    margin: 30px auto;
+}
+/*---Main layout style end---*/
+/*cell style start*/
+.sundaycellstyle
+{
+}
+.sundayheaderstyle
+{
+    color:#B00000;
+}
+.weekday
+{
+    background-color: White;
+}
+.pastday
+{
+    background-color: #CCCCCC;
+}
+.cleaningday
+{
+    background-color: Violet;
+}
+/*cell style end*/
+.errorValidation
+{
+    color: red;
+}
+/*event style start*/
+.eventNotConfirmed
+{
+	background-color: Silver;
+	width:auto;
+	height:inherit;
+}
+.eventConfirmed
+{
+    background-color: Orange;
+}
+.eventPrepaid
+{
+    background-color: Red;
+}
+.eventFullpaid
+{
+}
+/*event style end*/
+/*login form style start*/
+.loginForm
+{
+    border-style:solid;
+    border-width:2px;
+    border-color:White;
+}
+.loginoutbutton
+{
+    color: red;
+}
+/*login form style end*/
+/*bookigDetails style start*/
+.labelBookingDetails
+{
+    color: #666666;
+    background-color:transparent;
+    font-weight:bold;
+}
+.labelBookingDetailsSpecial
+{
+    color: #7f6600;
+    background-color:transparent;
+    font-weight:bold;
+}
+.bookigDetailsDiv
+{
+    background: #eeeeee; 
+    width: 500px;
+}
+.FormBookingDetails
+{
+    margin-bottom: 0px;
+}
+/*bookigDetails style end*/
+
+/*menu style start*/
+
+div.main_menu_div a:link, div.main_menu_div a:visited { color: #625e5e; text-decoration: none; }
+div.main_menu_div a:hover { color: #2d961c; text-decoration: none;  }
+
+.button-link {
+}
+.button-link:a
+{
+}
+.button-link:hover 
+{
+}
+.button-link_active 
+{
+}
+/*menu style end*/

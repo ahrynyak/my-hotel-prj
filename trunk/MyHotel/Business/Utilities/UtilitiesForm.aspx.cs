@@ -8,7 +8,7 @@ using MyHotel.Utils;
 
 namespace MyHotel.Business.Utilities
 {
-    public partial class UtilitiesForm : System.Web.UI.Page
+    public partial class UtilitiesForm : BaseWebFormMgmt
     {
         private static DateTime getDefaultStartDate()
         {
