@@ -8,9 +8,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MyHotelMgmtContentPlaceHolder" runat="server">
     <div>
         <DateRanger:DateRangerControl runat="server" ID="DateRangerPeriod" />
-        <hr />
     </div>
-    <div>
+    <div style="width: 100%;">
         <IncomesView:IncomesWebControl runat="server" ID="IncomesViewCtrl" />
     </div>
 </asp:Content>

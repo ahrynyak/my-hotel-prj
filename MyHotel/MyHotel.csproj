@@ -110,6 +110,7 @@
     <Content Include="css\expenses.css" />
     <Content Include="css\loginStyle.css" />
     <Content Include="css\main.css" />
+    <Content Include="WebForm1.aspx" />
     <None Include="DBScripts\InitDBScripts.sql" />
     <None Include="ExternalAss\DayPilot.dll" />
     <Content Include="css\greenHouseStyle.css" />
@@ -291,6 +292,13 @@
     <Compile Include="Utils\HelperCommon.cs" />
     <Compile Include="Utils\MessageBox.cs" />
     <Compile Include="Utils\Modal.cs" />
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="MasterPages\MyHotelMgmt.Master" />

@@ -13,6 +13,24 @@ namespace MyHotel.Business.WebControls.DateRange {
     public partial class DateRangerControl {
         
         /// <summary>
+        /// HyperLink1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink HyperLink1;
+        
+        /// <summary>
+        /// PanelMainMenu control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel PanelMainMenu;
+        
+        /// <summary>
         /// datePickeStart control.
         /// </summary>
         /// <remarks>
@@ -47,5 +65,14 @@ namespace MyHotel.Business.WebControls.DateRange {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AjaxControlToolkit.CalendarExtender calendarExtenderEnd;
+        
+        /// <summary>
+        /// cpeMainMenu control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CollapsiblePanelExtender cpeMainMenu;
     }
 }

@@ -32,7 +32,6 @@
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <hr />
                         </td>
                     </tr>
                     <tr>
@@ -159,7 +158,6 @@
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <hr />
                         </td>
                     </tr>
                     <tr>
@@ -188,7 +186,6 @@
                     </tr>
                     <tr>
                         <td colspan="2">
-                            <hr />
                         </td>
                     </tr>
                     <tr>

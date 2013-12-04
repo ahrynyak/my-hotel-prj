@@ -11,7 +11,6 @@
         <DateRanger:DateRangerControl runat="server" ID="DateRangerPeriod" />
         <asp:CheckBox ID="CheckBoxShowAllLevel" runat="server" Text="Показувати всі рівні"
             AutoPostBack="True" OnCheckedChanged="CheckBoxShowAllLevel_CheckedChanged" ToolTip="Показувати всі рівні" />
-        <hr />
     </div>
     <div>
         <ExpensesView:ExpensesWebControl runat="server" ID="ExpensesViewCtrl" />

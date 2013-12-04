@@ -5,7 +5,6 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MyHotelMgmtContentPlaceHolder" runat="server">
  <div>
         <DateRanger:DateRangerControl runat="server" ID="DateRangerPeriod" />
-        <hr />
     </div>
     <div>
         
