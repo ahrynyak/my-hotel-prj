@@ -9,7 +9,6 @@
         <DateRanger:DateRangerControl runat="server" ID="DateRangerPeriod" />
         <asp:CheckBox ID="CheckBoxEditPast" runat="server" Text="Редагування минулого" AutoPostBack="True"
             OnCheckedChanged="CheckBoxEditPast_CheckedChanged" ToolTip="Дозволяє додавати або редагувати дані за минулий період" />
-        <hr />
     </div>
     <div>
         <BookingView:BookingsWebControl runat="server" ID="BookingViewCtrl" />
