@@ -9,7 +9,6 @@
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <link href="../css/Mobile7Inch/main.css" rel="stylesheet" type="text/css" />
-    <link href="../css/commonStyle.css" rel="stylesheet" type="text/css" />
     <link href="../css/DayPilot/myhstyle.css" rel="stylesheet" type="text/css" />
     <link rel="shortcut icon" href="../icons/favicon.ico" />
 </head>
@@ -47,7 +46,7 @@
             </td>
         </tr>
         <tr>
-            <td style="width: 8%;">
+            <td style="width: 6%;">
                 <div class="main_header_div">
                     <span class="MainHeaderBigP1">ЗЕЛЕНА </span><span class="MainHeaderBigP2">САДИБА</span>
                     <br />

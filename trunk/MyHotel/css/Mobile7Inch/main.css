@@ -16,7 +16,8 @@
 .main_header_div
 {
     position: absolute;
-    left: -140px;
+    left: -70px;
+    top: 150px;
     -moz-transform: rotate(-90.0deg);  /* FF3.5+ */
     -o-transform: rotate(-90.0deg);  /* Opera 10.5 */
     -webkit-transform: rotate(-90.0deg);  /* Saf3.1+, Chrome */
@@ -165,3 +166,17 @@ div.main_menu_div a:hover { color: #2d961c; text-decoration: none;  }
     text-decoration: none;
 }
 /*menu style end*/
+
+.MainHeaderBigP1
+{
+    font-size: 15px;
+    font-weight: bolder;
+    font-family: Verdana;
+    color:#2d961c;
+}
+.MainHeaderBigP2
+{
+    font-size:15px;
+    font-weight: bolder;
+    font-family: Verdana;
+}
