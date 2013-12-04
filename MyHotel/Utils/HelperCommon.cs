@@ -39,5 +39,17 @@ namespace MyHotel.Utils
         {
             return double.Parse(value.Replace(".", CultureInfo.CurrentCulture.NumberFormat.CurrencyDecimalSeparator).Replace(",", CultureInfo.CurrentCulture.NumberFormat.CurrencyDecimalSeparator));
         }
+
+        private static string[] mobileDevices = new string[] {"iphone","ppc",
+                                                      "windows ce","blackberry",
+                                                      "opera mini","mobile","palm",
+                                                      "portable","opera mobi","Chrome", "android" };
+
+        public static bool IsMobileDevice(string userAgent)
+        {
+            // TODO: null check
+            userAgent = userAgent.ToLower();
+            return mobileDevices.Any(x => userAgent.Contains(x));
+        }
     }
 }

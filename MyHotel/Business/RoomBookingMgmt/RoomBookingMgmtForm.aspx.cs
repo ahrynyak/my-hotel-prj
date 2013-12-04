@@ -20,7 +20,7 @@ using System.Web.Services;
 
 namespace MyHotel.Business.RoomBookingMgmt
 {
-    public partial class RoomBookingMgmtForm : System.Web.UI.Page
+    public partial class RoomBookingMgmtForm : BaseWebFormMgmt
     {
         private static DateTime getDefaultStartDate()
         {
