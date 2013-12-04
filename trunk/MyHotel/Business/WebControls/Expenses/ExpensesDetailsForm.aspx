@@ -21,6 +21,7 @@
         <ContentTemplate>
             <div class="expensesDetailsHeaderDiv">
                 <asp:Label ID="LabelHeader" runat="server" Text="..." class="labelBookingDetails" />
+                <hr />
             </div>
             <div class="expensesDetailsControlsDiv">
                 <table>

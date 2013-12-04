@@ -21,6 +21,7 @@
         <ContentTemplate>
             <div class="utilitiesDetailsHeaderDiv">
                 <asp:Label ID="LabelHeader" runat="server" Text="Внесення даних ком.послуг" CssClass="boldLabel" />
+                <hr />
             </div>
             <div class="utilitiesDetailsButtonDiv">
                 <asp:Button ID="ButtonOK" runat="server" Text="OK" OnClick="ButtonOK_Click" />

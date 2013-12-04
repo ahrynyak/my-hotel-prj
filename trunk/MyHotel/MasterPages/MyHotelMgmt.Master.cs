@@ -17,7 +17,7 @@ namespace MyHotel.MasterPages
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         protected void linkButtonSignOut_Click(object sender, EventArgs e)
