@@ -9,11 +9,10 @@
     message.hideAfter = 3000;
 
     var modal = new DayPilot.Modal();
-    modal.top = 60;
+    modal.top = PageMethods.GetModalTopPosition(navigator.userAgent);
     modal.width = 500;
     modal.opacity = 60;
     modal.height = 514;
-    modal.border = "1px solid black";
     modal.closed = function () {
         if (this.result == "OK") {
             dps.commandCallBack('refresh');

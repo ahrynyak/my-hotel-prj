@@ -1,9 +1,30 @@
-﻿/* Copyright © 2005 - 2012 Annpoint, s.r.o.
-Use of this software is subject to license terms. 
-http://www.daypilot.org/
+﻿/*
+Copyright © 2010 - 2013 Annpoint, s.r.o.
 
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+-------------------------------------------------------------------------
+
+NOTE: Reuse requires the following acknowledgement (see also NOTICE):
+This product includes DayPilot (http://www.daypilot.org) developed by Annpoint, s.r.o.
 */
 
+/*
+
+Version 2.1
+http://code.daypilot.org/81367/daypilot-modal
+
+*/
 if (typeof (DayPilot) === 'undefined') {
     DayPilot = {};
 }
@@ -34,6 +55,11 @@ if (typeof (DayPilot) === 'undefined') {
         }
     };
 
+    DayPilot.ModalStatic.close = function (result) {
+        DayPilot.ModalStatic.result(result);
+        DayPilot.ModalStatic.hide();
+    };
+
     DayPilot.ModalStatic.result = function (r) {
         var list = DayPilot.ModalStatic.list;
         if (list.length > 0) {
@@ -51,39 +77,37 @@ if (typeof (DayPilot) === 'undefined') {
         return false;
     };
 
-    var isIE = (navigator && navigator.userAgent && navigator.userAgent.indexOf("MSIE") != -1);
+    var isIE = (navigator && navigator.userAgent && navigator.userAgent.indexOf("MSIE") !== -1);
 
     DayPilot.Modal = function () {
 
         // default values
-        this.width = 300;
-        this.height = 460;
-        this.top = 20;
-        this.opacity = 30;
-        this.border = "1px solid black";
-        this.zIndex = null;
+        this.autoStretch = true;  // height will be increased automatically to avoid scrollbar, until this.maxHeight is reached
+        this.autoStretchFirstLoadOnly = false;
+        this.border = "10px solid #ccc";
         this.corners = 'Rounded';
         this.className = null;
-
-        // internal
-        var This = this;
-
-        this.id = '_' + new Date().getTime() + 'n' + (Math.random() * 10);
+        this.dragDrop = true;
+        this.height = 200;  // see also autoStretch
+        this.maxHeight = null; // if not set, it will stretch until the bottom space is equal to this.top
+        this.opacity = 30;
+        this.scrollWithPage = true;  // modal window will scroll with the page
+        this.top = 20;
+        this.useIframe = true; // only for showHtml()
+        this.width = 500;
+        this.zIndex = null;
 
         // event handler
         this.closed = null;
 
+        // internal
+        var This = this;
+        this.id = '_' + new Date().getTime() + 'n' + (Math.random() * 10);
         this.registered = false;
 
         // drag&drop
         this.start = null;
         this.coords = null;
-
-        // additional config
-        this.useIframe = true;
-
-        // experimental
-        this.dragDrop = true;
 
         this.showHtml = function (html) {
 
@@ -109,12 +133,13 @@ if (typeof (DayPilot) === 'undefined') {
                 this.div.innerHTML = html;
             }
 
+            this.update();
             this.register();
 
         };
 
         this.rounded = function () {
-            return this.corners && this.corners.toLowerCase() == 'rounded';
+            return this.corners && this.corners.toLowerCase() === 'rounded';
         };
 
         this.showUrl = function (url) {
@@ -125,37 +150,33 @@ if (typeof (DayPilot) === 'undefined') {
 
             this.useIframe = true; // forced
 
-            // another modal is already open
-            /*
-            if (DayPilot.ModalStatic) {
-            return;
-            }
-            */
-
             if (!this.div) {
                 this.create();
             }
 
-            this.update();
-            //DayPilot.ModalStatic = this;
+            this.re(this.iframe, "load", this.onIframeLoad);
 
             this.iframe.src = url;
+            //            this.iframe.contentWindow.modal = this;
 
+            this.update();
             this.register();
         };
 
         this.update = function () {
-            var scrollY = window.pageYOffset ? window.pageYOffset : ((document.documentElement && document.documentElement.scrollTop) ? document.documentElement.scrollTop : document.body.scrollTop);
+            var win = window;
+            var doc = document;
+
+            var scrollY = win.pageYOffset ? win.pageYOffset : ((doc.documentElement && doc.documentElement.scrollTop) ? doc.documentElement.scrollTop : doc.body.scrollTop);
+
+            //alert("scrollY:" + this.main.window.pageYOffset);
+
             var height = function () {
-                var D = document;
-                return Math.max(
-                    Math.max(D.body.scrollHeight, D.documentElement.scrollHeight),
-                    Math.max(D.body.offsetHeight, D.documentElement.offsetHeight),
-                    Math.max(D.body.clientHeight, D.documentElement.clientHeight)
-                ) - (isIE ? 4 : 0);  // guess value, fix for IE
+                return This.windowRect().y;
             };
 
-            this.hideDiv.style.height = height() + "px";
+
+            //this.hideDiv.style.height = height() + "px";
             this.hideDiv.style.filter = "alpha(opacity=" + this.opacity + ")";
             this.hideDiv.style.opacity = "0." + this.opacity;
             this.hideDiv.style.backgroundColor = "black";
@@ -163,6 +184,10 @@ if (typeof (DayPilot) === 'undefined') {
                 this.hideDiv.style.zIndex = this.zIndex;
             }
             this.hideDiv.style.display = '';
+
+            window.setTimeout(function () {
+                This.hideDiv.onclick = function () { This.hide(); };
+            }, 500);
 
             this.div.className = this.className;
             this.div.style.border = this.border;
@@ -172,21 +197,75 @@ if (typeof (DayPilot) === 'undefined') {
                 this.div.style.borderRadius = "5px";
             }
             this.div.style.marginLeft = '-' + Math.floor(this.width / 2) + "px";  // '-45%'
+            this.div.style.position = 'absolute';
             this.div.style.top = (scrollY + this.top) + 'px';
             this.div.style.width = this.width + 'px';  // '90%'
-            if (this.height) {
-                this.div.style.height = this.height + 'px';
-            }
             if (this.zIndex) {
                 this.div.style.zIndex = this.zIndex;
             }
 
+            if (this.height) {
+                this.div.style.height = this.height + 'px';
+            }
             if (this.useIframe && this.height) {
                 this.iframe.style.height = (this.height) + 'px';
             }
 
             this.div.style.display = '';
             DayPilot.ModalStatic.list.push(this);
+
+            /*
+            if (this.iframe) {
+            this.iframe.onload = null;
+            }
+            */
+        };
+
+        this.onIframeLoad = function () {
+            This.iframe.contentWindow.modal = This;
+            if (This.autoStretch) {
+                This.stretch();
+            }
+        };
+
+        this.stretch = function () {
+            var height = function () {
+                return This.windowRect().y;
+            };
+
+            var max = this.maxHeight || height() - 2 * this.top;
+            for (var h = this.height; h < max && this.hasScrollbar(); h += 10) {
+                this.iframe.style.height = (h) + 'px';
+                this.div.style.height = h + 'px';
+            }
+
+            if (this.autoStretchFirstLoadOnly) {
+                this.ue(this.iframe, "load", this.onIframeLoad);
+            }
+
+        };
+
+        this.hasScrollbar = function () {
+            var document = this.iframe.contentWindow.document;
+            var root = document.compatMode === 'BackCompat' ? document.body : document.documentElement;
+            var isVerticalScrollbar = root.scrollHeight > root.clientHeight;
+            var isHorizontalScrollbar = root.scrollWidth > root.clientWidth;
+            return isVerticalScrollbar;
+        };
+
+        this.windowRect = function () {
+            var doc = document;
+
+            if (doc.compatMode === "CSS1Compat" && doc.documentElement && doc.documentElement.clientWidth) {
+                var x = doc.documentElement.clientWidth;
+                var y = doc.documentElement.clientHeight;
+                return { x: x, y: y };
+            }
+            else {
+                var x = doc.body.clientWidth;
+                var y = doc.body.clientHeight;
+                return { x: x, y: y };
+            }
         };
 
         this.register = function () {
@@ -271,25 +350,19 @@ if (typeof (DayPilot) === 'undefined') {
             if (!This.div) {
                 return;
             }
-            if (This.hideDiv.style.display == 'none') {
+            if (This.hideDiv.style.display === 'none') {
                 return;
             }
-            if (This.div.style.display == 'none') {
+            if (This.div.style.display === 'none') {
                 return;
             }
 
             var scrollY = window.pageYOffset ? window.pageYOffset : ((document.documentElement && document.documentElement.scrollTop) ? document.documentElement.scrollTop : document.body.scrollTop);
-            var height = function () {
-                var D = document;
-                return Math.max(
-                    Math.max(D.body.scrollHeight, D.documentElement.scrollHeight),
-                    Math.max(D.body.offsetHeight, D.documentElement.offsetHeight),
-                    Math.max(D.body.clientHeight, D.documentElement.clientHeight)
-                );
-            };
 
-            This.hideDiv.style.height = height() + "px";
-            This.div.style.top = (scrollY + This.top) + 'px';
+            //This.hideDiv.style.height = height() + "px";
+            if (!This.scrollWithPage) {
+                This.div.style.top = (scrollY + This.top) + 'px';
+            }
         };
 
         // already available in common.js but this file should be standalone
@@ -298,6 +371,15 @@ if (typeof (DayPilot) === 'undefined') {
                 el.addEventListener(ev, func, false);
             } else if (el.attachEvent) {
                 el.attachEvent("on" + ev, func);
+            }
+        };
+
+        // unregister event
+        this.ue = function (el, ev, func) {
+            if (el.removeEventListener) {
+                el.removeEventListener(ev, func, false);
+            } else if (el.detachEvent) {
+                el.detachEvent("on" + ev, func);
             }
         };
 
@@ -333,26 +415,30 @@ if (typeof (DayPilot) === 'undefined') {
         this.create = function () {
             var hide = document.createElement("div");
             hide.id = this.id + "hide";
-            hide.style.position = 'absolute';
+            hide.style.position = 'fixed';
             hide.style.left = "0px";
             hide.style.top = "0px";
-            hide.style.width = "100%";
+            hide.style.right = "0px";
+            hide.style.bottom = "0px";
             hide.style.backgroundColor = "black";
-            hide.onclick = function () { This.hide(); };
+            hide.style.opacity = 0.50;
             hide.oncontextmenu = function () { return false; };
-
-            document.body.style.height = '100%';
 
             document.body.appendChild(hide);
 
             var div = document.createElement("div");
             div.id = this.id + 'popup';
-            div.style.position = 'absolute';
+            div.style.position = 'fixed';
             div.style.left = '50%';
+            div.style.top = '0px';
             div.style.backgroundColor = 'white';
+            div.style.width = "50px";
+            div.style.height = "50px";
             if (this.dragDrop) {
                 div.onmousedown = this.dragStart;
             }
+
+            var defaultHeight = 50;
 
             var iframe = null;
             if (this.useIframe) {
@@ -361,7 +447,7 @@ if (typeof (DayPilot) === 'undefined') {
                 iframe.name = this.id + "iframe";
                 iframe.frameBorder = '0';
                 iframe.style.width = '100%';
-                iframe.style.height = (this.height) + 'px';
+                iframe.style.height = defaultHeight + 'px';
                 div.appendChild(iframe);
             }
 
@@ -389,6 +475,11 @@ if (typeof (DayPilot) === 'undefined') {
             }
 
             doc.body.innerHTML = innerHTML;
+        };
+
+        this.close = function (result) {
+            this.result = result;
+            this.hide();
         };
 
         this.hide = function () {
