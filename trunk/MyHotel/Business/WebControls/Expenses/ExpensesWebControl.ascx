@@ -4,11 +4,10 @@
 <script type="text/javascript" src="/js/modal.js"></script>
 <script type="text/javascript">
     var modal = new DayPilot.Modal();
-    modal.top = 200;
+    modal.top = PageMethods.GetModalTopPosition();
     modal.width = 250;
     modal.opacity = 60;
     modal.height = 250;
-    modal.border = "1px solid black";
     modal.closed = function () {
         if (this.result == "OK") {
             document.getElementById("ButtonrRefresh").click();
