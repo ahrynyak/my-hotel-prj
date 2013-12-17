@@ -21,18 +21,5 @@ namespace MyHotel
                 MasterPageFile = "~/MasterPages/MyHotelMgmt.Master";
             }
         }
-
-        [WebMethod]
-        public static int GetModalTopPosition(string userAgent)
-        {
-            if (HelperCommon.IsMobileDevice(userAgent))
-            {
-                return 0;
-            }
-            else
-            {
-                return 60;
-            }
-        }
     }
 }

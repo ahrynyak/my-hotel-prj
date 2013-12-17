@@ -9,7 +9,7 @@
     message.hideAfter = 3000;
 
     var modal = new DayPilot.Modal();
-    modal.top = PageMethods.GetModalTopPosition(navigator.userAgent);
+    modal.top = 0;
     modal.width = 500;
     modal.opacity = 60;
     modal.height = 514;
