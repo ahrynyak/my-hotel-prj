@@ -4,7 +4,7 @@
 <script type="text/javascript" src="/js/modal.js"></script>
 <script type="text/javascript">
     var modal = new DayPilot.Modal();
-    modal.top = PageMethods.GetModalTopPosition();
+    modal.top = 0;
     modal.width = 250;
     modal.opacity = 60;
     modal.height = 250;
