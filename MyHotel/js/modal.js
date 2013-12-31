@@ -82,12 +82,12 @@ if (typeof (DayPilot) === 'undefined') {
     DayPilot.Modal = function () {
 
         // default values
-        this.autoStretch = true;  // height will be increased automatically to avoid scrollbar, until this.maxHeight is reached
+        this.autoStretch = false;  // height will be increased automatically to avoid scrollbar, until this.maxHeight is reached
         this.autoStretchFirstLoadOnly = false;
-        this.border = "10px solid #ccc";
-        this.corners = 'Rounded';
+ //      this.border = "10px solid #ccc";
+//        this.corners = 'Rounded';
         this.className = null;
-        this.dragDrop = true;
+        this.dragDrop = false;
         this.height = 200;  // see also autoStretch
         this.maxHeight = null; // if not set, it will stretch until the bottom space is equal to this.top
         this.opacity = 30;
