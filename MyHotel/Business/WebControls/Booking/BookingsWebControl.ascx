@@ -12,7 +12,7 @@
     modal.top = 0;
     modal.width = 500;
     modal.opacity = 60;
-    modal.height = 514;
+    modal.height = 524;
     modal.closed = function () {
         if (this.result == "OK") {
             dps.commandCallBack('refresh');
