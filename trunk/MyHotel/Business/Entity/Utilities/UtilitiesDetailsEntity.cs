@@ -10,7 +10,7 @@ namespace MyHotel.Business.Entity.Utilities
         public int UtilitiesItemsDetailsID { get; set; }
         public int UtilitiesItemsID { get; set; }
         public DateTime Date { get; set; }
-        public int Value { get; set; }
+        public double Value { get; set; }
         public string Description { get; set; }
     }
 }

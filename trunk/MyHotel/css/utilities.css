@@ -24,3 +24,40 @@
     background-color:transparent;
     font-weight:bold;
 }
+
+.utilitiesHeaderColl
+{
+    background-color: #CACACA;
+    text-align:center;
+    font-weight:bold;
+    width:150px;
+}
+
+.utilitiesDataRowWhite
+{
+    /*background-color: #eeeeee;*/
+}
+
+.utilitiesDataRowSilver
+{
+    background-color: #eeeeee;   
+}
+
+.utilitiesAddButton
+{
+    padding-right: 10px;
+    height: 16px;
+    width : 16px;
+}
+.utilitiesEditButton
+{
+    padding-right: 10px;
+    height: 16px;
+    width : 16px;
+}
+.utilitiesEditButton
+{
+    padding-right: 10px;
+    height: 16px;
+    width : 16px;
+}

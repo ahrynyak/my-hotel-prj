@@ -20,5 +20,14 @@ namespace MyHotel.Business.Utilities {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::MyHotel.Business.WebControls.DateRange.DateRangerControl DateRangerPeriod;
+        
+        /// <summary>
+        /// UtilitiesViewCtrl control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::MyHotel.Business.WebControls.Utilities.UtilitiesWebControl UtilitiesViewCtrl;
     }
 }

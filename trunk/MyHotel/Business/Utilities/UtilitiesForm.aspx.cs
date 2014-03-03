@@ -40,7 +40,7 @@ namespace MyHotel.Business.Utilities
                 }
                 else
                 {
-                    //IncomesViewCtrl.Refresh(DateRangerPeriod.GetStartDate(), DateRangerPeriod.GetEndDate());
+                    UtilitiesViewCtrl.Refresh(DateRangerPeriod.GetStartDate(), DateRangerPeriod.GetEndDate());
                 }
             }
             else
@@ -51,7 +51,7 @@ namespace MyHotel.Business.Utilities
 
         void DateRangerPeriod_DateChanged(object sender, WebControls.DateRange.DateEventArgs e)
         {
-            //IncomesViewCtrl.Refresh(e.StartDate, e.EndDate);
+            UtilitiesViewCtrl.Refresh(e.StartDate, e.EndDate);
         }
     }
 }

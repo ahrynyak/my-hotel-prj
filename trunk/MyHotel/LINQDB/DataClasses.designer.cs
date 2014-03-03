@@ -45,12 +45,12 @@ namespace MyHotel.LINQDB
     partial void InsertCleaning(Cleaning instance);
     partial void UpdateCleaning(Cleaning instance);
     partial void DeleteCleaning(Cleaning instance);
-    partial void InsertUtilitiesItemsDetail(UtilitiesItemsDetail instance);
-    partial void UpdateUtilitiesItemsDetail(UtilitiesItemsDetail instance);
-    partial void DeleteUtilitiesItemsDetail(UtilitiesItemsDetail instance);
     partial void InsertUtilitiesItem(UtilitiesItem instance);
     partial void UpdateUtilitiesItem(UtilitiesItem instance);
     partial void DeleteUtilitiesItem(UtilitiesItem instance);
+    partial void InsertUtilitiesItemsDetail(UtilitiesItemsDetail instance);
+    partial void UpdateUtilitiesItemsDetail(UtilitiesItemsDetail instance);
+    partial void DeleteUtilitiesItemsDetail(UtilitiesItemsDetail instance);
     #endregion
 		
 		public DataClassesDataContext() :
@@ -123,19 +123,19 @@ namespace MyHotel.LINQDB
 			}
 		}
 		
-		public System.Data.Linq.Table<UtilitiesItemsDetail> UtilitiesItemsDetails
-		{
-			get
-			{
-				return this.GetTable<UtilitiesItemsDetail>();
-			}
-		}
-		
 		public System.Data.Linq.Table<UtilitiesItem> UtilitiesItems
 		{
 			get
 			{
 				return this.GetTable<UtilitiesItem>();
+			}
+		}
+		
+		public System.Data.Linq.Table<UtilitiesItemsDetail> UtilitiesItemsDetails
+		{
+			get
+			{
+				return this.GetTable<UtilitiesItemsDetail>();
 			}
 		}
 	}
@@ -1254,205 +1254,6 @@ namespace MyHotel.LINQDB
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.UtilitiesItemsDetails")]
-	public partial class UtilitiesItemsDetail : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _UtilitiesItemsDetailsID;
-		
-		private int _UtilitiesItemsID;
-		
-		private System.DateTime _Date;
-		
-		private int _Value;
-		
-		private string _Description;
-		
-		private EntityRef<UtilitiesItem> _UtilitiesItem;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnUtilitiesItemsDetailsIDChanging(int value);
-    partial void OnUtilitiesItemsDetailsIDChanged();
-    partial void OnUtilitiesItemsIDChanging(int value);
-    partial void OnUtilitiesItemsIDChanged();
-    partial void OnDateChanging(System.DateTime value);
-    partial void OnDateChanged();
-    partial void OnValueChanging(int value);
-    partial void OnValueChanged();
-    partial void OnDescriptionChanging(string value);
-    partial void OnDescriptionChanged();
-    #endregion
-		
-		public UtilitiesItemsDetail()
-		{
-			this._UtilitiesItem = default(EntityRef<UtilitiesItem>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UtilitiesItemsDetailsID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int UtilitiesItemsDetailsID
-		{
-			get
-			{
-				return this._UtilitiesItemsDetailsID;
-			}
-			set
-			{
-				if ((this._UtilitiesItemsDetailsID != value))
-				{
-					this.OnUtilitiesItemsDetailsIDChanging(value);
-					this.SendPropertyChanging();
-					this._UtilitiesItemsDetailsID = value;
-					this.SendPropertyChanged("UtilitiesItemsDetailsID");
-					this.OnUtilitiesItemsDetailsIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UtilitiesItemsID", DbType="Int NOT NULL")]
-		public int UtilitiesItemsID
-		{
-			get
-			{
-				return this._UtilitiesItemsID;
-			}
-			set
-			{
-				if ((this._UtilitiesItemsID != value))
-				{
-					if (this._UtilitiesItem.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnUtilitiesItemsIDChanging(value);
-					this.SendPropertyChanging();
-					this._UtilitiesItemsID = value;
-					this.SendPropertyChanged("UtilitiesItemsID");
-					this.OnUtilitiesItemsIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="Date NOT NULL")]
-		public System.DateTime Date
-		{
-			get
-			{
-				return this._Date;
-			}
-			set
-			{
-				if ((this._Date != value))
-				{
-					this.OnDateChanging(value);
-					this.SendPropertyChanging();
-					this._Date = value;
-					this.SendPropertyChanged("Date");
-					this.OnDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Value", DbType="Int NOT NULL")]
-		public int Value
-		{
-			get
-			{
-				return this._Value;
-			}
-			set
-			{
-				if ((this._Value != value))
-				{
-					this.OnValueChanging(value);
-					this.SendPropertyChanging();
-					this._Value = value;
-					this.SendPropertyChanged("Value");
-					this.OnValueChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(MAX)")]
-		public string Description
-		{
-			get
-			{
-				return this._Description;
-			}
-			set
-			{
-				if ((this._Description != value))
-				{
-					this.OnDescriptionChanging(value);
-					this.SendPropertyChanging();
-					this._Description = value;
-					this.SendPropertyChanged("Description");
-					this.OnDescriptionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UtilitiesItem_UtilitiesItemsDetail", Storage="_UtilitiesItem", ThisKey="UtilitiesItemsID", OtherKey="UtilitiesItemsID", IsForeignKey=true)]
-		public UtilitiesItem UtilitiesItem
-		{
-			get
-			{
-				return this._UtilitiesItem.Entity;
-			}
-			set
-			{
-				UtilitiesItem previousValue = this._UtilitiesItem.Entity;
-				if (((previousValue != value) 
-							|| (this._UtilitiesItem.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._UtilitiesItem.Entity = null;
-						previousValue.UtilitiesItemsDetails.Remove(this);
-					}
-					this._UtilitiesItem.Entity = value;
-					if ((value != null))
-					{
-						value.UtilitiesItemsDetails.Add(this);
-						this._UtilitiesItemsID = value.UtilitiesItemsID;
-					}
-					else
-					{
-						this._UtilitiesItemsID = default(int);
-					}
-					this.SendPropertyChanged("UtilitiesItem");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.UtilitiesItems")]
 	public partial class UtilitiesItem : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1564,6 +1365,205 @@ namespace MyHotel.LINQDB
 		{
 			this.SendPropertyChanging();
 			entity.UtilitiesItem = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.UtilitiesItemsDetails")]
+	public partial class UtilitiesItemsDetail : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _UtilitiesItemsDetailsID;
+		
+		private int _UtilitiesItemsID;
+		
+		private System.DateTime _Date;
+		
+		private double _Value;
+		
+		private string _Description;
+		
+		private EntityRef<UtilitiesItem> _UtilitiesItem;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnUtilitiesItemsDetailsIDChanging(int value);
+    partial void OnUtilitiesItemsDetailsIDChanged();
+    partial void OnUtilitiesItemsIDChanging(int value);
+    partial void OnUtilitiesItemsIDChanged();
+    partial void OnDateChanging(System.DateTime value);
+    partial void OnDateChanged();
+    partial void OnValueChanging(double value);
+    partial void OnValueChanged();
+    partial void OnDescriptionChanging(string value);
+    partial void OnDescriptionChanged();
+    #endregion
+		
+		public UtilitiesItemsDetail()
+		{
+			this._UtilitiesItem = default(EntityRef<UtilitiesItem>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UtilitiesItemsDetailsID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int UtilitiesItemsDetailsID
+		{
+			get
+			{
+				return this._UtilitiesItemsDetailsID;
+			}
+			set
+			{
+				if ((this._UtilitiesItemsDetailsID != value))
+				{
+					this.OnUtilitiesItemsDetailsIDChanging(value);
+					this.SendPropertyChanging();
+					this._UtilitiesItemsDetailsID = value;
+					this.SendPropertyChanged("UtilitiesItemsDetailsID");
+					this.OnUtilitiesItemsDetailsIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UtilitiesItemsID", DbType="Int NOT NULL")]
+		public int UtilitiesItemsID
+		{
+			get
+			{
+				return this._UtilitiesItemsID;
+			}
+			set
+			{
+				if ((this._UtilitiesItemsID != value))
+				{
+					if (this._UtilitiesItem.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnUtilitiesItemsIDChanging(value);
+					this.SendPropertyChanging();
+					this._UtilitiesItemsID = value;
+					this.SendPropertyChanged("UtilitiesItemsID");
+					this.OnUtilitiesItemsIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="Date NOT NULL")]
+		public System.DateTime Date
+		{
+			get
+			{
+				return this._Date;
+			}
+			set
+			{
+				if ((this._Date != value))
+				{
+					this.OnDateChanging(value);
+					this.SendPropertyChanging();
+					this._Date = value;
+					this.SendPropertyChanged("Date");
+					this.OnDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Value", DbType="Float NOT NULL")]
+		public double Value
+		{
+			get
+			{
+				return this._Value;
+			}
+			set
+			{
+				if ((this._Value != value))
+				{
+					this.OnValueChanging(value);
+					this.SendPropertyChanging();
+					this._Value = value;
+					this.SendPropertyChanged("Value");
+					this.OnValueChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(MAX)")]
+		public string Description
+		{
+			get
+			{
+				return this._Description;
+			}
+			set
+			{
+				if ((this._Description != value))
+				{
+					this.OnDescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._Description = value;
+					this.SendPropertyChanged("Description");
+					this.OnDescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="UtilitiesItem_UtilitiesItemsDetail", Storage="_UtilitiesItem", ThisKey="UtilitiesItemsID", OtherKey="UtilitiesItemsID", IsForeignKey=true)]
+		public UtilitiesItem UtilitiesItem
+		{
+			get
+			{
+				return this._UtilitiesItem.Entity;
+			}
+			set
+			{
+				UtilitiesItem previousValue = this._UtilitiesItem.Entity;
+				if (((previousValue != value) 
+							|| (this._UtilitiesItem.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._UtilitiesItem.Entity = null;
+						previousValue.UtilitiesItemsDetails.Remove(this);
+					}
+					this._UtilitiesItem.Entity = value;
+					if ((value != null))
+					{
+						value.UtilitiesItemsDetails.Add(this);
+						this._UtilitiesItemsID = value.UtilitiesItemsID;
+					}
+					else
+					{
+						this._UtilitiesItemsID = default(int);
+					}
+					this.SendPropertyChanged("UtilitiesItem");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 }
