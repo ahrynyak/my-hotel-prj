@@ -9,5 +9,6 @@ namespace MyHotel.Business.Entity.Utilities
     {
         public int UtilitiesItemsID { get; set; }
         public string Name { get; set; }
+        public List<UtilitiesDetailsEntity> UtilitiesDetailsEntities { get; set; }
     }
 }

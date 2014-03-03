@@ -11,6 +11,10 @@ namespace MyHotel.Business.WebControls.Utilities
 {
     public partial class UtilitiesDetailsForm : System.Web.UI.Page
     {
+        private bool isRemove = false;
+        private DateTime startDate = DateTime.MinValue;
+        private IEnumerable<int> utilitiesItemsDetailsIDs = new List<int>();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -24,13 +28,28 @@ namespace MyHotel.Business.WebControls.Utilities
         {
             try
             {
-                Panel panel = new Panel();
-                Table table = new Table();
-                panel.Controls.Add(table);
+                if (Request.QueryString.Count > 0)
+                {
+                    string utilitiesItemsDetailsIDsStr = Request.QueryString["utilitiesItemsDetailsIDs"];
+                    if (!string.IsNullOrEmpty(utilitiesItemsDetailsIDsStr))
+                    {
+                        utilitiesItemsDetailsIDs = utilitiesItemsDetailsIDsStr.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(s => int.Parse(s));
+                    }
+                    string remove = Request.QueryString["remove"];
+                    if (!string.IsNullOrEmpty(remove))
+                    {
+                        isRemove = bool.Parse(remove);
+                    }
+                    string startDateStr = Request.QueryString["startDate"];
+                    if(!string.IsNullOrEmpty(startDateStr))
+                    {
+                        startDate = DateTime.Parse(startDateStr);
+                    }
+                }
 
                 //Date
                 TableRow rowDate = new TableRow();
-                table.Rows.Add(rowDate);
+                TableUtilitiesDetails.Rows.Add(rowDate);
 
                 TableCell cellLableDate = new TableCell();
                 cellLableDate.Controls.Add(new Label() { Text = "Дата", CssClass = "boldLabel" });
@@ -43,7 +62,7 @@ namespace MyHotel.Business.WebControls.Utilities
 
                 //Header
                 TableRow rowHeader = new TableRow();
-                table.Rows.Add(rowHeader);
+                TableUtilitiesDetails.Rows.Add(rowHeader);
                 rowHeader.Cells.Add(new TableCell() { Text = "", CssClass = "boldLabel" }); ;
                 rowHeader.Cells.Add(new TableCell() { Text = "Показник лічильника", CssClass = "boldLabel" });
                 rowHeader.Cells.Add(new TableCell() { Text = "Інфо", CssClass = "boldLabel" });
@@ -53,7 +72,7 @@ namespace MyHotel.Business.WebControls.Utilities
                 foreach (var item in UtilitiesController.GetUtilitiesItems())
                 {
                     TableRow row = new TableRow();
-                    table.Rows.Add(row);
+                    TableUtilitiesDetails.Rows.Add(row);
 
                     TableCell cellLable = new TableCell();
                     cellLable.Controls.Add(new Label() { Text = item.Name, ID = item.UtilitiesItemsID.ToString() });
@@ -70,8 +89,6 @@ namespace MyHotel.Business.WebControls.Utilities
                     cellDesc.Controls.Add(new TextBox() { Text = "", ID = item.UtilitiesItemsID.ToString() + "Desc" });
                     row.Cells.Add(cellDesc);
                 }
-
-                this.formUD.Controls.Add(panel);
             }
             catch (Exception ex)
             {

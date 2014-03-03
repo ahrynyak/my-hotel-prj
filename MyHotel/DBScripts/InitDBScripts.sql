@@ -122,7 +122,7 @@ CREATE TABLE [UtilitiesItemsDetails]
 	UtilitiesItemsDetailsID int IDENTITY(1,1) PRIMARY KEY,
 	UtilitiesItemsID int FOREIGN KEY REFERENCES [UtilitiesItems](UtilitiesItemsID) NOT NULL,
     [Date] date NOT NULL,
-	Value int NOT NULL,
+	Value float NOT NULL,
 	[Description] nvarchar(max) NULL
 )
 ALTER TABLE [UtilitiesItemsDetails]

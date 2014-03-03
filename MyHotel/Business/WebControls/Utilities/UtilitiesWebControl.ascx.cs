@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MyHotel.Business.Entity.Utilities;
+using MyHotel.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +13,74 @@ namespace MyHotel.Business.WebControls.Utilities
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+        }
 
+        public void Refresh(DateTime startDate, DateTime endDate)
+        {
+            List<UtilitiesItemsEntity> allUtilities = UtilitiesController.GetUtilitiesItems(startDate, endDate);
+            TableRow headerRow = getHeaderRow();
+            this.TableUtilities.Rows.Clear();
+            this.TableUtilities.Rows.Add(headerRow);
+            List<string> cssStyleList = new List<string>() { "White", "Silver" };
+            foreach (var item in allUtilities.SelectMany(s => s.UtilitiesDetailsEntities).GroupBy(s => s.Date))
+            {
+                int cssIdx = 0;
+                TableRow tableRowData = new TableRow();
+                tableRowData.Cells.Add(new TableCell() { Text = item.Key.ToString(HelperCommon.DateFormatUtilities), CssClass = "utilitiesDataRow" + cssIdx });
+                string utilitiesItemsDetailsIDs = string.Empty;
+                foreach (var subItem in item.OrderBy(s => s.UtilitiesItemsID))
+                {
+                    tableRowData.Cells.Add(new TableCell() { Text = subItem.Value.ToString(), ToolTip = subItem.Description, CssClass = "utilitiesDataRow" + cssIdx });
+                    utilitiesItemsDetailsIDs += subItem.UtilitiesItemsDetailsID + ",";
+                }
+                for (int i = 2; i < headerRow.Cells.Count - item.Count(); i++)
+                {
+                    tableRowData.Cells.Add(new TableCell() { Text = "", CssClass = "utilitiesDataRow" + cssIdx });
+                }
+                tableRowData.Cells.Add(new TableCell() { Text = getEditRow(item.Key, utilitiesItemsDetailsIDs) + getRemoveRow(utilitiesItemsDetailsIDs), CssClass = "utilitiesDataRow" + cssIdx });
+                cssIdx = cssIdx == 0 ? 1 : 0;
+                this.TableUtilities.Rows.Add(tableRowData);
+            }
+            this.Controls.Add(new Label() { Text = getAddRow(startDate) });
+        }
+
+        private TableRow getHeaderRow()
+        {
+            List<UtilitiesItemsEntity> utilitiesItems = UtilitiesController.GetUtilitiesItems();
+            TableRow result = new TableRow();
+            result.Cells.Add(new TableCell() { Text = "Дата", CssClass = "utilitiesHeaderColl" });
+            foreach (var item in utilitiesItems)
+            {
+                result.Cells.Add(new TableCell() { Text = item.Name, CssClass = "utilitiesHeaderColl" });
+            }
+            result.Cells.Add(new TableCell() { Text = "", CssClass = "utilitiesHeaderColl" });
+            return result;
+        }
+
+        private string getAddRow(DateTime startDate)
+        {
+            return String.Format(
+                "<span onclick=\"addNewUtilities(\'{0}\')\">" +
+                    "<img src=\"../../icons/add1.ico\" class=\"utilitiesAddButton\"/>"+ 
+                "</span>",
+                startDate.ToShortDateString());
+        }
+
+        private string getEditRow(DateTime startDate, string utilitiesItemsDetailsIDs)
+        {
+            return String.Format(
+                "<span onclick=\"editUtilities(\'{0}\', \'{1}\')\">" +
+                    "<img src=\"../../icons/edit.ico\" class=\"utilitiesEditButton\"/>" +
+                "</span>",
+                startDate.ToShortDateString(), utilitiesItemsDetailsIDs);
+        }
+
+        private string getRemoveRow(string utilitiesItemsDetailsIDs)
+        {
+            return String.Format(
+                "<span onclick=\"removeUtilities(\'{0}\')\">" +
+                    "<img src=\"../../icons/remove.png\" class=\"utilitiesEditButton\"/>" +
+                "</span>", utilitiesItemsDetailsIDs);
         }
     }
 }
