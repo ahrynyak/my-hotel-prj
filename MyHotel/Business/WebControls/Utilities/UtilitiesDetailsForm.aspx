@@ -11,7 +11,7 @@
 </head>
 <body>
     <form id="formUD" runat="server" clientidmode="Static">
-        <asp:ScriptManager ID="ScriptManagerUtilitiesDetails" runat="server" />
+        <asp:ScriptManager ID="ScriptManagerUtilitiesDetails" runat="server" EnableScriptGlobalization="true" />
         <asp:UpdatePanel ID="UpdatePanelUtilitiesDetails" runat="server" UpdateMode="Conditional">
             <Triggers>
                 <asp:PostBackTrigger ControlID="ButtonOK" />
@@ -26,6 +26,7 @@
                 <div>
                     <asp:Table ID="TableUtilitiesDetails" runat="server">
                     </asp:Table>
+                    <asp:Label ID="LabelError" runat="server" Text="..." CssClass="errorValidation" Visible="false" Width="60%" />
                 </div>
                 <div class="utilitiesDetailsButtonDiv">
                     <asp:Button ID="ButtonOK" runat="server" Text="OK" OnClick="ButtonOK_Click" />
