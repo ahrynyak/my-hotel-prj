@@ -23,7 +23,7 @@
 </script>
 
 <div style="width: 100%;">
-    <asp:Button ID="ButtonrRefresh" runat="server" Text="Button" ClientIDMode="Static" Height="1" Width="1" />
+    <asp:Button ID="ButtonrRefresh" runat="server" Text="Button" ClientIDMode="Static" Height="1" Width="1"/>
     <obout:Tree ID="TreeExpenses" runat="server" CssClass="vista">
     </obout:Tree>
 </div>

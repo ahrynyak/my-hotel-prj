@@ -17,15 +17,12 @@
         modal.showUrl("/Business/WebControls/Utilities/UtilitiesDetailsForm.aspx?startDate=" + startDate);
     }
 
-    function editUtilities(startDate, utilitiesItemsDetailsIDs) {
-        modal.showUrl("/Business/WebControls/Utilities/UtilitiesDetailsForm.aspx?startDate=" + startDate + "&utilitiesItemsDetailsIDs=" + utilitiesItemsDetailsIDs);
-    }
-
-    function removeUtilities(utilitiesItemsDetailsIDs) {
-        modal.showUrl("/Business/WebControls/Utilities/UtilitiesDetailsForm.aspx?utilitiesItemsDetailsIDs=" + utilitiesItemsDetailsIDs + "&remove=1");
+    function editUtilities(utilitiesItemsDetailsIDs) {
+        modal.showUrl("/Business/WebControls/Utilities/UtilitiesDetailsForm.aspx?utilitiesItemsDetailsIDs=" + utilitiesItemsDetailsIDs);
     }
 </script>
 <div>
+    <asp:Button ID="ButtonrRefresh" runat="server" Text="Button" ClientIDMode="Static" Height="1" Width="1" />
     <asp:Table ID="TableUtilities" runat="server" GridLines="Both">
     </asp:Table>
 </div>

@@ -13,10 +13,11 @@ namespace MyHotel.Business.WebControls.Utilities
 {
     public partial class UtilitiesDetailsForm : System.Web.UI.Page
     {
-        private bool isRemove = false;
         private DateTime startDate = DateTime.MinValue;
         private IEnumerable<int> utilitiesItemsDetailsIDs = new List<int>();
-        
+        List<UtilitiesItemsEntity> utilitiesItems = new List<UtilitiesItemsEntity>();
+        private List<UtilitiesDetailsEntity> utilitiesDetails = new List<UtilitiesDetailsEntity>();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -37,21 +38,33 @@ namespace MyHotel.Business.WebControls.Utilities
                     {
                         utilitiesItemsDetailsIDs = utilitiesItemsDetailsIDsStr.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries).Select(s => int.Parse(s));
                     }
-                    string remove = Request.QueryString["remove"];
-                    if (!string.IsNullOrEmpty(remove))
-                    {
-                        isRemove = bool.Parse(remove);
-                    }
                     string startDateStr = Request.QueryString["startDate"];
                     if (!string.IsNullOrEmpty(startDateStr))
                     {
                         startDate = DateTime.Parse(startDateStr);
                     }
                 }
+                utilitiesItems = UtilitiesController.GetUtilitiesItems(utilitiesItemsDetailsIDs);
+                utilitiesDetails = getCtrlValues();
+                if (startDate == DateTime.MinValue)
+                {
+                    if (utilitiesItems != null && utilitiesItems.Any() && utilitiesItems.SelectMany(s => s.UtilitiesDetailsEntities).Any())
+                    {
+                        startDate = utilitiesItems.SelectMany(s => s.UtilitiesDetailsEntities).First().Date;
+                    }
+                    else if (utilitiesDetails != null && utilitiesDetails.Any())
+                    {
+                        startDate = utilitiesDetails.First().Date;
+                    }
+                    else
+                    {
+                        startDate = HelperCommon.GetUADateTimeNow();
+                    }
+                }
             }
             catch (Exception ex)
             {
-                HelperCommon.ProcessException(LabelError, ex);
+                HelperCommon.ProcessExceptionNoToolTip(LabelError, ex);
             }
         }
 
@@ -68,7 +81,7 @@ namespace MyHotel.Business.WebControls.Utilities
                 rowDate.Cells.Add(cellLableDate);
 
                 TableCell cellDate = new TableCell();
-                cellDate.Controls.Add(new TextBox() { ID = "TextBoxDate" });
+                cellDate.Controls.Add(new TextBox() { ID = "TextBoxDate", Text = startDate.ToString(HelperCommon.DateFormat) });
                 cellDate.Controls.Add(new CalendarExtender() { ID = "CalendarExtenderDate", TargetControlID = "TextBoxDate", Format = HelperCommon.DateFormat });
                 rowDate.Cells.Add(cellDate);
 
@@ -80,7 +93,7 @@ namespace MyHotel.Business.WebControls.Utilities
                 rowHeader.Cells.Add(new TableCell() { Text = "Інфо", CssClass = "boldLabel" });
 
                 //Controlls
-                foreach (var item in UtilitiesController.GetUtilitiesItems(utilitiesItemsDetailsIDs))
+                foreach (var item in utilitiesItems)
                 {
                     TableRow row = new TableRow();
                     TableUtilitiesDetails.Rows.Add(row);
@@ -88,72 +101,68 @@ namespace MyHotel.Business.WebControls.Utilities
                     TableCell cellLable = new TableCell();
                     cellLable.Controls.Add(new Label() { Text = item.Name, ID = item.UtilitiesItemsID.ToString() });
                     row.Cells.Add(cellLable);
-                    UtilitiesDetailsEntity utilitiesDetailsEntity = item.UtilitiesDetailsEntities.FirstOrDefault();
-                    string txtName = item.UtilitiesItemsID.ToString() + "Value" + (utilitiesDetailsEntity != null ? utilitiesDetailsEntity.UtilitiesItemsDetailsID.ToString() : "");
+
+                    UtilitiesDetailsEntity utilitiesDetailsEntity = null;
+                    if (item.UtilitiesDetailsEntities != null && item.UtilitiesDetailsEntities.Any())
+                    {
+                        utilitiesDetailsEntity = item.UtilitiesDetailsEntities.First();
+                    }
+                    else if (utilitiesDetails != null && utilitiesDetails.Any())
+                    {
+                        utilitiesDetailsEntity = utilitiesDetails.FirstOrDefault(s => s.UtilitiesItemsID == item.UtilitiesItemsID);
+                    }
+
+                    string txtName = getTxtBoxName((utilitiesDetailsEntity != null ? utilitiesDetailsEntity.UtilitiesItemsDetailsID : int.MinValue), item.UtilitiesItemsID, "Value");
 
                     TableCell cellValue = new TableCell();
-                    cellValue.Controls.Add(new TextBox() { Text = (utilitiesDetailsEntity != null ? utilitiesDetailsEntity.Value.ToString() : ""), ID = txtName, AutoPostBack = true });
+                    cellValue.Controls.Add(new TextBox() { Text = (utilitiesDetailsEntity != null ? utilitiesDetailsEntity.Value.ToString() : ""), ID = txtName });
                     cellValue.Controls.Add(new RequiredFieldValidator() { ErrorMessage = "*", CssClass = "errorValidation", ControlToValidate = txtName, ToolTip = "Обов'язкове поле" });
                     cellValue.Controls.Add(new FilteredTextBoxExtender() { TargetControlID = txtName, FilterType = FilterTypes.Custom, ValidChars = "01234567890.," });
                     row.Cells.Add(cellValue);
 
                     TableCell cellDesc = new TableCell();
-                    cellDesc.Controls.Add(new TextBox() { Text = (utilitiesDetailsEntity != null ? utilitiesDetailsEntity.Description : ""), ID = item.UtilitiesItemsID.ToString() + "Desc" });
+                    cellDesc.Controls.Add(new TextBox() { Text = (utilitiesDetailsEntity != null ? utilitiesDetailsEntity.Description : ""), ID = getTxtBoxName((utilitiesDetailsEntity != null ? utilitiesDetailsEntity.UtilitiesItemsDetailsID : int.MinValue), item.UtilitiesItemsID, "Desc") });
                     row.Cells.Add(cellDesc);
                 }
             }
             catch (Exception ex)
             {
-                HelperCommon.ProcessException(LabelError, ex);
+                HelperCommon.ProcessExceptionNoToolTip(LabelError, ex);
             }
         }
 
         private void saveData()
         {
-            initData();
-            List<UtilitiesDetailsEntity> utilitiesItemsDetailsValues = new List<UtilitiesDetailsEntity>();
-            foreach (TableRow row in TableUtilitiesDetails.Rows)
+            UtilitiesController.SaveUtilitiesDetails(getCtrlValues());
+        }
+
+        private List<UtilitiesDetailsEntity> getCtrlValues()
+        {
+            List<UtilitiesDetailsEntity> result = new List<UtilitiesDetailsEntity>();
+            if (Request.Form.AllKeys.Count() > 0)
             {
-                foreach (TableCell cell in row.Cells)
+                DateTime date = DateTime.ParseExact(Request.Form.GetValues("TextBoxDate")[0], HelperCommon.DateFormat, CultureInfo.CurrentCulture);
+                foreach (string txtKey in Request.Form.AllKeys.Where(s => s.Contains("Value")))
                 {
                     int utilitiesItemsDetailsID = int.MinValue;
                     int utilitiesItemsID = int.MinValue;
-                    double uidValue = double.MinValue;
-                    string uidDescr = string.Empty;
-                    DateTime date = DateTime.MinValue;
-                    foreach (Control ctrl in cell.Controls)
+                    string[] par = txtKey.Split(new string[] { "Value" }, StringSplitOptions.RemoveEmptyEntries);
+                    if (par.Length > 0)
                     {
-                        if (!string.IsNullOrEmpty(ctrl.ID) && ctrl.ID == "TextBoxDate")
+                        utilitiesItemsID = int.Parse(par[0]);
+                        if (par.Length > 1)
                         {
-                            date = DateTime.ParseExact(((TextBox)ctrl).Text, HelperCommon.DateFormat, CultureInfo.CurrentCulture);
-                        }
-                        if (!string.IsNullOrEmpty(ctrl.ID) && ctrl.ID.Contains("Value"))
-                        {
-                            uidValue = double.Parse(string.IsNullOrEmpty(((TextBox)ctrl).Text) ? "0" : ((TextBox)ctrl).Text);
-
-                            #region Parse IDs
-
-                            string[] par = ctrl.ID.Split(new string[] { "Value" }, StringSplitOptions.RemoveEmptyEntries);
-                            if (par.Length > 0)
-                            {
-                                utilitiesItemsID = int.Parse(par[0]);
-                                if (par.Length > 1)
-                                {
-                                    utilitiesItemsDetailsID = int.Parse(par[1]);
-                                }
-                            }
-
-                            #endregion
-                        }
-                        if (!string.IsNullOrEmpty(ctrl.ID) && ctrl.ID.Contains("Desc"))
-                        {
-                            uidDescr = ((TextBox)ctrl).Text;
+                            utilitiesItemsDetailsID = int.Parse(par[1]);
                         }
                     }
 
+                    string txtBoxValueText = Request.Form.GetValues(getTxtBoxName(utilitiesItemsDetailsID, utilitiesItemsID, "Value"))[0];
+                    double uidValue = uidValue = (string.IsNullOrEmpty(txtBoxValueText) ? "0" : txtBoxValueText).ToDouble();
+                    string uidDescr = Request.Form.GetValues(getTxtBoxName(utilitiesItemsDetailsID, utilitiesItemsID, "Desc"))[0];
+
                     if (utilitiesItemsID != int.MinValue && uidValue != double.MinValue)
                     {
-                        utilitiesItemsDetailsValues.Add(new UtilitiesDetailsEntity()
+                        result.Add(new UtilitiesDetailsEntity()
                         {
                             UtilitiesItemsID = utilitiesItemsID,
                             UtilitiesItemsDetailsID = utilitiesItemsDetailsID != int.MinValue ? utilitiesItemsDetailsID : 0,
@@ -164,25 +173,12 @@ namespace MyHotel.Business.WebControls.Utilities
                     }
                 }
             }
-            //utilitiesItemsDetailsValues
-                
-             //[0].Cells[1].Controls[0].ID
+            return result;
+        }
 
-            //if (roomBookingEntity != null)
-            //{
-            //    roomBookingEntity.GuestName = TextBoxGuestName.Text;
-            //    roomBookingEntity.GuestPhone = TextBoxGuestPhone.Text;
-            //    roomBookingEntity.NumberOfAdult = int.Parse(string.IsNullOrEmpty(TextBoxAdultNumber.Text) ? "0" : TextBoxAdultNumber.Text);
-            //    roomBookingEntity.NumberOfChild = int.Parse(string.IsNullOrEmpty(TextBoxChildrenNumber.Text) ? "0" : TextBoxChildrenNumber.Text);
-            //    roomBookingEntity.PricePerRoom = int.Parse(string.IsNullOrEmpty(TextBoxPricePerRoom.Text) ? "0" : TextBoxPricePerRoom.Text);
-            //    roomBookingEntity.PriceOfAdditionalBed = int.Parse(string.IsNullOrEmpty(TextBoxPriceForExtraBed.Text) ? "0" : TextBoxPriceForExtraBed.Text);
-            //    roomBookingEntity.StartDate = DateTime.ParseExact(datePickeStart.Text, HelperCommon.DateFormat, CultureInfo.CurrentCulture);
-            //    roomBookingEntity.EndDate = DateTime.ParseExact(datePickeEnd.Text, HelperCommon.DateFormat, CultureInfo.CurrentCulture);
-            //    roomBookingEntity.BookingStatus = int.Parse((DropDownListBookingStatus.SelectedItem != null ? DropDownListBookingStatus.SelectedItem.Value : "0"));
-            //    roomBookingEntity.AdditionalInfo = TextBoxAdditionalInfo.Text;
-            //    roomBookingEntity.AlreadyPaid = int.Parse(TextBoxPaid.Text);
-            //    BookingController.SaveRoomBooking(roomBookingEntity);
-            //}
+        private static string getTxtBoxName(int utilitiesItemsDetailsID, int utilitiesItemsID, string prefix)
+        {
+            return utilitiesItemsID + prefix + (utilitiesItemsDetailsID != int.MinValue ? utilitiesItemsDetailsID.ToString() : "");
         }
 
         protected void ButtonOK_Click(object sender, EventArgs e)
@@ -194,7 +190,8 @@ namespace MyHotel.Business.WebControls.Utilities
             }
             catch (Exception ex)
             {
-                HelperCommon.ProcessException(LabelError, ex);
+                HelperCommon.ProcessExceptionNoToolTip(LabelError, ex);
+                refreshUI();
             }
         }
 
@@ -207,12 +204,12 @@ namespace MyHotel.Business.WebControls.Utilities
         {
             try
             {
-                UtilitiesController.DeleteUtilitiesItems(utilitiesItemsDetailsIDs);
+                UtilitiesController.DeleteUtilitiesItems(getCtrlValues().Select(s => s.UtilitiesItemsDetailsID).Where(s => s > 0));
                 Modal.Close(this, "OK");
             }
             catch (Exception ex)
             {
-                HelperCommon.ProcessException(LabelError, ex);
+                HelperCommon.ProcessExceptionNoToolTip(LabelError, ex);
             }
         }
     }

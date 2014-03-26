@@ -37,7 +37,7 @@ namespace MyHotel.Business.WebControls.Utilities
                 {
                     tableRowData.Cells.Add(new TableCell() { Text = "", CssClass = "utilitiesDataRow" + cssIdx });
                 }
-                tableRowData.Cells.Add(new TableCell() { Text = getEditRow(item.Key, utilitiesItemsDetailsIDs) + getRemoveRow(utilitiesItemsDetailsIDs), CssClass = "utilitiesDataRow" + cssIdx });
+                tableRowData.Cells.Add(new TableCell() { Text = getEditRow(utilitiesItemsDetailsIDs), CssClass = "utilitiesDataRow" + cssIdx });
                 cssIdx = cssIdx == 0 ? 1 : 0;
                 this.TableUtilities.Rows.Add(tableRowData);
             }
@@ -61,25 +61,16 @@ namespace MyHotel.Business.WebControls.Utilities
         {
             return String.Format(
                 "<span onclick=\"addNewUtilities(\'{0}\')\">" +
-                    "<img src=\"../../icons/add1.ico\" class=\"utilitiesAddButton\"/>"+ 
+                    "<img src=\"../../icons/add1.ico\" class=\"utilitiesAddButton\"/>" +
                 "</span>",
                 startDate.ToShortDateString());
         }
 
-        private string getEditRow(DateTime startDate, string utilitiesItemsDetailsIDs)
+        private string getEditRow(string utilitiesItemsDetailsIDs)
         {
             return String.Format(
-                "<span onclick=\"editUtilities(\'{0}\', \'{1}\')\">" +
+                "<span onclick=\"editUtilities(\'{0}\')\">" +
                     "<img src=\"../../icons/edit.ico\" class=\"utilitiesEditButton\"/>" +
-                "</span>",
-                startDate.ToShortDateString(), utilitiesItemsDetailsIDs);
-        }
-
-        private string getRemoveRow(string utilitiesItemsDetailsIDs)
-        {
-            return String.Format(
-                "<span onclick=\"removeUtilities(\'{0}\')\">" +
-                    "<img src=\"../../icons/remove.png\" class=\"utilitiesEditButton\"/>" +
                 "</span>", utilitiesItemsDetailsIDs);
         }
     }
