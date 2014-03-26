@@ -10,7 +10,7 @@
     <link href="/css/utilities.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <form id="formUD" runat="server" clientidmode="Static">
+    <form id="formUD" runat="server">
         <asp:ScriptManager ID="ScriptManagerUtilitiesDetails" runat="server" EnableScriptGlobalization="true" />
         <asp:UpdatePanel ID="UpdatePanelUtilitiesDetails" runat="server" UpdateMode="Conditional">
             <Triggers>

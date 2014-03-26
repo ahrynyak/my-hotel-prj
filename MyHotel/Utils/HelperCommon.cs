@@ -16,6 +16,12 @@ namespace MyHotel.Utils
             return new DataClassesDataContext();
         }
 
+        public static void ProcessExceptionNoToolTip(Label labelError, Exception ex)
+        {
+            labelError.Visible = true;
+            labelError.Text = ex.Message;
+        }
+
         public static void ProcessException(Label labelError, Exception ex)
         {
             labelError.Visible = true;
