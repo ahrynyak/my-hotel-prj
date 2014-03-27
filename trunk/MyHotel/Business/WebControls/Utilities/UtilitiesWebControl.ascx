@@ -9,7 +9,7 @@
     modal.height = 300;
     modal.closed = function () {
         if (this.result == "OK") {
-            document.getElementById("ButtonrRefresh").click();
+            location.reload();
         }
     };
 
@@ -22,7 +22,6 @@
     }
 </script>
 <div>
-    <asp:Button ID="ButtonrRefresh" runat="server" Text="Button" ClientIDMode="Static" Height="1" Width="1" />
     <asp:Table ID="TableUtilities" runat="server" GridLines="Both">
     </asp:Table>
 </div>
