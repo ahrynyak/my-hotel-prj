@@ -10,7 +10,7 @@
     modal.height = 250;
     modal.closed = function () {
         if (this.result == "OK") {
-            document.getElementById("ButtonrRefresh").click();
+            location.reload();
         }
     };
 
@@ -23,7 +23,6 @@
 </script>
 
 <div style="width: 100%;">
-    <asp:Button ID="ButtonrRefresh" runat="server" Text="Button" ClientIDMode="Static" Height="1" Width="1"/>
     <obout:Tree ID="TreeExpenses" runat="server" CssClass="vista">
     </obout:Tree>
 </div>
