@@ -41,7 +41,10 @@ namespace MyHotel.Business.WebControls.Utilities
                 cssIdx = cssIdx == 0 ? 1 : 0;
                 this.TableUtilities.Rows.Add(tableRowData);
             }
-            this.Controls.Add(new Label() { Text = getAddRow(startDate) });
+            if (FindControl("LabelAddNewRow") == null)
+            {
+                this.Controls.Add(new Label() { ID = "LabelAddNewRow", Text = getAddRow(startDate) });
+            }
         }
 
         private TableRow getHeaderRow()
