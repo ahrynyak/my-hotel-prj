@@ -46,9 +46,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AjaxControlToolkit, Version=4.1.7.123, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+    <Reference Include="AjaxControlToolkit, Version=3.0.30512.13267, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\3rdParty\oboutSuite35\bin\AjaxControlToolkit.dll</HintPath>
+      <HintPath>..\3rdParty\AjaxControlToolkit.Binary.NET4\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="AjaxMin">
+      <HintPath>..\3rdParty\AjaxControlToolkit.Binary.NET4\AjaxMin.dll</HintPath>
     </Reference>
     <Reference Include="DayPilot, Version=7.6.3006.1, Culture=neutral, PublicKeyToken=426941954f05e7fe, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -74,7 +77,25 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\3rdParty\Google Data API SDK\Redist\Google.GData.Extensions.dll</HintPath>
     </Reference>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>..\3rdParty\AjaxControlToolkit.Binary.NET4\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="Infragistics2.WebUI.WebResizingExtender.v11.1, Version=11.1.20111.2020, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Data.Edm, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\3rdParty\AjaxControlToolkit.Binary.NET4\Microsoft.Data.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\3rdParty\AjaxControlToolkit.Binary.NET4\Microsoft.Data.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Configuration">
+      <HintPath>..\3rdParty\AjaxControlToolkit.Binary.NET4\Microsoft.WindowsAzure.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage">
+      <HintPath>..\3rdParty\AjaxControlToolkit.Binary.NET4\Microsoft.WindowsAzure.Storage.dll</HintPath>
+    </Reference>
     <Reference Include="Obout.Ajax.UI, Version=2.13.312.2, Culture=neutral, PublicKeyToken=24f3c5cea456f322, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\3rdParty\oboutSuite35\bin\Obout.Ajax.UI.dll</HintPath>
@@ -83,7 +104,15 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\3rdParty\oboutSuite35\bin\obout_ImageZoom_NET.dll</HintPath>
     </Reference>
+    <Reference Include="obout_Splitter2_Net">
+      <HintPath>..\3rdParty\oboutSuite35\bin\obout_Splitter2_Net.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Spatial, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\3rdParty\AjaxControlToolkit.Binary.NET4\System.Spatial.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -104,6 +133,7 @@
     <Content Include="Business\GreenHouseInfo\GreenHouseInfoEN.aspx" />
     <Content Include="Business\GreenHouseInfo\GreenHouseInfoRU.aspx" />
     <Content Include="Business\Statistics\CountersStatisticsForm.aspx" />
+    <Content Include="Business\Statistics\CustomChartForm.aspx" />
     <Content Include="Business\Statistics\IncomesStatisticsForm.aspx" />
     <Content Include="Business\Utilities\UtilitiesForm.aspx" />
     <Content Include="Business\WebControls\Booking\BookingsWebControl.ascx" />
@@ -149,6 +179,8 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Business\Entity\Common\StatisticalInfo.cs" />
+    <Compile Include="Business\Entity\CustomChart\CustomChartScriptInfo.cs" />
+    <Compile Include="Business\Entity\CustomChart\CustomChartXYAxisInfo.cs" />
     <Compile Include="Business\Entity\Expenses\ExpensesDetailsEntity.cs" />
     <Compile Include="Business\Entity\Expenses\ExpensesItemsEntity.cs" />
     <Compile Include="Business\Entity\Incomes\IncomeByRoomEntity.cs" />
@@ -178,6 +210,13 @@
     <Compile Include="Business\Statistics\CountersStatisticsForm.aspx.designer.cs">
       <DependentUpon>CountersStatisticsForm.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Business\Statistics\CustomChartForm.aspx.cs">
+      <DependentUpon>CustomChartForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Business\Statistics\CustomChartForm.aspx.designer.cs">
+      <DependentUpon>CustomChartForm.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Business\Statistics\IncomesStatisticsForm.aspx.cs">
       <DependentUpon>IncomesStatisticsForm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -185,6 +224,7 @@
     <Compile Include="Business\Statistics\IncomesStatisticsForm.aspx.designer.cs">
       <DependentUpon>IncomesStatisticsForm.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Business\Statistics\StatisticsController.cs" />
     <Compile Include="Business\Utilities\UtilitiesForm.aspx.cs">
       <DependentUpon>UtilitiesForm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

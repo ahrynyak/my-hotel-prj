@@ -72,12 +72,18 @@
         <elementListCompartment Id="0c21380f-32a1-4aed-9750-812334288a42" absoluteBounds="10.015, 8.71, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(8.375 : 8.84699625651042); (10 : 8.84699625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(8.375 : 8.84699625651042); (10 : 8.84699625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DataClassesDataContext/UtilitiesItem/UtilitiesItem_UtilitiesItemsDetail" />
       <nodes>
         <classShapeMoniker Id="4b74b375-4115-4086-bf54-c4ff3b78383b" />
         <classShapeMoniker Id="44edd0d3-f11f-4c66-9083-54377a546afd" />
       </nodes>
     </associationConnector>
+    <classShape Id="0d71af57-27a7-4899-9955-6b3e012b3f82" absoluteBounds="2.75, 0.875, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/DataClassesDataContext/CustomData" />
+      <nestedChildShapes>
+        <elementListCompartment Id="378eb322-5c3d-4444-a3d8-ce05bb7af608" absoluteBounds="2.765, 1.335, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
   </nestedChildShapes>
 </ordesignerObjectsDiagram>

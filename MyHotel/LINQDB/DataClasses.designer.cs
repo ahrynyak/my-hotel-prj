@@ -51,6 +51,9 @@ namespace MyHotel.LINQDB
     partial void InsertUtilitiesItemsDetail(UtilitiesItemsDetail instance);
     partial void UpdateUtilitiesItemsDetail(UtilitiesItemsDetail instance);
     partial void DeleteUtilitiesItemsDetail(UtilitiesItemsDetail instance);
+    partial void InsertCustomData(CustomData instance);
+    partial void UpdateCustomData(CustomData instance);
+    partial void DeleteCustomData(CustomData instance);
     #endregion
 		
 		public DataClassesDataContext() :
@@ -136,6 +139,14 @@ namespace MyHotel.LINQDB
 			get
 			{
 				return this.GetTable<UtilitiesItemsDetail>();
+			}
+		}
+		
+		public System.Data.Linq.Table<CustomData> CustomDatas
+		{
+			get
+			{
+				return this.GetTable<CustomData>();
 			}
 		}
 	}
@@ -1542,6 +1553,92 @@ namespace MyHotel.LINQDB
 						this._UtilitiesItemsID = default(int);
 					}
 					this.SendPropertyChanged("UtilitiesItem");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CustomData")]
+	public partial class CustomData : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _CustomDataID;
+		
+		private string _JSONData;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCustomDataIDChanging(int value);
+    partial void OnCustomDataIDChanged();
+    partial void OnJSONDataChanging(string value);
+    partial void OnJSONDataChanged();
+    #endregion
+		
+		public CustomData()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomDataID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int CustomDataID
+		{
+			get
+			{
+				return this._CustomDataID;
+			}
+			set
+			{
+				if ((this._CustomDataID != value))
+				{
+					this.OnCustomDataIDChanging(value);
+					this.SendPropertyChanging();
+					this._CustomDataID = value;
+					this.SendPropertyChanged("CustomDataID");
+					this.OnCustomDataIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_JSONData", DbType="NVarChar(MAX) NOT NULL", CanBeNull=false)]
+		public string JSONData
+		{
+			get
+			{
+				return this._JSONData;
+			}
+			set
+			{
+				if ((this._JSONData != value))
+				{
+					this.OnJSONDataChanging(value);
+					this.SendPropertyChanging();
+					this._JSONData = value;
+					this.SendPropertyChanged("JSONData");
+					this.OnJSONDataChanged();
 				}
 			}
 		}

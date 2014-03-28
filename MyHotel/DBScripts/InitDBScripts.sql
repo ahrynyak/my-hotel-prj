@@ -128,3 +128,12 @@ CREATE TABLE [UtilitiesItemsDetails]
 ALTER TABLE [UtilitiesItemsDetails]
 ADD UNIQUE(UtilitiesItemsID, [Date]) 
 
+/*Custom data*/
+IF OBJECT_ID (N'CustomData', N'U') IS NOT NULL 
+DROP TABLE [CustomData]
+
+CREATE TABLE [CustomData]
+(
+	CustomDataID int IDENTITY(1,1) PRIMARY KEY,
+	JSONData nvarchar(MAX) NOT NULL
+)
