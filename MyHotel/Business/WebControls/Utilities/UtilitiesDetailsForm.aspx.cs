@@ -112,6 +112,7 @@ namespace MyHotel.Business.WebControls.Utilities
                         utilitiesDetailsEntity = utilitiesDetails.FirstOrDefault(s => s.UtilitiesItemsID == item.UtilitiesItemsID);
                     }
 
+                    ButtonDelete.Enabled = utilitiesDetailsEntity != null;
                     string txtName = getTxtBoxName((utilitiesDetailsEntity != null ? utilitiesDetailsEntity.UtilitiesItemsDetailsID : int.MinValue), item.UtilitiesItemsID, "Value");
 
                     TableCell cellValue = new TableCell();

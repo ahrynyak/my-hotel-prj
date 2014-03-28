@@ -4,7 +4,7 @@
 <script type="text/javascript">
     var modal = new DayPilot.Modal();
     modal.top = 0;
-    modal.width = 450;
+    modal.width = 440;
     modal.opacity = 60;
     modal.height = 300;
     modal.closed = function () {

@@ -31,9 +31,9 @@
                 <div class="utilitiesDetailsButtonDiv">
                     <asp:Button ID="ButtonOK" runat="server" Text="OK" OnClick="ButtonOK_Click" />
                     &nbsp;
-                <asp:Button ID="ButtonCancel" runat="server" Text="Cancel" OnClick="ButtonCancel_Click" />
+                <asp:Button ID="ButtonCancel" runat="server" Text="Cancel" OnClick="ButtonCancel_Click" CausesValidation="false" />
                     &nbsp;
-                <asp:Button ID="ButtonDelete" runat="server" Text="Delete" OnClick="ButtonDelete_Click" />
+                <asp:Button ID="ButtonDelete" runat="server" Text="Delete" OnClick="ButtonDelete_Click" CausesValidation="false" />
                 </div>
             </ContentTemplate>
         </asp:UpdatePanel>
