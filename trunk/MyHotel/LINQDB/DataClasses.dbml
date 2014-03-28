@@ -72,4 +72,10 @@
       <Association Name="UtilitiesItem_UtilitiesItemsDetail" Member="UtilitiesItem" ThisKey="UtilitiesItemsID" OtherKey="UtilitiesItemsID" Type="UtilitiesItem" IsForeignKey="true" />
     </Type>
   </Table>
+  <Table Name="dbo.CustomData" Member="CustomDatas">
+    <Type Name="CustomData">
+      <Column Name="CustomDataID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="JSONData" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
 </Database>

@@ -6,6 +6,7 @@ using MyHotel.LINQDB;
 using System.Globalization;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Configuration;
 
 namespace MyHotel.Utils
 {
@@ -13,7 +14,7 @@ namespace MyHotel.Utils
     {
         public static DataClassesDataContext GetDataContext()
         {
-            return new DataClassesDataContext();
+            return new DataClassesDataContext(ConfigurationManager.ConnectionStrings["MyHotelDBConnectionString"].ConnectionString);
         }
 
         public static void ProcessExceptionNoToolTip(Label labelError, Exception ex)
