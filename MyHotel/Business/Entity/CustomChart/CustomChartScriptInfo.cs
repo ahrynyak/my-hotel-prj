@@ -14,5 +14,10 @@ namespace MyHotel.Business.Entity.CustomChart
         public string Title { get; set; }
         public string ScriptText { get; set; }
         public List<CustomChartXYAxisInfo> CustomChartXYAxisInfos { get; set; }
+
+        public override string ToString()
+        {
+            return Title;
+        }
     }
 }
