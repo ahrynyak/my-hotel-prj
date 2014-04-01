@@ -203,18 +203,6 @@ namespace MyHotel.Business.Statistics
             }
         }
 
-        protected void TextBox_TextChanged(object sender, EventArgs e)
-        {
-            SaveDataFromCtrToDb();
-            RefreshScriptGUI();
-        }
-
-        protected void TextBoxXYAxis_TextChanged(object sender, EventArgs e)
-        {
-            SaveDataFromCtrToDb();
-            RefreshGUIWithSelectedScript();
-        }
-
         private void SaveAndRefresh(CustomChartScriptInfo customChartScriptInfo)
         {
             try
@@ -276,6 +264,12 @@ namespace MyHotel.Business.Statistics
                 }
                
             }
+        }
+
+        protected void ImageButtonSave_Click(object sender, ImageClickEventArgs e)
+        {
+            SaveDataFromCtrToDb();
+            RefreshScriptGUI();
         }
     }
 }

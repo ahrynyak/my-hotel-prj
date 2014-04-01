@@ -15,25 +15,26 @@
         </Triggers>
         <ContentTemplate>
             <div>
-                <table width="90%" style="vertical-align: top;" bordercolor="red" border="1">
+                <table width="90%" style="vertical-align: top;" border="1">
                     <tr>
                         <td width="250" style="vertical-align: top;">
                             <asp:Label ID="LabelTitle" runat="server" Text="Title" Width="45"></asp:Label>
-                            <asp:TextBox ID="TextBoxTitle" runat="server" OnTextChanged="TextBox_TextChanged" AutoPostBack="True"></asp:TextBox>
+                            <asp:TextBox ID="TextBoxTitle" runat="server"></asp:TextBox>
                         </td>
                         <td width="250" style="vertical-align: top;">
                             <asp:Label ID="LabelLegend" runat="server" Text="Legend" Width="45"></asp:Label>
-                            <asp:TextBox ID="TextBoxLegend" runat="server" Width="70" OnTextChanged="TextBoxXYAxis_TextChanged" AutoPostBack="True"></asp:TextBox>
+                            <asp:TextBox ID="TextBoxLegend" runat="server" Width="70"></asp:TextBox>
                             <asp:Label ID="LabelColor" runat="server" Text="Color" Width="45"></asp:Label>
-                            <asp:TextBox ID="TextBoxColor" runat="server" Width="70" OnTextChanged="TextBoxXYAxis_TextChanged" AutoPostBack="True"></asp:TextBox>
+                            <asp:TextBox ID="TextBoxColor" runat="server" Width="70"></asp:TextBox>
                             <br />
                             <asp:Label ID="LabelXFieldName" runat="server" Text="X Col" Width="45"></asp:Label>
-                            <asp:TextBox ID="TextBoxXFieldName" runat="server" Width="70" OnTextChanged="TextBoxXYAxis_TextChanged" AutoPostBack="True"></asp:TextBox>
+                            <asp:TextBox ID="TextBoxXFieldName" runat="server" Width="70"></asp:TextBox>
                             <asp:Label ID="LabelYFieldName" runat="server" Text="Y Col" Width="45"></asp:Label>
-                            <asp:TextBox ID="TextBoxYFieldName" runat="server" Width="70" OnTextChanged="TextBoxXYAxis_TextChanged" AutoPostBack="True"></asp:TextBox>
+                            <asp:TextBox ID="TextBoxYFieldName" runat="server" Width="70"></asp:TextBox>
                         </td>
                         <td style="vertical-align: top;" rowspan="2">
-                            <asp:TextBox ID="TextBoxScript" runat="server" TextMode="MultiLine" Width="90%" Height="100%" OnTextChanged="TextBox_TextChanged" AutoPostBack="True"></asp:TextBox>
+                            <asp:TextBox ID="TextBoxScript" runat="server" TextMode="MultiLine" Width="90%" 
+                                Height="100%"></asp:TextBox>
                         </td>
                     </tr>
                     <tr>
@@ -56,13 +57,16 @@
                         </td>
                         <td>
                             <asp:ImageButton ID="ImageButtonRun" runat="server" ImageUrl="~/icons/Play.png" Height="16px" Width="16px" OnClick="ImageButtonRun_Click" />
+                            <asp:ImageButton ID="ImageButtonSave" runat="server" 
+                                ImageUrl="~/icons/save-as-xxl.png" Height="16px" Width="16px" 
+                                onclick="ImageButtonSave_Click" />
                         </td>
 
                     </tr>
                 </table>
             </div>
             <div>
-                <asp:Chart ID="ChartCustom" runat="server" Height="500px" Width="800px">
+                <asp:Chart ID="ChartCustom" runat="server" Height="600px" Width="900px">
                 </asp:Chart>
             </div>
         </ContentTemplate>
