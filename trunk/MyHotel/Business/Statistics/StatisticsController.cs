@@ -31,7 +31,7 @@ namespace MyHotel.Business.Statistics
                 Color = "",
                 Legend = "Легенда",
                 XFieldName = "Поле X даних",
-                YFieldName = "Поле X даних"
+                YFieldName = "Поле Y даних"
             };
 
         }
