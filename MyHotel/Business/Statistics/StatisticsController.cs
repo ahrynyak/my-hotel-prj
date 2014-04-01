@@ -12,6 +12,15 @@ namespace MyHotel.Business.Statistics
 {
     public static class StatisticsController
     {
+        public static CustomChartScriptInfo GetDefaultCustomChartScriptInfo()
+        {
+            return new CustomChartScriptInfo() 
+            {
+                Title = "Графік без назви",
+                ScriptText="SELECT * FROM [TableName]"
+            };
+ 
+        }
         public static List<CustomChartScriptInfo> GetCustomChartData()
         {
             List<CustomChartScriptInfo> result = new List<CustomChartScriptInfo>();
@@ -19,30 +28,29 @@ namespace MyHotel.Business.Statistics
             {
                 foreach (var item in dataContext.CustomDatas)
                 {
-                    var customChartScriptInfo = fromJSONData(item);
-                    customChartScriptInfo.ID = item.CustomDataID;
+                    var customChartScriptInfo = toCustomChartScriptInfo(item);
                     result.Add(customChartScriptInfo);
                 }
             }
-            //todo: remove
-            for (int i = 0; i < 10; i++)
-            {
-                result.Add(new CustomChartScriptInfo()
-                {
-                    Title = "Test1" + i,
-                    ScriptText = "select * from Tabs" + i,
-                    CustomChartXYAxisInfos = new List<CustomChartXYAxisInfo>() 
-                { 
-                    new CustomChartXYAxisInfo() 
-                    { 
-                        XFieldName = "TestFiX1"+i, 
-                        YFieldName = "TestFiY1"+i, 
-                        Legend = "TestLegend"+i, 
-                        Color = "Red" } 
-                }
-                });
-            }
             return result;
+        }
+
+        public static CustomChartScriptInfo GetCustomChartDataByID(int ID)
+        {
+            CustomChartScriptInfo result = new CustomChartScriptInfo();
+            using (DataClassesDataContext dataContext = HelperCommon.GetDataContext())
+            {
+                var item = dataContext.CustomDatas.FirstOrDefault(s => s.CustomDataID == ID);
+                if (item != null)
+                {
+                    return toCustomChartScriptInfo(item);
+                }
+                else
+                {
+                    throw new InvalidConstraintException("Неможливо знайти запис № " + ID);
+                }
+                
+            }
         }
 
         public static void SaveCustomChartScriptInfo(CustomChartScriptInfo customChartScriptInfo)
@@ -51,7 +59,7 @@ namespace MyHotel.Business.Statistics
             {
                 if (customChartScriptInfo.ID > 0 && dataContext.CustomDatas.Any(s => s.CustomDataID == customChartScriptInfo.ID))
                 {
-                    dataContext.CustomDatas.First().JSONData = toJSONData(customChartScriptInfo);
+                    dataContext.CustomDatas.First(s => s.CustomDataID == customChartScriptInfo.ID).JSONData = toJSONData(customChartScriptInfo);
                 }
                 else
                 {
@@ -76,7 +84,14 @@ namespace MyHotel.Business.Statistics
                 }
             }
         }
-        
+
+        private static CustomChartScriptInfo toCustomChartScriptInfo(CustomData item)
+        {
+            var customChartScriptInfo = fromJSONData(item);
+            customChartScriptInfo.ID = item.CustomDataID;
+            return customChartScriptInfo;
+        }
+
         private static CustomChartScriptInfo fromJSONData(CustomData item)
         {
             return new JavaScriptSerializer().Deserialize<CustomChartScriptInfo>(item.JSONData);

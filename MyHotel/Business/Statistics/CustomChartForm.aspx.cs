@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyHotel.Business.Entity.CustomChart;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -17,14 +18,9 @@ namespace MyHotel.Business.Statistics
                 {
                     Page.Form.Controls.AddAt(0, new ScriptManager());
                 }
-                InitGUI();
-                ChartCustom.Titles.Add("Chart Title");
-                var area = ChartCustom.ChartAreas.Add("New Area");
-                var seriaes = ChartCustom.Series.Add("Employee");
-                seriaes.ChartType = System.Web.UI.DataVisualization.Charting.SeriesChartType.Line;
-                for (int i = 0; i < 100; i++)
+                if (!Page.IsPostBack)
                 {
-                    seriaes.Points.AddXY(i, i + 150);
+                    RefreshAllGUI();
                 }
             }
             else
@@ -33,28 +29,89 @@ namespace MyHotel.Business.Statistics
             }
         }
 
-        private void InitGUI()
+        private void RefreshAllGUI()
         {
-            if (!Page.IsPostBack)
+            ListBoxScriptSelection.DataSource = StatisticsController.GetCustomChartData();
+            ListBoxScriptSelection.DataTextField = "Title";
+            ListBoxScriptSelection.DataValueField = "ID";
+            ListBoxScriptSelection.DataBind();
+            //todo: test
+            ChartCustom.Titles.Add("Chart Title");
+            var area = ChartCustom.ChartAreas.Add("New Area");
+            var seriaes = ChartCustom.Series.Add("Employee");
+            seriaes.ChartType = System.Web.UI.DataVisualization.Charting.SeriesChartType.Line;
+            for (int i = 0; i < 100; i++)
             {
-                ListBoxScriptSelection.DataSource = StatisticsController.GetCustomChartData();
-                ListBoxScriptSelection.DataBind();
+                seriaes.Points.AddXY(i, i + 150);
             }
         }
 
+        private void InitGUIBySelectedScript(CustomChartScriptInfo customChartScriptInfo)
+        {
+            TextBoxTitle.Text = customChartScriptInfo.Title;
+            TextBoxScript.Text = customChartScriptInfo.ScriptText;
+            ListBoxXYAxises.Items.Clear();
+            ListBoxXYAxises.DataSource = customChartScriptInfo.CustomChartXYAxisInfos;
+            ListBoxXYAxises.DataTextField = "Legend";
+            ListBoxXYAxises.DataValueField = "ID";
+            ListBoxXYAxises.DataBind();
+
+        }
+        #region ListBoxScriptSelection
+
         protected void ImageButtonAddTitle_Click(object sender, ImageClickEventArgs e)
         {
-
+            StatisticsController.SaveCustomChartScriptInfo(StatisticsController.GetDefaultCustomChartScriptInfo());
+            RefreshAllGUI();
+            ListBoxScriptSelection.SelectedIndex = ListBoxScriptSelection.Items.Count - 1;
+            ScriptSelectionChanged();
         }
 
         protected void ImageButtonRemoveTitle_Click(object sender, ImageClickEventArgs e)
         {
-
+            int selectedIndex = ListBoxScriptSelection.SelectedIndex;
+            StatisticsController.RemoveCustomChartScriptInfo(int.Parse(ListBoxScriptSelection.SelectedValue ?? "0"));
+            RefreshAllGUI();
+            ListBoxScriptSelection.SelectedIndex = ListBoxScriptSelection.Items.Count > selectedIndex ? selectedIndex : ListBoxScriptSelection.Items.Count - 1;
+            ScriptSelectionChanged();
         }
 
         protected void ListBoxScriptSelection_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ScriptSelectionChanged();
+        }
 
+        private void ScriptSelectionChanged()
+        {
+            CustomChartScriptInfo customChartScriptInfo = StatisticsController.GetCustomChartDataByID(int.Parse(ListBoxScriptSelection.SelectedValue ?? "0"));
+            InitGUIBySelectedScript(customChartScriptInfo);
+        }
+
+        #endregion
+      
+
+        protected void ImageButtonAddXYAxis_Click(object sender, ImageClickEventArgs e)
+        {
+
+        }
+
+        protected void ImageButtonRemoveXYAxis_Click(object sender, ImageClickEventArgs e)
+        {
+
+        }
+
+        protected void ImageButtonRun_Click(object sender, ImageClickEventArgs e)
+        {
+
+        }
+
+        protected void ImageButtonSave_Click(object sender, ImageClickEventArgs e)
+        {
+            CustomChartScriptInfo customChartScriptInfo = StatisticsController.GetCustomChartDataByID(int.Parse(ListBoxScriptSelection.SelectedValue ?? "0"));
+            customChartScriptInfo.Title = TextBoxTitle.Text;
+            customChartScriptInfo.ScriptText = TextBoxScript.Text;
+            StatisticsController.SaveCustomChartScriptInfo(customChartScriptInfo);
+            RefreshAllGUI();
         }
 
     }
