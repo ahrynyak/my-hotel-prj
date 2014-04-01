@@ -17,6 +17,7 @@ namespace MyHotel.Business.Statistics
                 {
                     Page.Form.Controls.AddAt(0, new ScriptManager());
                 }
+                InitGUI();
                 ChartCustom.Titles.Add("Chart Title");
                 var area = ChartCustom.ChartAreas.Add("New Area");
                 var seriaes = ChartCustom.Series.Add("Employee");
@@ -32,9 +33,29 @@ namespace MyHotel.Business.Statistics
             }
         }
 
-        protected void ObjectDataSourceCustomChart_Selected(object sender, ObjectDataSourceStatusEventArgs e)
+        private void InitGUI()
+        {
+            if (!Page.IsPostBack)
+            {
+                ListBoxScriptSelection.DataSource = StatisticsController.GetCustomChartData();
+                ListBoxScriptSelection.DataBind();
+            }
+        }
+
+        protected void ImageButtonAddTitle_Click(object sender, ImageClickEventArgs e)
         {
 
         }
+
+        protected void ImageButtonRemoveTitle_Click(object sender, ImageClickEventArgs e)
+        {
+
+        }
+
+        protected void ListBoxScriptSelection_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

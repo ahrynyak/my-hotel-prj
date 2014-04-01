@@ -30,7 +30,7 @@
             </tr>
             <tr>
                 <td style="vertical-align: top;">
-                    <asp:ListBox ID="ListBoxScriptSelection" runat="server" Width="250px" Height="150px"></asp:ListBox>
+                    <asp:ListBox ID="ListBoxScriptSelection" runat="server" Width="250px" Height="150px" AutoPostBack="True" OnSelectedIndexChanged="ListBoxScriptSelection_SelectedIndexChanged"></asp:ListBox>
                 </td>
                 <td style="vertical-align: top;">
                     <asp:ListBox ID="ListBoxXYAxises" runat="server" Width="250px" Height="150px"></asp:ListBox>
@@ -38,8 +38,8 @@
             </tr>
             <tr>
                 <td>
-                    <asp:ImageButton ID="ImageButtonAddTitle" runat="server" ImageUrl="~/icons/add1.ico" Height="16px" Width="16px" />
-                    <asp:ImageButton ID="ImageButtonRemoveTitle" runat="server" ImageUrl="~/icons/remove.png" Height="16px" Width="16px" />
+                    <asp:ImageButton ID="ImageButtonAddTitle" runat="server" ImageUrl="~/icons/add1.ico" Height="16px" Width="16px" OnClick="ImageButtonAddTitle_Click" />
+                    <asp:ImageButton ID="ImageButtonRemoveTitle" runat="server" ImageUrl="~/icons/remove.png" Height="16px" Width="16px" OnClick="ImageButtonRemoveTitle_Click" />
 
                 </td>
                 <td>
