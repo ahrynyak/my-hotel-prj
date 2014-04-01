@@ -76,15 +76,6 @@ namespace MyHotel.Business.Statistics {
         protected global::System.Web.UI.WebControls.TextBox TextBoxColor;
         
         /// <summary>
-        /// ColorPickerExtenderAxis control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.ColorPickerExtender ColorPickerExtenderAxis;
-        
-        /// <summary>
         /// LabelXFieldName control.
         /// </summary>
         /// <remarks>
@@ -166,15 +157,6 @@ namespace MyHotel.Business.Statistics {
         protected global::System.Web.UI.WebControls.ImageButton ImageButtonRemoveTitle;
         
         /// <summary>
-        /// ImageButtonSaveTitle control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton ImageButtonSaveTitle;
-        
-        /// <summary>
         /// ImageButtonAddXYAxis control.
         /// </summary>
         /// <remarks>
@@ -200,15 +182,6 @@ namespace MyHotel.Business.Statistics {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton ImageButtonRun;
-        
-        /// <summary>
-        /// ImageButtonSaveScript control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton ImageButtonSaveScript;
         
         /// <summary>
         /// ChartCustom control.
