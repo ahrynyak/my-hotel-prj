@@ -7,6 +7,7 @@ using MyHotel.Utils;
 using MyHotel.LINQDB;
 using System.Web.Script.Serialization;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace MyHotel.Business.Statistics
 {
@@ -14,13 +15,27 @@ namespace MyHotel.Business.Statistics
     {
         public static CustomChartScriptInfo GetDefaultCustomChartScriptInfo()
         {
-            return new CustomChartScriptInfo() 
+            return new CustomChartScriptInfo()
             {
                 Title = "Графік без назви",
-                ScriptText="SELECT * FROM [TableName]"
+                ScriptText = "SELECT * FROM [TableName]",
+                CustomChartXYAxisInfos = new List<CustomChartXYAxisInfo>() { GetDefaultCustomChartXYAxisInfo() }
             };
- 
         }
+
+        public static CustomChartXYAxisInfo GetDefaultCustomChartXYAxisInfo()
+        {
+            return new CustomChartXYAxisInfo()
+            {
+                ID = Guid.NewGuid(),
+                Color = "",
+                Legend = "Легенда",
+                XFieldName = "Поле X даних",
+                YFieldName = "Поле X даних"
+            };
+
+        }
+
         public static List<CustomChartScriptInfo> GetCustomChartData()
         {
             List<CustomChartScriptInfo> result = new List<CustomChartScriptInfo>();
@@ -49,7 +64,7 @@ namespace MyHotel.Business.Statistics
                 {
                     throw new InvalidConstraintException("Неможливо знайти запис № " + ID);
                 }
-                
+
             }
         }
 
@@ -85,10 +100,25 @@ namespace MyHotel.Business.Statistics
             }
         }
 
+        public static DataTable GetDataTable(string sqlScript)
+        {
+            using (DataClassesDataContext dataContext = HelperCommon.GetDataContext())
+            {
+                SqlDataAdapter adapter = new SqlDataAdapter(sqlScript, (SqlConnection)dataContext.Connection);
+                DataTable dataTable = new  DataTable();
+                adapter.Fill(dataTable);
+                return dataTable;
+            }
+        }
+
         private static CustomChartScriptInfo toCustomChartScriptInfo(CustomData item)
         {
             var customChartScriptInfo = fromJSONData(item);
             customChartScriptInfo.ID = item.CustomDataID;
+            if (customChartScriptInfo.CustomChartXYAxisInfos == null)
+            {
+                customChartScriptInfo.CustomChartXYAxisInfos = new List<CustomChartXYAxisInfo>();
+            }
             return customChartScriptInfo;
         }
 

@@ -30,6 +30,12 @@ namespace MyHotel.Utils
             labelError.ToolTip = ex.Message;
         }
 
+        public static void ProcessExceptionMessageBox(Page page, Exception ex)
+        {
+            string script = "alert(\"" + ex.Message + "!\");";
+            ScriptManager.RegisterStartupScript(page, page.GetType(), "ServerControlScript", script, true);
+        }
+
         public const string UATimeZoneKey = "FLE Standard Time";
 
         public static DateTime GetUADateTimeNow()
