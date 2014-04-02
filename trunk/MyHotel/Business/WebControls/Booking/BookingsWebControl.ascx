@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="BookingsWebControl.ascx.cs"
     Inherits="MyHotel.Business.WebControls.Booking.BookingsWebControl" %>
 <%@ Register Assembly="DayPilot" Namespace="DayPilot.Web.Ui" TagPrefix="DayPilot" %>
-<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <script type="text/javascript" src="/js/modal.js"></script>
 <script type="text/javascript" src="/js/message.js"></script>
 <script type="text/javascript">

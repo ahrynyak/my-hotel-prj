@@ -30,10 +30,7 @@ namespace MyHotel.Business.Utilities
         {
             if (this.Page.User != null && this.Page.User.Identity.IsAuthenticated)
             {
-                if (ScriptManager.GetCurrent(Page) == null)
-                {
-                    Page.Form.Controls.AddAt(0, new ScriptManager());
-                }
+                AddScriptManager();
                 if (!Page.IsPostBack)
                 {
                     DateRangerPeriod.SetDateRange(getDefaultStartDate(), getDefaultEndDate());

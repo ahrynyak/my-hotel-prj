@@ -11,7 +11,7 @@
 </head>
 <body>
     <form id="formUD" runat="server">
-        <asp:ScriptManager ID="ScriptManagerUtilitiesDetails" runat="server" EnableScriptGlobalization="true" />
+        <asp:ToolkitScriptManager ID="ScriptManagerUtilitiesDetails" runat="server" EnableScriptGlobalization="true" />
         <asp:UpdatePanel ID="UpdatePanelUtilitiesDetails" runat="server" UpdateMode="Conditional">
             <Triggers>
                 <asp:PostBackTrigger ControlID="ButtonOK" />

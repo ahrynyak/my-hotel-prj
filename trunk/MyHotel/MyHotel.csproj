@@ -80,7 +80,6 @@
     <Reference Include="HtmlAgilityPack">
       <HintPath>..\3rdParty\AjaxControlToolkit.Binary.NET4\HtmlAgilityPack.dll</HintPath>
     </Reference>
-    <Reference Include="Infragistics2.WebUI.WebResizingExtender.v11.1, Version=11.1.20111.2020, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Data.Edm, Version=5.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

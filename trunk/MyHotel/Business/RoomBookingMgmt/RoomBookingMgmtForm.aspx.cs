@@ -17,6 +17,7 @@ using MyHotel.Business.Entity;
 using MyHotel.Business.WebControls.Booking;
 using MyHotel.Business.Entity.Common;
 using System.Web.Services;
+using AjaxControlToolkit;
 
 namespace MyHotel.Business.RoomBookingMgmt
 {
@@ -42,10 +43,7 @@ namespace MyHotel.Business.RoomBookingMgmt
         {
             if (this.Page.User != null && this.Page.User.Identity.IsAuthenticated)
             {
-                if (ScriptManager.GetCurrent(Page) == null)
-                {
-                    Page.Form.Controls.AddAt(0, new ScriptManager());
-                }
+                AddScriptManager();
                 if (!Page.IsPostBack)
                 {
                     DateRangerPeriod.SetDateRange(getDefaultStartDate(), getDefaultEndDate());

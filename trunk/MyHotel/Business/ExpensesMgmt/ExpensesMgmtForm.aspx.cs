@@ -9,6 +9,7 @@ using Obout.Ajax.UI.TreeView;
 using MyHotel.Utils;
 using System.Globalization;
 using MyHotel.Business.WebControls.Expenses;
+using AjaxControlToolkit;
 
 namespace MyHotel.Business.ExpensesMgmt
 {
@@ -34,10 +35,7 @@ namespace MyHotel.Business.ExpensesMgmt
         {
             if (this.Page.User != null && this.Page.User.Identity.IsAuthenticated)
             {
-                if (ScriptManager.GetCurrent(Page) == null)
-                {
-                    Page.Form.Controls.AddAt(0, new ScriptManager());
-                }
+                AddScriptManager();
                 if (!Page.IsPostBack)
                 {
                     ExpensesController.ShowAllLevels = true;

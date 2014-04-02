@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using MyHotel.Utils;
+using AjaxControlToolkit;
 
 namespace MyHotel.Business.Statistics
 {
@@ -30,10 +31,7 @@ namespace MyHotel.Business.Statistics
         {
             if (this.Page.User != null && this.Page.User.Identity.IsAuthenticated)
             {
-                if (ScriptManager.GetCurrent(Page) == null)
-                {
-                    Page.Form.Controls.AddAt(0, new ScriptManager());
-                }
+                AddScriptManager();
                 if (!Page.IsPostBack)
                 {
                     DateRangerPeriod.SetDateRange(getDefaultStartDate(), getDefaultEndDate());
@@ -48,6 +46,8 @@ namespace MyHotel.Business.Statistics
                 Response.Redirect("/LoginForm.aspx");
             }
         }
+
+       
 
         void DateRangerPeriod_DateChanged(object sender, WebControls.DateRange.DateEventArgs e)
         {

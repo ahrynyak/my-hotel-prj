@@ -5,6 +5,7 @@ using System.Web;
 using MyHotel.Utils;
 using System.Web.Services;
 using System.Web.UI;
+using AjaxControlToolkit;
 
 namespace MyHotel
 {
@@ -19,6 +20,14 @@ namespace MyHotel
             else
             {
                 MasterPageFile = "~/MasterPages/MyHotelMgmt.Master";
+            }
+        }
+
+        protected void AddScriptManager()
+        {
+            if (ScriptManager.GetCurrent(Page) == null)
+            {
+                Page.Form.Controls.AddAt(0, new ToolkitScriptManager());
             }
         }
     }

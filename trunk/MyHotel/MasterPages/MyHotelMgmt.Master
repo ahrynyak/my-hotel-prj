@@ -2,6 +2,7 @@
     Inherits="MyHotel.MasterPages.MyHotelMgmt" %>
 
 <%@ Register Assembly="DayPilot" Namespace="DayPilot.Web.Ui" TagPrefix="DayPilot" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -25,8 +26,7 @@
             }
         };
     </script>
-    <asp:ScriptManager ID="ScriptManager1" runat="server" EnableScriptGlobalization="true" EnablePageMethods="true">
-    </asp:ScriptManager>
+    <asp:ToolkitScriptManager ID="ScriptManagerMain" runat="server" EnableScriptGlobalization="true" EnablePageMethods="true"/>
     <div class="main_div">
         <div class="main_header_div">
             <span class="MainHeaderBigP1">ЗЕЛЕНА </span><span class="MainHeaderBigP2">САДИБА</span>
