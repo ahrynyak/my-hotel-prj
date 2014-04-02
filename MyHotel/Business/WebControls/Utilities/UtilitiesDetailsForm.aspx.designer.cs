@@ -28,7 +28,7 @@ namespace MyHotel.Business.WebControls.Utilities {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManagerUtilitiesDetails;
+        protected global::AjaxControlToolkit.ToolkitScriptManager ScriptManagerUtilitiesDetails;
         
         /// <summary>
         /// UpdatePanelUtilitiesDetails control.

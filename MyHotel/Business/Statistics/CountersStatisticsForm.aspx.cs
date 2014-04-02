@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using AjaxControlToolkit;
 
 namespace MyHotel.Business.Statistics
 {
@@ -13,10 +14,7 @@ namespace MyHotel.Business.Statistics
         {
             if (this.Page.User != null && this.Page.User.Identity.IsAuthenticated)
             {
-                if (ScriptManager.GetCurrent(Page) == null)
-                {
-                    Page.Form.Controls.AddAt(0, new ScriptManager());
-                }
+                AddScriptManager();
             }
             else
             {

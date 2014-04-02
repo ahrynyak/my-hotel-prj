@@ -11,7 +11,7 @@
 </head>
 <body>
     <form id="formED" runat="server">
-    <asp:ScriptManager ID="ScriptManagerExpensesDetails" runat="server" />
+    <asp:ToolkitScriptManager ID="ScriptManagerExpensesDetails" runat="server" />
     <asp:UpdatePanel ID="UpdatePanelExpensesDetails" runat="server" UpdateMode="Conditional">
         <Triggers>
             <asp:PostBackTrigger ControlID="ButtonOK" />

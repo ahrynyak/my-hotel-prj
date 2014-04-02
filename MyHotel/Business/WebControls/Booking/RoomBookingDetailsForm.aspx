@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RoomBookingDetailsForm.aspx.cs"
     Inherits="MyHotel.Business.WebControls.Booking.RoomBookingDetailsForm" Culture="uk-UA"
     UICulture="uk-UA" %>
-<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 <script type="text/javascript">
     function colorChanged(sender) {
         sender.get_element().style.color =
@@ -15,7 +15,7 @@
 </head>
 <body>
     <form id="formRBD" runat="server" class="FormBookingDetails">
-        <asp:ScriptManager ID="ScriptManagerBookingDetails" runat="server" EnableScriptGlobalization="true" />
+        <asp:ToolkitScriptManager ID="ScriptManagerBookingDetails" runat="server" EnableScriptGlobalization="true" />
         <asp:UpdatePanel ID="UpdatePanelBookingDetails" runat="server" UpdateMode="Conditional">
             <Triggers>
                 <asp:PostBackTrigger ControlID="ButtonOK" />
@@ -70,7 +70,7 @@
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorAdultNumber" runat="server"
                                     ErrorMessage="*" CssClass="errorValidation" ControlToValidate="TextBoxAdultNumber"
                                     ToolTip="Обов'язкове поле" />
-                                <ajaxToolkit:FilteredTextBoxExtender ID="FilteredtextboxextenderAdultNumber" runat="server"
+                                <asp:FilteredTextBoxExtender ID="FilteredtextboxextenderAdultNumber" runat="server"
                                     TargetControlID="TextBoxAdultNumber" FilterType="Numbers" />
                             </td>
                             <td>
@@ -78,7 +78,7 @@
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorChildrenNumber" runat="server"
                                     ErrorMessage="*" CssClass="errorValidation" ControlToValidate="TextBoxChildrenNumber"
                                     ToolTip="Обов'язкове поле" />
-                                <ajaxToolkit:FilteredTextBoxExtender ID="FilteredtextboxextenderChildrenNumber" runat="server"
+                                <asp:FilteredTextBoxExtender ID="FilteredtextboxextenderChildrenNumber" runat="server"
                                     TargetControlID="TextBoxChildrenNumber" FilterType="Numbers" />
                             </td>
                         </tr>
@@ -95,13 +95,13 @@
                                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorPricePerRoom" runat="server"
                                     ErrorMessage="*" CssClass="errorValidation" ControlToValidate="TextBoxPricePerRoom"
                                     ToolTip="Обов'язкове поле" />
-                                <ajaxToolkit:FilteredTextBoxExtender ID="FilteredtextboxextenderPricePerRoom" runat="server"
+                                <asp:FilteredTextBoxExtender ID="FilteredtextboxextenderPricePerRoom" runat="server"
                                     TargetControlID="TextBoxPricePerRoom" FilterType="Numbers" />
                             </td>
                             <td>
                                 <asp:TextBox ID="TextBoxPriceForExtraBed" runat="server" Width="90%" AutoPostBack="True"
                                     OnTextChanged="TextBoxPriceForExtraBed_TextChanged" />
-                                <ajaxToolkit:FilteredTextBoxExtender ID="FilteredtextboxextenderPriceForExtraBed"
+                                <asp:FilteredTextBoxExtender ID="FilteredtextboxextenderPriceForExtraBed"
                                     runat="server" TargetControlID="TextBoxPriceForExtraBed" FilterType="Numbers" />
                             </td>
                         </tr>
@@ -115,12 +115,12 @@
                             <td>
                                 <asp:TextBox runat="server" ID="datePickeStart" Width="90%" autocomplete="off" AutoPostBack="True"
                                     OnTextChanged="datePickeStart_TextChanged" />
-                                <ajaxToolkit:CalendarExtender ID="calendarExtenderStart" runat="server" TargetControlID="datePickeStart" />
+                                <asp:CalendarExtender ID="calendarExtenderStart" runat="server" TargetControlID="datePickeStart" />
                             </td>
                             <td>
                                 <asp:TextBox runat="server" ID="datePickeEnd" Width="90%" autocomplete="off" AutoPostBack="True"
                                     OnTextChanged="datePickeEnd_TextChanged" />
-                                <ajaxToolkit:CalendarExtender ID="calendarExtenderEnd" runat="server" TargetControlID="datePickeEnd" />
+                                <asp:CalendarExtender ID="calendarExtenderEnd" runat="server" TargetControlID="datePickeEnd" />
                             </td>
                         </tr>
                         <tr>
@@ -146,7 +146,7 @@
                             <td>
                                 <asp:TextBox ID="TextBoxPaid" runat="server" Width="90%" AutoPostBack="True" OnTextChanged="TextBoxPaid_TextChanged"
                                     Font-Bold="True" />
-                                <ajaxToolkit:FilteredTextBoxExtender ID="FilteredtextboxextenderPaid" runat="server"
+                                <asp:FilteredTextBoxExtender ID="FilteredtextboxextenderPaid" runat="server"
                                     TargetControlID="TextBoxPaid" FilterType="Numbers" />
                             </td>
                         </tr>

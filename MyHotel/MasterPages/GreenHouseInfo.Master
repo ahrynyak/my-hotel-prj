@@ -26,8 +26,7 @@
         ga('send', 'pageview');
 
     </script>
-    <asp:ScriptManager ID="ScriptManager1" runat="server">
-    </asp:ScriptManager>
+    <asp:ToolkitScriptManager ID="ScriptManagerInfo" runat="server" />
     <div>
         <div id="greenhouse_wrapper">
             <div id="greenhouse_header">
