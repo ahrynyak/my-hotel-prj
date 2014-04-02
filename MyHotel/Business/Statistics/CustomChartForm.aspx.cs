@@ -63,7 +63,7 @@ namespace MyHotel.Business.Statistics
 
                 if (customChartScriptInfo != null)
                 {
-                    
+
                     ListBoxXYAxises.DataSource = customChartScriptInfo.CustomChartXYAxisInfos;
                     ListBoxXYAxises.DataTextField = "Legend";
                     ListBoxXYAxises.DataValueField = "ID";
@@ -89,7 +89,7 @@ namespace MyHotel.Business.Statistics
                 {
                     customChartXYAxisInfo = getSelectedXYAxis(customChartScriptInfo);
                 }
-                TextBoxColor.Text = customChartXYAxisInfo != null ? customChartXYAxisInfo.Color : "";
+                TextBoxColor.Style["background-color"] = customChartXYAxisInfo != null ? customChartXYAxisInfo.ColorHex : "";
                 TextBoxLegend.Text = customChartXYAxisInfo != null ? customChartXYAxisInfo.Legend : "";
                 TextBoxXFieldName.Text = customChartXYAxisInfo != null ? customChartXYAxisInfo.XFieldName : "";
                 TextBoxYFieldName.Text = customChartXYAxisInfo != null ? customChartXYAxisInfo.YFieldName : "";
@@ -228,7 +228,7 @@ namespace MyHotel.Business.Statistics
                     var selectedXYAxis = getSelectedXYAxis(customChartScriptInfo);
                     if (selectedXYAxis != null)
                     {
-                        selectedXYAxis.Color = TextBoxColor.Text;
+                        selectedXYAxis.ColorHex = TextBoxColor.Style["background-color"];
                         selectedXYAxis.Legend = TextBoxLegend.Text;
                         selectedXYAxis.XFieldName = TextBoxXFieldName.Text;
                         selectedXYAxis.YFieldName = TextBoxYFieldName.Text;
@@ -256,13 +256,13 @@ namespace MyHotel.Business.Statistics
                     var series = ChartCustom.Series.Add(xyAxisInfo.Legend);
                     series.Legend = customChartScriptInfo.Title;
                     series.ChartType = System.Web.UI.DataVisualization.Charting.SeriesChartType.Line;
-                    series.Color = string.IsNullOrEmpty(xyAxisInfo.Color) ? Color.Red : Color.FromName(xyAxisInfo.Color);
+                    series.Color = string.IsNullOrEmpty(xyAxisInfo.ColorHex) ? Color.Red : System.Drawing.ColorTranslator.FromHtml(xyAxisInfo.ColorHex);
                     foreach (DataRow dataRow in dataTable.Rows)
                     {
                         series.Points.AddXY(dataRow[xyAxisInfo.XFieldName], dataRow[xyAxisInfo.YFieldName]);
                     }
                 }
-               
+
             }
         }
 
