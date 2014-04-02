@@ -16,14 +16,6 @@
             sender.setColor(sender.get_targetElement().style.backgroundColor);
         }
 
-        function setWaitCursor(onoff) {
-            if (onoff) {
-                document.body.style.cursor = 'wait';
-            }
-            else {
-                document.body.style.cursor = 'pointer';
-            }
-        }
     </script>
     <asp:UpdatePanel ID="UpdatePanelBookingDetails" runat="server" UpdateMode="Conditional">
         <Triggers>
@@ -32,6 +24,7 @@
             <asp:PostBackTrigger ControlID="ImageButtonAddXYAxis" />
             <asp:PostBackTrigger ControlID="ImageButtonRemoveXYAxis" />
             <asp:PostBackTrigger ControlID="ImageButtonRun" />
+            <asp:PostBackTrigger ControlID="ImageButtonSave" />
         </Triggers>
         <ContentTemplate>
             <div>
@@ -78,9 +71,7 @@
                         </td>
                         <td>
                             <asp:ImageButton ID="ImageButtonRun" runat="server" ImageUrl="~/icons/Play.png" Height="16px" Width="16px" OnClick="ImageButtonRun_Click" />
-                            <asp:ImageButton ID="ImageButtonSave" runat="server"
-                                ImageUrl="~/icons/save-as-xxl.png" Height="16px" Width="16px"
-                                OnClick="ImageButtonSave_Click" />
+                            <asp:ImageButton ID="ImageButtonSave" runat="server" ImageUrl="~/icons/save-as-xxl.png" Height="16px" Width="16px" OnClick="ImageButtonSave_Click" />
                         </td>
 
                     </tr>
