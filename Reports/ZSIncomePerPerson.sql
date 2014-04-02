@@ -27,10 +27,10 @@ BEGIN
 		'
 		IF((SELECT COUNT(*) FROM #TempData WHERE [Month] = '+CAST(@curMonth AS NVARCHAR(2))+') > 0)
 		BEGIN
-			UPDATE #TempData SET ['+CAST(@curYear AS NVARCHAR(4))+'] = 
-			(SELECT AVG((PricePerRoom + PriceOfAdditionalBed) / (NumberOfAdult + NumberOfChild))
+			UPDATE #TempData SET ['+CAST(@curYear AS NVARCHAR(4))+'] =
+			ISNULL((SELECT AVG((PricePerRoom + PriceOfAdditionalBed) / (NumberOfAdult + NumberOfChild))
 			FROM [RoomBooking]
-			WHERE [StartDate] <= '''+CAST(@endDate AS NVARCHAR(max))+''' AND [EndDate] > '''+CAST(@startDate AS NVARCHAR(max))+''')
+			WHERE [StartDate] <= '''+CAST(@endDate AS NVARCHAR(max))+''' AND [EndDate] > '''+CAST(@startDate AS NVARCHAR(max))+'''), 0)
 			WHERE [Month] = '+CAST(@curMonth AS NVARCHAR(2))+'		
 		END
 		ELSE
@@ -38,7 +38,7 @@ BEGIN
 			INSERT INTO #TempData([Month],['+CAST(@curYear AS NVARCHAR(4))+'])
 			 SELECT 
 				'+CAST(@curMonth AS NVARCHAR(2))+' AS [Month],
-				AVG((PricePerRoom + PriceOfAdditionalBed) / (NumberOfAdult + NumberOfChild)) AS ['+CAST(@curYear AS NVARCHAR(4))+']
+				ISNULL(AVG((PricePerRoom + PriceOfAdditionalBed) / (NumberOfAdult + NumberOfChild)), 0) AS ['+CAST(@curYear AS NVARCHAR(4))+']
 			FROM [RoomBooking]
 			WHERE [StartDate] <= '''+CAST(@endDate AS NVARCHAR(max))+''' AND [EndDate] > '''+CAST(@startDate AS NVARCHAR(max))+'''
 		END'
