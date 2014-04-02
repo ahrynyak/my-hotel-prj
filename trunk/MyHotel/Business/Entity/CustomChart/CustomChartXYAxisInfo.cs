@@ -11,6 +11,6 @@ namespace MyHotel.Business.Entity.CustomChart
         public string XFieldName { get; set; }
         public string YFieldName { get; set; }
         public string Legend { get; set; }
-        public string Color { get; set; }
+        public string ColorHex { get; set; }
     }
 }

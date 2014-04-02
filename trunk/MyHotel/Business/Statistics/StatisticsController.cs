@@ -28,7 +28,7 @@ namespace MyHotel.Business.Statistics
             return new CustomChartXYAxisInfo()
             {
                 ID = Guid.NewGuid(),
-                Color = "",
+                ColorHex = "",
                 Legend = "Легенда",
                 XFieldName = "Поле X даних",
                 YFieldName = "Поле Y даних"

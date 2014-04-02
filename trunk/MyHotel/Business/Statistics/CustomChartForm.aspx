@@ -1,10 +1,30 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPages/MyHotelMgmt.Master" AutoEventWireup="true" CodeBehind="CustomChartForm.aspx.cs" Inherits="MyHotel.Business.Statistics.CustomChartForm" Culture="uk-UA" UICulture="uk-UA" %>
 
 <%@ Register Assembly="System.Web.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" Namespace="System.Web.UI.DataVisualization.Charting" TagPrefix="asp" %>
-<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
+<%@ Register Assembly="Obout.Ajax.UI" Namespace="Obout.Ajax.UI.ColorPicker" TagPrefix="obout" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MyHotelMgmtContentPlaceHolder" runat="server">
+    <script runat="server" language="c#">
+        protected void color_postback(object sender, Obout.Ajax.UI.ColorPicker.ColorPostBackEventArgs e)
+        {
+            TextBoxColor.Style[HtmlTextWriterStyle.BackgroundColor] = e.Color;
+        }
+    </script>
+    <script type="text/JavaScript">
+        function onClientOpen(sender, args) {
+            sender.setColor(sender.get_targetElement().style.backgroundColor);
+        }
+
+        function setWaitCursor(onoff) {
+            if (onoff) {
+                document.body.style.cursor = 'wait';
+            }
+            else {
+                document.body.style.cursor = 'pointer';
+            }
+        }
+    </script>
     <asp:UpdatePanel ID="UpdatePanelBookingDetails" runat="server" UpdateMode="Conditional">
         <Triggers>
             <asp:PostBackTrigger ControlID="ImageButtonAddTitle" />
@@ -25,7 +45,8 @@
                             <asp:Label ID="LabelLegend" runat="server" Text="Legend" Width="45"></asp:Label>
                             <asp:TextBox ID="TextBoxLegend" runat="server" Width="70"></asp:TextBox>
                             <asp:Label ID="LabelColor" runat="server" Text="Color" Width="45"></asp:Label>
-                            <asp:TextBox ID="TextBoxColor" runat="server" Width="70"></asp:TextBox>
+                            <asp:TextBox runat="server" Text="" ID="TextBoxColor" ReadOnly="true" Style="cursor: pointer; background-color: #FFFFFF" Width="70" AutoPostBack="True" />
+                            <obout:ColorPickerExtender runat="server" ID="colorPickerExtender" OnClientOpen="onClientOpen" OnColorPostBack="color_postback" AutoPostBack="true" TargetProperty="style.backgroundColor" PopupButtonID="TextBoxColor" TargetControlID="TextBoxColor" />
                             <br />
                             <asp:Label ID="LabelXFieldName" runat="server" Text="X Col" Width="45"></asp:Label>
                             <asp:TextBox ID="TextBoxXFieldName" runat="server" Width="70"></asp:TextBox>
@@ -33,7 +54,7 @@
                             <asp:TextBox ID="TextBoxYFieldName" runat="server" Width="70"></asp:TextBox>
                         </td>
                         <td style="vertical-align: top;" rowspan="2">
-                            <asp:TextBox ID="TextBoxScript" runat="server" TextMode="MultiLine" Width="90%" 
+                            <asp:TextBox ID="TextBoxScript" runat="server" TextMode="MultiLine" Width="90%"
                                 Height="100%"></asp:TextBox>
                         </td>
                     </tr>
@@ -57,9 +78,9 @@
                         </td>
                         <td>
                             <asp:ImageButton ID="ImageButtonRun" runat="server" ImageUrl="~/icons/Play.png" Height="16px" Width="16px" OnClick="ImageButtonRun_Click" />
-                            <asp:ImageButton ID="ImageButtonSave" runat="server" 
-                                ImageUrl="~/icons/save-as-xxl.png" Height="16px" Width="16px" 
-                                onclick="ImageButtonSave_Click" />
+                            <asp:ImageButton ID="ImageButtonSave" runat="server"
+                                ImageUrl="~/icons/save-as-xxl.png" Height="16px" Width="16px"
+                                OnClick="ImageButtonSave_Click" />
                         </td>
 
                     </tr>
