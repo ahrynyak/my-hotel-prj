@@ -72,6 +72,8 @@
                         <td>
                             <asp:ImageButton ID="ImageButtonRun" runat="server" ImageUrl="~/icons/Play.png" Height="16px" Width="16px" OnClick="ImageButtonRun_Click" />
                             <asp:ImageButton ID="ImageButtonSave" runat="server" ImageUrl="~/icons/save-as-xxl.png" Height="16px" Width="16px" OnClick="ImageButtonSave_Click" />
+                            <asp:DropDownList ID="DropDownListChartType" runat="server"></asp:DropDownList>
+                            <asp:CheckBox ID="CheckBoxIsValueShownAsLabel" Text="IsValueShownAsLabel" runat="server" />
                         </td>
 
                     </tr>
