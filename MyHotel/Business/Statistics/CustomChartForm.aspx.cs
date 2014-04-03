@@ -9,6 +9,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using AjaxControlToolkit;
+using System.Web.UI.DataVisualization.Charting;
 
 namespace MyHotel.Business.Statistics
 {
@@ -42,6 +43,8 @@ namespace MyHotel.Business.Statistics
                 setSelectedIdx(ListBoxScriptSelection, scriptSelectedIndex);
                 ImageButtonRemoveTitle.Enabled = !(ListBoxXYAxises.Items.Count == 0 || ListBoxXYAxises.SelectedIndex == -1);
                 RefreshGUIWithSelectedScript();
+                DropDownListChartType.DataSource = Enum.GetNames(typeof(SeriesChartType));
+                DropDownListChartType.DataBind();
             }
             catch (Exception ex)
             {
@@ -253,7 +256,8 @@ namespace MyHotel.Business.Statistics
                 {
                     var series = ChartCustom.Series.Add(xyAxisInfo.Legend);
                     series.Legend = customChartScriptInfo.Title;
-                    series.ChartType = System.Web.UI.DataVisualization.Charting.SeriesChartType.Line;
+                    series.ChartType = (SeriesChartType)Enum.Parse(typeof(SeriesChartType), DropDownListChartType.SelectedValue);
+                    series.IsValueShownAsLabel = CheckBoxIsValueShownAsLabel.Checked;
                     series.Color = string.IsNullOrEmpty(xyAxisInfo.ColorHex) ? Color.Red : System.Drawing.ColorTranslator.FromHtml(xyAxisInfo.ColorHex);
                     foreach (DataRow dataRow in dataTable.Rows)
                     {
