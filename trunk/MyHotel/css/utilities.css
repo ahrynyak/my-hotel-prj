@@ -1,18 +1,24 @@
-﻿.utilitiesDetailsControlsDiv
+﻿.utilitiesMainDiv
 {
+    width:450px;
+}
+.utilitiesDetailsControlsDiv
+{
+    width:100%;
 }
 
 .utilitiesDetailsHeaderDiv
 {
     font-weight: bolder;
+    width:100%;
 }
 .utilitiesDetailsControlsDiv
 {
-    
+    width:100%;
 }
 .utilitiesDetailsButtonDiv
 {
-    float:right;
+    width:100%;
 }
 .errorValidation
 {

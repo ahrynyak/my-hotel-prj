@@ -18,7 +18,7 @@ namespace MyHotel.Business.WebControls.Utilities
         public void Refresh(DateTime startDate, DateTime endDate)
         {
             List<UtilitiesItemsEntity> allUtilities = UtilitiesController.GetUtilitiesItems(startDate, endDate);
-            TableRow headerRow = getHeaderRow();
+            TableRow headerRow = getHeaderRow(allUtilities);
             this.TableUtilities.Rows.Clear();
             this.TableUtilities.Rows.Add(headerRow);
             List<string> cssStyleList = new List<string>() { "White", "Silver" };
@@ -47,9 +47,8 @@ namespace MyHotel.Business.WebControls.Utilities
             }
         }
 
-        private TableRow getHeaderRow()
+        private TableRow getHeaderRow(List<UtilitiesItemsEntity> utilitiesItems)
         {
-            List<UtilitiesItemsEntity> utilitiesItems = UtilitiesController.GetUtilitiesItems();
             TableRow result = new TableRow();
             result.Cells.Add(new TableCell() { Text = "Дата", CssClass = "utilitiesHeaderColl" });
             foreach (var item in utilitiesItems)
