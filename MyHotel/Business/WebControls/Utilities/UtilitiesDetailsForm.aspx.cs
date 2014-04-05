@@ -81,6 +81,7 @@ namespace MyHotel.Business.WebControls.Utilities
                 rowDate.Cells.Add(cellLableDate);
 
                 TableCell cellDate = new TableCell();
+                cellDate.ColumnSpan = 2;
                 cellDate.Controls.Add(new TextBox() { ID = "TextBoxDate", Text = startDate.ToString(HelperCommon.DateFormat) });
                 cellDate.Controls.Add(new CalendarExtender() { ID = "CalendarExtenderDate", TargetControlID = "TextBoxDate", Format = HelperCommon.DateFormat });
                 rowDate.Cells.Add(cellDate);
@@ -88,8 +89,7 @@ namespace MyHotel.Business.WebControls.Utilities
                 //Header
                 TableRow rowHeader = new TableRow();
                 TableUtilitiesDetails.Rows.Add(rowHeader);
-                rowHeader.Cells.Add(new TableCell() { Text = "", CssClass = "boldLabel" }); ;
-                rowHeader.Cells.Add(new TableCell() { Text = "Показник лічильника", CssClass = "boldLabel" });
+                rowHeader.Cells.Add(new TableCell() { Text = "Показник лічильника", CssClass = "boldLabel", ColumnSpan = 2 });
                 rowHeader.Cells.Add(new TableCell() { Text = "Інфо", CssClass = "boldLabel" });
 
                 //Controlls

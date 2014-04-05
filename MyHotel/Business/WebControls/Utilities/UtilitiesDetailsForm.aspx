@@ -19,7 +19,7 @@
             <asp:PostBackTrigger ControlID="ButtonDelete" />
         </Triggers>
         <ContentTemplate>
-            <div style="width:410px;"> 
+            <div class="utilitiesMainDiv">
                 <div class="utilitiesDetailsHeaderDiv">
                     <asp:Label ID="LabelHeader" runat="server" Text="Внесення даних ком.послуг" CssClass="boldLabel" />
                     <hr />
@@ -28,7 +28,7 @@
                     <asp:Table ID="TableUtilitiesDetails" runat="server">
                     </asp:Table>
                     <asp:Label ID="LabelError" runat="server" Text="..." CssClass="errorValidation" Visible="false"
-                        Width="60%" />
+                        Width="90%" />
                 </div>
                 <div class="utilitiesDetailsButtonDiv">
                     <asp:Button ID="ButtonOK" runat="server" Text="OK" OnClick="ButtonOK_Click" />
