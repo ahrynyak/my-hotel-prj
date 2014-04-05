@@ -1,6 +1,7 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ExpensesWebControl.ascx.cs" Inherits="MyHotel.Business.WebControls.Expenses.ExpensesWebControl"%>
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ExpensesWebControl.ascx.cs"
+    Inherits="MyHotel.Business.WebControls.Expenses.ExpensesWebControl" %>
 <%@ Register Assembly="Obout.Ajax.UI" Namespace="Obout.Ajax.UI.TreeView" TagPrefix="obout" %>
-    <link href="/css/expenses.css" rel="stylesheet" type="text/css" />
+<link href="/css/expenses.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="/js/modal.js"></script>
 <script type="text/javascript">
     var modal = new DayPilot.Modal();
@@ -10,7 +11,7 @@
     modal.height = 250;
     modal.closed = function () {
         if (this.result == "OK") {
-            location.reload();
+            document.getElementById("ButtonrRefresh").click();
         }
     };
 
@@ -21,8 +22,9 @@
         modal.showUrl("/Business/WebControls/Expenses/ExpensesDetailsForm.aspx?subGrID=" + subGrID + "&startDate=" + startDate);
     }
 </script>
-
 <div style="width: 100%;">
+    <asp:Button ID="ButtonrRefresh" runat="server" Text="Button" ClientIDMode="Static"
+        Height="1" Width="1" />
     <obout:Tree ID="TreeExpenses" runat="server" CssClass="vista">
     </obout:Tree>
 </div>
