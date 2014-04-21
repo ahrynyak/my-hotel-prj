@@ -212,7 +212,7 @@
                 <li><span class="GreenHouseNormalTextP1">Shuttle </span>service (from/to):</li>
                 <ul>
                     <li>Lviv - 500 uah</li>
-                    <li>Truskavets- 120 uah</li>
+                    <li>Truskavets- 150 uah</li>
                 </ul>
                 <p class="SmalText">
                     (*prices can vary)</p>
@@ -294,19 +294,19 @@
                         standard double
                     </td>
                     <td>
-                        180
-                    </td>
-                    <td>
-                        140
-                    </td>
-                    <td>
-                        100/120
-                    </td>
-                    <td>
                         200
                     </td>
                     <td>
-                        180
+                        160
+                    </td>
+                    <td>
+                        120/140
+                    </td>
+                    <td>
+                        220
+                    </td>
+                    <td>
+                        200
                     </td>
                 </tr>
                 <tr>
@@ -321,19 +321,19 @@
                         for 3 guests
                     </td>
                     <td>
+                        270
+                    </td>
+                    <td>
                         240
                     </td>
                     <td>
-                        210
+                        180/210
                     </td>
                     <td>
-                        150/180
+                        330
                     </td>
                     <td>
                         300
-                    </td>
-                    <td>
-                        270
                     </td>
                 </tr>
                 <tr>
@@ -341,19 +341,19 @@
                         for 4 guests
                     </td>
                     <td>
+                        320
+                    </td>
+                    <td>
                         280
                     </td>
                     <td>
-                        240
+                        240/280
                     </td>
                     <td>
-                        200/240
+                        440
                     </td>
                     <td>
                         400
-                    </td>
-                    <td>
-                        360
                     </td>
                 </tr>
             </table>
