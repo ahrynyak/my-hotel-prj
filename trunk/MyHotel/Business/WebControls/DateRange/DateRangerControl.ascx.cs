@@ -60,6 +60,14 @@ namespace MyHotel.Business.WebControls.DateRange
                 DateChanged(this, new DateEventArgs(DateTime.ParseExact(datePickeStart.Text, HelperCommon.DateFormat, CultureInfo.CurrentCulture), DateTime.ParseExact(datePickeEnd.Text, HelperCommon.DateFormat, CultureInfo.CurrentCulture)));
             }
         }
+
+        protected void MonthPickerDate_SelectionChanged(object sender, EventArgs e)
+        {
+            if (DateChanged != null)
+            {
+                DateChanged(this, new DateEventArgs(MonthPickerDate.StartDate, MonthPickerDate.EndDate.AddDays(-1)));
+            }
+        }
     }
 
     public class DateEventArgs : EventArgs
