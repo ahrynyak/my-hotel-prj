@@ -8,7 +8,8 @@
 <asp:Content ID="Content7" ContentPlaceHolderID="GreenHouseContentPlaceHolderTabHomeName"
     runat="server">
     <p class="tabHeaderTextStyle">
-        Про нас</p>
+        Про нас
+    </p>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="GreenHouseContentPlaceHolderTabHome"
     runat="server">
@@ -18,8 +19,7 @@
             Вітаємо
         </div>
         <div class="section_content">
-            <span class="GreenHouseNormalTextP1">"ЗЕЛЕНА </span><span class="GreenHouseNormalTextP2">
-                САДИБА"</span> запрошує Вас відпочити в гостьовому будинку та пропонує проживання
+            <span class="GreenHouseNormalTextP1">"ЗЕЛЕНА </span><span class="GreenHouseNormalTextP2">САДИБА"</span> запрошує Вас відпочити в гостьовому будинку та пропонує проживання
             в дво-, три- та чотиримісних номерах. Садиба призначена для затишного і комфортного
             відпочинку.
             <br />
@@ -46,8 +46,7 @@
             Наше розташування
         </div>
         <div class="section_content">
-            <span class="GreenHouseNormalTextP1">"ЗЕЛЕНА </span><span class="GreenHouseNormalTextP2">
-                САДИБА"</span> розташована в мальовничому куточку Східниці з прекрасними краєвидами
+            <span class="GreenHouseNormalTextP1">"ЗЕЛЕНА </span><span class="GreenHouseNormalTextP2">САДИБА"</span> розташована в мальовничому куточку Східниці з прекрасними краєвидами
             та неподалік від лісу. Ми знаходимося також в п’яти хвилинах пішого ходу від центру
             селища (400м) та 10хв ходьби від автостанції. До ринку, магазинів і закладів харчування
             – 5-10хв пішого ходу. Найближчі джерела, які знаходяться поруч із садибою: 15 джерело
@@ -110,8 +109,7 @@
             <br />
             <span class="SmalText">(*додаткове ліжко за домовленістю)</span>
             <ul>
-                <li>Одне <span class="GreenHouseNormalTextP1">двоспальне</span> або два <span class="GreenHouseNormalTextP1">
-                    односпальні</span> ортопедичні ліжка </li>
+                <li>Одне <span class="GreenHouseNormalTextP1">двоспальне</span> або два <span class="GreenHouseNormalTextP1">односпальні</span> ортопедичні ліжка </li>
                 <li>Телевізор із супутниковим телебаченням </li>
                 <li>Шафа для одягу </li>
                 <li>Журнальний столик, трюмо </li>
@@ -131,8 +129,7 @@
         <br />
         <%--ApartRoom--%>
         <div class="section_content">
-            <span>Сімейний </span><span class="GreenHouseNormalTextP1">двокімнатний</span> <span>
-                номер - </span><span class="GreenHouseNormalTextP1">4</span> спальних місця
+            <span>Сімейний </span><span class="GreenHouseNormalTextP1">двокімнатний</span> <span>номер - </span><span class="GreenHouseNormalTextP1">4</span> спальних місця
             <ul>
                 <li><span class="GreenHouseNormalTextP1">Двоспальне</span> ортопедичне ліжко </li>
                 <li>Розкладний диван</li>
@@ -251,7 +248,8 @@
                     <li>Трускавця - 150 грн</li>
                 </ul>
                 <p class="SmalText">
-                    (*ціни потрібно уточняти)</p>
+                    (*ціни потрібно уточняти)
+                </p>
             </ul>
         </div>
         <div class="section_footer">
@@ -269,130 +267,101 @@
     <%--Ціни на проживання--%>
     <div class="section">
         <div class="section_header">
-            Ціни на проживання (за номер грн/доба)
+            Ціни на проживання
         </div>
         <div class="section_content">
-            <table class="price_table">
+            <div class="price_shortver">
+                70-90 грн/доба за людину
+            </div>
+            <%--<table class="price_table">
                 <tr>
-                    <td rowspan="4" class="price_table_colored">
-                        номери
+                    <td rowspan="4" class="price_table_colored">номери
                     </td>
-                    <td colspan="6" class="price_table_colored">
-                        сезон
+                    <td colspan="6" class="price_table_colored">сезон
                     </td>
                 </tr>
                 <tr>
-                    <td class="price_table_colored">
-                        високий
+                    <td class="price_table_colored">високий
                     </td>
-                    <td class="price_table_colored">
-                        низький №1
+                    <td class="price_table_colored">низький №1
                     </td>
-                    <td class="price_table_colored">
-                        низький №2
+                    <td class="price_table_colored">низький №2
                     </td>
-                    <td class="price_table_colored" colspan="2">
-                        святковий
+                    <td class="price_table_colored" colspan="2">святковий
                     </td>
                 </tr>
                 <tr>
-                    <td class="price_table_colored" rowspan="2">
-                        1.06 - 31.08
+                    <td class="price_table_colored" rowspan="2">1.06 - 31.08
                     </td>
-                    <td class="price_table_colored" rowspan="2">
-                        16.01 - 31.01
+                    <td class="price_table_colored" rowspan="2">16.01 - 31.01
                         <br />
                         01.05 - 31.05
                         <br />
                         01.09 - 31.10
                         <br />
                     </td>
-                    <td class="price_table_colored" rowspan="2">
-                        01.02 - 30.04
+                    <td class="price_table_colored" rowspan="2">01.02 - 30.04
                         <br />
                         01.11 - 24.12
                         <br />
                     </td>
-                    <td class="price_table_colored" colspan="2">
-                        25.12 - 15.01
+                    <td class="price_table_colored" colspan="2">25.12 - 15.01
                     </td>
                 </tr>
                 <tr class="price_table_colored">
-                    <td>
-                        5 - 7 днів
+                    <td>5 - 7 днів
                     </td>
-                    <td>
-                        від 7 днів
+                    <td>від 7 днів
                     </td>
                 </tr>
                 <tr>
-                    <td style="text-align: right;" class="price_table_colored">
-                        двомісний однокімнатний
+                    <td style="text-align: right;" class="price_table_colored">двомісний однокімнатний
                     </td>
-                    <td>
-                        200
+                    <td>200
                     </td>
-                    <td>
-                        160
+                    <td>160
                     </td>
-                    <td>
-                        120/140
+                    <td>120/140
                     </td>
-                    <td>
-                        220
+                    <td>220
                     </td>
-                    <td>
-                        200
+                    <td>200
                     </td>
                 </tr>
                 <tr>
-                    <td style="text-align: right;" class="price_table_colored">
-                        сімейний двокімнатний:
+                    <td style="text-align: right;" class="price_table_colored">сімейний двокімнатний:
                     </td>
-                    <td colspan="5">
+                    <td colspan="5"></td>
+                </tr>
+                <tr>
+                    <td style="text-align: right;" class="price_table_colored">для 3-ох осіб
+                    </td>
+                    <td>270
+                    </td>
+                    <td>240
+                    </td>
+                    <td>180/210
+                    </td>
+                    <td>330
+                    </td>
+                    <td>300
                     </td>
                 </tr>
                 <tr>
-                    <td style="text-align: right;" class="price_table_colored">
-                        для 3-ох осіб
+                    <td style="text-align: right;" class="price_table_colored">для 4-ох осіб
                     </td>
-                    <td>
-                        270
+                    <td>320
                     </td>
-                    <td>
-                        240
+                    <td>280
                     </td>
-                    <td>
-                        180/210
+                    <td>240/280
                     </td>
-                    <td>
-                        330
+                    <td>440
                     </td>
-                    <td>
-                        300
+                    <td>400
                     </td>
                 </tr>
-                <tr>
-                    <td style="text-align: right;" class="price_table_colored">
-                        для 4-ох осіб
-                    </td>
-                    <td>
-                        320
-                    </td>
-                    <td>
-                        280
-                    </td>
-                    <td>
-                        240/280
-                    </td>
-                    <td>
-                        440
-                    </td>
-                    <td>
-                        400
-                    </td>
-                </tr>
-            </table>
+            </table>--%>
             <br />
         </div>
         <div class="section_footer">
@@ -445,7 +414,7 @@
         <div class="section_content">
             смт. Східниця
             <br />
-            вул. Промислова 58
+            вул. Промислова
             <br />
             Дрогобицький р-н
             <br />
@@ -490,8 +459,7 @@
             <br />
             <strong>E</strong>: 23.343444
             <br />
-            <a href="https://maps.google.com.ua/maps?q=49.227798+23.343444&hl=uk&ll=49.227798,23.343444&spn=0.095845,0.264187&t=m&z=13">
-                Показати на карті</a>
+            <a href="https://maps.google.com.ua/maps?q=49.227798+23.343444&hl=uk&ll=49.227798,23.343444&spn=0.095845,0.264187&t=m&z=13">Показати на карті</a>
         </div>
         <div class="section_footer">
         </div>

@@ -24,6 +24,11 @@ body
     border-bottom-color: #2d961c;
     border-collapse:collapse;
     text-align: center;
+    visibility: hidden;
+}
+#price_shortver
+{
+
 }
 
 /*---Main style start---*/

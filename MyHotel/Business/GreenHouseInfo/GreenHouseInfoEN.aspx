@@ -8,7 +8,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="GreenHouseContentPlaceHolderTabHomeName"
     runat="server">
     <p class="tabHeaderTextStyle">
-        About Us</p>
+        About Us
+    </p>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="GreenHouseContentPlaceHolderTabHome"
     runat="server">
@@ -18,8 +19,7 @@
             Welcome
         </div>
         <div class="section_content">
-            <span class="GreenHouseNormalTextP1">"Zelena </span><span class="GreenHouseNormalTextP2">
-                Sadyba"</span> invites you to relax in the guesthouse and offers accommodation
+            <span class="GreenHouseNormalTextP1">"Zelena </span><span class="GreenHouseNormalTextP2">Sadyba"</span> invites you to relax in the guesthouse and offers accommodation
             in double, triple and four beds rooms.
             <br />
             Also, we offer to our guests a fully equipped kitchen, barbecue, swing and tables
@@ -39,8 +39,7 @@
             Our location
         </div>
         <div class="section_content">
-            <span class="GreenHouseNormalTextP1">"Zelena </span><span class="GreenHouseNormalTextP2">
-                Sadyba"</span> is located in a picturesque corner of Skhidnytsya with beautiful
+            <span class="GreenHouseNormalTextP1">"Zelena </span><span class="GreenHouseNormalTextP2">Sadyba"</span> is located in a picturesque corner of Skhidnytsya with beautiful
             views and it is close to the forest. We are also located a five minute walk from
             the village center (400m) and 10 minute walk from the bus station. Market, shops
             and food outlets are 5-10 minute walk. The nearest water springs which are located
@@ -75,8 +74,7 @@
             <br />
             <span class="SmalText">(*extra bed on request)</span>
             <ul>
-                <li>One large<span class="GreenHouseNormalTextP1"> double</span> or two <span class="GreenHouseNormalTextP1">
-                    single</span> beds </li>
+                <li>One large<span class="GreenHouseNormalTextP1"> double</span> or two <span class="GreenHouseNormalTextP1">single</span> beds </li>
                 <li>Satellite TV </li>
                 <li>Wardrobe </li>
                 <li>Coffee table, dressing table </li>
@@ -215,7 +213,8 @@
                     <li>Truskavets- 150 uah</li>
                 </ul>
                 <p class="SmalText">
-                    (*prices can vary)</p>
+                    (*prices can vary)
+                </p>
             </ul>
         </div>
         <div class="section_footer">
@@ -233,130 +232,101 @@
     <%--Ціни на проживання--%>
     <div class="section">
         <div class="section_header">
-            Accommodation prices (per room UAH/day)
+            Accommodation prices
         </div>
         <div class="section_content">
-            <table class="price_table">
+            <div class="price_shortver">
+                70-90 UAH/day per person
+            </div>
+            <%--<table class="price_table">
                 <tr>
-                    <td rowspan="4" class="price_table_colored">
-                        rooms
+                    <td rowspan="4" class="price_table_colored">rooms
                     </td>
-                    <td colspan="6" class="price_table_colored">
-                        season
+                    <td colspan="6" class="price_table_colored">season
                     </td>
                 </tr>
                 <tr>
-                    <td class="price_table_colored">
-                        high
+                    <td class="price_table_colored">high
                     </td>
-                    <td class="price_table_colored">
-                        low №1
+                    <td class="price_table_colored">low №1
                     </td>
-                    <td class="price_table_colored">
-                        low №2
+                    <td class="price_table_colored">low №2
                     </td>
-                    <td class="price_table_colored" colspan="2">
-                        holiday
+                    <td class="price_table_colored" colspan="2">holiday
                     </td>
                 </tr>
                 <tr>
-                    <td class="price_table_colored" rowspan="2">
-                        1.06 - 31.08
+                    <td class="price_table_colored" rowspan="2">1.06 - 31.08
                     </td>
-                    <td class="price_table_colored" rowspan="2">
-                        16.01 - 31.01
+                    <td class="price_table_colored" rowspan="2">16.01 - 31.01
                         <br />
                         01.05 - 31.05
                         <br />
                         01.09 - 31.10
                         <br />
                     </td>
-                    <td class="price_table_colored" rowspan="2">
-                        01.02 - 30.04
+                    <td class="price_table_colored" rowspan="2">01.02 - 30.04
                         <br />
                         01.11 - 24.12
                         <br />
                     </td>
-                    <td class="price_table_colored" colspan="2">
-                        25.12 - 15.01
+                    <td class="price_table_colored" colspan="2">25.12 - 15.01
                     </td>
                 </tr>
                 <tr class="price_table_colored">
-                    <td>
-                        5 - 7 days
+                    <td>5 - 7 days
                     </td>
-                    <td>
-                        from 7 days
+                    <td>from 7 days
                     </td>
                 </tr>
                 <tr>
-                    <td style="text-align: right;" class="price_table_colored">
-                        standard double
+                    <td style="text-align: right;" class="price_table_colored">standard double
                     </td>
-                    <td>
-                        200
+                    <td>200
                     </td>
-                    <td>
-                        160
+                    <td>160
                     </td>
-                    <td>
-                        120/140
+                    <td>120/140
                     </td>
-                    <td>
-                        220
+                    <td>220
                     </td>
-                    <td>
-                        200
+                    <td>200
                     </td>
                 </tr>
                 <tr>
-                    <td style="text-align: right;" class="price_table_colored">
-                        family suite:
+                    <td style="text-align: right;" class="price_table_colored">family suite:
                     </td>
-                    <td colspan="5">
+                    <td colspan="5"></td>
+                </tr>
+                <tr>
+                    <td style="text-align: right;" class="price_table_colored">for 3 guests
+                    </td>
+                    <td>270
+                    </td>
+                    <td>240
+                    </td>
+                    <td>180/210
+                    </td>
+                    <td>330
+                    </td>
+                    <td>300
                     </td>
                 </tr>
                 <tr>
-                    <td style="text-align: right;" class="price_table_colored">
-                        for 3 guests
+                    <td style="text-align: right;" class="price_table_colored">for 4 guests
                     </td>
-                    <td>
-                        270
+                    <td>320
                     </td>
-                    <td>
-                        240
+                    <td>280
                     </td>
-                    <td>
-                        180/210
+                    <td>240/280
                     </td>
-                    <td>
-                        330
+                    <td>440
                     </td>
-                    <td>
-                        300
+                    <td>400
                     </td>
                 </tr>
-                <tr>
-                    <td style="text-align: right;" class="price_table_colored">
-                        for 4 guests
-                    </td>
-                    <td>
-                        320
-                    </td>
-                    <td>
-                        280
-                    </td>
-                    <td>
-                        240/280
-                    </td>
-                    <td>
-                        440
-                    </td>
-                    <td>
-                        400
-                    </td>
-                </tr>
-            </table>
+            </table>--%>
             <br />
         </div>
         <div class="section_footer">
@@ -409,7 +379,7 @@
         <div class="section_content">
             Skhidnytsia
             <br />
-            str. Promyslova 58
+            str. Promyslova
             <br />
             Drogobytsky district
             <br />
@@ -456,8 +426,7 @@
             <br />
             <strong>E</strong>: 23.343444
             <br />
-            <a href="https://maps.google.com.ua/maps?q=49.227798+23.343444&hl=uk&ll=49.227798,23.343444&spn=0.095845,0.264187&t=m&z=13">
-                Show on map</a>
+            <a href="https://maps.google.com.ua/maps?q=49.227798+23.343444&hl=uk&ll=49.227798,23.343444&spn=0.095845,0.264187&t=m&z=13">Show on map</a>
         </div>
         <div class="section_footer">
         </div>

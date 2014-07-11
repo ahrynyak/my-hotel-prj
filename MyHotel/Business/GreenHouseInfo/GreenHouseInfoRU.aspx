@@ -8,7 +8,8 @@
 <asp:Content ID="Content7" ContentPlaceHolderID="GreenHouseContentPlaceHolderTabHomeName"
     runat="server">
     <p class="tabHeaderTextStyle">
-        О Нас</p>
+        О Нас
+    </p>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="GreenHouseContentPlaceHolderTabHome"
     runat="server">
@@ -18,8 +19,7 @@
             Приветствуем
         </div>
         <div class="section_content">
-            <span class="GreenHouseNormalTextP1">"ЗЕЛЕНА </span><span class="GreenHouseNormalTextP2">
-                САДИБА"</span> приглашает Вас отдохнуть в гостевом доме и предлагает проживаня
+            <span class="GreenHouseNormalTextP1">"ЗЕЛЕНА </span><span class="GreenHouseNormalTextP2">САДИБА"</span> приглашает Вас отдохнуть в гостевом доме и предлагает проживаня
             в двух-, трех-и четырехместных номерах. Усадьба предназначена для уютного и комфортного
             отдыха.
             <br />
@@ -47,8 +47,7 @@
             Наше местоположение
         </div>
         <div class="section_content">
-            <span class="GreenHouseNormalTextP1">"ЗЕЛЕНА </span><span class="GreenHouseNormalTextP2">
-                САДИБА"</span> расположена в живописном уголке Сходницы с прекрасными видами
+            <span class="GreenHouseNormalTextP1">"ЗЕЛЕНА </span><span class="GreenHouseNormalTextP2">САДИБА"</span> расположена в живописном уголке Сходницы с прекрасными видами
             и недалеко от леса. Мы находимся также в пяти минутах ходьбы от центра поселка (400м)
             и 10 мин ходьбы от автостанции. К рынку, магазинам и кафе - 5-10мин ходьбы. Ближайшие
             источники, которые находятся рядом с усадьбой: 15 источник и глицериновый - 5мин,
@@ -111,8 +110,7 @@
             <br />
             <span class="SmalText">(*дополнительная кровать по договоренности)</span>
             <ul>
-                <li>Одна <span class="GreenHouseNormalTextP1">двуспальная</span> или две <span class="GreenHouseNormalTextP1">
-                    односпальные</span> ортопедические кровати </li>
+                <li>Одна <span class="GreenHouseNormalTextP1">двуспальная</span> или две <span class="GreenHouseNormalTextP1">односпальные</span> ортопедические кровати </li>
                 <li>Телевизор со спутниковым телевидением </li>
                 <li>Шкаф для одежды </li>
                 <li>Журнальный столик, трюмо </li>
@@ -192,8 +190,7 @@
             Во дворе
         </div>
         <div class="section_content">
-            <span>Наши гости могут провести время в </span><span class="GreenHouseNormalTextP1">
-                уютных </span><span>уголках, которые включают:</span>
+            <span>Наши гости могут провести время в </span><span class="GreenHouseNormalTextP1">уютных </span><span>уголках, которые включают:</span>
             <ul>
                 <li>Качелю</li>
                 <li>Мангал</li>
@@ -253,7 +250,8 @@
                     <li>Трускавца - 150 грн</li>
                 </ul>
                 <p class="SmalText">
-                    (*цены нужно уточнять)</p>
+                    (*цены нужно уточнять)
+                </p>
             </ul>
         </div>
         <div class="section_footer">
@@ -271,131 +269,102 @@
     <%--Ціни на проживання--%>
     <div class="section">
         <div class="section_header">
-            Цены на проживание (за номер грн/сутки)
+            Цены на проживание
         </div>
         <div class="section_content">
-            <table class="price_table">
+            <div class="price_shortver">
+                70-90 грн/сутки за человека
+            </div>
+            <%--<table class="price_table">
                 <tr>
-                    <td rowspan="4" class="price_table_colored">
-                        номера
+                    <td rowspan="4" class="price_table_colored">номера
                     </td>
-                    <td colspan="6" class="price_table_colored">
-                        сезон
+                    <td colspan="6" class="price_table_colored">сезон
                     </td>
                 </tr>
                 <tr>
-                    <td class="price_table_colored">
-                        высокий
+                    <td class="price_table_colored">высокий
                     </td>
-                    <td class="price_table_colored">
-                        низкий №1
+                    <td class="price_table_colored">низкий №1
                     </td>
-                    <td class="price_table_colored">
-                        низкий №2
+                    <td class="price_table_colored">низкий №2
                     </td>
-                    <td class="price_table_colored" colspan="2">
-                        праздничный
+                    <td class="price_table_colored" colspan="2">праздничный
                     </td>
                 </tr>
                 <tr>
-                    <td class="price_table_colored" rowspan="2">
-                        1.06 - 31.08
+                    <td class="price_table_colored" rowspan="2">1.06 - 31.08
                     </td>
-                   
-                    <td class="price_table_colored" rowspan="2">
-                        16.01 - 31.01
+
+                    <td class="price_table_colored" rowspan="2">16.01 - 31.01
                         <br />
                         01.05 - 31.05
                         <br />
                         01.09 - 31.10
                         <br />
                     </td>
-                    <td class="price_table_colored" rowspan="2">
-                        01.02 - 30.04
+                    <td class="price_table_colored" rowspan="2">01.02 - 30.04
                         <br />
                         01.11 - 24.12
                         <br />
                     </td>
-                     <td class="price_table_colored" colspan="2">
-                        25.12 - 15.01
+                    <td class="price_table_colored" colspan="2">25.12 - 15.01
                     </td>
                 </tr>
                 <tr class="price_table_colored">
-                    <td>
-                        5 - 7 дней
+                    <td>5 - 7 дней
                     </td>
-                    <td>
-                        от 7 дней
+                    <td>от 7 дней
                     </td>
                 </tr>
                 <tr>
-                    <td style="text-align: right;" class="price_table_colored">
-                        двухместный однокомнатный
+                    <td style="text-align: right;" class="price_table_colored">двухместный однокомнатный
                     </td>
-                    <td>
-                        200
+                    <td>200
                     </td>
-                    <td>
-                        160
+                    <td>160
                     </td>
-                    <td>
-                        120/140
+                    <td>120/140
                     </td>
-                    <td>
-                        220
+                    <td>220
                     </td>
-                    <td>
-                        200
+                    <td>200
                     </td>
                 </tr>
                 <tr>
-                    <td style="text-align: right;" class="price_table_colored">
-                        семейный двухкомнатный:
+                    <td style="text-align: right;" class="price_table_colored">семейный двухкомнатный:
                     </td>
-                    <td colspan="5">
+                    <td colspan="5"></td>
+                </tr>
+                <tr>
+                    <td style="text-align: right;" class="price_table_colored">для 3-х человек
+                    </td>
+                    <td>270
+                    </td>
+                    <td>240
+                    </td>
+                    <td>180/210
+                    </td>
+                    <td>330
+                    </td>
+                    <td>300
                     </td>
                 </tr>
                 <tr>
-                    <td style="text-align: right;" class="price_table_colored">
-                        для 3-х человек
+                    <td style="text-align: right;" class="price_table_colored">для 4-х человек
                     </td>
-                     <td>
-                        270
+                    <td>320
                     </td>
-                    <td>
-                        240
+                    <td>280
                     </td>
-                    <td>
-                        180/210
+                    <td>240/280
                     </td>
-                    <td>
-                        330
+                    <td>440
                     </td>
-                    <td>
-                        300
+                    <td>400
                     </td>
                 </tr>
-                <tr>
-                    <td style="text-align: right;" class="price_table_colored">
-                        для 4-х человек
-                    </td>
-                    <td>
-                        320
-                    </td>
-                    <td>
-                        280
-                    </td>
-                    <td>
-                        240/280
-                    </td>
-                    <td>
-                        440
-                    </td>
-                    <td>
-                        400
-                    </td>
-                </tr>
-            </table>
+            </table>--%>
             <br />
         </div>
         <div class="section_footer">
@@ -448,7 +417,7 @@
         <div class="section_content">
             пгт. Сходница
             <br />
-            ул. Промышленная 58
+            ул. Промышленная
             <br />
             Дрогобычский р-н
             <br />
@@ -493,8 +462,7 @@
             <br />
             <strong>E</strong>: 23.343444
             <br />
-            <a href="https://maps.google.com.ua/maps?q=49.227798+23.343444&hl=uk&ll=49.227798,23.343444&spn=0.095845,0.264187&t=m&z=13">
-                Показать на карте</a>
+            <a href="https://maps.google.com.ua/maps?q=49.227798+23.343444&hl=uk&ll=49.227798,23.343444&spn=0.095845,0.264187&t=m&z=13">Показать на карте</a>
         </div>
         <div class="section_footer">
         </div>
