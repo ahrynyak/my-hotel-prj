@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using MyHotel.Utils;
 using System.Globalization;
+using System.Linq;
 
 namespace MyHotel.Business.WebControls.DateRange
 {
@@ -17,9 +18,13 @@ namespace MyHotel.Business.WebControls.DateRange
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!Page.IsPostBack)
+            {
+                ButtonChangeDatePanel.Text = PanelCustomRange.Visible ? PanelMonth.ToolTip : PanelCustomRange.ToolTip;
+            }
         }
 
-        public void SetDateRange(DateTime startDate, DateTime endDate) 
+        public void SetDateRange(DateTime startDate, DateTime endDate)
         {
             initCalendar(startDate, endDate);
         }
@@ -42,7 +47,7 @@ namespace MyHotel.Business.WebControls.DateRange
             calendarExtenderEnd.Format = HelperCommon.DateFormat;
             raiseDateChangedEvent();
         }
-       
+
         protected void datePickeStart_TextChanged(object sender, EventArgs e)
         {
             raiseDateChangedEvent();
@@ -55,6 +60,11 @@ namespace MyHotel.Business.WebControls.DateRange
 
         private void raiseDateChangedEvent()
         {
+            fireCustomDateRangeChanged();
+        }
+
+        private void fireCustomDateRangeChanged()
+        {
             if (DateChanged != null)
             {
                 DateChanged(this, new DateEventArgs(DateTime.ParseExact(datePickeStart.Text, HelperCommon.DateFormat, CultureInfo.CurrentCulture), DateTime.ParseExact(datePickeEnd.Text, HelperCommon.DateFormat, CultureInfo.CurrentCulture)));
@@ -63,10 +73,35 @@ namespace MyHotel.Business.WebControls.DateRange
 
         protected void MonthPickerDate_SelectionChanged(object sender, EventArgs e)
         {
+            fireMonthDateChanged();
+        }
+
+        private void fireMonthDateChanged()
+        {
             if (DateChanged != null)
             {
                 DateChanged(this, new DateEventArgs(MonthPickerDate.StartDate, MonthPickerDate.EndDate.AddDays(-1)));
             }
+        }
+
+        protected void ButtonChangeDatePanel_Click(object sender, EventArgs e)
+        {
+            datePanelChoser();
+        }
+
+        private void datePanelChoser()
+        {
+            PanelMonth.Visible = PanelCustomRange.Visible;
+            PanelCustomRange.Visible = !PanelMonth.Visible;
+            if (PanelCustomRange.Visible)
+            {
+                fireCustomDateRangeChanged();
+            }
+            else
+            {
+                fireMonthDateChanged();
+            }
+            ButtonChangeDatePanel.Text = PanelCustomRange.Visible ? PanelMonth.ToolTip : PanelCustomRange.ToolTip;
         }
     }
 
