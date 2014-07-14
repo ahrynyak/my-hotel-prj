@@ -6,12 +6,13 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using MyHotel.Utils;
 using System.Globalization;
-using System.Linq;
 
 namespace MyHotel.Business.WebControls.DateRange
 {
     public partial class DateRangerControl : System.Web.UI.UserControl
     {
+        public bool PanelCustomRangeIsDefault { get; set; }
+
         public delegate void DateChangedEventHandler(object sender, DateEventArgs e);
 
         public event DateChangedEventHandler DateChanged;
@@ -20,6 +21,10 @@ namespace MyHotel.Business.WebControls.DateRange
         {
             if (!Page.IsPostBack)
             {
+                if (!PanelCustomRangeIsDefault)
+                {
+                    datePanelChoser();
+                }
                 ButtonChangeDatePanel.Text = PanelCustomRange.Visible ? PanelMonth.ToolTip : PanelCustomRange.ToolTip;
             }
         }

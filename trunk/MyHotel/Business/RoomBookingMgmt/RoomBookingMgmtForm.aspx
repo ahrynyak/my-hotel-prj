@@ -6,7 +6,7 @@
 <%@ Register TagPrefix="BookingView" TagName="BookingsWebControl" Src="~/Business/WebControls/Booking/BookingsWebControl.ascx" %>
 <asp:Content ID="Content1" runat="server" ContentPlaceHolderID="MyHotelMgmtContentPlaceHolder">
     <div>
-        <DateRanger:DateRangerControl runat="server" ID="DateRangerPeriod" />
+        <DateRanger:DateRangerControl runat="server" ID="DateRangerPeriod" PanelCustomRangeIsDefault="True" />
         <asp:CheckBox ID="CheckBoxEditPast" runat="server" Text="Редагування минулого" AutoPostBack="True"
             OnCheckedChanged="CheckBoxEditPast_CheckedChanged" ToolTip="Дозволяє додавати або редагувати дані за минулий період" />
         <hr />
