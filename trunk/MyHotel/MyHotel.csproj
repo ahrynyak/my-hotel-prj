@@ -57,8 +57,8 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>ExternalAss\DayPilot.dll</HintPath>
     </Reference>
-    <Reference Include="DayPilot.MonthPicker, Version=1.0.21.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="DayPilot.MonthPicker">
+      <HintPath>..\3rdParty\DayPilot\DayPilot.MonthPicker.dll</HintPath>
     </Reference>
     <Reference Include="Google.GData.AccessControl, Version=2.2.0.0, Culture=neutral, PublicKeyToken=b4b8eb9a7afc8328, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

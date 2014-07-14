@@ -74,5 +74,14 @@ namespace MyHotel.Business.WebControls.DateRange {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DayPilot.Web.UI.MonthPicker MonthPickerDate;
+        
+        /// <summary>
+        /// ButtonChangeDatePanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ButtonChangeDatePanel;
     }
 }
