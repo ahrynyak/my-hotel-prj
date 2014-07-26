@@ -14,7 +14,7 @@ CREATE TABLE [Room]
 INSERT INTO [Room](Name, Capacity) VALUES(N'1 DBL',2)
 INSERT INTO [Room](Name, Capacity) VALUES(N'2 DBL',2)
 INSERT INTO [Room](Name, Capacity) VALUES(N'3 Apart',4)
-INSERT INTO [Room](Name, Capacity) VALUES(N'4 DBL',2)
+INSERT INTO [Room](Name, Capacity) VALUES(N'4 DBL+1 (Triple)',2)
 INSERT INTO [Room](Name, Capacity) VALUES(N'5 DBL',2)
 INSERT INTO [Room](Name, Capacity) VALUES(N'6 Apart',4)
 
