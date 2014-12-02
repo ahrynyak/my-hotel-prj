@@ -2,114 +2,87 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Google.GData.Calendar;
+using Google.GData.Extensions;
+using Google.GData.Client;
 using System.Net;
-using Google.Apis.Calendar.v3;
-using System.Web.UI;
-using Google.Apis.Auth.OAuth2;
-using System.Threading;
-using Google.Apis.Services;
-using MyHotel.Business.Entity.Utilities;
-using Google.Apis.Calendar.v3.Data;
 
 namespace MyHotel.Utils
 {
     public class GoogleCalendarHelper
     {
         static Uri postUri = new Uri("https://www.google.com/calendar/feeds/default/private/full");
-        static string calendarID = "zelenasadybainfo@gmail.com";
 
         public static CalendarService GAuthenticate()
         {
-            UserCredential credential = GoogleWebAuthorizationBroker.AuthorizeAsync(
-                new ClientSecrets
-                {
-                    ClientId = "279701482689-c42s0ff3tkvuq758elkib5fl0btqdqh4.apps.googleusercontent.com",//"zelenasadybainfo@gmail.com",
-                    ClientSecret = "notasecret"//"ukr_root",
-                },
-                new[] { CalendarService.Scope.Calendar },
-                "zelenasadybainfo@gmail.com", CancellationToken.None).Result;
-            // Create the service.
-            CalendarService calendarService = new CalendarService(new BaseClientService.Initializer()
-            {
-                HttpClientInitializer = credential,
-                ApplicationName = AppDomain.CurrentDomain.FriendlyName,
-            });
-
+            CalendarService calendarService = new CalendarService(AppDomain.CurrentDomain.FriendlyName);
+            calendarService.setUserCredentials("zelenasadybainfo@gmail.com", "ukr_root");
             return calendarService;
-        }
-
-        public static IList<Event> GetEventsByDate(DateTime date)
-        {
-            EventsResource.ListRequest req = GAuthenticate().Events.List(calendarID);
-            req.TimeMin = Convert.ToDateTime(new DateTime(date.Year - 1, 1, 1));
-            req.TimeMax = Convert.ToDateTime(new DateTime(date.Year + 1, 1, 1));
-            req.SingleEvents = true;
-            req.OrderBy = EventsResource.ListRequest.OrderByEnum.StartTime;
-            Events events = req.Execute();
-            return events.Items;
         }
 
         public static void ManageRoomBookingEvent(string dbID, string title, string content, DateTime date)
         {
-            Event entry = null;
-            IList<Event> existingEvents = GetEventsByDate(date);
-            if (existingEvents.Any(s => s.Id == dbID))
+            EventEntry entry = null;
+            Dictionary<string, EventEntry> existingEvents = GetRoomBookingEvents(new DateTime(date.Year - 1, 1, 1), new DateTime(date.Year + 1, 1, 1));
+            if (existingEvents.Any(s => s.Key == dbID))
             {
-                entry = existingEvents.First(s => s.Id == dbID);
+                entry = existingEvents.First(s => s.Key == dbID).Value;
                 setRoomBookingEventParameters(entry, title, content, date);
-                var resEvent = GAuthenticate().Events.Update(entry, calendarID, entry.Id).Execute();
+                entry.Update();
             }
             else
             {
-                entry = new Event();
+                entry = new EventEntry();
                 setRoomBookingEventParameters(entry, title, content, date);
-                entry.ExtendedProperties.Private.Add("DBID", dbID);
-                var resEvent =  GAuthenticate().Events.Insert(entry, calendarID).Execute();
+                //db id
+                ExtendedProperty propertyDBID = new ExtendedProperty();
+                propertyDBID.Name = "DBID";
+                propertyDBID.Value = dbID;
+                entry.ExtensionElements.Add(propertyDBID);
+
+                // Send the request and receive the response:
+                AtomEntry insertedEntry = GAuthenticate().Insert(postUri, entry);
             }
         }
 
-        private static void setRoomBookingEventParameters(Event entry, string title, string description, DateTime date)
+        private static void setRoomBookingEventParameters(EventEntry entry, string title, string content, DateTime date)
         {
             // Set the title and content of the entry.
-            entry.Summary = title;
-            entry.Description = description;
+            entry.Title.Text = title;
+            entry.Content.Content = content;
 
-            EventDateTime start = new EventDateTime();
-            start.DateTime = new DateTime(date.Date.Year, date.Date.Month, date.Date.Day, 9, 0, 0, DateTimeKind.Utc);
-            entry.Start = start;
-            EventDateTime end = new EventDateTime();
-            end.DateTime = new DateTime(date.Date.Year, date.Date.Month, date.Date.Day, 10, 0, 0, DateTimeKind.Utc);
-            entry.End = end;
+            When eventTime = new When(new DateTime(date.Date.Year, date.Date.Month, date.Date.Day, 9, 0, 0, DateTimeKind.Utc), new DateTime(date.Date.Year, date.Date.Month, date.Date.Day, 10, 0, 0, DateTimeKind.Utc));
+            entry.Times.Clear();
+            entry.Times.Add(eventTime);
 
             //sms
-            EventReminder reminder = new EventReminder();
-            reminder.Minutes = (int)TimeSpan.FromDays(1).TotalMinutes;
-            reminder.Method = "sms";
-            entry.Reminders.Overrides.Add(reminder);
+            Reminder smsReminder = new Reminder();
+            smsReminder.Days = 1;
+            smsReminder.Method = Reminder.ReminderMethod.sms;
+            entry.Reminders.Add(smsReminder);
         }
 
-        public static Dictionary<string, Event> GetRoomBookingEvents(DateTime startDate, DateTime endDate)
+        public static Dictionary<string, EventEntry> GetRoomBookingEvents(DateTime startDate, DateTime endDate)
         {
-            Dictionary<string, Event> result = new Dictionary<string, Event>();
-            EventsResource.ListRequest req = GAuthenticate().Events.List(calendarID);
-            req.TimeMin = Convert.ToDateTime(startDate);
-            req.TimeMax = Convert.ToDateTime(endDate);
-            req.SingleEvents = true;
-            req.OrderBy = EventsResource.ListRequest.OrderByEnum.StartTime;
-            Events events = req.Execute();
-            foreach (var item in events.Items)
+            Dictionary<string, EventEntry> result = new Dictionary<string, EventEntry>();
+            EventQuery eventQuery = new EventQuery();
+            eventQuery.Uri = postUri;
+            eventQuery.StartTime = startDate;
+            eventQuery.EndTime = endDate;
+            var res = GAuthenticate().Query(eventQuery);
+            foreach (var item in res.Entries)
             {
-                if (item.ExtendedProperties.Private.Any(s => s.Key == "DBID"))
+                if (item is EventEntry)
                 {
-                    result.Add(item.ExtendedProperties.Private["DBID"], item);
+                    EventEntry eventEntry = (EventEntry)item;
+                    IEnumerable<ExtendedProperty> extendedProperties = eventEntry.ExtensionElements.OfType<ExtendedProperty>();
+                    if (extendedProperties.Any())
+                    {
+                        result.Add(extendedProperties.First(s => s.Name == "DBID").Value, eventEntry);
+                    }
                 }
             }
             return result;
-        }
-
-        public static void DeleteEvent(string eventID)
-        {
-            GAuthenticate().Events.Delete(calendarID, eventID).Execute();
         }
     }
 }
