@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using Google.GData.Calendar;
+using Google.Apis.Calendar.v3.Data;
 
 namespace MyHotel.Business.Entity.Booking
 {
@@ -21,7 +21,7 @@ namespace MyHotel.Business.Entity.Booking
         public int BookingStatus { get; set; }
         public string AdditionalInfo { get; set; }
         public int AlreadyPaid { get; set; }
-        public EventEntry EventEntry { get; set; }
+        public Event Event { get; set; }
         public int AmountOfDays 
         {
             get
