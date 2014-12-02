@@ -8,7 +8,8 @@ using MyHotel.Business.Entity;
 using MyHotel.Utils;
 using MyHotel.Business.Entity.Booking;
 using MyHotel.Business.Entity.Common;
-using Google.Apis.Calendar.v3.Data;
+using Google.GData.Calendar;
+using Google.GData.Extensions;
 
 namespace MyHotel.Business.WebControls.Booking
 {
@@ -29,7 +30,7 @@ namespace MyHotel.Business.WebControls.Booking
         public static List<RoomBookingEntity> GetRoomBookings(DateTime startDate, DateTime endDate)
         {
             List<RoomBookingEntity> result = new List<RoomBookingEntity>();
-            Dictionary<string, Event> calendarEvents = getCalendarEvents(startDate, endDate);
+            Dictionary<string, EventEntry> calendarEvents = getCalendarEvents(startDate, endDate);
             using (DataClassesDataContext dataContext = HelperCommon.GetDataContext())
             {
                 IQueryable<RoomBooking> resDB = GetRoomBookingsFromDB(startDate, endDate, dataContext.RoomBookings);
@@ -51,7 +52,7 @@ namespace MyHotel.Business.WebControls.Booking
                             RoomID = roomBooking.RoomID,
                             StartDate = roomBooking.StartDate,
                             AlreadyPaid = roomBooking.AlreadyPaid ?? 0,
-                            Event = calendarEvents.Any(ce => ce.Key == roomBooking.RoomBookingID.ToString()) ? calendarEvents.FirstOrDefault(ce => ce.Key == roomBooking.RoomBookingID.ToString()).Value : null
+                            EventEntry = calendarEvents.Any(ce => ce.Key == roomBooking.RoomBookingID.ToString()) ? calendarEvents.FirstOrDefault(ce => ce.Key == roomBooking.RoomBookingID.ToString()).Value : null
                         }
                         );
                 }
@@ -64,9 +65,9 @@ namespace MyHotel.Business.WebControls.Booking
             return roomBookings.Where(s => s.StartDate <= endDate && s.EndDate > startDate);
         }
 
-        private static Dictionary<string, Event> getCalendarEvents(DateTime startDate, DateTime endDate)
+        private static Dictionary<string, EventEntry> getCalendarEvents(DateTime startDate, DateTime endDate)
         {
-            Dictionary<string, Event> calendarEvents = new Dictionary<string, Event>();
+            Dictionary<string, EventEntry> calendarEvents = new Dictionary<string, EventEntry>();
             try
             {
                 calendarEvents = GoogleCalendarHelper.GetRoomBookingEvents(startDate, endDate);
@@ -197,10 +198,10 @@ namespace MyHotel.Business.WebControls.Booking
                                 dataContext.SubmitChanges();
                                 try
                                 {
-                                    Dictionary<string, Event> calendarEvents = getCalendarEvents(roomBooking.StartDate, roomBooking.EndDate);
+                                    Dictionary<string, EventEntry> calendarEvents = getCalendarEvents(roomBooking.StartDate, roomBooking.EndDate);
                                     if (calendarEvents.Any(ce => ce.Key == roomBooking.RoomBookingID.ToString()))
                                     {
-                                        GoogleCalendarHelper.DeleteEvent(calendarEvents.FirstOrDefault(ce => ce.Key == roomBooking.RoomBookingID.ToString()).Value.Id);
+                                        calendarEvents.FirstOrDefault(ce => ce.Key == roomBooking.RoomBookingID.ToString()).Value.Delete();
                                     }
                                 }
                                 catch (Exception ex)
@@ -229,7 +230,7 @@ namespace MyHotel.Business.WebControls.Booking
                 RoomBooking roomBooking = dataContext.RoomBookings.FirstOrDefault(s => s.RoomBookingID == roomBookingID);
                 if (roomBooking != null)
                 {
-                    Dictionary<string, Event> calendarEvents = getCalendarEvents(roomBooking.StartDate, roomBooking.EndDate);
+                    Dictionary<string, EventEntry> calendarEvents = getCalendarEvents(roomBooking.StartDate, roomBooking.EndDate);
                     return new RoomBookingEntity()
                     {
                         AdditionalInfo = roomBooking.AdditionalInfo,
@@ -245,7 +246,7 @@ namespace MyHotel.Business.WebControls.Booking
                         RoomID = roomBooking.RoomID,
                         StartDate = roomBooking.StartDate,
                         AlreadyPaid = roomBooking.AlreadyPaid ?? 0,
-                        Event = calendarEvents.Any(ce => ce.Key == roomBooking.RoomBookingID.ToString()) ? calendarEvents.FirstOrDefault(ce => ce.Key == roomBooking.RoomBookingID.ToString()).Value : null
+                        EventEntry = calendarEvents.Any(ce => ce.Key == roomBooking.RoomBookingID.ToString()) ? calendarEvents.FirstOrDefault(ce => ce.Key == roomBooking.RoomBookingID.ToString()).Value : null
                     };
                 }
             }
