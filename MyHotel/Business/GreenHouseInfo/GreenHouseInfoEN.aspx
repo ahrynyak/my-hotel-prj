@@ -85,9 +85,32 @@
             <img src="../../icons/GHDBL.jpg" alt="Схема однокімнатного номеру" />
         </div>
         <div class="section_gallery">
-            <obout:ImageZoom ID="ImageZoomDBLRoom" runat="server" ImageUrl="~/Business/GreenHouseInfo/img/DBLRoom"
-                DisplayStyle="ListView" Thumnailwidth="50" ThumnailHeight="50" ShowFooter="False"
-                ShowHeader="False" PageSize="6" CallbackMode="False" />
+            <%--Image zoom effect--%>
+            <a href="#DBLRoom_img1">
+                <img src="img/DBLRoom/DSC_0219.jpg" width="130" height="80" alt=""/>
+            </a>
+            <a href="#DBLRoom_img2">
+                <img src="img/DBLRoom/DSC_0232.jpg" width="130" height="80" alt=""/>
+            </a>
+            <a href="#DBLRoom_img3">
+                <img src="img/DBLRoom/DSC_0437.jpg" width="130" height="80" alt=""/>
+            </a>
+            <div class="overlay" id="DBLRoom_img1">
+                <a href="#close">
+                    <img src="img/DBLRoom/DSC_0219.jpg" />
+                </a>
+            </div>
+            <div class="overlay" id="DBLRoom_img2">
+                <a href="#close">
+                    <img src="img/DBLRoom/DSC_0232.jpg" />
+                </a>
+            </div>
+             <div class="overlay" id="DBLRoom_img3">
+                <a href="#close">
+                    <img src="img/DBLRoom/DSC_0437.jpg" />
+                </a>
+            </div>
+            <%--Image zoom effect end--%>
         </div>
         <div class="section_footer">
         </div>
@@ -109,9 +132,40 @@
             <img src="../../icons/GHApart.jpg" alt="Схема двокімнатного номеру" />
         </div>
         <div class="section_gallery">
-            <obout:ImageZoom ID="ImageZoomApartRoom" runat="server" ImageUrl="~/Business/GreenHouseInfo/img/ApartRoom"
-                DisplayStyle="ListView" Thumnailwidth="50" ThumnailHeight="50" ShowFooter="False"
-                ShowHeader="False" PageSize="6" />
+        <%--Image zoom effect--%>
+            <a href="#ApartRoom_img1">
+                <img src="img/ApartRoom/DSC_0420.jpg" width="130" height="80" alt=""/>
+            </a>
+            <a href="#ApartRoom_img2">
+                <img src="img/ApartRoom/DSC_0421.jpg" width="130" height="80" alt=""/>
+            </a>
+            <a href="#ApartRoom_img3">
+                <img src="img/ApartRoom/DSC_0422.jpg" width="130" height="80" alt=""/>
+            </a>
+             <a href="#ApartRoom_img4">
+                <img src="img/ApartRoom/DSC_0434.jpg" width="130" height="80" alt=""/>
+            </a>
+            <div class="overlay" id="ApartRoom_img1">
+                <a href="#close">
+                    <img src="img/ApartRoom/DSC_0420.jpg" />
+                </a>
+            </div>
+            <div class="overlay" id="ApartRoom_img2">
+                <a href="#close">
+                    <img src="img/ApartRoom/DSC_0421.jpg" />
+                </a>
+            </div>
+             <div class="overlay" id="ApartRoom_img3">
+                <a href="#close">
+                    <img src="img/ApartRoom/DSC_0422.jpg" />
+                </a>
+            </div>
+             <div class="overlay" id="ApartRoom_img4">
+                <a href="#close">
+                    <img src="img/ApartRoom/DSC_0434.jpg" />
+                </a>
+            </div>
+            <%--Image zoom effect end--%>
         </div>
         <div class="section_footer">
         </div>
@@ -139,9 +193,24 @@
             <img src="../../icons/Kitchen.png" alt="Схема кухні-їдальні" />
         </div>
         <div class="section_gallery">
-            <obout:ImageZoom ID="ImageZoomKitchen" runat="server" ImageUrl="~/Business/GreenHouseInfo/img/Kitchen"
-                DisplayStyle="ListView" Thumnailwidth="50" ThumnailHeight="50" ShowFooter="False"
-                ShowHeader="False" PageSize="6" />
+            <%--Image zoom effect--%>
+            <a href="#Kitchen_img1">
+                <img src="img/Kitchen/DSC_0072.jpg" width="130" height="80" alt=""/>
+            </a>
+            <a href="#Kitchen_img2">
+                <img src="img/Kitchen/DSC_0212.jpg" width="130" height="80" alt=""/>
+            </a>
+            <div class="overlay" id="Kitchen_img1">
+                <a href="#close">
+                    <img src="img/Kitchen/DSC_0072.jpg" />
+                </a>
+            </div>
+            <div class="overlay" id="Kitchen_img2">
+                <a href="#close">
+                    <img src="img/Kitchen/DSC_0212.jpg" />
+                </a>
+            </div>
+            <%--Image zoom effect end--%>
         </div>
         <div class="section_footer">
         </div>
@@ -161,9 +230,24 @@
             </ul>
         </div>
         <div class="section_gallery">
-            <obout:ImageZoom ID="ImageZoomRelaxZones" runat="server" ImageUrl="~/Business/GreenHouseInfo/img/RelaxZones"
-                DisplayStyle="ListView" Thumnailwidth="50" ThumnailHeight="50" ShowFooter="False"
-                ShowHeader="False" PageSize="6" />
+            <%--Image zoom effect--%>
+            <a href="#RelaxZones_img1">
+                <img src="img/RelaxZones/IMG_7549.JPG" width="130" height="80" alt=""/>
+            </a>
+            <a href="#RelaxZones_img2">
+                <img src="img/RelaxZones/IMG_7554.JPG" width="130" height="80" alt=""/>
+            </a>
+            <div class="overlay" id="RelaxZones_img1">
+                <a href="#close">
+                    <img src="img/RelaxZones/IMG_7549.JPG" />
+                </a>
+            </div>
+            <div class="overlay" id="RelaxZones_img2">
+                <a href="#close">
+                    <img src="img/RelaxZones/IMG_7554.JPG" />
+                </a>
+            </div>
+            <%--Image zoom effect end--%>
         </div>
         <div class="section_footer">
         </div>
@@ -236,7 +320,7 @@
         </div>
         <div class="section_content">
             <div class="price_shortver">
-                70-90 UAH/day per person
+                100-125 UAH/day per person
             </div>
             <%--<table class="price_table">
                 <tr>
@@ -357,9 +441,122 @@
     runat="server">
     <%--Галерея--%>
     <div class="section">
-        <obout:ImageZoom ID="ImageZoomGallery" runat="server" ImageUrl="~/Business/GreenHouseInfo/img/Gallery"
-            ShowFooter="false" PageSize="50" AllowPaging="False" AllowPageSizeSelection="False"
-            ShowHeader="False" />
+        <div class="section_gallery">
+            <%--Image zoom effect--%>
+            <a href="#Gallery_img1">
+                <img src="img/Gallery/_MG_7507.jpg" width="130" height="80" alt=""/>
+            </a>
+            <a href="#Gallery_img2">
+                <img src="img/Gallery/1259728.jpg" width="130" height="80" alt=""/>
+            </a>
+            <a href="#Gallery_img3">
+                <img src="img/Gallery/4131.jpg" width="130" height="80" alt=""/>
+            </a>
+            <a href="#Gallery_img4">
+                <img src="img/Gallery/666609899.jpg" width="130" height="80" alt=""/>
+            </a>
+            <a href="#Gallery_img5">
+                <img src="img/Gallery/DSC_0271.jpg" width="130" height="80" alt=""/>
+            </a>
+            <a href="#Gallery_img6">
+                <img src="img/Gallery/DSC_0277.jpg" width="130" height="80" alt=""/>
+            </a>
+            <a href="#Gallery_img7">
+                <img src="img/Gallery/DSC_0294.jpg" width="130" height="80" alt=""/>
+            </a>
+            <a href="#Gallery_img8">
+                <img src="img/Gallery/DSC_0303.jpg" width="130" height="80" alt=""/>
+            </a>
+            <a href="#Gallery_img9">
+                <img src="img/Gallery/DSC_0307.jpg" width="130" height="80" alt=""/>
+            </a>
+            <a href="#Gallery_img10">
+                <img src="img/Gallery/DSC_0330.jpg" width="130" height="80" alt=""/>
+            </a>
+            <a href="#Gallery_img11">
+                <img src="img/Gallery/DSC_0334.jpg" width="130" height="80" alt=""/>
+            </a>
+            <a href="#Gallery_img12">
+                <img src="img/Gallery/DSC_0478.jpg" width="130" height="80" alt=""/>
+            </a>
+            <a href="#Gallery_img13">
+                <img src="img/Gallery/IMG_5834.JPG" width="130" height="80" alt=""/>
+            </a>
+            <a href="#Gallery_img14">
+                <img src="img/Gallery/SNC00031.jpg" width="130" height="80" alt=""/>
+            </a>
+            <div class="overlay" id="Gallery_img1">
+                <a href="#close">
+                    <img src="img/Gallery/_MG_7507.jpg" />
+                </a>
+            </div>
+            <div class="overlay" id="Gallery_img2">
+                <a href="#close">
+                    <img src="img/Gallery/1259728.jpg" />
+                </a>
+            </div>
+            <div class="overlay" id="Gallery_img3">
+                <a href="#close">
+                    <img src="img/Gallery/4131.jpg" />
+                </a>
+            </div>
+            <div class="overlay" id="Gallery_img4">
+                <a href="#close">
+                    <img src="img/Gallery/666609899.jpg" />
+                </a>
+            </div>
+            <div class="overlay" id="Gallery_img5">
+                <a href="#close">
+                    <img src="img/Gallery/DSC_0271.jpg" />
+                </a>
+            </div>
+            <div class="overlay" id="Gallery_img6">
+                <a href="#close">
+                    <img src="img/Gallery/DSC_0277.jpg" />
+                </a>
+            </div>
+            <div class="overlay" id="Gallery_img7">
+                <a href="#close">
+                    <img src="img/Gallery/DSC_0294.jpg" />
+                </a>
+            </div>
+            <div class="overlay" id="Gallery_img8">
+                <a href="#close">
+                    <img src="img/Gallery/DSC_0303.jpg" />
+                </a>
+            </div>
+            <div class="overlay" id="Gallery_img9">
+                <a href="#close">
+                    <img src="img/Gallery/DSC_0307.jpg" />
+                </a>
+            </div>
+            <div class="overlay" id="Gallery_img10">
+                <a href="#close">
+                    <img src="img/Gallery/DSC_0330.jpg" />
+                </a>
+            </div>
+            <div class="overlay" id="Gallery_img11">
+                <a href="#close">
+                    <img src="img/Gallery/DSC_0334.jpg" />
+                </a>
+            </div>
+            <div class="overlay" id="Gallery_img12">
+                <a href="#close">
+                    <img src="img/Gallery/DSC_0478.jpg" />
+                </a>
+            </div>
+            <div class="overlay" id="Gallery_img13">
+                <a href="#close">
+                    <img src="img/Gallery/IMG_5834.JPG" />
+                </a>
+            </div>
+            <div class="overlay" id="Gallery_img14">
+                <a href="#close">
+                    <img src="img/Gallery/SNC00031.jpg" />
+                </a>
+            </div>
+            <%--Image zoom effect end--%>
+        </div>
         <div class="section_footer">
         </div>
     </div>
