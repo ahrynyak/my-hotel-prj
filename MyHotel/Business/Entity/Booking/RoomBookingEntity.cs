@@ -21,7 +21,7 @@ namespace MyHotel.Business.Entity.Booking
         public int BookingStatus { get; set; }
         public string AdditionalInfo { get; set; }
         public int AlreadyPaid { get; set; }
-        public EventEntry EventEntry { get; set; }
+        //public EventEntry EventEntry { get; set; }
         public int AmountOfDays 
         {
             get
