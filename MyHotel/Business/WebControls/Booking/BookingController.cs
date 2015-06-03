@@ -30,7 +30,6 @@ namespace MyHotel.Business.WebControls.Booking
         public static List<RoomBookingEntity> GetRoomBookings(DateTime startDate, DateTime endDate)
         {
             List<RoomBookingEntity> result = new List<RoomBookingEntity>();
-            //Dictionary<string, EventEntry> calendarEvents = getCalendarEvents(startDate, endDate);
             using (DataClassesDataContext dataContext = HelperCommon.GetDataContext())
             {
                 IQueryable<RoomBooking> resDB = GetRoomBookingsFromDB(startDate, endDate, dataContext.RoomBookings);
@@ -52,7 +51,6 @@ namespace MyHotel.Business.WebControls.Booking
                             RoomID = roomBooking.RoomID,
                             StartDate = roomBooking.StartDate,
                             AlreadyPaid = roomBooking.AlreadyPaid ?? 0,
-                            //EventEntry = calendarEvents.Any(ce => ce.Key == roomBooking.RoomBookingID.ToString()) ? calendarEvents.FirstOrDefault(ce => ce.Key == roomBooking.RoomBookingID.ToString()).Value : null
                         }
                         );
                 }
@@ -65,21 +63,7 @@ namespace MyHotel.Business.WebControls.Booking
             return roomBookings.Where(s => s.StartDate <= endDate && s.EndDate > startDate);
         }
 
-        //private static Dictionary<string, EventEntry> getCalendarEvents(DateTime startDate, DateTime endDate)
-        //{
-        //    Dictionary<string, EventEntry> calendarEvents = new Dictionary<string, EventEntry>();
-        //    try
-        //    {
-        //        calendarEvents = GoogleCalendarHelper.GetRoomBookingEvents(startDate, endDate);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
-        //    return calendarEvents;
-        //}
-
-        private static object roomBookingLock = new object();
+        private static readonly object roomBookingLock = new object();
 
         public static void SaveRoomBooking(RoomBookingEntity roomBookingEntity)
         {
@@ -93,7 +77,7 @@ namespace MyHotel.Business.WebControls.Booking
                         {
                             throw new InvalidConstraintException("Дата заїзду повинна бути менша за дату виїзду");
                         }
-                        if (BookingController.IsRoomBookingFree(roomBookingEntity.RoomBookingID, roomBookingEntity.RoomID, roomBookingEntity.StartDate, roomBookingEntity.EndDate))
+                        if (IsRoomBookingFree(roomBookingEntity.RoomBookingID, roomBookingEntity.RoomID, roomBookingEntity.StartDate, roomBookingEntity.EndDate))
                         {
                             if (roomBookingEntity.RoomBookingID > 0)
                             {
@@ -117,7 +101,6 @@ namespace MyHotel.Business.WebControls.Booking
                                     roomBooking.StartDate = roomBookingEntity.StartDate;
                                     roomBooking.AlreadyPaid = roomBookingEntity.AlreadyPaid;
                                     dataContext.SubmitChanges();
-                                    manageRoomBoookingCalendar(roomBookingEntity, roomBooking);
                                 }
                                 else
                                 {
@@ -147,7 +130,6 @@ namespace MyHotel.Business.WebControls.Booking
                                 };
                                 dataContext.RoomBookings.InsertOnSubmit(roomBooking);
                                 dataContext.SubmitChanges();
-                                manageRoomBoookingCalendar(roomBookingEntity, roomBooking);
                             }
                         }
                         else
@@ -160,20 +142,6 @@ namespace MyHotel.Business.WebControls.Booking
                         throw new InvalidConstraintException("Неможливо додати або модифікувати бронь в минулому");
                     }
                 }
-            }
-        }
-
-        private static void manageRoomBoookingCalendar(RoomBookingEntity roomBookingEntity, RoomBooking roomBooking)
-        {
-            try
-            {
-                string title = string.Format("{0} {1} ({2}) {3}грн", roomBooking.GuestPhone, roomBooking.GuestName, roomBooking.StartDate.ToString("dd.MM"), roomBookingEntity.RemainsSum);
-                string content = string.Format("{0}грн {1}", roomBookingEntity.RemainsSum, roomBooking.AdditionalInfo);
-                //GoogleCalendarHelper.ManageRoomBookingEvent(roomBooking.RoomBookingID.ToString(), title, content, roomBooking.StartDate.Date);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
             }
         }
 
@@ -192,23 +160,8 @@ namespace MyHotel.Business.WebControls.Booking
                             {
                                 throw new InvalidConstraintException("Неможливо видалити оплачену бронь");
                             }
-                            else
-                            {
-                                dataContext.RoomBookings.DeleteOnSubmit(roomBooking);
-                                dataContext.SubmitChanges();
-                                //try
-                                //{
-                                //    Dictionary<string, EventEntry> calendarEvents = getCalendarEvents(roomBooking.StartDate, roomBooking.EndDate);
-                                //    if (calendarEvents.Any(ce => ce.Key == roomBooking.RoomBookingID.ToString()))
-                                //    {
-                                //        calendarEvents.FirstOrDefault(ce => ce.Key == roomBooking.RoomBookingID.ToString()).Value.Delete();
-                                //    }
-                                //}
-                                //catch (Exception ex)
-                                //{
-                                //    MessageBox.Show(ex.Message);
-                                //}
-                            }
+                          dataContext.RoomBookings.DeleteOnSubmit(roomBooking);
+                          dataContext.SubmitChanges();
                         }
                         else
                         {
@@ -230,7 +183,6 @@ namespace MyHotel.Business.WebControls.Booking
                 RoomBooking roomBooking = dataContext.RoomBookings.FirstOrDefault(s => s.RoomBookingID == roomBookingID);
                 if (roomBooking != null)
                 {
-                    //Dictionary<string, EventEntry> calendarEvents = getCalendarEvents(roomBooking.StartDate, roomBooking.EndDate);
                     return new RoomBookingEntity()
                     {
                         AdditionalInfo = roomBooking.AdditionalInfo,
@@ -246,7 +198,6 @@ namespace MyHotel.Business.WebControls.Booking
                         RoomID = roomBooking.RoomID,
                         StartDate = roomBooking.StartDate,
                         AlreadyPaid = roomBooking.AlreadyPaid ?? 0,
-                        //EventEntry = calendarEvents.Any(ce => ce.Key == roomBooking.RoomBookingID.ToString()) ? calendarEvents.FirstOrDefault(ce => ce.Key == roomBooking.RoomBookingID.ToString()).Value : null
                     };
                 }
             }
@@ -360,7 +311,7 @@ namespace MyHotel.Business.WebControls.Booking
         {
             using (DataClassesDataContext dataContext = HelperCommon.GetDataContext())
             {
-                DateTime testDate = DateTime.MinValue;
+                DateTime testDate;
                 if (date.DayOfWeek != DayOfWeek.Sunday)
                 {
                     testDate = Next(date, DayOfWeek.Sunday);

@@ -361,7 +361,6 @@
       <DependentUpon>RoomBookingMgmtForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Utils\EBookingStatus.cs" />
-    <Compile Include="Utils\GoogleCalendarHelper.cs" />
     <Compile Include="Utils\HelperCommon.cs" />
     <Compile Include="Utils\MessageBox.cs" />
     <Compile Include="Utils\Modal.cs" />
