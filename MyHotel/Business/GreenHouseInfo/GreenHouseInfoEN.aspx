@@ -293,8 +293,8 @@
                 <li>Massage</li>
                 <li><span class="GreenHouseNormalTextP1">Shuttle </span>service (from/to):</li>
                 <ul>
-                    <li>Lviv - 500 uah</li>
-                    <li>Truskavets- 150 uah</li>
+                    <li>Lviv - 800 uah</li>
+                    <li>Truskavets- 250 uah</li>
                 </ul>
                 <p class="SmalText">
                     (*prices can vary)
@@ -320,112 +320,9 @@
         </div>
         <div class="section_content">
             <div class="price_shortver">
-                100-125 UAH/day per person
+                175-250 UAH/day per person
             </div>
-            <%--<table class="price_table">
-                <tr>
-                    <td rowspan="4" class="price_table_colored">rooms
-                    </td>
-                    <td colspan="6" class="price_table_colored">season
-                    </td>
-                </tr>
-                <tr>
-                    <td class="price_table_colored">high
-                    </td>
-                    <td class="price_table_colored">low №1
-                    </td>
-                    <td class="price_table_colored">low №2
-                    </td>
-                    <td class="price_table_colored" colspan="2">holiday
-                    </td>
-                </tr>
-                <tr>
-                    <td class="price_table_colored" rowspan="2">1.06 - 31.08
-                    </td>
-                    <td class="price_table_colored" rowspan="2">16.01 - 31.01
-                        <br />
-                        01.05 - 31.05
-                        <br />
-                        01.09 - 31.10
-                        <br />
-                    </td>
-                    <td class="price_table_colored" rowspan="2">01.02 - 30.04
-                        <br />
-                        01.11 - 24.12
-                        <br />
-                    </td>
-                    <td class="price_table_colored" colspan="2">25.12 - 15.01
-                    </td>
-                </tr>
-                <tr class="price_table_colored">
-                    <td>5 - 7 days
-                    </td>
-                    <td>from 7 days
-                    </td>
-                </tr>
-                <tr>
-                    <td style="text-align: right;" class="price_table_colored">standard double
-                    </td>
-                    <td>200
-                    </td>
-                    <td>160
-                    </td>
-                    <td>120/140
-                    </td>
-                    <td>220
-                    </td>
-                    <td>200
-                    </td>
-                </tr>
-                <tr>
-                    <td style="text-align: right;" class="price_table_colored">family suite:
-                    </td>
-                    <td colspan="5"></td>
-                </tr>
-                <tr>
-                    <td style="text-align: right;" class="price_table_colored">for 3 guests
-                    </td>
-                    <td>270
-                    </td>
-                    <td>240
-                    </td>
-                    <td>180/210
-                    </td>
-                    <td>330
-                    </td>
-                    <td>300
-                    </td>
-                </tr>
-                <tr>
-                    <td style="text-align: right;" class="price_table_colored">for 4 guests
-                    </td>
-                    <td>320
-                    </td>
-                    <td>280
-                    </td>
-                    <td>240/280
-                    </td>
-                    <td>440
-                    </td>
-                    <td>400
-                    </td>
-                </tr>
-            </table>--%>
             <br />
-        </div>
-        <div class="section_footer">
-        </div>
-    </div>
-    <%--Знижки--%>
-    <div class="section">
-        <div class="section_header">
-            Discounts
-        </div>
-        <div class="section_content">
-            <ul>
-                <li>for stays longer than 15 days discount - 10 UAH per room</li>
-                <li>prices can be lower, contact us </li>
-            </ul>
         </div>
         <div class="section_footer">
         </div>
@@ -596,8 +493,6 @@
             +38 (096) 812-20-98,
             <br />
             +38 (093) 873-83-94,
-            <br />
-            +38 (093) 566-66-89
         </div>
         <div class="section_footer">
         </div>
@@ -608,7 +503,7 @@
             E-mail
         </div>
         <div class="section_content">
-            <a href="mailto:ukr_root@ukr.net">ukr_root@ukr.net</a>
+            <a href="mailto:zelenasadybainfo@gmail.com">zelenasadybainfo@gmail.com</a>
         </div>
         <div class="section_footer">
         </div>

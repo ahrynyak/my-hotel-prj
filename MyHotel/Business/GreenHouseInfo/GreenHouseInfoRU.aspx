@@ -330,8 +330,8 @@
                 <li>Массаж</li>
                 <li><span class="GreenHouseNormalTextP1">Трансфер</span> от/до:</li>
                 <ul>
-                    <li>Львова - 500 грн</li>
-                    <li>Трускавца - 150 грн</li>
+                    <li>Львова - 800 грн</li>
+                    <li>Трускавца - 250 грн</li>
                 </ul>
                 <p class="SmalText">
                     (*цены нужно уточнять)
@@ -357,113 +357,9 @@
         </div>
         <div class="section_content">
             <div class="price_shortver">
-                100-125 грн/сутки за человека
+                175-250 грн/сутки за человека
             </div>
-            <%--<table class="price_table">
-                <tr>
-                    <td rowspan="4" class="price_table_colored">номера
-                    </td>
-                    <td colspan="6" class="price_table_colored">сезон
-                    </td>
-                </tr>
-                <tr>
-                    <td class="price_table_colored">высокий
-                    </td>
-                    <td class="price_table_colored">низкий №1
-                    </td>
-                    <td class="price_table_colored">низкий №2
-                    </td>
-                    <td class="price_table_colored" colspan="2">праздничный
-                    </td>
-                </tr>
-                <tr>
-                    <td class="price_table_colored" rowspan="2">1.06 - 31.08
-                    </td>
-
-                    <td class="price_table_colored" rowspan="2">16.01 - 31.01
-                        <br />
-                        01.05 - 31.05
-                        <br />
-                        01.09 - 31.10
-                        <br />
-                    </td>
-                    <td class="price_table_colored" rowspan="2">01.02 - 30.04
-                        <br />
-                        01.11 - 24.12
-                        <br />
-                    </td>
-                    <td class="price_table_colored" colspan="2">25.12 - 15.01
-                    </td>
-                </tr>
-                <tr class="price_table_colored">
-                    <td>5 - 7 дней
-                    </td>
-                    <td>от 7 дней
-                    </td>
-                </tr>
-                <tr>
-                    <td style="text-align: right;" class="price_table_colored">двухместный однокомнатный
-                    </td>
-                    <td>200
-                    </td>
-                    <td>160
-                    </td>
-                    <td>120/140
-                    </td>
-                    <td>220
-                    </td>
-                    <td>200
-                    </td>
-                </tr>
-                <tr>
-                    <td style="text-align: right;" class="price_table_colored">семейный двухкомнатный:
-                    </td>
-                    <td colspan="5"></td>
-                </tr>
-                <tr>
-                    <td style="text-align: right;" class="price_table_colored">для 3-х человек
-                    </td>
-                    <td>270
-                    </td>
-                    <td>240
-                    </td>
-                    <td>180/210
-                    </td>
-                    <td>330
-                    </td>
-                    <td>300
-                    </td>
-                </tr>
-                <tr>
-                    <td style="text-align: right;" class="price_table_colored">для 4-х человек
-                    </td>
-                    <td>320
-                    </td>
-                    <td>280
-                    </td>
-                    <td>240/280
-                    </td>
-                    <td>440
-                    </td>
-                    <td>400
-                    </td>
-                </tr>
-            </table>--%>
             <br />
-        </div>
-        <div class="section_footer">
-        </div>
-    </div>
-    <%--Знижки--%>
-    <div class="section">
-        <div class="section_header">
-            Скидки
-        </div>
-        <div class="section_content">
-            <ul>
-                <li>при проживании более 15 дней скидка 10 грн от стоимости номера</li>
-                <li>цены могут меняться в меньшую сторону, детали можно узнать по телефону</li>
-            </ul>
         </div>
         <div class="section_footer">
         </div>
@@ -632,8 +528,6 @@
             +38 (096) 812-20-98,
             <br />
             +38 (093) 873-83-94,
-            <br />
-            +38 (093) 566-66-89
         </div>
         <div class="section_footer">
         </div>
@@ -644,7 +538,7 @@
             E-mail
         </div>
         <div class="section_content">
-            <a href="mailto:ukr_root@ukr.net">ukr_root@ukr.net</a>
+            <a href="mailto:zelenasadybainfo@gmail.com">zelenasadybainfo@gmail.com</a>
         </div>
         <div class="section_footer">
         </div>
