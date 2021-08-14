@@ -16,7 +16,7 @@
     </asp:Panel>
     <asp:Panel ID="PanelMonth" runat="server" Visible="False" ToolTip="по місяцях" Style="display: inline-block;">
         <strong>Видимий період</strong>
-        <DayPilot:MonthPicker ID="MonthPickerDate" runat="server" YearStart="2008"
+        <DayPilot:MonthPicker ID="MonthPickerDate" runat="server" YearStart="2008" YearEnd="2030"
             AutoPostBack="True" OnSelectionChanged="MonthPickerDate_SelectionChanged" />
     </asp:Panel>
     <asp:Button ID="ButtonChangeDatePanel" runat="server" OnClick="ButtonChangeDatePanel_Click" Text="Button" />
